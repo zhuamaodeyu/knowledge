@@ -22,4 +22,6 @@
   * [Go Web 错误处理调试与测试](di-qi-zhang-go-web-xi-lie/go-web-cuo-wu-chu-li-diao-shi-yu-ce-shi.md)
   * [Go Web 访问数据库](di-qi-zhang-go-web-xi-lie/go-web-fang-wen-shu-ju-ku.md)
   * [Go Web 设计一个Web 框架](di-qi-zhang-go-web-xi-lie/go-web-she-ji-yi-ge-web-kuang-jia.md)
+* 第八章 即时通讯IM
+* 第九章 机器学习
 

@@ -17,7 +17,7 @@
   * [第一节  Go语言基础](di-liu-zhang-go-pian/di-yi-jie-go-yu-yan-ji-chu.md)
 * [第七章 Go web 系列](di-qi-zhang-go-web-xi-lie.md)
   * [Go Web ](di-qi-zhang-go-web-xi-lie/go-web.md)
-  * Go Web 基础
+  * [Go Web 基础](di-qi-zhang-go-web-xi-lie/go-web-ji-chu.md)
   * [Go Web 文本处理](di-qi-zhang-go-web-xi-lie/go-web-wen-ben-chu-li.md)
   * [Go Web 服务](di-qi-zhang-go-web-xi-lie/go-web-fu-wu.md)
   * [Go Web Session和数据存储](di-qi-zhang-go-web-xi-lie/go-web-sessionhe-shu-ju-cun-chu.md)

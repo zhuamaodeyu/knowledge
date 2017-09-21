@@ -11,7 +11,7 @@ __项目的源码放置在src目录下__
 
 ####应用流程图   
 采用MVC架构  
-![](/Users/wenliao/Library/Mobile Documents/com~apple~CloudDocs/Mou/📒Note/Go web/Resource/Snip20161217_1.png)   
+![](http://omy43wh36.bkt.clouddn.com/Snip20161217_1.png) 
 
 1. main.go 作为应用入口,初始化一些运行博客所需要的基本资源,配置信息,监听端口。   
 2.  路由功能检查HTTP请求,根据URL以及method来确定谁(控制层)来处理请求的转发资源。    

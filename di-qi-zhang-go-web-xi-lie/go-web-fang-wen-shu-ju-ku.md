@@ -276,7 +276,7 @@ pg 不支持 LastInsertId函数， 所以没有自增ID 返回
 	~~~
 
 * mongDB   
-	![](/Users/wenliao/Library/Mobile Documents/com~apple~CloudDocs/Mou/📒Note/Go web/Resource/Snip20161211_20.png)    
+	![](http://omy43wh36.bkt.clouddn.com/Snip20161211_20.png)   
 	
 	~~~  
 	package main	import (    	"fmt"    	"labix.org/v2/mgo"    	"labix.org/v2/mgo/bson"	)

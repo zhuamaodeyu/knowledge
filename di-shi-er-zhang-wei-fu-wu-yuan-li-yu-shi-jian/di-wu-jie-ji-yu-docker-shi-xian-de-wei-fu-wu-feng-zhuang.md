@@ -14,9 +14,25 @@
     在pom.xml 文件中添加一下内容   
     
     ~~~
-            
+      	<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.4.10</version>
+				<configuration>
+					<imageName>${project.groupId}/${project.artifactId}:${project.version}</imageName>
+					<dockerDirectory>${project.build.outputDirectory}</dockerDirectory>
+					<resources>
+						<resource>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>      
     
-    ~~~
+    ~~~  
+    
+   __
     
 
     

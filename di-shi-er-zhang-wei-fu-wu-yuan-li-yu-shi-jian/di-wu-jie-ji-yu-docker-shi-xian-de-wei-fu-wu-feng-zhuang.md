@@ -9,6 +9,11 @@
     ![第三步](http://omy43wh36.bkt.clouddn.com/Snip20171108_4.png)
     选中 web 就可以了，然后一直下一步，这就是一个简单的的 基于 Spring ，Spring MVC的web 项目    
 
-2. 
+2. 修改 `pom.xml` 文件,以支持Docker  
+    项目是基于 Maven 构建的，所有的maven配置都在此文件中，添加库等等操作都在此处。具体的不赘述maven操作。请自行查看具体的章节或者百度    
+    在pom.xml 文件中添加一下内容   
+    
+    
+
     
     

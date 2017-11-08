@@ -45,7 +45,7 @@
    在项目的 resources 目录下创建 Dockerfile 文件并实现内容(具体的Dockerfile书写规则自行查找，以下为简介版) 
    
    
-   ~~~
+    ~~~
      FROM java
      # 作者名称和邮箱
      MAINTAINER "name"<xxxx@gmail.com>
@@ -57,7 +57,7 @@
     EXPOSE 8081
 
     CMD java -jar app.jar
-   ~~~
+    ~~~
 
 
 4 . 构建与推送  

@@ -4,9 +4,11 @@
 
 * `unix://localhost:80 no search file or directory`
 此报错，在网上大多数搜出来的都是无非一下两种结果：
-    * 添加环境变量    
+    * 添加环境变量      
+   
         `export DOCKER_HOST=unix:///private/var/tmp/docker.sock`
     * 添加环境变量    
+    
         `export DOCKER_HOST=tcp://127.0.0.1:2376`   
         
 以上两种方式验证了，都是有问题，思路是没错，但是在Mac上如果通过直接复制两种命令直接使用时有错误的，会报以下错误：  

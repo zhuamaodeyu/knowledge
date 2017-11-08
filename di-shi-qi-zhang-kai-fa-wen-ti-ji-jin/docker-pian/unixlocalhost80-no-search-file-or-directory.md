@@ -19,6 +19,9 @@
 1. 跳转到跟目录，不是用户目录  
 2. 执行 `sudo find / -name 'docker*'`搜索，然后找到 `docker.sock`文件的路径   
 3. 在`.bash_profile` 中添加环境变量  
-    `export DOCKER_HOST=unix:///private/var/run/docker.sock`
+    `export DOCKER_HOST=unix:///private/var/run/docker.sock`  
+4. `source .bash_profile`执行命令使修改生效   
+
+
 
  

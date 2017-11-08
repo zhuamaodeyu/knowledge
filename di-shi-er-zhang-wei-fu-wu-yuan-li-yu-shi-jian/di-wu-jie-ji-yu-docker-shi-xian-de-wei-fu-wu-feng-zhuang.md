@@ -38,7 +38,10 @@
       `<docker.registry>ip:port</docker.registry>`  
      
    * 修改第二步中 `imageName` 标签的内容
-     ``
+     `<imageName>${docker.registry}/${project.groupId}/${project.artifactId}:${project.version}</imageName>
+`  
 
+3. 实现 Dockerfile 
+ 
     
     

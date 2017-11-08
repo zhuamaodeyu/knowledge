@@ -47,6 +47,7 @@
    
    ~~~
      FROM java
+     # 作者名称和邮箱
      MAINTAINER "name"<xxxx@gmail.com>
 
     #ADD @project.build.finalName@.jar app.jar

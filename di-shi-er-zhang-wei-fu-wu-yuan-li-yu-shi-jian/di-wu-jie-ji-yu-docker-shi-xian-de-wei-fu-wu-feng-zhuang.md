@@ -59,7 +59,8 @@
     CMD java -jar app.jar
    ~~~
 
-4. 构建与推送  
+
+4 . 构建与推送  
    通过一下命令实现构建  
    
    `mvn docker:build`  

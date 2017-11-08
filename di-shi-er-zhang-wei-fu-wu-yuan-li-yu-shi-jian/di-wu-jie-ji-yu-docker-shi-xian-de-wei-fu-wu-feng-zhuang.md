@@ -33,8 +33,12 @@
     ~~~  
     
    __说明:__   
-   此时可以构建项目，不过推送会推送到 ``
-    
+   此时可以构建项目，不过推送会推送到 `hub registry`上，如果需要推送到自己搭建的 docker registry中去 需要执行以下步骤：  
+   * 添加自定义属性   
+      `<docker.registry>ip:port</docker.registry>`  
+     
+   * 修改第二步中 `imageName` 标签的内容
+     ``
 
     
     

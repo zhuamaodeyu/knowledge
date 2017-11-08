@@ -50,13 +50,23 @@
      # 作者名称和邮箱
      MAINTAINER "name"<xxxx@gmail.com>
 
-    #ADD @project.build.finalName@.jar app.jar
+    ADD @project.build.finalName@.jar app.jar
 
-    ADD demo-0.0.1-SNAPSHOT.jar app.jar
+    #ADD demo-0.0.1-SNAPSHOT.jar app.jar
     # 此导出端口尽量和项目server端口相同
     EXPOSE 8081
 
     CMD java -jar app.jar
    ~~~
-    
+
+4. 构建与推送  
+   通过一下命令实现构建  
+   
+   `mvn docker:build`  
+   通过一下命令推送    
+   
+   `mvn docker:push`
+   
+   
+
     

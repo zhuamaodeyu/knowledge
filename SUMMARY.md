@@ -45,6 +45,7 @@
   * [第四节 基于开发源框架组的微服务工具组](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-si-jie-ji-yu-kai-fa-yuan-kuang-jia-zu-de-wei-fu-wu-gong-ju-zu.md)
   * [第五节 基于Docker实现的微服务封装](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-wu-jie-ji-yu-docker-shi-xian-de-wei-fu-wu-feng-zhuang.md)
     * [第一小节 基于Docker 实现微服务的封装---Spring Boot](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-wu-jie-ji-yu-docker-shi-xian-de-wei-fu-wu-feng-zhuang/di-yi-xiao-jie-ji-yu-docker-shi-xian-wei-fu-wu-de-feng-88c5-spring-boot.md)
+    * [第二小节 基于Docker 实现微服务的封装--Node.js](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-wu-jie-ji-yu-docker-shi-xian-de-wei-fu-wu-feng-zhuang/di-er-xiao-jie-ji-yu-docker-shi-xian-wei-fu-wu-de-feng-88c5-node-js.md)
   * [第六节 基于Jenkins,Gitlib的自动化部署系统](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-liu-jie-ji-yu-jenkins-gitlib-de-zi-dong-hua-bu-shu-xi-tong.md)
     * [第一小节 基于Docker的 GitLab 代码管理仓库](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-liu-jie-ji-yu-jenkins-gitlib-de-zi-dong-hua-bu-shu-xi-tong/di-yi-xiao-jie-jiyu-docker-de-gitlab-dai-ma-guan-li-cang-ku.md)
 * 第十三章 DevOps 开发与运维

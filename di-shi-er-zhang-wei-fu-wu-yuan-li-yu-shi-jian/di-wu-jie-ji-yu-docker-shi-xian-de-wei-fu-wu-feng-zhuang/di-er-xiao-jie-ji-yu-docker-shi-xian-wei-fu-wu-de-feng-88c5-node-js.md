@@ -24,7 +24,33 @@ __前提安装Nodejs环境__
 创建 express 项目的两种方式:     
 1. 自动化创建工具    
     * 安装generator  
-        ``
+        `npm install express-generator -g`  
+    * 创建项目  
+        `express -e myapp`  
+        基于以上方式创建的项目，是一个基于express的模板型项目  
+        
+        ~~~
+        .
+        ├── LICENSE
+        ├── README.md
+        ├── app.js
+        ├── bin
+        │   └── www
+        ├── package.json
+        ├── public
+        │   ├── images
+        │   ├── javascripts
+        │   └── stylesheets
+        │       └── style.css
+        ├── routes
+        │   ├── index.js
+        │   └── users.js
+        └── views
+            ├── error.ejs
+            └── index.ejs
+        7 directories, 10 files
+        ~~~  
+        
 2. 手动创建  
 
     * . 安装Express 

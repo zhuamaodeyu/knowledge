@@ -36,6 +36,8 @@ Mac上安装Docker如今又两种形式：一种是通过 Docker for Mac 安装�
        
        ~~~
        vi /var/lib/boot2docker/profile
-       
+       //添加一下内容到EXTRA_ARGS 中,地址为自己的阿里云地址  
+       --registry-mirror=https://xxx.mirror.aliyuncs.com
        ~~~
+       
 

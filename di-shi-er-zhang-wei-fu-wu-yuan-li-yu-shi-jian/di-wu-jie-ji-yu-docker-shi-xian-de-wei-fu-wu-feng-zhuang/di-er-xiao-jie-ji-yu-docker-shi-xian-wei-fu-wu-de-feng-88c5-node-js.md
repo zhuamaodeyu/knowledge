@@ -28,7 +28,12 @@ Express 是一个基于Node.js 实现的 Web 框架。是一个快速、简洁�
     cd projectName  
     
     npm install express --save
+    
+    //初始化项目  
+    npm init 
     ~~~
+ 
+
     
 
   

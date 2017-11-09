@@ -82,3 +82,18 @@ CMD mysql & sshd & npm start
 5. RUN 指令后删除多余文件  
     在执行更新操作时都会下载罪行的软件安装包，而执行完更新操作，软件安装完毕，这些软件包是无用的，所以尽量还是删除  
     
+    ~~~
+    RUN apt-get update \
+    && apt-get install -y nodejs \
+    && rm -rf /var/lib/apt/lists/*  
+    
+    ~~~
+6. 设置WORKDIR 和 CMD  
+    WORKDIR 设置默认目录， 是运行 RUN 、CMD、ENTRYPOINT 指令的地方；
+    CMD 是设置容器创建执行的默认指令。
+    
+    ~~~
+    WORKDIR /app 
+    
+    CMD["npm" ,"start"]
+    ~~~

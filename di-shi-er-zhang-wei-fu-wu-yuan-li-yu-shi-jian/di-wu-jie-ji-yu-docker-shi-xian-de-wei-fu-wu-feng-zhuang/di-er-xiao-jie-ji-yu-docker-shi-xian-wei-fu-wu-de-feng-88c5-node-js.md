@@ -119,7 +119,8 @@ __在创建Dockerfile文件之前，请先阅读前文[如何编写最佳Dockerf
         ~~~
     * 构建镜像  
         `docker build -t xxx/xxxx:tag .`  
-        
+    * 测试  
+        `docker run -p 13000:300 imageId`  
  
   
 2. 通过第二种方式创建项目  

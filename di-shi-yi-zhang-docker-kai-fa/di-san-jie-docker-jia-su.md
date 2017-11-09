@@ -40,5 +40,5 @@ Mac上安装Docker如今又两种形式：一种是通过 Docker for Mac 安装�
        --registry-mirror=https://xxx.mirror.aliyuncs.com
        ~~~
     * 重启生效
-       
+       `sudo /etc/init.d/docker restart`
 

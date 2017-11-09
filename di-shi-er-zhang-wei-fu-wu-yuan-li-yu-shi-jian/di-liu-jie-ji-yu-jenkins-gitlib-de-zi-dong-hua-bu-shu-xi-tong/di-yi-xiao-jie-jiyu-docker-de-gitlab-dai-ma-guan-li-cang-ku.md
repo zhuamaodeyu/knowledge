@@ -4,6 +4,8 @@
      GitLab分为几个版本的，一般CE版针对个人使用，如果要搭建私有的GitLab， 直接去[GitLab](https://github.com/gitlabhq/gitlabhq.git)仓库下载源码运行就可以。具体的搭建方式请自行搜索      
      由于本系列文章主要讲解的是基于Docker实现的微服务架构，那么所有的理应都使用Docker化，GitLab也不例外，下面是如果实现基于Docker的GitLab   
      
-     
+1. 获取GitLab-ce Docker镜像  
+
+      
        
      

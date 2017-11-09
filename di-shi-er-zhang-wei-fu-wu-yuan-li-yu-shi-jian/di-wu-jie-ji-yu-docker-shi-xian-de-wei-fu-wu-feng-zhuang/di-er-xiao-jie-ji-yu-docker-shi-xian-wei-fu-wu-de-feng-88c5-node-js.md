@@ -19,7 +19,11 @@ Express 是一个基于Node.js 实现的 Web 框架。是一个快速、简洁�
 
 
 ## 基于Express Docker 化实践  
-1. 安装Express 
+创建 express 项目的两种方式: 
+1. 自动化创建工具  
+2. 手动创建  
+
+    * . 安装Express 
     
     Express 项目创建非常简介，在Express 官网主页上就可以看到，很简洁的npm 命令来安装  
     

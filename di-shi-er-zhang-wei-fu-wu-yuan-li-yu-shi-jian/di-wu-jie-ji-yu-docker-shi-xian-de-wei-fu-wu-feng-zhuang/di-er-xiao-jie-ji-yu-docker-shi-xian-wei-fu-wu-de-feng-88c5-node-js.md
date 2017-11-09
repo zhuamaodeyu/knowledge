@@ -23,7 +23,8 @@ Express 是一个基于Node.js 实现的 Web 框架。是一个快速、简洁�
 __前提安装Nodejs环境__  
 创建 express 项目的两种方式:     
 1. 自动化创建工具    
-    * 
+    * 安装generator  
+        ``
 2. 手动创建  
 
     * . 安装Express 

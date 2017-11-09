@@ -21,7 +21,8 @@ Express 是一个基于Node.js 实现的 Web 框架。是一个快速、简洁�
 ## 基于Express Docker 化实践   
 
 __前提安装Nodejs环境__  
-创建 express 项目的两种方式:     
+创建 express 项目的两种方式  
+    
 1. 自动化创建工具    
     * 安装generator  
         `npm install express-generator -g`  
@@ -55,6 +56,7 @@ __前提安装Nodejs环境__
     * 启动项目  
         `nom start` 或者  
         `node ./bin/www`
+
 2. 手动创建  
 
     * . 安装Express 
@@ -71,12 +73,19 @@ __前提安装Nodejs环境__
         npm init 
         ~~~
   
-    * . 创建app.js   
+    * . 创建启动文件 app.js  
 
         ~~~
-    
-    
-    
+        var express = require('express') ;  
+        var app = express();
+
+        app.get('/',function (req, res) {
+            res.send('Hello World');
+        });
+
+        app.listen(3000, function () {
+               console.log('example app listening on port 3000!'); 
+        });
         ~~~
     
 

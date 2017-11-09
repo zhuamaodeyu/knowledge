@@ -8,7 +8,7 @@ Dockfile 是构建image的自动化脚本文件，其可以通过编写脚本让
     3. 将多个RUN 指令合并为一个  
     4. 基础镜像标签不要用latest 
     5. 每个RUN 指令后删除多余文件  
-    6. 选择合适的基础镜像  
+    6. 选择合适的基础镜像（alpine版）  
     7. 设置 WORKDIR 和 CMD  
     8. 使用 ENTRYPOINT  
     9. 在entrypoint 脚本中使用 exec 

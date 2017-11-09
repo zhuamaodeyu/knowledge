@@ -102,6 +102,19 @@ __前提安装Nodejs环境__
     * Dockerfile   
         在项目根目录同级目录下创建Dockerfile文件  
         
+        ~~~
+        //基础镜像 
+        FROM  node:9.1.0-alpine 
+        //工作目录
+        WORKDIR /src  
+        //复制项目目录
+        COPY express-docker-test /src 
+        //暴露端口 
+        EXPOSE 3000 
+        //安装依赖模块 
+        RUN  cd /src &&  npm install
+        CMD npm start
+        ~~~
 
  
   

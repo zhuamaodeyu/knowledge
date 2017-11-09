@@ -11,6 +11,12 @@ Mac上安装Docker如今又两种形式：一种是通过 Docker for Mac 安装�
         ![]()  
 
     * 通过命令行操作
+        Docker 的操作会映射到一个`daemon.json` 文件上  
+        在Mac系统下，此文件会路径在`vim /Users/xxx/.docker/daemon.json`  
         
+        ~~~
+        
+        
+        ~~~
 *     
 

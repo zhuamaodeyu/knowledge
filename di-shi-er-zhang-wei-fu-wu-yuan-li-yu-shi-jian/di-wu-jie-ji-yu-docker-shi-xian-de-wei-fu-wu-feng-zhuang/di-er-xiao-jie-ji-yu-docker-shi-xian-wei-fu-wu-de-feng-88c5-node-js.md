@@ -98,7 +98,7 @@ __前提安装Nodejs环境__
 
 
 ### Docker 化    
-
+__在创建Dockerfile文件之前，请先阅读前文[如何编写最佳Dockerfile]__  
 
 1. 通过第一种方式创建项目   
     * Dockerfile   

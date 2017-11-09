@@ -50,7 +50,11 @@ __前提安装Nodejs环境__
             └── index.ejs
         7 directories, 10 files
         ~~~  
-        
+    * 安装项目依赖库  
+        `npm install `  
+    * 启动项目  
+        `nom start` 或者  
+        `node ./bin/www`
 2. 手动创建  
 
     * . 安装Express 

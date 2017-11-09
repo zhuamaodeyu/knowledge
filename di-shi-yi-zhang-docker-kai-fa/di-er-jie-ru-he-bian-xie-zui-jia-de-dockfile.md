@@ -58,4 +58,12 @@ CMD mysql & sshd & npm start
     ~~~
 
 3. 将多个RUN 合并为一个  
+    Docker 镜像是分层的，Dockerfile 的每一个指令都会创建一个新的镜像层，镜像层会被缓存和复用；每个命令的更改都会导致一个镜像和之后的镜像失效;__镜像层是不可变的，如果在某层添加文件后在下层删除文件，此文件还会包含在镜像中，只是不可见__  
     
+    ~~~
+    RUN apt-get update \ 
+    && apt-get install -y nodejs  
+    && cd /app \
+    && npm install  
+    
+    ~~~

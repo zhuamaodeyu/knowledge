@@ -46,6 +46,7 @@
   * [第五节 基于Docker实现的微服务封装](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-wu-jie-ji-yu-docker-shi-xian-de-wei-fu-wu-feng-zhuang.md)
     * [第一小节 基于Docker 实现微服务的封装---Spring Boot](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-wu-jie-ji-yu-docker-shi-xian-de-wei-fu-wu-feng-zhuang/di-yi-xiao-jie-ji-yu-docker-shi-xian-wei-fu-wu-de-feng-88c5-spring-boot.md)
   * [第六节 基于Jenkins,Gitlib的自动化部署系统](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-liu-jie-ji-yu-jenkins-gitlib-de-zi-dong-hua-bu-shu-xi-tong.md)
+    * [第一小节 基于Docker的 GitLab 代码管理仓库](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-liu-jie-ji-yu-jenkins-gitlib-de-zi-dong-hua-bu-shu-xi-tong/di-yi-xiao-jie-jiyu-docker-de-gitlab-dai-ma-guan-li-cang-ku.md)
 * 第十三章 DevOps 开发与运维
 * 第十四章 Python
 * 第十五章 React Native

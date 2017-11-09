@@ -117,9 +117,11 @@ __在创建Dockerfile文件之前，请先阅读前文[如何编写最佳Dockerf
         RUN  cd /src &&  npm install
         CMD npm start
         ~~~
-    * 构建镜像  
+    * 构建镜像   
+     
         `docker build -t xxx/xxxx:tag .`  
     * 测试  
+    
         `docker run -p 13000:300 imageId`  
  
   

@@ -126,7 +126,7 @@ __在创建Dockerfile文件之前，请先阅读前文[如何编写最佳Dockerf
         `docker run -p 13000:300 imageId`  
  
   
-2. 通过第二种方式创建项目
+* . 通过第二种方式创建项目
  
     * Dockerfile  
         项目根目录下创建Dockfile文件  

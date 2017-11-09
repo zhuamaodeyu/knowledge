@@ -100,13 +100,15 @@ __前提安装Nodejs环境__
 ### Docker 化  
 1. 通过第一种方式创建项目   
     * Dockerfile   
-    
+        在项目根目录同级目录下创建Dockerfile文件  
+        
 
  
   
 2. 通过第二种方式创建项目  
     * Dockerfile  
-    
+        项目根目录下创建Dockfile文件  
+        
 
 
 

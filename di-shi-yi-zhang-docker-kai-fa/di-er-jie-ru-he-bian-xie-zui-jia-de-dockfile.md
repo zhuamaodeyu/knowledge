@@ -137,6 +137,10 @@ esac
     通过以上脚本，可以通过以下命令运行镜像啦   
     
     ~~~
-    
-    
+    # 运行开发版本
+    docker run our-app dev 
+    # 运行生产版本
+    docker run our-app start 
+    # 运行bash
+    docker run -it our-app /bin/bash
     ~~~

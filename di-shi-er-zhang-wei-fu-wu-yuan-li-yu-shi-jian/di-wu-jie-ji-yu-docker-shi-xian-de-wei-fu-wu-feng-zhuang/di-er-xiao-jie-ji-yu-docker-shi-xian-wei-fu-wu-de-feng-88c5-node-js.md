@@ -123,7 +123,9 @@ __在创建Dockerfile文件之前，请先阅读前文[如何编写最佳Dockerf
         `docker build -t xxx/xxxx:tag .`  
     * 测试  
     
-        `docker run -p 13000:300 imageId`  
+        `docker run -p 13000:3000 imageId` 
+        浏览器访问`localhost:1300`就可以啦  
+         
  
   
 *  通过第二种方式创建项目

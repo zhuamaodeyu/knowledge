@@ -5,7 +5,7 @@
      由于本系列文章主要讲解的是基于Docker实现的微服务架构，那么所有的理应都使用Docker化，GitLab也不例外，下面是如果实现基于Docker的GitLab   
      
  
- ————
+ __
 1. 获取GitLab-ce Docker镜像    
 
     Docker Hub搜索 GitLab-ce 通过命令下载镜像到本地并运行  

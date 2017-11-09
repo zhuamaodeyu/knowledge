@@ -125,7 +125,8 @@ __在创建Dockerfile文件之前，请先阅读前文[如何编写最佳Dockerf
     
         `docker run -p 13000:3000 imageId` 
         浏览器访问`localhost:1300`就可以啦  
-     
+     ![构建过程]()  
+     ![测试结果]()
      
  
   

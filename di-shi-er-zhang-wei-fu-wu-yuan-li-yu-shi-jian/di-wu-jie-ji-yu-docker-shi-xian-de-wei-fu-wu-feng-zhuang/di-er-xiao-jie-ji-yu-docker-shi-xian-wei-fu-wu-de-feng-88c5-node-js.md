@@ -98,8 +98,15 @@ __前提安装Nodejs环境__
 
 
 ### Docker 化  
-1. Dockerfile  
+1. 通过第一种方式创建项目   
+    * Dockerfile   
+    
 
+ 
+  
+2. 通过第二种方式创建项目  
+    * Dockerfile  
+    
 
 
 

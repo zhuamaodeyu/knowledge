@@ -31,5 +31,6 @@ Mac上安装Docker如今又两种形式：一种是通过 Docker for Mac 安装�
         ~~~
 *  Docker Toolbox   
    * 进入默认的环境  
-       `docker-machine default ssh`
+       `docker-machine  ssh default`  
+   * 
 

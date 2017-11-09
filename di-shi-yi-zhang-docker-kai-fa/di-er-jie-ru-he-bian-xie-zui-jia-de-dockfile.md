@@ -131,6 +131,6 @@ esac
     
     ~~~
     
-    
+    ENTRYPOINT["./entrypoint.sh"]
     ~~~
     

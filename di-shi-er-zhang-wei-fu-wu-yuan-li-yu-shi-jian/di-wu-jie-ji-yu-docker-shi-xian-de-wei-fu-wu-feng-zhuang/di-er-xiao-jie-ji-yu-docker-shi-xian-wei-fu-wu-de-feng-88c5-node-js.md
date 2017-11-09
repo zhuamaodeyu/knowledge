@@ -100,7 +100,8 @@ __前提安装Nodejs环境__
 ### Docker 化    
 __在创建Dockerfile文件之前，请先阅读前文[如何编写最佳Dockerfile]__  
 
-1. 通过第一种方式创建项目   
+1. 通过第一种方式创建项目  
+ 
     * Dockerfile   
         在项目根目录同级目录下创建Dockerfile文件  
         
@@ -126,6 +127,7 @@ __在创建Dockerfile文件之前，请先阅读前文[如何编写最佳Dockerf
  
   
 2. 通过第二种方式创建项目  
+
     * Dockerfile  
         项目根目录下创建Dockfile文件  
         

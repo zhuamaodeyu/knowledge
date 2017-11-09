@@ -53,6 +53,6 @@ CMD mysql & sshd & npm start
     容器单一职责就是一个容器只运行一个需要的程序，比如：在LAMP环境下，需要Apache，MySQL ，PHP 等程序，不要将所有的程序运行在一个image中，将其抽成3个镜像。每个镜像负责不同的部分
     
     ~~~
-    
-    
+    //实例
+    RUN apt-get install -y nodejs ssh mysql    
     ~~~

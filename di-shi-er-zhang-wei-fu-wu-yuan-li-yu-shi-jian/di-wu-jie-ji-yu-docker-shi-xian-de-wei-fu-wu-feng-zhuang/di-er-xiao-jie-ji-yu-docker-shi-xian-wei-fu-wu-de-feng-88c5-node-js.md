@@ -87,8 +87,12 @@ __前提安装Nodejs环境__
                console.log('example app listening on port 3000!'); 
         });
         ~~~  
+    * 启动项目   
+     
+        `node app.js`  
         
     
+以上就是创建一个基于Express 的 web项目的基本步骤。  不过更推荐第一种方式创建项目  
 
   
 

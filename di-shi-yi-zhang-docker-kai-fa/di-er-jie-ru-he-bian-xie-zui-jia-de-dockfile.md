@@ -65,8 +65,12 @@ CMD mysql & sshd & npm start
     RUN apt-get update \ 
     && apt-get install -y nodejs  
     && cd /app \
-    && npm install  
+    
+    npm install  
     
     ~~~
 
-4. 
+4. 选择合适的基础镜像  
+    在基础镜像上，我们需要选择合适的镜像，并不需要从基本的Ubuntu等镜像实现，如果要运行nodejs程序，那么久可以基于node镜像来构建，如果要运行Java程序，那么久基于Java镜像构建。这样减少了镜像构建层级  
+    尽量不要使用 latest镜像， 此镜像每次构建后都会指向最新版本，所以只要基础镜像重新构建，自己镜像也需要重新构建。大大增加了镜像构建次数和层数  
+    

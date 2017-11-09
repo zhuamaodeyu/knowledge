@@ -131,24 +131,17 @@ __在创建Dockerfile文件之前，请先阅读前文[如何编写最佳Dockerf
         
         ~~~
         FROM  node:7-alpine
-
         # 工作目录  
         WORKDIR /src   
-
         # 复制项目到目录下  
         COPY ../nodejs /src   
-
         # 导出端口  
         EXPOSE 3000  
-        
         # 执行命令
         # CMD [ "npm" ,"install" ]    
         RUN  npm install 
         CMD node /src/app.js  
-
-        # CMD [ "node","/src/nodejs/app.js" ]  
-
-        
+        # CMD [ "node","/src/nodejs/app.js" ]          
         ~~~
 
 

@@ -36,4 +36,9 @@ RUN cd /app && npm install
 CMD mysql & sshd & npm start
 
 ~~~
+构建镜像：  
+`docker build -t xxx .`   
+
+* 第一步  
+构建镜像之前，docker会先准备context，将需要的文件收集进进程。默认的context是包括Dockerfile目录下的所有文件，不过有时候由于项目的管理以及Dockerfile存放的位置等问题，或多或少都会有其他文件，比如 `.git`等文件。
 

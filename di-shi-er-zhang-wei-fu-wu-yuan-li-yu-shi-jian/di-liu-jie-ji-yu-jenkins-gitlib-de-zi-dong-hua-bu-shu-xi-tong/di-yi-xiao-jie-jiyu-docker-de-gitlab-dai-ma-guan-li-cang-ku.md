@@ -12,7 +12,10 @@
     Docker Hub搜索 GitLab-ce 通过命令下载镜像到本地并运行  
 
 2.  注册用户  
-    ![](http://omy43wh36.bkt.clouddn.com/Snip20171109_6.png)   
+    ![注册用户](http://omy43wh36.bkt.clouddn.com/Snip20171109_6.png)   
+
+3. 创建项目  
+    ![创建项目]()
     
 
     

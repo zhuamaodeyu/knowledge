@@ -41,6 +41,7 @@ CMD mysql & sshd & npm start
 
 1.  第一步  编写`.dockerignore`文件   
 
-      构建镜像之前，docker会先准备context，将需要的文件收集进进程。默认的context是包括Dockerfile目录下的所有文件，不过有时候由于项目的管理以及Dockerfile存放的位置等问题，或多或少都会有其他文件，比如 `.git`等文件。这些文件并没有必要使用，所以可以需要将此部分内容忽略掉。  
+      构建镜像之前，docker会先准备context，将需要的文件收集进进程。默认的context是包括Dockerfile目录下的所有文件，不过有时候由于项目的管理以及Dockerfile存放的位置等问题，或多或少都会有其他文件，比如 `.git`等文件。这些文件并没有必要使用，所以可以需要将此部分内容忽略掉。通过编写类似`.gitignore`等文件可以忽略掉部分内容，加快镜像构建时间，减少大小。  
+      
       
 

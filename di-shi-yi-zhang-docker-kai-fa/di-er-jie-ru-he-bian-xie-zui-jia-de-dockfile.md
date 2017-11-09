@@ -134,3 +134,9 @@ esac
     ENTRYPOINT["./entrypoint.sh"]
     ~~~
     
+    通过以上脚本，可以通过以下命令运行镜像啦   
+    
+    ~~~
+    
+    
+    ~~~

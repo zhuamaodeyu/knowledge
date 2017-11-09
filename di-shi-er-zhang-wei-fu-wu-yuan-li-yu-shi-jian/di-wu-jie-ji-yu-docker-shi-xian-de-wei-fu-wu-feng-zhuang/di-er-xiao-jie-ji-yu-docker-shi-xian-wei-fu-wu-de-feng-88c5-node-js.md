@@ -25,25 +25,25 @@ Express 是一个基于Node.js 实现的 Web 框架。是一个快速、简洁�
 
     * . 安装Express 
     
-    Express 项目创建非常简介，在Express 官网主页上就可以看到，很简洁的npm 命令来安装  
+        Express 项目创建非常简介，在Express 官网主页上就可以看到，很简洁的npm 命令来安装  
     
-    ~~~
-    mkdir projectName  
-    cd projectName  
+        ~~~
+        mkdir projectName  
+        cd projectName  
     
-    npm install express --save
+        npm install express --save
     
-    //初始化项目  
-    npm init 
-    ~~~
+        //初始化项目  
+        npm init 
+        ~~~
   
-2. 创建app.js   
+    * . 创建app.js   
 
-    ~~~
+        ~~~
     
     
     
-    ~~~
+        ~~~
     
 
   

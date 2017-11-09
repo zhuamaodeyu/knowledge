@@ -10,7 +10,8 @@
 1. 获取GitLab-ce Docker镜像    
 
     Docker Hub搜索 GitLab-ce 通过命令下载镜像到本地并运行  
-    ``  
+
+2.  
     
       
        

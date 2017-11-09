@@ -56,3 +56,6 @@ CMD mysql & sshd & npm start
     //实例内容删除后面内容
     RUN apt-get install -y nodejs     
     ~~~
+
+3. 将多个RUN 合并为一个  
+    

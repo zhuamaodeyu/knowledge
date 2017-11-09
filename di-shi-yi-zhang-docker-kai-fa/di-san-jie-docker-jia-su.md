@@ -7,8 +7,8 @@ Mac上安装Docker如今又两种形式：一种是通过 Docker for Mac 安装�
 * Docker for Mac    
     * GUI操作
         通过顶部的图标找到docker，然后按照以下操作实现  
-        ![]()  
-        ![]()  
+        ![](http://omy43wh36.bkt.clouddn.com/Snip20171109_12.png)  
+        ![](http://omy43wh36.bkt.clouddn.com/Snip20171109_13.png)  
 
     * 通过命令行操作
         Docker 的操作会映射到一个`daemon.json` 文件上  

@@ -37,7 +37,10 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
           ![maven 配置](http://omy43wh36.bkt.clouddn.com/5999951-1be31e27361f4991.png)  
     * 配置Git   
      
-        同maven配置类似  
+        同maven配置类似    
+    * 配置邮件服务  
+        * 使用Jenkins自带的基础邮件服务  
+            
 
 
 

@@ -74,6 +74,8 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
         ![](http://omy43wh36.bkt.clouddn.com/Snip20171110_30.png)
 
 
+3. 开始构建  
+    
 
 
 

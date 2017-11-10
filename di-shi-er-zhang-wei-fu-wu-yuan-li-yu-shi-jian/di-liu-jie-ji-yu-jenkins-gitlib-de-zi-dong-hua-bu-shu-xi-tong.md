@@ -30,12 +30,15 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
     搜索 `git plugin`, `GitHub plugin`,`maven Integration plugin`并安装  
     
 2. 配置  
-    * 配置JDK  
+    * 配置JDK    
+    
         设置个别名。查找到具体的安装路径配置`JAVA_HOME`就可以了 
-    * 配置maven
-          如果自己不知道自己本地有没有安装或者使用的docker运行的，可以勾线 自动安装  
+    * 配置maven  
+    
+      如果自己不知道自己本地有没有安装或者使用的docker运行的，可以勾线 自动安装  
           ![maven 配置](http://omy43wh36.bkt.clouddn.com/5999951-1be31e27361f4991.png)  
-    * 配置Git  
+    * 配置Git   
+     
         同maven配置类似  
 
 

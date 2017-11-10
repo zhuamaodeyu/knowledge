@@ -19,7 +19,8 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
     默认在第一次访问的时候会有一自个需要输入默认密码的步骤  
     ![默认密码](http://omy43wh36.bkt.clouddn.com/Snip20171109_15.png)  
     需要根据上面提示的路径找到文件并复制其中代码   
-    ![docker 下的路径]()
+    ![docker 下的路径](http://omy43wh36.bkt.clouddn.com/Snip20171109_16.png)  
+    
 
 
 

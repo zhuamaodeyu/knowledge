@@ -64,7 +64,9 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
                 docker run -d -p 8080:8080 -v ~/jenkins:/var/jenkins_home --link 
         gitlab:gitlab.xxx.com   
         --name jenkins jenkinsci/jenkins
-                ~~~
+                ~~~  
+                
+    * 
 
 
 

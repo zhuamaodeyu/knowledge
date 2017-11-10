@@ -20,16 +20,14 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
     ![默认密码](http://omy43wh36.bkt.clouddn.com/Snip20171109_15.png)  
     需要根据上面提示的路径找到文件并复制其中代码   
     ![docker 下的路径](http://omy43wh36.bkt.clouddn.com/Snip20171109_16.png)  
-    
 
-##基于Jenkins下Maven 的Java项目构建  
-1. 插件安装    
+3. 插件安装    
 
     Jenkins默认环境下有可能无法构建基于maven的项目的，需要安装插件实现  
     ![安装插件](http://omy43wh36.bkt.clouddn.com/Snip20171110_22.png)     
     搜索 `git plugin`, `GitHub plugin`,`maven Integration plugin`并安装  
     
-2. 配置  
+4. 配置  
     * 配置JDK    
     
         设置个别名。查找到具体的安装路径配置`JAVA_HOME`就可以了 
@@ -42,3 +40,5 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
         同maven配置类似  
 
 
+
+##基于Jenkins下Maven 的Java项目构建  

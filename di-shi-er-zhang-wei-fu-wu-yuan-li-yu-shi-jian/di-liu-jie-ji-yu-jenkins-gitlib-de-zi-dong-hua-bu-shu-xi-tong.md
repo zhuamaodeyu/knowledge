@@ -48,9 +48,9 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
     * 源码管理
       
         本实例的源码管理采用的Git来进行管理的(源码存放在gitlab上)， 需要配置Git仓库  
-        ![配置]()  
+        ![配置](http://omy43wh36.bkt.clouddn.com/Snip20171110_25.png)  
 
-
+    
 
 
 

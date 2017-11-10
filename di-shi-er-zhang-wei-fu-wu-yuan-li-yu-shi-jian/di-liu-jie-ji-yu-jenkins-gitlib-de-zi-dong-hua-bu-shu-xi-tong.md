@@ -26,6 +26,14 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
 1. 插件安装    
 
     Jenkins默认环境下有可能无法构建基于maven的项目的，需要安装插件实现  
-    ![安装插件]()   
+    ![安装插件](http://omy43wh36.bkt.clouddn.com/Snip20171110_22.png)     
+    搜索 `git plugin`, `GitHub plugin`,`maven Integration plugin`并安装  
     
+2. 配置  
+    * 配置JDK  
+        设置个别名。查找到具体的安装路径配置`JAVA_HOME`就可以了 
+    * 配置maven
+            
+    * 配置Git  
+            
 

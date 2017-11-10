@@ -55,7 +55,7 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
             __解决方式:__ 通过 `add` 按钮，添加用户名和密码，或者通过SSH 登录，添加秘钥  
         * 地址无法访问  
             ![无法访问](http://omy43wh36.bkt.clouddn.com/Snip20171110_26.png)  
-            __解决方式：__
+            __解决方式：__ 
                 * 如果是自己搭建的服务器，可以通过问题一解决方案截图中的，通过IP代理地址访问，直接通过IP映射  
                 * 通过修改`/etc/hosts`文件，添加IP与地址的映射管理实现  
                 * 如果是通过docker搭建的，还可以通过启动docker时添加参数实现  
@@ -68,8 +68,10 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
                 
     * 构建触发器配置  
         ![构建触发器](http://omy43wh36.bkt.clouddn.com/Snip20171110_28.png)
-
-
+    * Build配置  
+        ![](http://omy43wh36.bkt.clouddn.com/Snip20171110_29.png)
+    * 构建后操作  
+        ![](http://omy43wh36.bkt.clouddn.com/Snip20171110_30.png)
 
 
 

@@ -7,9 +7,17 @@ __关键词:Maven , Jenkins , GitLab, Java__
 Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环境，可以进行自动构建、自动编译和部署。  
 
 1. 部署Jenkins  
-    * 本地部署  
-        [Jenkins]()    
-    * docker部署
+    * 本地部署
+      
+        [Jenkins](http://jenkins-ci.org/) 下载jenkins.war的war包，直接放在Tomcat或者其他容器中就可以   
+    * docker部署  
+        
+        在Docker hub 搜索Jenkins就会找到官方的images，下载运行就可以了  
+
+2. 访问  
+    使用本地安装方式默认访问的是8080端口，如果使用docker安装的，需要自己根据配置访问配置的端口。  
+    默认在第一次访问的时候会有一自个需要输入默认密码的步骤  
+    
 
 
 

@@ -22,10 +22,8 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
     ![docker 下的路径](http://omy43wh36.bkt.clouddn.com/Snip20171109_16.png)  
     
 
-
-
-
 ##基于Jenkins下Maven 的Java项目构建  
 1. 插件安装  
-    Jenkins默认环境下有可能无法构建基于maven的项目，
+    Jenkins默认环境下有可能无法构建基于maven的项目的，需要安装插件实现   
+    
 

@@ -54,8 +54,9 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
             ![访问权限](http://omy43wh36.bkt.clouddn.com/Snip20171109_17.png)
             __解决方式:__ 通过 `add` 按钮，添加用户名和密码，或者通过SSH 登录，添加秘钥  
         * 地址无法访问  
-            ![无法访问]()
-
+            ![无法访问](http://omy43wh36.bkt.clouddn.com/Snip20171110_26.png)  
+            __解决方式：__
+                * 
 
 
 

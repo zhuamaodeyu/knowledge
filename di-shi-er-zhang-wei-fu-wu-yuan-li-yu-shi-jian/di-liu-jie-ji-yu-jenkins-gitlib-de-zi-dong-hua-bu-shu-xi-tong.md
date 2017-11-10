@@ -6,6 +6,9 @@ __关键词:Maven , Jenkins , GitLab, Java__
 ##Jenkins   
 Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环境，可以进行自动构建、自动编译和部署。  
 
+1. 部署Jenkins  
+    * 本地部署  
+    *docker部署
 
 
 

@@ -51,7 +51,7 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
         ![配置](http://omy43wh36.bkt.clouddn.com/Snip20171110_25.png)  
         需要注意，在配置Git的时候有可能遇到以下两种常见错误：  
         * 权限问题  
-            
+            ![]()
     
 
 

@@ -66,15 +66,23 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
         --name jenkins jenkinsci/jenkins
                 ~~~  
                 
-    * 构建触发器配置  
+    * 构建触发器配置      
+        
+        
         ![构建触发器](http://omy43wh36.bkt.clouddn.com/Snip20171110_28.png)
-    * Build配置  
+    * Build配置   
+      
+        配置pom文件所在位置，如果不是在根目录下，那么久需要指定未见所在目录，不然构建是会失败的。   
+        Goals and options 是构建时需要执行的命令 这里使用的是`clean install` , 这些命令是maven命令  
+        
         ![](http://omy43wh36.bkt.clouddn.com/Snip20171110_29.png)
-    * 构建后操作  
+    * 构建后操作    
+     
+        配置构建需要执行的操作，此步骤会在构建成功后执行，配置构建成功后导包，将构建结果导出到特定位置，比如: `target/` 目录下配置 `**/target/*.jar`
         ![](http://omy43wh36.bkt.clouddn.com/Snip20171110_30.png)
 
 
-3.开始构建    
+ 3. 开始构建    
     ![构建项目](http://omy43wh36.bkt.clouddn.com/Snip20171110_31.png)
 
     如果构建失败，可以通过点击上图中失败的构建，然后通过一下方式查看构建失败的原因，修改构建过程配置或者代码，重新构建  

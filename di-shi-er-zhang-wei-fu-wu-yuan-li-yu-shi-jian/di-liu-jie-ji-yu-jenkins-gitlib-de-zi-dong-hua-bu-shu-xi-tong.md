@@ -66,7 +66,8 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
         --name jenkins jenkinsci/jenkins
                 ~~~  
                 
-    * 
+    * 构建触发器配置  
+        ![构建触发器](http://omy43wh36.bkt.clouddn.com/Snip20171110_28.png)
 
 
 

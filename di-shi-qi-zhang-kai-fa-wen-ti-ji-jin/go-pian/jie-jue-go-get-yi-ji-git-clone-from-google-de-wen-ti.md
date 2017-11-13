@@ -13,8 +13,9 @@
 		我使用的是`Shadowsocks`, 其只提供了 SOCKET5 代理，默认的代理端口是 1080 ，根据这些内容配置 `proxifier` (__具体的端口和代理类型需要根据自己的梯子自行配置__)  
 		![](http://omy43wh36.bkt.clouddn.com/Snip20171113_1.png)  
 		配置需要走代理的程序，此处由于是针对 go 的，需要让go 走代理  
-		 ![]()  
-		 ![]()  
+		 ![](http://omy43wh36.bkt.clouddn.com/Snip20171113_2.png
+)  
+		 ![](http://omy43wh36.bkt.clouddn.com/Snip20171113_4.png)  
 		
 		__重启终端__  
 		根据以上配置， 只是让go 可以连接到Google的服务器，此时并不能下载下来代码， 执行`go get golang.org/x/crypto` 会转到 git clone 代码， 只是让go 支持了服务器解析地址的功能， 下一步还需要让git 可以支持代理  

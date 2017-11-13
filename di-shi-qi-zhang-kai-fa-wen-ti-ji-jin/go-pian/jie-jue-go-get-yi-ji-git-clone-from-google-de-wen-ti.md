@@ -17,7 +17,7 @@
 		
 		__重启终端__  
 		本以为可以愉快的开发了但是。。。。 
-		![]()
+		![](http://omy43wh36.bkt.clouddn.com/Snip20171113_5.png)
 		根据以上配置， 只是让go 可以连接到Google的服务器，此时并不能下载下来代码， 执行`go get golang.org/x/crypto` 会转到 git clone 代码， 只是让go 支持了服务器解析地址的功能， 下一步还需要让git 可以支持代理  
 	
 	

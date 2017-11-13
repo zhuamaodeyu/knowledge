@@ -1,3 +1,4 @@
+# go get 以及 Git clone from google 问题
 由于某些不可抗拒因素(其实就是ZFW)的原因，造成Google的代码无法现在，典型的两个问题就是  
 
 * go get 无法下载    
@@ -10,7 +11,7 @@
 		自己根据自己需要获取VPN 等翻墙程序  
 	* 自行下载 `proxifier` 程序     
 		我使用的是`Shadowsocks`, 其只提供了 SOCKET5 代理，默认的代理端口是 1080 ，根据这些内容配置 `proxifier` (__具体的端口和代理类型需要根据自己的梯子自行配置__)  
-		![]()  
+		![](http://omy43wh36.bkt.clouddn.com/Snip20171113_1.png)  
 		配置需要走代理的程序，此处由于是针对 go 的，需要让go 走代理  
 		 ![]()  
 		 ![]()  

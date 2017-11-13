@@ -60,4 +60,6 @@
 * [第十七章 开发问题集锦](di-shi-qi-zhang-kai-fa-wen-ti-ji-jin.md)
   * [docker 篇](di-shi-qi-zhang-kai-fa-wen-ti-ji-jin/docker-pian.md)
     * [unix://localhost:80 no search file or directory](di-shi-qi-zhang-kai-fa-wen-ti-ji-jin/docker-pian/unixlocalhost80-no-search-file-or-directory.md)
+  * [go 篇](di-shi-qi-zhang-kai-fa-wen-ti-ji-jin/go-pian.md)
+    * [解决 go get  以及 git clone from google 的问题](di-shi-qi-zhang-kai-fa-wen-ti-ji-jin/go-pian/jie-jue-go-get-yi-ji-git-clone-from-google-de-wen-ti.md)
 

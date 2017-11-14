@@ -17,12 +17,32 @@ Java篇是一个以Java语言为实现语言，其微服务的全部功能都依
 ###服务支撑  
 
 ###基础设施  
+* Jenkins    
 
+ 提供持续交付流水线  
+* Docker    
+
+ 提供服务打包和发布  
+* Rancher   
+
+ 提供轻量级Docker 管理方案  
+* 日志聚合服务  
+  * ElasticSearch   
+   
+    提供搜索服务  
+  *  LogStash     
+  
+    log处理机制  
+  *  Kibana
+     
+    日志展示工具
 ###技术选型  
 * Java  
 * Maven  
 * Spring Boot 
-* Spring Cloud  
+* Spring Cloud 
+   * zuul  
+    
 * MongoDB  
 * Redis  
 * easy-mock  

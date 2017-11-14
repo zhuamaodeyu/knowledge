@@ -3,7 +3,12 @@
 
 通过命令行启动docker，比较关心的就是如何进入容器。进入docker有以下几种方式：  
     * docker attach  
+        `sudo docker attach bb189a596c04`  
+        __使用此命令会进行多个窗口同步，如果一个窗口阻塞，那么都会阻塞__  
     * SSH  
+        
     * nsenter  
+        nsenter 可以访问另一个进程的名称空间。 此程序是安装在`宿主机`的  
+        
     * exec  
     

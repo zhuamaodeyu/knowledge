@@ -11,7 +11,7 @@
         nsenter 可以访问另一个进程的名称空间。 此程序是安装在`宿主机`的  
         
         ~~~
-        
+        wget https://www.kernel.org/pub/linux/utils/util-linux/v2.24/util-linux-2.24.tar.gz  
         
         ~~~
     * exec  

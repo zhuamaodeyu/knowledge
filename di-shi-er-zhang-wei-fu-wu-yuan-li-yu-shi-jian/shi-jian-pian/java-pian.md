@@ -30,34 +30,43 @@ __说明:__
 * ServiceCenterPeerA 
 * ServiceCenterPeerB 
  
-  服务调度中心服务，主要提供服务之间的调度
+    服务调度中心服务，主要提供服务之间的调度
 * GatewayService  
 
-  网关服务，提供整个程序的入口以及服务安全把控  
+    网关服务，提供整个程序的入口以及服务安全把控  
 * CustomService  
 
-  体用整个系统的基础服务功能  
+    体用整个系统的基础服务功能  
 * ApiService  
 
-  提供API服务模块
+    提供API服务模块
 * RegisterService  
+
     主要提供注册登录服务模块，单一注册以及第三方注册等功能  
 * QuestionService  
+
     主要提供和内容有关的功能，比如内容列表展示，内容详情展示功能等
 * CommentService  
-  评论功能，主要提供评论发布以及查询功能  
+    
+    评论功能，主要提供评论发布以及查询功能  
 * UserManagerService  
-  主要提供用户资料管理等功能服务  
+    
+    主要提供用户资料管理等功能服务  
 * UploadService  
-  主要提供文件上传等服务功能
+    
+    主要提供文件上传等服务功能
 * NotificationService  
-  提供通知服务功能  
+    
+    提供通知服务功能  
 * RecommendationService  
-  推荐功能服务  
+    
+    推荐功能服务  
 * ElasticSearchService  
-  提供内容搜索服务功能  
+    
+    提供内容搜索服务功能  
 * CommendService  
-  推荐服务，根据浏览记录进行内容推荐  
+  
+    推荐服务，根据浏览记录进行内容推荐  
 
 
 __当前暂定这些服务，内容会根据具体的开发有更改，到底删还是加就看具体的有没有时间啦 哈哈__   

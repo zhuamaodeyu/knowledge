@@ -10,22 +10,28 @@ Java篇是一个以Java语言为实现语言，其微服务的全部功能都依
 
 ### 服务划分  
 
-
 ###服务定义  
 
-
 ###服务支撑  
-* Spring  boot   
+* Spring  Boot     
+
   提供基础工程模板以及功能实现
-* Spring Cloud Config
+* Spring Cloud Config  
+
   提供集中化的配置信息管理功能  
-* Zuul  
+* Zuul    
+
   提供服务的网关服务  
-* Hystrix  
-  提供熔断机制  
-* Spring Cloud Security  
-  提供用户的授权和认证 
-* Eureka Server   
+* Hystrix   
+
+  提供熔断机制   
+  
+* Spring Cloud Security    
+
+  提供用户的授权和认证   
+  
+* Eureka Server     
+
   提供服务的注册发现机制  
   
 

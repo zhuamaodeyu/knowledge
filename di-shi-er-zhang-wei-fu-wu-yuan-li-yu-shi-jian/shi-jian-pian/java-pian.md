@@ -9,7 +9,7 @@ Java篇是一个以Java语言为实现语言，其微服务的全部功能都依
 ###包含功能  
 * 注册登录模块  
 * 内容列表展示模块
-* 内容详情展示系统    
+* 内容详情展示模块    
 * 用户个人信息模块  
 * 评论模块 
 * 内容发布模块
@@ -27,6 +27,24 @@ __说明:__
   
   
 ###服务定义  
+* ServiceCenterPeerA 
+* ServiceCenterPeerB  
+  服务调度中心服务，主要提供服务之间的调度
+* GatewayService  
+  网关服务，提供整个程序的入口以及服务安全把控  
+* CustomService  
+  体用整个系统的基础服务功能  
+* ApiService  
+  提供API服务模块
+* RegisterService  
+  主要提供注册登录服务模块，单一注册以及第三方注册等功能  
+* QuestionService  
+  内容模块
+* CommentService  
+  评论功能，主要提供评论发布以及查询功能  
+  
+
+
 
 ###服务支撑  
 * Spring  Boot     

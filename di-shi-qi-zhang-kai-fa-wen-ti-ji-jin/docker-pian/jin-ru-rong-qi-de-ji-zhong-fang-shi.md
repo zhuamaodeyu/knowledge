@@ -30,5 +30,7 @@
             `sudo nsenter --target 3333 --mount --uts --ips --net --pid`  
             
     * exec  
-        ``
+        `sudo docker exec -it id /bin/bash`  
+        一般采用此种方式，此种方式是最简单快捷的   
+    
     

@@ -19,6 +19,15 @@ Java篇是一个以Java语言为实现语言，其微服务的全部功能都依
 ###基础设施  
 
 ###技术选型  
+* Java  
+* Maven  
+* Spring Boot 
+* Spring Cloud  
+* MongoDB  
+* Redis  
+* easy-mock  
+* REST ful  
+* JVM-Pact  
 
 
 

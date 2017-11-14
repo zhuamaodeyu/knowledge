@@ -24,7 +24,10 @@ Java篇是一个以Java语言为实现语言，其微服务的全部功能都依
 * Hystrix  
   提供熔断机制  
 * Spring Cloud Security  
-  提供用户的授权和认证
+  提供用户的授权和认证 
+* Eureka Server   
+  提供服务的注册发现机制  
+  
 
 ###基础设施  
 * Jenkins    

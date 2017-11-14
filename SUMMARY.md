@@ -55,6 +55,7 @@
     * [第四节 基于Jenkins 镜像的nodejs 自动化构建 ](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-liu-jie-ji-yu-jenkins-gitlib-de-zi-dong-hua-bu-shu-xi-tong/di-si-jie-ji-yu-jenkins-jing-xiang-de-nodejs-zi-dong-hua-gou-jian.md)
   * [实践篇](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/shi-jian-pian.md)
     * [Java 篇](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/shi-jian-pian/java-pian.md)
+      * [ServiceCenterPeer 服务实现](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/shi-jian-pian/java-pian/servicecenterpeer-fu-wu-shi-xian.md)
     * [综合篇](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/shi-jian-pian/zong-he-pian.md)
 * 第十三章 DevOps 开发与运维
 * 第十四章 Python

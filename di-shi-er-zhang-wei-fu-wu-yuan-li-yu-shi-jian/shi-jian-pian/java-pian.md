@@ -28,18 +28,22 @@ __说明:__
   
 ###服务定义  
 * ServiceCenterPeerA 
-* ServiceCenterPeerB  
+* ServiceCenterPeerB 
+ 
   服务调度中心服务，主要提供服务之间的调度
 * GatewayService  
+
   网关服务，提供整个程序的入口以及服务安全把控  
 * CustomService  
+
   体用整个系统的基础服务功能  
 * ApiService  
+
   提供API服务模块
 * RegisterService  
-  主要提供注册登录服务模块，单一注册以及第三方注册等功能  
+    主要提供注册登录服务模块，单一注册以及第三方注册等功能  
 * QuestionService  
-  主要提供和内容有关的功能，比如内容列表展示，内容详情展示功能等
+    主要提供和内容有关的功能，比如内容列表展示，内容详情展示功能等
 * CommentService  
   评论功能，主要提供评论发布以及查询功能  
 * UserManagerService  

@@ -39,10 +39,13 @@ __说明:__
 * RegisterService  
   主要提供注册登录服务模块，单一注册以及第三方注册等功能  
 * QuestionService  
-  内容模块
+  主要提供和内容有关的功能，比如内容列表展示，内容详情展示功能等
 * CommentService  
   评论功能，主要提供评论发布以及查询功能  
-  
+* UserManagerService  
+  主要提供用户资料管理等功能服务  
+* UploadService  
+  主要提供文件上传等服务功能
 
 
 

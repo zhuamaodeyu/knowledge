@@ -46,8 +46,17 @@ __说明:__
   主要提供用户资料管理等功能服务  
 * UploadService  
   主要提供文件上传等服务功能
+* NotificationService  
+  提供通知服务功能  
+* RecommendationService  
+  推荐功能服务  
+* ElasticSearchService  
+  提供内容搜索服务功能  
+* CommendService  
+  推荐服务，根据浏览记录进行内容推荐  
 
 
+__当前暂定这些服务，内容会根据具体的开发有更改，到底删还是加就看具体的有没有时间啦 哈哈__   
 
 ###服务支撑  
 * Spring  Boot     

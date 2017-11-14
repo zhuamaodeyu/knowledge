@@ -24,7 +24,11 @@
         * 获取进程空间  
             `sudo docker inspect id`  
             使用以上命令查看容器的详细信息  
+            `sudo docker inspect -f {{.NetworkSettings.Networks.bridge}} id`  
+            这种方式可以查看固定的值(缺陷就是只有值，没有对应的key，适合查询单一值)  
+        * 进入容器  
+            `sudo nsenter --target 3333 --mount --uts --ips --net --pid`  
             
-        
     * exec  
+        ``
     

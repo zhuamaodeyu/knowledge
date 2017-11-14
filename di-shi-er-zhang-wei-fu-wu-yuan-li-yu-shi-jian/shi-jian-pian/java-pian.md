@@ -35,7 +35,8 @@ Java篇是一个以Java语言为实现语言，其微服务的全部功能都依
     log处理机制  
   *  Kibana
      
-    日志展示工具
+    日志展示工具  
+    
 ###技术选型  
 * Java  
 * Maven  
@@ -48,7 +49,3 @@ Java篇是一个以Java语言为实现语言，其微服务的全部功能都依
 * easy-mock  
 * REST ful  
 * JVM-Pact  
-
-
-
-##

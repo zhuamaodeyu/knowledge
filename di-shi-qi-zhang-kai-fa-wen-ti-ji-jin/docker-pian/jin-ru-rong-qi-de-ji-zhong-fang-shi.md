@@ -10,9 +10,21 @@
     * nsenter  
         nsenter 可以访问另一个进程的名称空间。 此程序是安装在`宿主机`的  
         
-        ~~~
-        wget https://www.kernel.org/pub/linux/utils/util-linux/v2.24/util-linux-2.24.tar.gz  
+        * 安装  
         
         ~~~
+        wget https://www.kernel.org/pub/linux/utils/util-linux/v2.24/util-linux-2.24.tar.gz  
+        tar -xzvf util-linux-2.24.tar.gz  
+        cd util-linux-2.24/  
+        ./configure --without-ncurses  
+        make nsenter  
+        sudo cp nsenter /usr/local/bin  
+        ~~~
+        
+        * 获取进程空间  
+            `sudo docker inspect id`  
+            使用以上命令查看容器的详细信息  
+            
+        
     * exec  
     

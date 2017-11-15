@@ -44,7 +44,7 @@
   * [第二节 基于Java的微服务开发框架---Spring Boot](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-er-jie-ji-yu-java-de-wei-fu-wu-kai-fa-kuang-67b6-spring-boot.md)
     * [第一小节 Spring Boot 初体验](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-yi-xiao-jie-spring-boot.md)
     * [第二小节 Spring Boot 单元测试](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-er-xiao-jie-spring-boot-dan-yuan-ce-shi.md)
-    * 第三小节 Spring Boot 项目配置详解
+    * [第三小节 Spring Boot 项目配置详解](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-san-xiao-jie-spring-boot-xiang-mu-pei-zhi-xiang-jie.md)
     * 第四小节 Spring Boot 整合Mybaits
     * 第五小节 Spring Boot  的JPA集成
     * 第六小节 Spring Boot jdbcTemplate 集成

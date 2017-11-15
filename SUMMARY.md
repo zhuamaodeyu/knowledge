@@ -48,7 +48,7 @@
     * 第四小节 Spring Boot 整合Mybaits
     * 第五小节 Spring Boot  的JPA集成
     * 第六小节 Spring Boot jdbcTemplate 集成
-    * 第七小节 Spring Boot Redis 集成
+    * [第七小节 Spring Boot Redis 集成](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-qi-xiao-jie-spring-boot-redis-ji-cheng.md)
     * [第八小节 Spring Boot Swagger2 集成](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-san-xiao-jie-springboot-swagger2-ji-cheng.md)
     * 第九小节 Spring Boot Actuator 实现项目运行监控
     * 第十小节 Spring Boot Mongodb 集成

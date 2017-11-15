@@ -42,7 +42,16 @@
     * 第三小节 微服务有哪些特点以及实现技术难点
     * 第四小节 如何实现一个简单的微服务架构
   * [第二节 基于Java的微服务开发框架---Spring Boot](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-er-jie-ji-yu-java-de-wei-fu-wu-kai-fa-kuang-67b6-spring-boot.md)
-    * [第一小节 Spring Boot ](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-yi-xiao-jie-spring-boot.md)
+    * [第一小节 Spring Boot 初体验](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-yi-xiao-jie-spring-boot.md)
+    * 第二小节 Spring Boot 单元测试
+    * 第三小节 Spring Boot 项目配置详解
+    * 第四小节 Spring Boot 整合Mybaits
+    * [第八小节 Spring Boot Swagger2 集成](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-san-xiao-jie-springboot-swagger2-ji-cheng.md)
+    * 第五小节 Spring Boot  的JPA集成
+    * 第六小节 Spring Boot jdbcTemplate 集成
+    * 第七小节 Spring Boot Redis 集成
+    * 第九小节 Spring Boot Actuator 实现项目运行监控
+    * 第十小节 Spring Boot Mongodb 集成
   * [第三节 基于Java的微服务集成开发框架 Spring Cloud](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-san-jie-ji-yu-java-de-wei-fu-wu-ji-cheng-kai-fa-kuang-jia-spring-cloud.md)
   * [第四节 基于开发源框架组的微服务工具组](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-si-jie-ji-yu-kai-fa-yuan-kuang-jia-zu-de-wei-fu-wu-gong-ju-zu.md)
   * [第五节 基于Docker实现的微服务封装](di-shi-er-zhang-wei-fu-wu-yuan-li-yu-shi-jian/di-wu-jie-ji-yu-docker-shi-xian-de-wei-fu-wu-feng-zhuang.md)

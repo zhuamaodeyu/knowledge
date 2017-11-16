@@ -7,7 +7,8 @@ Go 让函数很容易成为非常轻量的线程。这些线程在 Go 中被叫�
 * Channel    
 这些 goroutines 之间的通讯由 channel[18, 25] 完成;   
 * 快速  
-* 安全      当转换一个类型到另一个类型的时候需要显式的转换并遵循严格的规则。Go 有 垃圾收集,在 Go 中无须 free(),语言会处理这一切;
+* 安全      
+当转换一个类型到另一个类型的时候需要显式的转换并遵循严格的规则。Go 有 垃圾收集,在 Go 中无须 free(),语言会处理这一切;
 * 标准格式化   
 Go 程序可以被格式化为程序员希望的(几乎)任何形式,但是官方格式是存在 的。标准也非常简单:gofmt 的输出就是官方认可的格式;   
 * 类型后置  
@@ -23,7 +24,7 @@ Go 程序可以被格式化为程序员希望的(几乎)任何形式,但是官�
 1. 变量、类型和关键字   
 	Go语言中声明和赋值是两个过程,默认定义一个变量，系统会赋值此类型的null值。   
 	
-	~~~  
+	``` go 
 	var a int  
 	var b bool  
 	a = 15 
@@ -43,19 +44,19 @@ Go 程序可以被格式化为程序员希望的(几乎)任何形式,但是官�
 	
 	//会被丢弃的值  
 	_, b :=  12, 35   
-	~~~
+	```
 
 int 类型的值会根据系统硬件来决定， 32位系统为 32 位， 64 位系统为 64 位   
 
 2. 常量以及枚举值的使用   
 	常量在编译时被创建，只能是数字、字符串或者布尔值  
 	
-	~~~  
+	``` go  
 	const(
 		a = iota  
 		b = iota
 	)
-	~~~  
+	```  
 	其中`iota` 可用于生成枚举值， 其代表 0， 如果再次使用其值变为 1 ，(b 的值为 1)    
 	
 
@@ -81,7 +82,7 @@ int 类型的值会根据系统硬件来决定， 32位系统为 32 位， 64 �
 包是函数和数据的集合。用package 关键字定义一个包。文件名不需要与包名一致。包名的约定是使用小写字符。Go包可以由多个文件组成，但是使用相同的 package <name> 导包。
 
 #### 创建包
-	~~~
+```go
 	package even  
 
 	//可导出函数
@@ -93,7 +94,8 @@ int 类型的值会根据系统硬件来决定， 32位系统为 32 位， 64 �
 	func odd(i int) bool {
 	
 	}
-	~~~
+```
+
 __名称以大写字母开头的是可导出的，可以在包外部调用__    
 
 __公有函数以大写字母开头__  
@@ -103,12 +105,12 @@ __私有函数以小写字母开头__
 #### 构建包  
 在 `$OGPATH` 下新建目录， 复制包文件到目录   
 
-~~~ 
+```shell 
 mkdir $GOPATH/src/even  
 cp even.go $GOPATH/src/even  
 go build  
 go install     
-~~~    
+```    
 
 
 #### 测试包  
@@ -118,19 +120,20 @@ go语言的单元测试采用的是 `go  test` 命令进行测试， 此命令�
 `func TestXxxx(t * testing.T)`     
 
 在测试过程中，测试需要告诉 go test 测试结果：  
-	* 测试成功：
-		可以直接返回  
-	* 测试失败  
-		1. `func (t *T) Fail()`     
-			测试失败，但仍然继续执行    
-		2. `func (t *T) FailNow()`   
-			测试失败，中断执行，当前文件的剩余测试中断，执行下一个文件中的测试   
-		3. 日志记录`func (t * T) Log(args ... interface{})`  
-			Log 用默认格式对其参数进行格式化,并且记录文本到错误日志    
-		4. `func (t *T) Fatal(args ...interface { })`  
-			Fatal 等价于 Log() 后跟随 FailNow()。    
+* 测试成功：
+	可以直接返回  
+* 测试失败  
+	1. `func (t *T) Fail()`     
+		测试失败，但仍然继续执行    
+	2. `func (t *T) FailNow()`   
+		测试失败，中断执行，当前文件的剩余测试中断，执行下一个文件中的测试   
+	3. 日志记录`func (t * T) Log(args ... interface{})`  
+		Log 用默认格式对其参数进行格式化,并且记录文本到错误日志    
+	4. `func (t *T) Fatal(args ...interface { })`  
+		Fatal 等价于 Log() 后跟随 FailNow()。    
 
-~~~  
+
+```go  
 package even  
 import "testing"   
 
@@ -140,7 +143,7 @@ func TestEven(t *testing.T){
 		t.Fail()
 	}
 }
-~~~
+```
 	
 
 ### go 常用包  
@@ -170,7 +173,8 @@ go常用的默认包都在 `$GOPATH/src/pkg`目录下
 10. html/template  
 	数据驱动的模板,用于生成文本输出,例如 HTML。   
 11. net/http  
-	net/http 实现了 HTTP 请求、响应和 URL 的解析,并且提供了可扩展的 HTTP 服 务和基本的 HTTP 客户端。    
+	net/http 实现了 HTTP 请求、响应和 URL 的解析,并且提供了可扩展的 HTTP 服 务和基本的 HTTP 客户端。
+    
 12. unsafe  
 	unsafe 包包含了 Go 程序中数据类型上所有不安全的操作   
 13. reflect    
@@ -226,7 +230,7 @@ go ready()		ready 作为 goroutine 运行
 
 #####goroutine 引发的问题以及解决方式
 
-~~~  
+```go  
 func ready(w string, sec int){
 	time.Sleep(time.Duration(sec) * time.Second)
 	fmt.Println(w, "is ready")
@@ -238,10 +242,14 @@ func main{
 	fmt.Println("i waiting")
 	time.Sleep(5 * time.Second)
 }  
-I'm waitingCoffee is ready! 
-Tea is ready!← 立刻 
-← 1 秒后← 2 秒后
-~~~  
+
+// I'm waiting
+// Coffee is ready! 
+// Tea is ready!
+// ← 立刻 
+// ← 1 秒后
+// ← 2 秒后
+``` 
 
 __解释__: 如果没有time.Sleep 的等待，程序直接终止，任何正在执行的goroutine都会停止。为了修复此问题， 需要一种能够goroutine通讯的机制。 引入了 `channels`   
 
@@ -251,11 +259,11 @@ channel 可以与 Unix sehll 中的双向管道做类比:可以 通过它发送�
 
 * 定义一个 `channel` 时,也需要定义发送到 `channel` 的值的类型。注意,必须使用 make 创建 `channel`     
 
-~~~  
+```go 
 ci := make(chan int)  
 ci := make(chan string)  
 ci := make(chan interface{})  
-~~~ 
+``` 
   
 * 发送数据  
 通过 `<-` 操作符来实现的   
@@ -282,14 +290,14 @@ i := <- ci    从 channel ci 接收整数,并保存到 i 中
 
 
 递归函数：  
-~~~  
+```go 
 func rec(i int)
 {
 	if i == 10  return 
 	rec(i + 1)  
 	fmt.Printf("%d", i)
 }
-~~~   
+``` 
   
 * 作用域    
 第一在函数外的是全局变量， 定义在函数内的是局部变量， 如果命名覆盖， 在函数执行的时候，局部变量会覆盖全局变量   

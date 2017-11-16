@@ -30,7 +30,9 @@
 
     `sudo docker inspect id`  
       使用以上命令查看容器的详细信息  
-      `sudo docker inspect -f {{.NetworkSettings.Networks.bridge}} id`  
+      `sudo docker inspect -f {{。NetworkSettings。Networks。bridge}} id`    
+      
+      __注意将上脚本 `。` 改为 点__  
       这种方式可以查看固定的值\(缺陷就是只有值，没有对应的key，适合查询单一值\)
 
   * 进入容器
@@ -41,6 +43,4 @@
 
   `sudo docker exec -it id /bin/bash`  
     一般采用此种方式，此种方式是最简单快捷的
-
-
 

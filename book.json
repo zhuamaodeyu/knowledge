@@ -9,30 +9,64 @@
     "github": "https://github.com/zhuamaodeyu/knowledge.git",
     "githubHost": "https://github.com/",
     "plugins": [
-                "disqus",
-                "-lunr", "-search", "search-plus",
-                "prism",
+                "disqus@0.1.0",
+                "-lunr", "-search", "search-plus@1.0.3",
+                "prism@2.3.0",
                 "-highlight",
-                "advanced-emoji",
-                "github",
-               "github-buttons",
-               "emphasize",
-               "splitter",
-               "-sharing", "sharing-plus",
-               "tbfed-pagefooter",
-               "donate",
-               "toggle-chapters",
-               "copy-code-button",
-               "simple-page-toc",
-               "anchor-navigation-ex"
+                "advanced-emoji@0.2.2",
+                "github@2.0.0",
+               "github-buttons@3.0.0",
+               "emphasize@1.1.0",
+               "splitter@0.0.8",
+               "-sharing", "sharing-plus@0.0.2",
+               "tbfed-pagefooter@0.0.1",
+               "donate@1.0.2",
+               "toggle-chapters@0.0.3",
+               "copy-code-button@0.0.2",
+               "simple-page-toc@0.1.2",
+               "anchor-navigation-ex@1.0.10",
+               "edit-link@2.0.2",
+               "-sharing",
+               "sharing-plus@0.0.2"
     ],
     "pluginsConfig": {
+        "theme-default": {
+            "showLevel": true
+        },
         "disqus": {
             "shortName": "gitbookuse"
         },
         "simple-page-toc": {
             "maxDepth": 3,
             "skipFirstH1": true
+        },
+        "edit-link": {
+            "base": "https://github.com/zhuamaodeyu/knowledge/edit/master",
+            "label": "Edit This Page"
+        },
+        "sharing": {
+            "douban": false,
+            "facebook": false,
+            "google": true,
+            "hatenaBookmark": false,
+            "instapaper": false,
+            "line": false,
+            "linkedin": true,
+            "messenger": false,
+            "pocket": false,
+            "qq": false,
+            "qzone": false,
+            "stumbleupon": false,
+            "twitter": false,
+            "viber": false,
+            "vk": false,
+            "weibo": true,
+            "whatsapp": false,
+            "all": [
+                "facebook", "google", "twitter",
+                "weibo", "instapaper", "linkedin",
+                "pocket", "stumbleupon", "qq", "qzone"
+            ]
         },
         "anchor-navigation-ex": {
             "isShowTocTitleIcon": true,

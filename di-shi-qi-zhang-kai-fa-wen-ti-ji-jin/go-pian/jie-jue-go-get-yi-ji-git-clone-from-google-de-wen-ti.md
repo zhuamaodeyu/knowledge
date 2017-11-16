@@ -22,19 +22,20 @@ __解决办法:__
 		![](http://omy43wh36.bkt.clouddn.com/Snip20171113_2.png)
 		![](http://omy43wh36.bkt.clouddn.com/Snip20171113_4.png)
 		
-		__重启终端__  
+	__重启终端__  
 * 测试  
 	 	`curl --connect-timeout 2 -x 127.0.0.1:8118 http://google.com`  
 		终端执行以上命令， 如果返回一下内容说明是可以访问的Google的  
 		
 	~~~
-		<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
-<TITLE>302 Moved</TITLE></HEAD><BODY>
-<H1>302 Moved</H1>
-The document has moved
-<A HREF="http://www.google.co.jp/?gfe_rd=cr&amp;dcr=0&amp;ei=Yv0IWqv4I7TEXufYjJAH">here</A>.
-</BODY></HTML>
-		
+	<HTML>
+		<HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+			<TITLE>302 Moved</TITLE></HEAD><BODY>
+			<H1>302 Moved</H1>
+			The document has moved
+			<A HREF="http://www.google.co.jp/?gfe_rd=cr&amp;dcr=0&amp;ei=Yv0IWqv4I7TEXufYjJAH">here</A>.
+		</BODY>
+	</HTML>
 	~~~
 		
 	本以为可以愉快的开发了但是。。。。 

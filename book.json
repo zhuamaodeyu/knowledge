@@ -13,6 +13,7 @@
                 "-lunr", "-search", "search-plus@1.0.3",
                 "prism@2.3.0",
                 "-highlight",
+                "prism-themes@0.0.2",
                 "advanced-emoji@0.2.2",
                 "github@2.0.0",
                "github-buttons@3.0.0",
@@ -36,6 +37,11 @@
         "disqus": {
             "shortName": "gitbookuse"
         },
+        "prism": {
+            "css": [
+              "prism-themes/themes/prism-duotone-dark.css"
+            ]
+          },
         "simple-page-toc": {
             "maxDepth": 3,
             "skipFirstH1": true

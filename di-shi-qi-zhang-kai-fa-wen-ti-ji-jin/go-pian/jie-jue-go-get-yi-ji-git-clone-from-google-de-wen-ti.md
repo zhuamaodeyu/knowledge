@@ -14,20 +14,20 @@
 __解决办法:__   
 	
 * 首先要有一个梯子  
-		自己根据自己需要获取VPN 等翻墙程序  
+	自己根据自己需要获取VPN 等翻墙程序  
 * 自行下载 `proxifier` 程序     
-		我使用的是`Shadowsocks`, 其只提供了 SOCKET5 代理，默认的代理端口是 1080 ，根据这些内容配置 `proxifier` (__具体的端口和代理类型需要根据自己的梯子自行配置__)  
-		![](http://omy43wh36.bkt.clouddn.com/Snip20171113_1.png)
-		配置需要走代理的程序，此处由于是针对 go 的，需要让go 走代理  
-		![](http://omy43wh36.bkt.clouddn.com/Snip20171113_2.png)
-		![](http://omy43wh36.bkt.clouddn.com/Snip20171113_4.png)
+	我使用的是`Shadowsocks`, 其只提供了 SOCKET5 代理，默认的代理端口是 1080 ，根据这些内容配置 `proxifier` (__具体的端口和代理类型需要根据自己的梯子自行配置__)  
+	![](http://omy43wh36.bkt.clouddn.com/Snip20171113_1.png)
+	配置需要走代理的程序，此处由于是针对 go 的，需要让go 走代理  
+	![](http://omy43wh36.bkt.clouddn.com/Snip20171113_2.png)
+	![](http://omy43wh36.bkt.clouddn.com/Snip20171113_4.png)
 		
 	__重启终端__  
 * 测试  
-	 	`curl --connect-timeout 2 -x 127.0.0.1:8118 http://google.com`  
-		终端执行以上命令， 如果返回一下内容说明是可以访问的Google的  
+	`curl --connect-timeout 2 -x 127.0.0.1:8118 http://google.com`  
+	终端执行以上命令， 如果返回一下内容说明是可以访问的Google的  
 		
-	~~~
+	``` html
 	<HTML>
 		<HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
 			<TITLE>302 Moved</TITLE></HEAD><BODY>
@@ -36,7 +36,7 @@ __解决办法:__
 			<A HREF="http://www.google.co.jp/?gfe_rd=cr&amp;dcr=0&amp;ei=Yv0IWqv4I7TEXufYjJAH">here</A>.
 		</BODY>
 	</HTML>
-	~~~
+	```
 		
 	本以为可以愉快的开发了但是。。。。 
 	
@@ -55,25 +55,25 @@ __解决办法__
 * 下载安装 `privoxy`  
 
 * 配置 `privoxy`  
-		默认配置文件存放在 `/usr/local/etc/privoxy` (Mac 系统中)
-		如果无法找到 可以通过`find / -name "privoxy"` 进行搜索查找  
+	默认配置文件存放在 `/usr/local/etc/privoxy` (Mac 系统中)
+	如果无法找到 可以通过`find / -name "privoxy"` 进行搜索查找  
 * 添加配置  
-		打开 config 文件，在后面添加  
-		`forward-socks5 / 127.0.0.1:1080 .`  
-		重启程序生效  
-		`/etc/init.d/privoxy restart`    
+	打开 config 文件，在后面添加  
+	`forward-socks5 / 127.0.0.1:1080 .`  
+	重启程序生效  
+	`/etc/init.d/privoxy restart`    
 * 配置git 代理  
 		
-	~~~
+	``` 
 	git config --global https.proxy "127.0.0.1:8118"
 	git config --global http.proxy "127.0.0.1:8118"
-	~~~
+	```
 * __使用完记得重置配置__  
 
-	~~~
+	``` 
 	git config --global --unset http.proxy
 	git config --global --unset https.proxy
-	~~~
+	```
 	
 __大功告成啦__  
 

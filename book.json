@@ -1,49 +1,56 @@
 {
-
-    "author":"抓🐱的🐟",
-    "description":"这是一个知识总结",
+    "author": "抓🐱的🐟",
+    "description": "这是一个知识总结",
     "output": null,
     "generator": "site",
     "title": "",
     "extension": null,
-    "language":"zh-hans",
+    "language": "zh-hans",
     "github": "https://github.com/zhuamaodeyu/knowledge.git",
     "githubHost": "https://github.com/",
     "plugins": [
-        "disqus",
-        "-lunr", "-search", "search-plus",
-        "prism",
-        "-highlight",
-        "advanced-emoji",
-        "github",
-        "github-buttons",
-        "emphasize",
-        "splitter",
-        "-sharing", "sharing-plus",
-        "tbfed-pagefooter",
-        "expandable-chapters-small",
-        "donate",
-        "anchors"
+                "disqus",
+                "-lunr", "-search", "search-plus",
+                "prism",
+                "-highlight",
+                "advanced-emoji",
+                "github",
+               "github-buttons",
+               "emphasize",
+               "splitter",
+               "-sharing", "sharing-plus",
+               "tbfed-pagefooter",
+               "donate",
+               "toggle-chapters",
+               "copy-code-button",
+               "simple-page-toc",
+               "anchor-navigation-ex"
     ],
     "pluginsConfig": {
         "disqus": {
             "shortName": "gitbookuse"
         },
+        "simple-page-toc": {
+            "maxDepth": 3,
+            "skipFirstH1": true
+        },
+        "anchor-navigation-ex": {
+            "isShowTocTitleIcon": true,
+            "tocLevel1Icon": "fa fa-hand-o-right",
+            "tocLevel2Icon": "fa fa-hand-o-right",
+            "tocLevel3Icon": "fa fa-hand-o-right"
+        },
         "fontSettings": {
             "theme": "sepia",
             "family": "serif",
-            "size" :1
+            "size": 1
         },
         "prism": {
-            "css": [
-                    
-            ]
+            "css": []
         },
-       
         "github": {
             "url": "https://github.com/zhuamaodeyu"
         },
-
         "github-buttons": {
             "repo": "zhuamaodeyue/knowledge",
             "types": [
@@ -53,14 +60,11 @@
             ],
             "size": "small"
         },
-
         "tbfed-pagefooter": {
-            "copyright":"Copyright &copy 抓🐱的🐟.com 2017",
+            "copyright": "Copyright &copy 抓🐱的🐟.com 2017",
             "modify_label": "该文件修订时间：",
             "modify_format": "YYYY-MM-DD HH:mm:ss"
         },
-
-
         "donate": {
             "wechat": "assets/weixin.png",
             "alipay": "assets/alipay.jpg",
@@ -69,15 +73,11 @@
             "alipayText": "支付宝打赏",
             "wechatText": "微信打赏"
         }
-
     },
-
     "links": {
-
-    	"sidebar": {
+        "sidebar": {
             "Home": "https://github.com/zhuamaodeyu"
-    	},
-
+        },
         "sharing": {
             "google": null,
             "facebook": null,
@@ -86,7 +86,6 @@
             "all": null
         }
     },
-
     "styles": {
         "website": "styles/website.css",
         "ebook": "styles/ebook.css",
@@ -94,8 +93,6 @@
         "mobi": "styles/mobi.css",
         "epub": "styles/epub.css"
     },
-
-
     "pdf": {
         "toc": true,
         "pageNumbers": false,

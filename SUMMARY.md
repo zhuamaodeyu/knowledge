@@ -4,12 +4,12 @@
 * [第一章 编程的根基](chapter1.md)
   * [第一节 数据结构与算法](chapter1/di-yi-jie-shu-ju-jie-gou-yu-suan-fa.md)
     * [第二小节 链表](chapter1/di-yi-jie-shu-ju-jie-gou-yu-suan-fa/di-yi-xiao-jie-lian-biao.md)
-    * 第一小节 时间复杂度和空间复杂度
+    * [第一小节 时间复杂度和空间复杂度](chapter1/di-yi-jie-shu-ju-jie-gou-yu-suan-fa/di-yi-xiao-jie-shi-jian-fu-za-du-he-kong-jian-fu-za-du.md)
 * [第二章 Java篇](di-er-zhang-java-pian.md)
-  * 第一节 Java基础
+  * [第一节 Java基础](di-er-zhang-java-pian/di-yi-jie-java-ji-chu.md)
   * 第二节 Spring 
-  * 第三节 Spring MVC
-  * 第四节 mybaitis
+  * [第三节 Spring MVC](di-er-zhang-java-pian/di-san-jie-spring-mvc.md)
+  * [第四节 mybaitis](di-er-zhang-java-pian/di-si-jie-mybaitis.md)
 * [第三章 iOS 篇](ios-pian.md)
 * 第四章 nodejs 篇
 * [第五章 JavaScript篇](di-wu-zhang-javascriptpian.md)

@@ -12,8 +12,6 @@ mkdir packagename
 
 package packagename  
 
-........
-
 ~~~
 
 * 编译安装(包)   

@@ -1,6 +1,6 @@
 {
 
-    "author":"zhuamaodeyu",
+    "author":"抓🐱的🐟",
     "description":"这是一个知识总结",
     "output": null,
     "generator": "site",
@@ -55,15 +55,15 @@
         },
 
         "tbfed-pagefooter": {
-            "copyright":"Copyright &copy zhangjikai.com 2017",
+            "copyright":"Copyright &copy 抓🐱的🐟.com 2017",
             "modify_label": "该文件修订时间：",
             "modify_format": "YYYY-MM-DD HH:mm:ss"
         },
 
 
         "donate": {
-            "wechat": "https://xxxx.com/resource/weixin.png",
-            "alipay": "https://xxxx.com/resource/alipay.png",
+            "wechat": "assets/weixin.png",
+            "alipay": "assets/alipay.jpg",
             "title": "",
             "button": "赏",
             "alipayText": "支付宝打赏",
@@ -75,7 +75,7 @@
     "links": {
 
     	"sidebar": {
-            "Custom link name": "https://github.com/zhuamaodeyu/knowledge"
+            "Home": "https://github.com/zhuamaodeyu"
     	},
 
         "sharing": {
@@ -97,15 +97,10 @@
 
 
     "pdf": {
-
         "toc": true,
-
         "pageNumbers": false,
-
         "fontSize": 12,
-
         "paperSize": "a4",
-
         "margin": {
             "right": 62,
             "left": 62,

@@ -14,7 +14,7 @@
 * 第四章 nodejs 篇
 * [第五章 JavaScript篇](di-wu-zhang-javascriptpian.md)
 * [第六章 Go篇](di-liu-zhang-go-pian.md)
-  * [第一节  Go语言基础](di-liu-zhang-go-pian/di-yi-jie-go-yu-yan-ji-chu.md)
+* [第一节  Go语言基础](di-liu-zhang-go-pian/di-yi-jie-go-yu-yan-ji-chu.md)
 * [第七章 Go web 系列](di-qi-zhang-go-web-xi-lie.md)
   * [Go Web ](di-qi-zhang-go-web-xi-lie/go-web.md)
   * [Go Web 基础](di-qi-zhang-go-web-xi-lie/go-web-ji-chu.md)

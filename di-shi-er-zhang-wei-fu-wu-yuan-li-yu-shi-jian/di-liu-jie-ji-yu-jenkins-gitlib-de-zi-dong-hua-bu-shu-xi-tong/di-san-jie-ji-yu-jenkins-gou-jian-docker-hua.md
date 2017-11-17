@@ -1,5 +1,13 @@
  
 # 基于Jenkins docker化 
+
+## 完成状态  
+
+- [ ] 开发中
+- [ ] 未完成
+- [ ] 已完成
+- [x] 维护中
+
 自动化构建并不是终点。
 本节主要实现的是如何通过Jenkins自动化构建出的结果，docker化镜像并推送到仓库等待部署   
 由于Jenkins 本身采用的是docker的镜像，我们需要实现的是在docker镜像中构建docker镜像。
@@ -11,7 +19,7 @@ __说明__
 ### 构建可用docker镜像
 1. 创建Dockerfile   
 
-	~~~
+	```Docker
 	FROM jenkins:alpine
 	# 下载安装Docker CLI
 	USER root
@@ -37,19 +45,20 @@ __说明__
 	ARG DOCKER_GID=999  
 
 	USER root:${DOCKER_GID}
-	~~~
+	```
 
 2. 构建镜像  
 	`docker build -t jenkins-docker .`  
 3. 启动容器  
 	
-	~~~
+	```Docker
 	docker run --name jenkins \
     -d \
     -p 8080:8080 \
     -v /var/run/docker.sock:/var/run/docker.sock \
     jenkins-docker
-	~~~
+	```
+
 	__注意__  
 		由于docker最近几个版本的更改为通过socket通信(其实是懒得查那个版本改的), 所以 。。。。 不管了 反正就是这个命令运行  
 	
@@ -61,7 +70,7 @@ __以maven项目为例__
 1. 更改 `Post Steps` 类型为 第一个  只有在成功后才执行脚本  
 2. 脚本内容  
 	
-	~~~
+	```Bash
 	# 定义变量  
 	API_NAME="spring-docker-test"  
 	API_VERSION="0.0.1"  
@@ -90,15 +99,15 @@ __以maven项目为例__
 
 	#删除 Docker 容器 
 	#cid = ${docker ps | grep "$CONTAINER_NAME" | awk '{print $1}'}
-#if ["$cid" !=""]; then  
-#	docker rm -f $cid 
-#fi  
-# 运行docker
-#docker run -d -p $API_PORT:8080 --name $CONTAINER_NAME $IMAGE_NAME
+	#if ["$cid" !=""]; then  
+	#	docker rm -f $cid 
+	#fi  
+	# 运行docker
+	#docker run -d -p $API_PORT:8080 --name $CONTAINER_NAME $IMAGE_NAME
 
 	#删除 Dockerfile 文件  
 	rm -f Dockerfile
-	~~~
+	```
 
 
 __本实例还有很多不完善的地方，之后会进行慢慢完善__   

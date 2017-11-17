@@ -1,3 +1,12 @@
+# 解决go get 以及 git clone to google 问题 
+## 完成状态  
+
+- [ ] 开发中
+- [ ] 未完成
+- [ ] 已完成
+- [x] 维护中
+
+
 由于某些不可抗拒因素(其实就是ZFW)的原因，造成Google的代码无法现在，典型的两个问题就是:  
 	
 * go get 无法下载  
@@ -64,13 +73,13 @@ __解决办法__
 	`/etc/init.d/privoxy restart`    
 * 配置git 代理  
 		
-	``` 
+	```Bash
 	git config --global https.proxy "127.0.0.1:8118"
 	git config --global http.proxy "127.0.0.1:8118"
 	```
 * __使用完记得重置配置__  
 
-	``` 
+	```Bash 
 	git config --global --unset http.proxy
 	git config --global --unset https.proxy
 	```

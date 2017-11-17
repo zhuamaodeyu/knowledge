@@ -1,4 +1,9 @@
 # Docker 加速
+### 完成状态
+  
+- [x] 维护中
+- [ ] 未完成
+- [ ] 已完成
 
 由于不可抗拒的因素\(你懂得\)，在国内访问 Docker registry 服务器非常慢的。需要通过其他途径对其进行加速访问。如何多起进行加速是个技术活\(尴尬脸\)
 
@@ -17,7 +22,7 @@ Mac上安装Docker如今又两种形式：一种是通过 Docker for Mac 安装�
       在Mac系统下，此文件会路径在`vim /Users/xxx/.docker/daemon.json`  
       打开文件将文件修改为以下内容
 
-    ```
+    ```JavaScript
       {
           "insecure-registries" : [
               "registry.mirrors.aliyuncs.com"
@@ -38,7 +43,7 @@ Mac上安装Docker如今又两种形式：一种是通过 Docker for Mac 安装�
       `docker-machine  ssh default`  
   * 修改profile文件
 
-    ```
+    ``` Bash
       vi /var/lib/boot2docker/profile
       //添加一下内容到EXTRA_ARGS 中,地址为自己的阿里云地址  
       --registry-mirror=https://xxx.mirror.aliyuncs.com

@@ -1,5 +1,13 @@
 # 第四节 基于Jenkins 镜像的nodejs 自动化构建   
 
+## 完成状态  
+
+- [ ] 开发中
+- [ ] 未完成
+- [ ] 已完成
+- [x] 维护中
+
+
 不废话 ，直接开始  
 
 ## 插件  
@@ -36,15 +44,15 @@
 
 * npm not found   
 	此种错误是在node安装时没有正确安装成功造成的。Jenkins虽然会自动下载安装node，但是有时候由于其他原因造成的无法安装成功。可以试试此种方式解决  
-		* 查找是否下载成功  
-			进入 `/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation`文件夹下是否有node文件夹。查看其中是否有关于node的文件  
-		* 手动添加环境变量  
-			修改构建配置，`构建`-----> `Execute shell` 添加环境变量  
-			![添加环境变量](http://omy43wh36.bkt.clouddn.com/Snip20171111_47.png)  
-			添加一下内容  
-			
-			~~~
-			export PATH="$PATH:/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/node/bin"
-			~~~
+	* 查找是否下载成功  
+		进入 `/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation`文件夹下是否有node文件夹。查看其中是否有关于node的文件  
+	* 手动添加环境变量  
+		修改构建配置，`构建`-----> `Execute shell` 添加环境变量  
+		![添加环境变量](http://omy43wh36.bkt.clouddn.com/Snip20171111_47.png)  
+		添加一下内容  
+
+		```Bash
+		export PATH="$PATH:/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/node/bin"
+		```
 			
 		

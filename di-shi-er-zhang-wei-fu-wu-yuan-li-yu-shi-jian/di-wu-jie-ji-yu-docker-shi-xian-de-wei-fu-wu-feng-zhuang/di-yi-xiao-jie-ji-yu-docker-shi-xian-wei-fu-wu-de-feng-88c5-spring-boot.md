@@ -13,7 +13,7 @@
     项目是基于 Maven 构建的，所有的maven配置都在此文件中，添加库等等操作都在此处。具体的不赘述maven操作。请自行查看具体的章节或者百度    
     在pom.xml 文件中添加一下内容   
     
-    ~~~
+    ```Xml
       	<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
@@ -30,7 +30,7 @@
 				</configuration>
 			</plugin>      
     
-    ~~~  
+    ```  
     
    __说明:__   
    此时可以构建项目，不过推送会推送到 `hub registry`上，如果需要推送到自己搭建的 docker registry中去 需要执行以下步骤：  
@@ -45,7 +45,8 @@
    在项目的 resources 目录下创建 Dockerfile 文件并实现内容(具体的Dockerfile书写规则自行查找，以下为简介版) 
    
    
-    ~~~
+    ```Docker
+    
      FROM java
      # 作者名称和邮箱
      MAINTAINER "name"<xxxx@gmail.com>
@@ -57,7 +58,7 @@
     EXPOSE 8081
 
     CMD java -jar app.jar
-    ~~~
+    ```
 
 
 

@@ -1,4 +1,10 @@
 # 进入容器的几种方式
+## 完成状态  
+
+- [ ] 开发中
+- [ ] 未完成
+- [ ] 已完成
+- [x] 维护中
 
 刚开始使用docker的时候，使用的是 Kitematic,使用此种方式不用关心很多参数以及操作，都提供了图形化的界面。但是有时候有些操作是它所不能完成的。 比如在启动容器的时候指定参数
 
@@ -17,7 +23,7 @@
 
   * 安装
 
-    ```
+    ``` Bash
     wget https://www.kernel.org/pub/linux/utils/util-linux/v2.24/util-linux-2.24.tar.gz  
     tar -xzvf util-linux-2.24.tar.gz  
     cd util-linux-2.24/  

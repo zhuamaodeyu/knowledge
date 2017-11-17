@@ -1,4 +1,11 @@
 # 基于Jenkins GitLab实现的自动化构建---Java  
+## 完成状态  
+
+- [ ] 开发中
+- [x] 未完成
+- [ ] 已完成
+- [ ] 维护中
+
 
 上篇介绍了如何基于Docker运行GitLab实现一个自定义的Git代码管理仓库，这边在上篇的基础上实现了基于Jenkins的基于Maven的Java项目的自动化构建实现   
 
@@ -34,7 +41,7 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
     * 配置maven  
     
       如果自己不知道自己本地有没有安装或者使用的docker运行的，可以勾线 自动安装  
-          ![maven 配置](http://omy43wh36.bkt.clouddn.com/5999951-1be31e27361f4991.png)  
+        ![maven 配置](http://omy43wh36.bkt.clouddn.com/5999951-1be31e27361f4991.png)  
     * 配置Git   
      
         同maven配置类似    
@@ -59,15 +66,15 @@ Jenkins是一个开源的持续集成工具，应用Jenkins搭建持续集成环
         * 地址无法访问  
             ![无法访问](http://omy43wh36.bkt.clouddn.com/Snip20171110_26.png)  
             __解决方式：__ 
-                * 如果是自己搭建的服务器，可以通过问题一解决方案截图中的，通过IP代理地址访问，直接通过IP映射  
-                * 通过修改`/etc/hosts`文件，添加IP与地址的映射管理实现  
-                * 如果是通过docker搭建的，还可以通过启动docker时添加参数实现  
+            * 如果是自己搭建的服务器，可以通过问题一解决方案截图中的，通过IP代理地址访问，直接通过IP映射  
+            * 通过修改`/etc/hosts`文件，添加IP与地址的映射管理实现  
+            * 如果是通过docker搭建的，还可以通过启动docker时添加参数实现  
                 
-                ~~~
+            ``` Bash
                 docker run -d -p 8080:8080 -v ~/jenkins:/var/jenkins_home --link 
         gitlab:gitlab.xxx.com   
         --name jenkins jenkinsci/jenkins
-                ~~~  
+            ```  
                 
     * 构建触发器配置      
         ![构建触发器](http://omy43wh36.bkt.clouddn.com/Snip20171110_28.png)

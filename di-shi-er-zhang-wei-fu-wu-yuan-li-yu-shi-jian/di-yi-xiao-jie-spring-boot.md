@@ -51,14 +51,14 @@ _小提示: IDEA 集成开发工具还是很智能哦，如果不知道具体的
 1. 创建`controller`包  
 2. 创建 `HelloController`类,并添加 `@RestController`注解
 3. 添加如下代码
-	
-	
-	~~~
+
+   ```Java
 	@GetMapping("/")
     public String index(){
         return "hello world";
     }
-	~~~
+   ```
+
 4. 启动项目   
 	![启动项目](http://omy43wh36.bkt.clouddn.com/spring-bootSnip20171115_14.png)
 

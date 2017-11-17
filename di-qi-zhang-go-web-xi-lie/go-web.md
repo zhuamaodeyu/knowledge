@@ -6,13 +6,13 @@ GOPATH 下的src目录是程序开发的主要目录， 所有的源码都放在
 
 一般建议package 的名称和目录保持一致   
 
-~~~   
+```Bash   
 cd $GOPATH/src   
 mkdir packagename  
 
 package packagename  
 
-~~~
+```
 
 * 编译安装(包)   
 两种方式 ： 直接在对应的包目录下执行 `go install` ; 在任意目录执行`go install packagename`     
@@ -20,7 +20,7 @@ package packagename
 
 * 调用应用包     
 
-~~~  
+```Go  
 package main     
 
 //导入包
@@ -32,7 +32,7 @@ import(
 func main(){
 	
 }
-~~~    
+```    
 
 * 编译程序  
 进入程序目录，执行 `go build`   
@@ -79,6 +79,7 @@ src/
 #Go 语言基础   
 
 go 语言关键字 25 个
+
 ~~~  
 break    default      func    interface    select
 case     defer        go      map          struct
@@ -87,7 +88,7 @@ const    fallthrough  if      range        type
 continue for          import  return       var
 ~~~
 
-~~~  
+```Go  
 package main
 
 import "fmt"  
@@ -96,7 +97,7 @@ func main(){
 	fmt.Printf("Hello, world or 你好，世界 or καλημ ́ρα κóσμ or こんにちはせかい\n")
 }
 
-~~~   
+```   
 __解释__：  
 package <name> ：当前文件属于哪个包  
 main 			: 表示是一个可运行包，编译会生成执行文件，除了mian包，其他包会生成 `.a` 文件，并放在`$GOPATH/pkg/$GOOS_$GOARCH`   
@@ -137,7 +138,7 @@ __go常量可以指定相当多的小数点位数， 若指定给float32 将自�
 * 内置基础类型  
 	- boolean    
 	
-	~~~    
+	```Go    
 	var isBool bool //全局声明
 	var enabled,disabled = true ,false  //忽略类型声明   
 	func test(){
@@ -145,7 +146,7 @@ __go常量可以指定相当多的小数点位数， 若指定给float32 将自�
 		valid := false  
 		available = true   
 	} 
-	~~~
+	```
 	
 	- 数值类型    
 	无符号和有五号两种。

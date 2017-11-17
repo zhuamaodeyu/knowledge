@@ -34,7 +34,7 @@
     ],
     "pluginsConfig": {
         "theme-default": {
-            "showLevel": true
+            "showLevel": false
         },
         "disqus": {
             "shortName": "gitbookuse"

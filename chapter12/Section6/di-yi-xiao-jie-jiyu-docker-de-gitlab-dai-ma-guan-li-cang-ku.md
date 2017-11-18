@@ -63,7 +63,7 @@ _以下操作默认已经正确安装 Docker for Mac_
 
 
 
-只有操作与基于Kitematic操作实现的第三步相同 
+之后操作与基于Kitematic操作实现的第三步相同 
 
     
       

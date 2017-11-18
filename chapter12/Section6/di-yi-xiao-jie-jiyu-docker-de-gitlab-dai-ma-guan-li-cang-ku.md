@@ -16,9 +16,14 @@ Gitlab 是一个基于Git的开源代码管理仓库，其实GitHub的开源版�
  __以下所有操作基于Mac系统实现,并基于Kitematic操作__    
  
 1. 获取GitLab-ce Docker镜像    
-
+    ![搜索镜像](http://ozjlhf9e0.bkt.clouddn.com/20171118151098030197139.png)
     Docker Hub搜索 GitLab-ce 通过命令下载镜像到本地并运行  
-
+    __注意:__   
+    
+    在这里还是要强调一点， 在安装镜像时，首先先查找有没有Docker 官方发布的对应镜像,例如在 `Kitematic` 中就是带有一下标志的  
+    ![官方镜像](http://ozjlhf9e0.bkt.clouddn.com/20171118151098038871137.png) 
+    官方镜像在稳定性以及维护上都有很好的支持   
+    如果对应的镜像没有官方镜像，那么就查找是否有对应的软件出品方制作的镜像例如 `gitLab` 出品的 `gitlab-ce` 镜像     
 2.  注册用户  
     ![注册用户](http://omy43wh36.bkt.clouddn.com/Snip20171109_6.png)   
 

@@ -67,9 +67,9 @@
       * [第一小节 Spring Boot 初体验](chapter12/Section2/di-yi-xiao-jie-spring-boot.md)
       * [第二小节 Spring Boot 单元测试](chapter12/Section2/di-er-xiao-jie-spring-boot-dan-yuan-ce-shi.md)
       * [第三小节 Spring Boot 项目配置详解](chapter12/Section2/di-san-xiao-jie-spring-boot-xiang-mu-pei-zhi-xiang-jie.md)
-      * 第四小节 Spring Boot 整合Mybaits
-      * 第五小节 Spring Boot  的JPA集成
-      * 第六小节 Spring Boot jdbcTemplate 集成
+      * [第四小节 Spring Boot 整合Mybaits](chapter12/Section2/part4.md)
+      * [第五小节 Spring Boot  的JPA集成](chapter12/Section2/part5.md)
+      * [第六小节 Spring Boot jdbcTemplate 集成](chapter12/Section2/part6.md)
       * [第七小节 Spring Boot Redis 集成](chapter12/Section2/di-qi-xiao-jie-spring-boot-redis-ji-cheng.md)
       * [第八小节 Spring Boot Swagger2 集成](chapter12/di-ba-xiao-jie-springboot-swagger2-ji-cheng.md)
       * 第九小节 Spring Boot Actuator 实现项目运行监控

@@ -2,10 +2,10 @@
 
 ##完成状态  
 
-- [x] 开发中
+- [ ] 开发中
 - [ ] 未完成
 - [ ] 已完成
-- [ ] 维护中   
+- [x] 维护中   
   
 
 Gitlab 是一个基于Git的开源代码管理仓库，其实GitHub的开源版。功能上几乎没有任何区别，任何人都可基于gitlab创建自己私有的代码管理仓库，主要用于公司、团队管理内部的程序代码。  
@@ -38,7 +38,32 @@ Gitlab 是一个基于Git的开源代码管理仓库，其实GitHub的开源版�
     
 
 __基于 Docker for Mac 实现__  
-第三步可以通过命令查看 宿主机和容器的映射端口，主要在这步有区别，其他都是相同的  
+_以下操作默认已经正确安装 Docker for Mac_  
+
+1. 基于命令行搜索image  
+    `docker search gitlab`  
+    ![搜索镜像](http://ozjlhf9e0.bkt.clouddn.com/20171118151098120972868.png)  
+    通过执行 `docker search 关键词` 命令进行查找   
+    > 此处可能需要登录操作，可以按照提示进行登录,如果没有账号，需要去[Docker 官网](https://www.docker.com/)进行免费注册  
+
+2. 安装image  
+    `docker pull gitlab/gitlab-ce`  
+    通过以上命令安装镜像 `docker pull NAME`  
+
+3. 启动镜像   
+    
+    ```Bash  
+    docker run --name gitlab                                                                       
+    -d 
+    -p 8080:8080 
+    gitlab/gitlab-ce
+    ```  
+    通过以上命令启动容器，就可以通过 `localhost:8080` 端口访问容器。  
+    以上操作只是给定示例， 具体的容器操作以及参数和命令需要自行去查找和学习  
+
+
+
+只有操作与基于Kitematic操作实现的第三步相同 
 
     
       

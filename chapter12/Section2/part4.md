@@ -165,7 +165,7 @@ mybatis 也支持基于注解的开发，通过注解来实现 mapper映射，�
     简单的SQL操作都可以通过特定的注解进行实现，针对CURD 操作，提供了`@Select`、`@Update`、`@Delete`、`@Insert`注解，还提供了部分辅助注解  
 
     ```java
-    
+
         @Select("SELECT * FROM product")
         List<Product> findAll();
 
@@ -205,26 +205,22 @@ mybatis 也支持基于注解的开发，通过注解来实现 mapper映射，�
         `${}` : 是简单的字符串替换    
         使用`#{}` 可以有效的避免SQL注入问题    
 
-
-
-2. 复杂查询(动态SQL)     
+2.  复杂查询(动态SQL)     
 
     动态SQL操作并不能像普通查询那样，通过一个注解来实现，由于动态SQL的不确定性。SQL语句是根据条件生成的，所以不同通过一个注解来直接实现。不过mybatis 针对动态SQL提供了其他方式实现，通过`@XXXProvider` 注解，标注具体的实现类和方法来实现动态SQL ,CURD 每种操作都有其对应的动态SQL查询注解   
 
-|   基础    |      复杂(动态)     |     
-|  :------: |     :------:      |     
-| `@Insert` | `@InserProvider`  |    
-| `@Delete` | `@DeleteProvider` |     
-| `@Update` | `@UpdateProvider` |     
-| `@Select` | `@SelectProvider` |     
+    |   基础    |      复杂(动态)     |     
+    |  :------: |     :------:      |     
+    | `@Insert` | `@InserProvider`  |    
+    | `@Delete` | `@DeleteProvider` |     
+    | `@Update` | `@UpdateProvider` |     
+    | `@Select` | `@SelectProvider` |     
 
-
-
-    ``` java  
+   ``` java  
         @SelectProvider(type = ProductMapperProvider.class, method = "findByNameAndType")
     List<Product> findByNameAndType(String name, String type);
-    ```   
-    通过`@SelectProvider`标记，此方式需要的是一个动态SQL操作，其具体的实现需要`ProductMapperProvider`类的`findByNameAndType`返回SQL语句  
+   ```   
+   通过`@SelectProvider`标记，此方式需要的是一个动态SQL操作，其具体的实现需要`ProductMapperProvider`类的`findByNameAndType`返回SQL语句  
 
     ``` java  
         public class ProductMapperProvider {
@@ -243,17 +239,8 @@ mybatis 也支持基于注解的开发，通过注解来实现 mapper映射，�
             }
         }
     ```
-    通过 创建SQL 对象，根据条件拼装SQL语句返回， 此方法会在具体的调用时调用，并根据参数返回一条SQL语句以供具体的调用,此类是一个普通的Java类，其中可以包含任意Java代码。(可以通过任意Java代码形式拼装SQL语句)   
 
-
-
-
-
-
-
-
-
-
+   通过 创建SQL 对象，根据条件拼装SQL语句返回， 此方法会在具体的调用时调用，并根据参数返回一条SQL语句以供具体的调用,此类是一个普通的Java类，其中可以包含任意Java代码。(可以通过任意Java代码形式拼装SQL语句)   
 
 
 ### mybatis xml 配置开发  
@@ -263,5 +250,114 @@ mybatis 虽然支持 基于注解的开发，不过由于注解功能还相对�
 
 
 
-#### 注解与XML配置选择  
+##### 注解与XML配置选择  
 两种方式各有特点， 注解版 对多表联合查询等动态SQL操作支持较弱，不过期简洁快速。XML配置更适合传统的SOA 项目，可以灵活的动态生成SQL，方便调试。具体使用哪种形式，需要自己根据需求选择  
+
+
+
+
+### mybatis Genterator 使用  
+虽然通过以上两种方式都可以实现功能，并且主接班更加简洁， 不过针每张表都需要创建 实体类、mapper映射类甚至更多的东西，如果表少还可以，如果有成百上千的表，那。。。不知道创建到什么时候，伟大的程序员都是懒得，所以通过 `Genterator` 辅助性的插件库就应运而生。通过简单的配置，系统自动生成需要的模板代码。接下来就来看看如何通过简单配置实现自动化生成需要的模板类   
+
+OK， 在具体的操作之前需要先安装一个插件 `Mybatis Plugin`, 需要在 IDEA 的插件中心安装此插件，此插件对mybaits 的支持非常好。有利于接下来的代码实现   
+
+1. maven 配置  
+    * 添加引入包  
+    
+        ``` xml  
+            <dependency>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-core</artifactId>
+                <version>1.3.5</version>
+            </dependency>
+        ``` 
+    * 插件引入  
+
+        ``` xml   
+            <plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>1.3.5</version>
+			</plugin>
+        ```
+
+2. generator 配置   
+    在 `resource`目录下创建 `generatorConfig.xml` 配置文件 
+> 最新版本插件 是可以直接通过IDEA 创建出 模板配置文件 
+
+    ![创建配置模板](http://ozjlhf9e0.bkt.clouddn.com/20171120151118179822278.png)
+
+    ```xml   
+            <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE generatorConfiguration PUBLIC
+                "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+                "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+        <generatorConfiguration>
+            <properties resource="datasource.properties"/>
+
+            <classPathEntry location="/Users/niezi/.m2/repository/mysql/mysql-connector-java/5.1.44/mysql-connector-java-5.1.44.jar"/>
+
+            <context id="context" targetRuntime="MyBatis3">
+                <!--序列化-->
+                <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+                <commentGenerator>
+                    <property name="suppressAllComments" value="false"/>
+                    <property name="suppressDate" value="true"/>
+                </commentGenerator>
+                <!-- 数据库连接 -->
+                <jdbcConnection userId="${db.username}" password="${db.password}" driverClass="${db.driverClassName}" connectionURL="${db.url}"/>
+                <!-- 是否进行数据转换 -->
+                <javaTypeResolver>
+                    <property name="forceBigDecimals" value="false"/>
+                </javaTypeResolver>
+                <!-- 实体类 -->
+                <javaModelGenerator targetPackage="com.springboot.mybatis.demo.domain" targetProject="${db.targetProject}">
+                    <property name="enableSubPackages" value="false"/>
+
+                    <property name="trimStrings" value="true"/>
+                </javaModelGenerator>
+                <!-- mapeprs 映射文件 -->
+                <sqlMapGenerator targetPackage="mappers" targetProject="${db.targetResource}">
+                <property name="enableSubPackages" value="false"/>
+                </sqlMapGenerator>
+                <!-- mapper 接口 -->
+                <javaClientGenerator targetPackage="com.springboot.mybatis.demo.mapper" type="XMLMAPPER" targetProject="${db.targetProject}">
+                <property name="enableSubPackages" value="false"/>
+                </javaClientGenerator>
+                <!--  -->
+                <table schema="test" tableName="%" enableCountByExample="false" enableDeleteByExample="false"
+                    enableSelectByExample="false" enableUpdateByExample="false"/>
+                <!--<table schema="test" tableName="t_user" enableCountByExample="false" enableDeleteByExample="false"-->
+                    <!--enableSelectByExample="false" enableUpdateByExample="false"/>-->
+            </context>
+        </generatorConfiguration>
+
+    ``` 
+    这里有篇文章，针对配置中的参数进行了详细说明 [generator参数说明](http://www.jianshu.com/p/e09d2370b796),如果需要了解其他参数，请查看此文章  
+
+3. 生成需要的类  
+    执行 `mvn mybatis-generator:generate -e` 命令或者通过IDEA 操作生成  
+    ![generator](http://ozjlhf9e0.bkt.clouddn.com/20171120151118365250068.png)  
+__注意__     
+    此处可能会遇到如下错误，其主要原因是没有按照给定的顺序进行配置  
+    ![](http://ozjlhf9e0.bkt.clouddn.com/20171120151118443617109.png)
+    解决方式就是按照途中给定顺序进行配置
+
+## mybatis 多数据源实现  
+通过以上方式，针对mybatis已经可以熟练掌握，不过在高并发的情况下，问了提高性能会针对数据库做读写分离实现，接下来是针对mybatis如何实现读写分离操作的配置
+
+
+
+
+## mybatis page 分页实现  
+分页操作在开发中是必不可少的，那么mybatis如何实现分页操作  
+
+
+
+
+
+
+
+## 总结  
+通过以上几点的介绍，可以熟练掌握mybatis的使用，不过还是有很多不详细的地方，如果需要更加详细的介绍mybatis的读书笔记文章    
+* []()   

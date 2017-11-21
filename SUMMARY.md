@@ -71,7 +71,7 @@
       * [第五小节 Spring Boot  的JPA集成](chapter12/Section2/part5.md)
       * [第六小节 Spring Boot jdbcTemplate 集成](chapter12/Section2/part6.md)
       * [第七小节 Spring Boot Redis 集成](chapter12/Section2/di-qi-xiao-jie-spring-boot-redis-ji-cheng.md)
-      * [第八小节 Spring Boot Swagger2 集成](chapter12/di-ba-xiao-jie-springboot-swagger2-ji-cheng.md)
+      * [第八小节 Spring Boot Swagger2 集成](chapter12/Section2/di-ba-xiao-jie-springboot-swagger2-ji-cheng.md)
       * 第九小节 Spring Boot Actuator 实现项目运行监控
       * 第十小节 Spring Boot Mongodb 集成
       * 第十一节 Spring Boot Security 

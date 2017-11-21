@@ -241,10 +241,25 @@ mybatis 也支持基于注解的开发，通过注解来实现 mapper映射，�
     ```
 
    通过 创建SQL 对象，根据条件拼装SQL语句返回， 此方法会在具体的调用时调用，并根据参数返回一条SQL语句以供具体的调用,此类是一个普通的Java类，其中可以包含任意Java代码。(可以通过任意Java代码形式拼装SQL语句)   
+> 通过以上方式主要针对的是mybatis的功能实现，并没有针对其本身更改配置，使用了spring boot 默认配置，如果需要对其更改配置，需要自行配置，具体方式查看 [mybatis 多数据源实现配置]()   
+
 
 
 ### mybatis xml 配置开发  
 mybatis 虽然支持 基于注解的开发，不过由于注解功能还相对不够完善，其支持并没有XML来的实在，有些功能基于注解的开发反而比基于XML的更复杂，比如：动态sql查询等。mybatis 官方也更加的推荐使用XML来进行 mapper 映射开发  
+
+1. 创建mybatis配置文件  
+    ```xml  
+
+
+    ```   
+
+2. 加载配置文件  
+    在`application.properties`文件中添加配置信息  
+
+    ```
+    mybatis.config=mybatis-config.xml
+    ```
 
 
 
@@ -351,6 +366,52 @@ __注意__
 
 ## mybatis page 分页实现  
 分页操作在开发中是必不可少的，那么mybatis如何实现分页操作  
+mybatis 可以集成插件实现分页实现也可以通过 `mybatis generator`集成插件来实现分页查询功能，以下将通过两种方式实现分页功能  
+
+#### mybatis 插件实现  
+基于PageHelper 包来实现分页效果  
+
+* 引入包  
+
+    ```xml  
+    <dependency>
+        <groupId>com.github.pagehelper</groupId>
+        <artifactId>pagehelper</artifactId>
+        <version>4.1.6</version>
+    </dependency>
+    ```   
+* 在 mybatis 配置中添加分页功能  
+    * XML配置形式  
+
+    * Java 配置形式  
+    ```java  
+        @Configuration
+        public class MyBatisConfiguration {
+            @Bean
+            public PageHelper pageHelper() {
+                PageHelper pageHelper = new PageHelper();
+                Properties p = new Properties();
+                p.setProperty("offsetAsPageNum", "true");
+                p.setProperty("rowBoundsWithCount", "true");
+                p.setProperty("reasonable", "true");
+                pageHelper.setProperties(p);
+                return pageHelper;
+            }
+        }
+    ```
+
+
+
+
+
+
+
+#### mybatis generator 集成插件实现  
+mybatis generator 可以通过插件，实现不同的功能，针对默认的更加完善功能。以下网址是收集的一部分插件及使用方式
+![mybatis-generator-plugin](https://github.com/itfsw/mybatis-generator-plugin.git) 
+
+
+
 
 
 

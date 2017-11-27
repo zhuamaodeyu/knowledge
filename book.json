@@ -1,9 +1,9 @@
 {
     "author": "抓🐱的🐟",
-    "description": "这是一个知识总结",
+    "description": "汤姆猫的自留地，主要是关于程序开发的只是点管理与开发中的一点点心得。",
     "output": null,
     "generator": "site",
-    "title": "",
+    "title": "程序员的知识管理与自我修养",
     "extension": null,
     "language": "zh-hans",
     "github": "https://github.com/zhuamaodeyu/knowledge.git",
@@ -29,7 +29,7 @@
                "edit-link@2.0.2",
                "-sharing",
                "sharing-plus@0.0.2",
-                "ace@0.3.2",
+               "ace@0.3.2",
                "todo@0.1.3"
     ],
     "pluginsConfig": {

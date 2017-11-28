@@ -65,6 +65,8 @@ int main(int argc, const char * argv[]) {
 }
 ```   
 
+#### 后续说明
+
 以上只是针对  `NSApplication` 的简单介绍，后续会根据进度和不同情况下针对方法的使用情况有针对性的对`NSApplication` 以及其代理中的方法进行更加具体的介绍。 请关注后续文章， 谢谢
 
 

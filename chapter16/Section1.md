@@ -7,8 +7,7 @@
 
 本章主要介绍Mac开发中常用的控件以及其作用和具体用法  
 
-## 内容  
-* NSApplicationDelegate   
+## 内容     
 * NSApplication  
 * NSWindow  
 * NSPanel

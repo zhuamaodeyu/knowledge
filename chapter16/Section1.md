@@ -2,14 +2,14 @@
 > 本教程默认已经具备 iOS开发或Mac开发基本概念。 比如开发工具`Xcode`的使用。如果还不清楚如何使用，还请自行查找学习   
 
 
+ 
 
 
-
-本章主要介绍Mac开发中常用的控件以及其作用和具体用法  
+虽然Mac开发和iOS开发有一定的相似度，但是Mac开发有其独特的特点并且其比iOS开发更加复杂，所以本章将先围绕UI控件进行讲解，主要介绍Mac开发中常用的控件以及其作用和具体用法。  
 
 ## 内容     
-* NSApplication  
-* NSWindow  
+* [NSApplication](Section1/part1.md)  
+* [NSWindow](Section1/part2.md)  
 * NSPanel
     * HUD Pannel  
 * NSToolbar

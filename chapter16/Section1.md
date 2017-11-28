@@ -10,7 +10,7 @@
 ## 内容     
 * [NSApplication](Section1/part1.md)  
 * [NSWindow](Section1/part2.md)  
-* NSPanel
+* [NSPanel](Section1/part3.md)
     * HUD Pannel  
 * NSToolbar
 * NSMenu 

@@ -108,6 +108,7 @@
   * [基础控件](chapter16/Section1.md)
     * [Mac开发之 `NSApplication`](chapter16/Section1/part1.md)
     * [Mac 开发之 `NSWindow`](chapter16/Section1/part2.md)
+    * [Mac 开发之 `NSPanel`](chapter16/Section1/part3.md)
 ### Question
 
 * [第十七章 开发问题集锦](chapter17.md)

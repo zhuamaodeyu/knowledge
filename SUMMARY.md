@@ -6,8 +6,12 @@
 
 * [第一章 编程的根基](chapter1.md)
   * [第一节 数据结构与算法](chapter1/Section1.md)
-    * [第二小节 链表](chapter1/Section1/di-yi-xiao-jie-lian-biao.md)
-    * [第一小节 时间复杂度和空间复杂度](chapter1/Section1/di-yi-xiao-jie-shi-jian-fu-za-du-he-kong-jian-fu-za-du.md)
+    * [时间复杂度和空间复杂度](chapter1/Section1/part1.md)
+    * [线性表](chapter1/Section1/part2.md)
+    * [栈与队列](chapter1/Section1/part3.md)
+    * [树](chapter1/Section1/part4.md)
+    * [表](chapter1/Section1/part5.md)
+    * [图](chapter1/Section1/part6.md)
   * [第二节 计算机组成原理](chapter1/Section2.md)
 
 ## Java  

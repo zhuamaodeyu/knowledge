@@ -14,6 +14,17 @@
     * HUD Pannel  
 * NSToolbar
 * NSMenu 
+* NSAlert
+* NSPopover    
+* NSSplitView  
+* NSStackView  
+* NSGridView  
+* NSButton
+* NSLevelIndicator
+* NSPathControl
+* NSPopUpButton
+* NSContainerView  
+* NSStatusBar  
 * NSViewController
 * NSPageController  
 * NSObjectController
@@ -32,6 +43,8 @@
     * Wrapping Label 
     * WrappingTextField 
 * TextView
+* NSActionCell  
+* NSCell
 * NSSegmentedControl  
 * NSImageView 
     * Image Well
@@ -72,7 +85,12 @@
 * NSOutlineView
 * NSSplitView
 * NSScrollView
-* NSTabView
+* NSTabView  
+* NSBrowser  
+* NSOpenGLView
+* NSTextView  
+* NSColorWell 
+
 * NSBox
 * NSTouchBar  
     * TB View
@@ -91,3 +109,17 @@
 * AMWorkflowView  
 * ABPersonView
 * ABPeoplePickerView  
+  
+* Event Handing  
+* Sandbox  
+
+## 以下内容是根据AppKit 框架分类进行说明  
+* Core App  
+    * NSWorkspace  
+    * NSDocumentController
+    * NSPasteboard  
+    * NSUserDefaultsController 
+    * NSSharingService  
+    * NSHelpManager  
+
+

@@ -34,7 +34,7 @@
 ## GO
 
 * [第六章 Go篇](chapter6.md)
-* [第一节  Go语言基础](chapter6/di-yi-jie-go-yu-yan-ji-chu.md)
+  * [Go语言基础](chapter6/di-yi-jie-go-yu-yan-ji-chu.md)
 * [第七章 Go web 系列](chapter7.md)
   * [Go Web ](chapter7/go-web.md)
   * [Go Web 基础](chapter7/go-web-ji-chu.md)

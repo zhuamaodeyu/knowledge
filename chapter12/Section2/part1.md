@@ -39,12 +39,13 @@ Maven 是通过 `pom.xml` 文件来进行项目管理和配置的，查看此文
 
 要实现REST ful 请求，需要引入的是web 模块，我们可以通过一下方式引入   
 
-~~~
+```xml
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-web</artifactId>
 </dependency>
-~~~
+```
+
 _小提示: IDEA 集成开发工具还是很智能哦，如果不知道具体的`groupId` 可以直接输入web 关键字，一般系统会给出提示哦_
 
 #### 实现REST ful  请求  

@@ -19,7 +19,7 @@
 * mybatis page 分页实现  
 
 
-### mybatis 与 spring boot 整合  
+## mybatis 与 spring boot 整合  
 spring boot 针对mybatis 有专门的 starter 包，可以轻松的将 mybatis 集合到 spring boot 项目中去， 接下来将简单的实现一个 spring boot 与 mybatis 的集成项目  
 
 > 本demo 是基于 注解形式实现，如果需要XML配置实现方式请查看对应部分内容  
@@ -153,7 +153,7 @@ spring boot 针对mybatis 有专门的 starter 包，可以轻松的将 mybatis 
     此问题是由于mybatis 的版本不一致造成的，具体的说明以及解决办法在[此处]()   
 
 
-### mybatis 全注解开发   
+## mybatis 全注解开发   
 mybatis 也支持基于注解的开发，通过注解来实现 mapper映射，不需要臃肿的 XML 来配置。 接下来将介绍mapper 映射中  CURD 不同的注解使用  
 
 ![myabtis 注解](http://ozjlhf9e0.bkt.clouddn.com/20171120151116196675454.png "myabtis 注解")
@@ -245,7 +245,7 @@ mybatis 也支持基于注解的开发，通过注解来实现 mapper映射，�
 
 
 
-### mybatis xml 配置开发  
+## mybatis xml 配置开发  
 mybatis 虽然支持 基于注解的开发，不过由于注解功能还相对不够完善，其支持并没有XML来的实在，有些功能基于注解的开发反而比基于XML的更复杂，比如：动态sql查询等。mybatis 官方也更加的推荐使用XML来进行 mapper 映射开发  
 
 1. 创建mybatis配置文件  
@@ -271,7 +271,7 @@ mybatis 虽然支持 基于注解的开发，不过由于注解功能还相对�
 
 
 
-### mybatis Genterator 使用  
+## mybatis Genterator 使用  
 虽然通过以上两种方式都可以实现功能，并且主接班更加简洁， 不过针每张表都需要创建 实体类、mapper映射类甚至更多的东西，如果表少还可以，如果有成百上千的表，那。。。不知道创建到什么时候，伟大的程序员都是懒得，所以通过 `Genterator` 辅助性的插件库就应运而生。通过简单的配置，系统自动生成需要的模板代码。接下来就来看看如何通过简单配置实现自动化生成需要的模板类   
 
 OK， 在具体的操作之前需要先安装一个插件 `Mybatis Plugin`, 需要在 IDEA 的插件中心安装此插件，此插件对mybaits 的支持非常好。有利于接下来的代码实现   

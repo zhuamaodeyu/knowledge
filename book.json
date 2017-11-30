@@ -109,8 +109,8 @@
             "modify_format": "YYYY-MM-DD HH:mm:ss"
         },
         "donate": {
-            "wechat": "assets/weixin.png",
-            "alipay": "assets/alipay.jpg",
+            "wechat": "http://ozjlhf9e0.bkt.clouddn.com/20171130151204669335920.png",
+            "alipay": "http://ozjlhf9e0.bkt.clouddn.com/20171130151204667213312.jpg",
             "title": "",
             "button": "赏",
             "alipayText": "支付宝打赏",

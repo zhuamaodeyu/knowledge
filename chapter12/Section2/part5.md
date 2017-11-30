@@ -63,7 +63,11 @@ __查询前缀 + 全局修饰 + 实体属性名称 + 限定词 + 连接词 + ...
 ```
 下面给出更加全面的关键词列表：  
 	
-__这里插入一个表格__  
+|  全局修饰  |   关键词    | 排序方向 | 连接词 | 限定词 |
+| --------- | ---------- | ------ | ----- | ----- |
+| Distinct  |isNull,isNotNull,like,notLike,Containing, in,notIn,ignoreCase, between, equals,Lessthan,graterThan,after,Before | asc, desc | and , or | first(fitst+number),top(top + number)|  
+
+更加详细的关键词表通过连接可以查看[Query creation Keyword](https://docs.spring.io/spring-data/jpa/docs/2.0.2.RELEASE/reference/html/#jpa.query-methods)
 
 
 根据以上内容，可以实现大部分的功能了，不过 JPA 还给出了更加全面的功能。下面进行一一列举：  
@@ -244,16 +248,6 @@ __这里插入一个表格__
 
 
 
-
-
-
-
-
-
-
-
-
-
 ## Spring Data JPA 实体详解  
 
 ## Spring Data JPA JPQL
@@ -265,5 +259,5 @@ __这里插入一个表格__
 
 
 
-### 参考文献  
+## 参考文献  
 * [Spring Data JPA - Reference Documentation](https://docs.spring.io/spring-data/jpa/docs/2.0.2.RELEASE/reference/html/)

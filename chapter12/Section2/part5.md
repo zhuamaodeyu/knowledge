@@ -1,4 +1,4 @@
-# Spring Boot  的 JPA 集成  
+# Spring Boot  的 集成 Spring Data (JPA)  
 ### 完成状态
 
 - [x] 编写中
@@ -14,6 +14,11 @@ hibernate是持久化实现技术，jpa是持久化的标准，hibernate是一�
 #### Spring  Data JPA 
 Spring Data JPA 是基于ORM 框架hibernate针对JPA 规范的实现。是hibernate的扩展级。Spring  Data JPA 是 Spring Data 大家族中的一份子。通过Spring Data JPA 可以使开发者使用极简的代码实现对数据的访问和操作。包括常用的增删改查，排序等等的常用的数据库操作， 极大地提高了开发效率。  
 
+#### Spring Data 与 Spring Data JPA 的关系  
+Spring Data JPA 是 Spring Data 的一个子集。Spring Data 包含的内容比较多，其中包含了针对不同数据库的访问，比如SQL数据库(Orcale, Mysql等)；NoSQL(Mongodb, redis等)数据库的访问。 JPA 只是其中实现了 JPS 规范的一部分内容。JPA 的使用必须依赖于 Spring Data 的内容。   
+
+
+
 本章将基于 Spring Data JPA 进行数据库访问，针对Spring Data JPA 进行详细的说明与讲解， 本文将包含以下内容： 
 * Spring Data JPA 功能特点说明     
 * Spring Data JPA 与 Spring Boot 整合 
@@ -22,7 +27,6 @@ Spring Data JPA 是基于ORM 框架hibernate针对JPA 规范的实现。是hiber
 * Spring Data JPA JPQL 
 
 ## Spring Data JPA 功能   
-
 ### 类接口介绍  
 由于Spring Data JPA 是 Spring  Data 的一份子，所以基础功能含在Spring Data 包中。不过Spring Data JPA 也有一个具体的扩展包。以下是Spring Data JPA 的具体位置以及类结构：  
 ![Spring Data包](http://ozjlhf9e0.bkt.clouddn.com/20171130151200688924794.png)
@@ -149,7 +153,80 @@ __查询前缀 + 全局修饰 + 实体属性名称 + 限定词 + 连接词 + ...
 
 以上的内容，如果需要更加详细的了解，可以通过访问官方文档地址查询[Defining query methods](https://docs.spring.io/spring-data/jpa/docs/2.0.2.RELEASE/reference/html/#repositories.query-methods.details)
 
+### Spring Data 配置以及部分原理  
+虽然通过一下简单的集成可以直接使用 JPA , 不过由于我们使用的是 Spring  Boot ,其自动化的已经帮我们实现了很多配置，但是自动化的配置并不能完全的满足我们的需求，有时候我们还是需要针对其进行自动化的配置。很好的理解Spring Data如何配置以及如何实现能更加的帮助我们使用Spring Data(JPA)。   
 
+
+#### Spring Data配置  
+每一个Spring Data模块都包含repositories元素能够让你简单的基于base-package定义来进行Spring扫描。我们可以通过 XML 以及 Java 两种配置的形式来配置  
+
+* xml 配置  
+```xml  
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.springframework.org/schema/data/jpa"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/data/jpa
+    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+  <repositories base-package="com.acme.repositories">
+ 		<context:exclude-filter type="regex" expression=".*SomeRepository" />
+  </repositories>
+</beans:beans>
+```  
+* java 配置  
+```java   
+@Configuration
+@EnableJpaRepositories("com.acme.repositories")
+class ApplicationConfiguration {
+
+  @Bean
+  public EntityManagerFactory entityManagerFactory() {
+    // …
+  }
+}
+```
+__通过`@Enable${store}Repositories`注解来开启不同的支持，比如`@EnableJpaRepositories`用来开`JPA`支持 ， `EnableMongoRepositories`来开启`Mongodb`的支持__  
+
+通过以上方式可以针对 `Spring Data` 进行自定义化的配置，针对不同的需求进行不同的配置。比如一个项目中同时使用多种数据库，(Spring Data 针对每个模块有单独的配置实现),可以通过针对性的配置实现不同的支持。同时还可以通过过滤等配置针对对应的模块过滤性的加载 registory   
+
+
+#### Spring Data Registroy   
+Spring  Data 使用通过接口化实现，项目在运行时通过接口自动化生成对应的实现类，通过Spring 的bean管理机制，生成与类名相同的key(类名的第一个首字母小写)对bean进行对应存储。利用工厂方法通过类来获取对应的实例  
+```java   
+RepositoryFactorySupport factory = … // Instantiate factory here
+UserRepository repository = factory.getRepository(UserRepository.class);
+```
+通过以上方式，可以获取系统自动生成的对应的接口实例。 不过有时候，针对一些不同的需求要求，我们并不能很好的通过Spring Data 的方法名映射出合适的方法实现，此时需要我们自己实现`Spring Data repositories`,此处就需要自定义实现    
+* 定义接口定义方法  
+``` java   
+interface CustomizedUserRepository {
+  void someCustomMethod(User user);
+}
+```
+* 自定义方法实现  
+```java   
+class CustomizedUserRepositoryImpl implements CustomizedUserRepository {
+
+  public void someCustomMethod(User user) {
+    // Your custom implementation
+  }
+}
+```
+__类名需要按照 `{接口名}Impl` 来实现哦__   
+
+* 将其扩展到` repository interface`  
+```java  
+interface UserRepository extends CrudRepository<User, Long>, CustomizedUserRepository {
+
+  // Declare query methods here
+}
+```
+通过以上方式实现，即实现了自定义的方法实现，系统也不会再聪明的自动生成对应的方法实现
+
+以上给出了Spring Data 的简单介绍，如果需要更加详细的学习请查询官方文档[官方文档](https://docs.spring.io/spring-data/jpa/docs/2.0.2.RELEASE/reference/html/#jpa.query-methods)
 
 ## Spring Data JPA 与 Spring Boot 整合 
 1. 引入需要的jar包    
@@ -247,14 +324,12 @@ __查询前缀 + 全局修饰 + 实体属性名称 + 限定词 + 连接词 + ...
 	通过以上方式实现的，虽然看似使用的是一个自定的接口类实现的，不过内部还是会映射到 `CrudRepository`接口上，只不过没有提供那么多接口以供开发调用(__此内容没有经过验证，根据文档介绍是如何__)
 
 
-
 ## Spring Data JPA 实体详解  
 
+
+
+
 ## Spring Data JPA JPQL
-
-
-
-
 
 
 

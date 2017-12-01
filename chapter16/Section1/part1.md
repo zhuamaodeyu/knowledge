@@ -34,7 +34,7 @@
 
 > After creating the application object, the main() function should load your app’s main nib file and then start the event loop by sending the application object a run message. If you create an Application project in Xcode, this main() function is created for you. The main() function Xcode creates begins by calling a function named NSApplicationMain(), which is functionally similar to the following:   
 
-```objective-c  
+```objectivec  
 void NSApplicationMain(int argc, char *argv[]) {
     [NSApplication sharedApplication];
     [NSBundle loadNibNamed:@"myMain" owner:NSApp];
@@ -43,7 +43,7 @@ void NSApplicationMain(int argc, char *argv[]) {
 ```  
 现在明白了吧， 其实并不是没有，只是通过 main 函数中调用的`NSApplicationMain` 给代替了，这个函数内部创建了`NSApplication` 对象并添加了实现。所以在项目中 main 函数看起来才如此简洁   
 
-```objective-c 
+```objectivec
 int main(int argc, const char * argv[]) {
     return NSApplicationMain(argc, argv);
 }
@@ -53,7 +53,7 @@ int main(int argc, const char * argv[]) {
 
 每一个 `NSApplication` 都有一个代理对象，在此测试项目中对应`AppDelegate.m` 文件中，`NSApplication`主要负责资源管理和UI 界面的管理以及事件管理，但是关于应用程序的启动，隐藏，退出或者用户选择文件等等操作是通过代理来实现的。针对此种类型的事件，并没有交给它自己来处理，而是交给代理然后让用户来决定如何处理(毕竟自杀的也只是少部分不是吗?😜)。默认情况下，`AppDelegate.m` 文件中只是实现了两个代理方法模板。  
 
-```objective-c 
+```objectivec 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application   
     // App  启动时调用

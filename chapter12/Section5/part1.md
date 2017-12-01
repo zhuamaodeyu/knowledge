@@ -13,7 +13,7 @@
     项目是基于 Maven 构建的，所有的maven配置都在此文件中，添加库等等操作都在此处。具体的不赘述maven操作。请自行查看具体的章节或者百度    
     在pom.xml 文件中添加一下内容   
     
-    ```Xml
+    ```xml
       	<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>docker-maven-plugin</artifactId>

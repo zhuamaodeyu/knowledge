@@ -105,7 +105,7 @@ __私有函数以小写字母开头__
 #### 构建包  
 在 `$OGPATH` 下新建目录， 复制包文件到目录   
 
-```shell 
+```bash 
 mkdir $GOPATH/src/even  
 cp even.go $GOPATH/src/even  
 go build  

@@ -19,16 +19,17 @@ Spring Data JPA 是 Spring Data 的一个子集。Spring Data 包含的内容比
 
 
 
-本章将基于 Spring Data JPA 进行数据库访问，针对Spring Data JPA 进行详细的说明与讲解， 本文将包含以下内容： 
-* Spring Data JPA 功能特点说明     
+本章将基于 Spring Data以及其 JPA 部分进行数据库访问，针对Spring Data 以及 JPA 进行详细的说明与讲解， 本文将包含以下内容： 
+* Spring Data 功能特点说明    
+* Spring Data JPA 功能特点说明 
 * Spring Data JPA 与 Spring Boot 整合 
 * Spring Data JPA 基本使用  
 * Spring Data JPA 实体详解  
 * Spring Data JPA JPQL 
 
-## Spring Data JPA 功能   
+## Spring Data 功能   
 ### 类接口介绍  
-由于Spring Data JPA 是 Spring  Data 的一份子，所以基础功能含在Spring Data 包中。不过Spring Data JPA 也有一个具体的扩展包。以下是Spring Data JPA 的具体位置以及类结构：  
+由于Spring Data JPA 是 Spring  Data 的一份子，所以基础功能含在Spring Data 包中。不过Spring Data JPA 也有一个具体的扩展包。以下是Spring Data 核心包和 JPA 的具体位置以及类结构：  
 ![Spring Data包](http://ozjlhf9e0.bkt.clouddn.com/20171130151200688924794.png)
 ![Spring Data JPA包](http://ozjlhf9e0.bkt.clouddn.com/20171130151200718299023.png)
 
@@ -46,7 +47,7 @@ Spring Data JPA 是 Spring Data 的一个子集。Spring Data 包含的内容比
 以上只是介绍了几个通用的操作接口，其还有更加具体的持久化技术抽象接口，比如:`JpaRepository`, `MongoRepository`,`RedisRepository`等等，针对不同的数据库存在的不同的抽象化技术
 
 ### 方法定义 
-Spring Data 提供了从方法名映射出特定的查询语句。通过对方法名的解析，JPA 支持按照规范的方法名查询。直接给定合乎规范的方法名，系统会根据方法名生成正确的查询等操作实现,不需要对方法进行实现，JPA 会自动生成需要的代码   
+Spring Data 提供了从方法名映射出特定的查询语句。通过对方法名的解析，支持按照规范的方法名查询。直接给定合乎规范的方法名，系统会根据方法名生成正确的查询等操作实现,不需要对方法进行实现，会自动生成需要的代码   
 在自定义方法时，必须按照一定的规则才可以正确解析，其中有一些特定的单词发挥着特定的功能，也许它对最后生成具体代码没有具体的作用，但可以让代码更容易阅读。以下列出用于查询的特定的前缀以及连接词 ：  
 查询: `find...By`,`read...By`,`query...By`,`count...By`,`get...By`   
 连接: `And`, `Or`  
@@ -74,9 +75,9 @@ __查询前缀 + 全局修饰 + 实体属性名称 + 限定词 + 连接词 + ...
 更加详细的关键词表通过连接可以查看[Query creation Keyword](https://docs.spring.io/spring-data/jpa/docs/2.0.2.RELEASE/reference/html/#jpa.query-methods)
 
 
-根据以上内容，可以实现大部分的功能了，不过 JPA 还给出了更加全面的功能。下面进行一一列举：  
+根据以上内容，可以实现大部分的功能了，不过 Spring Data还给出了更加全面的功能。下面进行一一列举：  
 * 嵌套方法命名规则  
-	针对多级嵌套，JPA提供了另外种更加直观的查询方式。通过下划线分割更加清晰明了  
+	针对多级嵌套，提供了另外种更加直观的查询方式。通过下划线分割更加清晰明了  
 	
 ```java   
 	public User{
@@ -157,7 +158,7 @@ __查询前缀 + 全局修饰 + 实体属性名称 + 限定词 + 连接词 + ...
 虽然通过一下简单的集成可以直接使用 JPA , 不过由于我们使用的是 Spring  Boot ,其自动化的已经帮我们实现了很多配置，但是自动化的配置并不能完全的满足我们的需求，有时候我们还是需要针对其进行自动化的配置。很好的理解Spring Data如何配置以及如何实现能更加的帮助我们使用Spring Data(JPA)。   
 
 
-#### Spring Data配置  
+#### Spring Data 配置  
 每一个Spring Data模块都包含repositories元素能够让你简单的基于base-package定义来进行Spring扫描。我们可以通过 XML 以及 Java 两种配置的形式来配置  
 
 * xml 配置  
@@ -228,6 +229,12 @@ interface UserRepository extends CrudRepository<User, Long>, CustomizedUserRepos
 
 以上给出了Spring Data 的简单介绍，如果需要更加详细的学习请查询官方文档[官方文档](https://docs.spring.io/spring-data/jpa/docs/2.0.2.RELEASE/reference/html/#jpa.query-methods)
 
+
+## Spring Data JPA 功能特点说明   
+
+
+
+
 ## Spring Data JPA 与 Spring Boot 整合 
 1. 引入需要的jar包    
     本次采用的数据库是 MySQL， 所以也需要引入MySQL驱动包  
@@ -244,7 +251,7 @@ interface UserRepository extends CrudRepository<User, Long>, CustomizedUserRepos
 	```
 
 2. JPA 配置说明  
-	```yml  
+	```properties  
 	spring.jpa.database=
 	spring.jpa.database-platform=
 	spring.jpa.generate-ddl=

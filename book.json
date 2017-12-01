@@ -12,7 +12,7 @@
                 "disqus@0.1.0",
                 "-lunr", "-search", "search-plus@1.0.3",
                 "prism@2.3.0",
-                "-highlight",
+                 "-highlight",
                 "prism-themes@0.0.2",
                 "advanced-emoji@0.2.2",
                 "github@2.0.0",

@@ -9,7 +9,7 @@ Spring Boot 是 Pivotal 团队提供的全新的框架，主要就是简化 Spri
 * [Spring Boot 单元测试](Section2/part2.md)
 * [Spring Boot 项目配置详解](Section2/part3.md)
 * [Spring Boot 整合Mybaits](Section2/part4.md)
-* [Spring Boot  的JPA集成](Section2/part5.md)
+* [Spring Boot 的JPA集成](Section2/part5.md)
 * [Spring Boot jdbcTemplate 集成](Section2/part6.md)
 * [Spring Boot Redis 集成](Section2/part7.md)
 * [Spring Boot Swagger2 集成](Section2/part8.md)
@@ -28,5 +28,6 @@ Spring Boot 是 Pivotal 团队提供的全新的框架，主要就是简化 Spri
 本系列文章中，有部分文章由于特殊原因，内容比较长，不过我还是希望您能抽出时间阅读完。如果当前不允许或者您不喜欢此种方式的文章，您可以通过顶部的目录直接跳转到您感兴趣的部分阅读。不过我个人还是建议您能整体阅读，有些内容和其上下部分内容有很大的关联。全篇阅读有助于您更好的理解   
 
 
-#### 关于为什么我样将文章写这么长
+#### 关于为什么我样将文章写这么长一个小说明 
+
 我个人认为，技术文章并不同于其他，我希望的是通过一片文章可以针对此部分内容让您有个总体的了解，我不想只是写一点点的说明性的东西，如果只是简单介绍，如果只是简单介绍，那就真的只是简单介绍了。这样您想更多的去学习必须去通过Google独自去搜索，大大的浪费时间(有时候并不知道该搜什么)。我想通过一篇文章让您可以更全面的了解此部分介绍的内容。虽然不能说看了一篇文章就能如何运用自如，但还是想让您有个整体的概念，以便后续的更加深入学习

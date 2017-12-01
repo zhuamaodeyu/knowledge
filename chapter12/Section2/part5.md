@@ -20,13 +20,13 @@ Spring Data JPA 是 Spring Data 的一个子集。Spring Data 包含的内容比
 
 
 本章将基于 Spring Data以及其 JPA 部分进行数据库访问，针对Spring Data 以及 JPA 进行详细的说明与讲解， 本文将包含以下内容： 
-* Spring Data 功能特点说明    
-* Spring Data JPA 功能特点说明 
-* Spring Data JPA 与 Spring Boot 整合 
-* Spring Data JPA 基本使用  
-* Spring Data JPA 实体详解  
-* Spring Data JPA JPQL 
-
+* [Spring Data 功能特点说明](#Spring Data 功能)    
+* [Spring Data JPA 功能特点说明](#Spring Data JPA 功能特点说明) 
+* [Spring Data JPA 与 Spring Boot 整合](#Spring Data JPA 与 Spring Boot 整合) 
+* [Spring Data JPA 基本使用](#Spring Data JPA 基本使用) 
+* [Spring Data JPA 实体详解](#Spring Data JPA 实体详解)  
+* [Spring Data JPA JPQL](#Spring Data JPA JPQL)
+* [参考文献](#参考文献)
 ## Spring Data 功能   
 ### 类接口介绍  
 由于Spring Data JPA 是 Spring  Data 的一份子，所以基础功能含在Spring Data 包中。不过Spring Data JPA 也有一个具体的扩展包。以下是Spring Data 核心包和 JPA 的具体位置以及类结构：  
@@ -230,7 +230,7 @@ interface UserRepository extends CrudRepository<User, Long>, CustomizedUserRepos
 以上给出了Spring Data 的简单介绍，如果需要更加详细的学习请查询官方文档[官方文档](https://docs.spring.io/spring-data/jpa/docs/2.0.2.RELEASE/reference/html/#jpa.query-methods)
 
 
-## Spring Data JPA 功能特点说明   
+## Spring Data JPA 功能特点说明
 
 
 

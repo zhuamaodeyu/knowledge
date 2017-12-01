@@ -51,7 +51,7 @@
 		![添加环境变量](http://omy43wh36.bkt.clouddn.com/Snip20171111_47.png)  
 		添加一下内容  
 
-		```Bash
+		```bash
 		export PATH="$PATH:/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/node/bin"
 		```
 			

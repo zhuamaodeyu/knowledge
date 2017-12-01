@@ -44,8 +44,8 @@
               "prism-themes/themes/prism-duotone-dark.css"
             ],
             "lang": {
-                "flow": "typescript",
-                "bash":"shell"
+                "flow": "typescript"
+                
               }
           },
         "simple-page-toc": {

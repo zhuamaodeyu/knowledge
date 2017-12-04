@@ -63,10 +63,6 @@
   * [Docker 加速](chapter11/Section3.md)
 * [第十二章 微服务篇](chapter12.md)
   * [第一节 微服务架构设计](chapter12/Section1.md)
-    	* [第一小节 为什么需要微服务](chapter12/Section1/part1.md)
-    	* 第二小节 微服务是什么
-    	* 第三小节 微服务有哪些特点以及实现技术难点
-    	* 第四小节 如何实现一个简单的微服务架构
   * [第二节 基于Java的微服务开发框架---Spring Boot](chapter12/Section2.md)
       * [Spring Boot 初体验](chapter12/Section2/part1.md)
       * [Spring Boot 单元测试](chapter12/Section2/part2.md)
@@ -85,8 +81,9 @@
       * [Spring Boot 集成 Elasticsearch](chapter12/Section2/part15.md) 
       * [Spring Boot 集成模板引擎](chapter12/Section2/part16.md)
       * [Spring Boot RabbitMQ 集成](chapter12/Section2/part17.md)
+      * [Spring Boot Zoopkeeper](chapter12/Section2/part18.md)  
   * [第三节 基于Java的微服务集成开发框架 Spring Cloud](chapter12/Section3.md)
-  * [第四节 基于开发源框架组的微服务工具组](chapter12/Section4.md)
+  * [第四节 基于开发源框架组的微服务工具组](chapter12/Section4.md)  
   * [第五节 基于Docker实现的微服务封装](chapter12/Section5.md)
     * [基于Docker 实现微服务的封装---Spring Boot](chapter12/Section5/part1.md)
     * [基于Docker 实现微服务的封装--Node.js](chapter12/Section5/part2.md)
@@ -114,7 +111,6 @@
     * [Mac 开发之 `NSPanel`](chapter16/Section1/part3.md)
 
 ### Question
-
 * [第十七章 开发问题集锦](chapter17.md)
   * [docker 篇](chapter17/Section1.md)
     * [unix://localhost:80 no search file or directory](chapter17/Section1/unixlocalhost80-no-search-file-or-directory.md)

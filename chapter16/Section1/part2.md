@@ -34,5 +34,5 @@
 默认情况下，新建的 Mac 项目中就会自带一个窗口，可以在`Main.storyboard` 文件中查看。默认情况下，窗口显示时此种样式  
 ![窗口](http://ozjlhf9e0.bkt.clouddn.com/2017112815118574977070.png)  
 ![窗口设置](http://ozjlhf9e0.bkt.clouddn.com/20171128151185795574801.png)  
-默认窗口就是如上显示形式，可以通过storyboard 进行界面化的修改设置，默认情况下，窗口带有一个控制器(ContentViewController),窗口通过管理此控制器来管理其中的控件，所有的控件操作都将在此控制器中实现。具体的显示将在ContentView 部分显示   
+默认窗口就是如上显示形式，可以通过storyboard 进行界面化的修改设置，默认情况下，窗口带有一个控制器(ContentViewController),窗口通过管理此控制器来管理其中的控件，所有的控件操作都将在此控制器中实现。具体的显示将在ContentView 部分显示
 

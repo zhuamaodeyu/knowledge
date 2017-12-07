@@ -26,7 +26,7 @@ Spring Data JPA 是 Spring Data 的一个子集。Spring Data 包含的内容比
 * [Spring Data JPA 基本使用](#Spring Data JPA 基本使用) 
 * [Spring Data JPA 实体详解](#Spring Data JPA 实体详解)  
 * [Spring Data JPA JPQL](#Spring Data JPA JPQL)
-* [参考文献](#参考文献)
+* [参考](#参考)
 ## Spring Data 功能   
 ### 类接口介绍  
 由于Spring Data JPA 是 Spring  Data 的一份子，所以基础功能含在Spring Data 包中。不过Spring Data JPA 也有一个具体的扩展包。以下是Spring Data 核心包和 JPA 的具体位置以及类结构：  
@@ -130,14 +130,14 @@ __查询前缀 + 全局修饰 + 实体属性名称 + 限定词 + 连接词 + ...
 	@Query("select u from User u")
 	Stream<User> streamAllPaged(Pageable pageable);
 ```  
-	__注意__在使用流时，需要注意以下两点：  
-	*  `Stream`在使用之后需要关闭的，可以通过 `str-with-resources block `的方式关闭或者`close()`方法来关闭。
-	```java  
+   __注意:__ 在使用流时，需要注意以下两点    
+	- `Stream`在使用之后需要关闭的，可以通过 `str-with-resources block `的方式关闭或者`close()`方法来关闭。
+```java  
 		try (Stream<User> stream = 	repository.findAllByCustomQueryAndStream()) {
   stream.forEach(…);
 		}
-	```
-	* 并不是所有的数据模型都支持`Stream<T>`模式的
+```
+    - 并不是所有的数据模型都支持`Stream<T>`模式的
 
 * 异步查询  
 	同时支持异步查询。  
@@ -159,7 +159,7 @@ __查询前缀 + 全局修饰 + 实体属性名称 + 限定词 + 连接词 + ...
 
 
 #### Spring Data 配置  
-每一个Spring Data模块都包含repositories元素能够让你简单的基于base-package定义来进行Spring扫描。我们可以通过 XML 以及 Java 两种配置的形式来配置  
+每一个Spring Data模块都包含repositories元素能够让你简单的基于base-package定义来进行Spring扫描。我们可以通过 XML 以及 Java 两种配置的形式来配置。 
 
 * xml 配置  
 ```xml  
@@ -231,6 +231,26 @@ interface UserRepository extends CrudRepository<User, Long>, CustomizedUserRepos
 
 
 ## Spring Data JPA 功能特点说明
+Spring Data 每一个模块都有其单独的`namespace`,
+![namespace](http://ozjlhf9e0.bkt.clouddn.com/2017120415123959818516.png)通过[namespace](http://www.springframework.org/schema/data/)可以获得去支持的模块。通过单独的配置可以支持一些JPA独有的配置属性  
+
+```xml  
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/data/jpa
+    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+  <jpa:repositories base-package="com.acme.repositories" />
+
+</beans>
+```   
+通过以上简单的方式就可以实现JPA 的配置，不过，虽然以上XML只有一句配置项，不过默认自动的添加了两项默认配置   
+
+
 
 
 
@@ -341,5 +361,5 @@ interface UserRepository extends CrudRepository<User, Long>, CustomizedUserRepos
 
 
 
-## 参考文献  
+## 参考  
 * [Spring Data JPA - Reference Documentation](https://docs.spring.io/spring-data/jpa/docs/2.0.2.RELEASE/reference/html/)

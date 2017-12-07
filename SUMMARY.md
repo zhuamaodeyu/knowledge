@@ -14,7 +14,7 @@
     * [图](chapter1/Section1/part6.md)
   * [第二节 计算机组成原理](chapter1/Section2.md)
 
-## Java  
+## Java
 
 * [第二章 Java篇](chapter2.md)
   * [第一节 Java基础](chapter2/di-yi-jie-java-ji-chu.md)
@@ -36,7 +36,7 @@
 * [第六章 Go篇](chapter6.md)
   * [Go语言基础](chapter6/di-yi-jie-go-yu-yan-ji-chu.md)
 * [第七章 Go web 系列](chapter7.md)
-  * [Go Web ](chapter7/go-web.md)
+  * [Go Web](chapter7/go-web.md)
   * [Go Web 基础](chapter7/go-web-ji-chu.md)
   * [Go Web 文本处理](chapter7/go-web-wen-ben-chu-li.md)
   * [Go Web 服务](chapter7/go-web-fu-wu.md)
@@ -76,12 +76,14 @@
       * [Spring Boot Mongodb 集成](chapter12/Section2/part10.md)
       * [Spring Boot Security](chapter12/Section2/part11.md) 
       * [Spring Boot Security 第三方登录](chapter12/Section2/part12.md)
+      * [Spring Boot Security 单点登录](chapter12/Section2/part19.md)
       * [Spring Boot 日志处理](chapter12/Section2/part13.md)
       * [Spring Boot 异常处理](chapter12/Section2/part14.md)
       * [Spring Boot 集成 Elasticsearch](chapter12/Section2/part15.md) 
       * [Spring Boot 集成模板引擎](chapter12/Section2/part16.md)
       * [Spring Boot RabbitMQ 集成](chapter12/Section2/part17.md)
       * [Spring Boot Zoopkeeper](chapter12/Section2/part18.md)  
+      *[Spring Boot WebSocket](chapter12/Section2/part20.md)  
   * [第三节 基于Java的微服务集成开发框架 Spring Cloud](chapter12/Section3.md)
   * [第四节 基于开发源框架组的微服务工具组](chapter12/Section4.md)  
   * [第五节 基于Docker实现的微服务封装](chapter12/Section5.md)
@@ -91,7 +93,7 @@
     * [基于Docker的 GitLab 代码管理仓库](chapter12/Section6/part1.md)
     * [基于Jenkins GitLab 实现的自动化构建----Java](chapter12/Section6/part2.md)
     * [基于Jenkins构建Docker化](chapter12/Section6/part3.md)
-    * [基于Jenkins 镜像的nodejs 自动化构建 ](chapter12/Section6/part4.md)
+    * [基于Jenkins 镜像的nodejs 自动化构建](chapter12/Section6/part4.md)
   * [实践篇](chapter12/shi-jian-pian.md)
     * [Java 篇](chapter12/shi-jian-pian/java-pian.md)
       * [ServiceCenterPeer 服务实现](chapter12/shi-jian-pian/java-pian/servicecenterpeer-fu-wu-shi-xian.md)
@@ -99,7 +101,7 @@
 
 ### DevOps
 
-* 第十三章 DevOps 开发与运维  
+* 第十三章 DevOps 开发与运维
 
 ### Others
 * 第十四章 Python
@@ -116,5 +118,6 @@
     * [unix://localhost:80 no search file or directory](chapter17/Section1/unixlocalhost80-no-search-file-or-directory.md)
     * [进入容器的几种方式](chapter17/Section1/jin-ru-rong-qi-de-ji-zhong-fang-shi.md)
   * [go 篇](chapter17/Section2.md)
-    * [解决 go get  以及 git clone from google 的问题](chapter17/Section2/jie-jue-go-get-yi-ji-git-clone-from-google-de-wen-ti.md)
-
+    * [解决 go get  以及 git clone from google 的问题](chapter17/Section2/jie-jue-go-get-yi-ji-git-clone-from-google-de-wen-ti.md) 
+  * [java 篇](chapter17/Section3.md)
+    * [Spring Boot 集成 Redis](chapter17/Section3/part1.md)

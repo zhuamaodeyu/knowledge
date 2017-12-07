@@ -210,7 +210,7 @@ mybatis 也支持基于注解的开发，通过注解来实现 mapper映射，�
 
     动态SQL操作并不能像普通查询那样，通过一个注解来实现，由于动态SQL的不确定性。SQL语句是根据条件生成的，所以不同通过一个注解来直接实现。不过mybatis 针对动态SQL提供了其他方式实现，通过`@XXXProvider` 注解，标注具体的实现类和方法来实现动态SQL ,CURD 每种操作都有其对应的动态SQL查询注解   
 
-    |   基础    |      复杂(动态)     |     
+    |----- 基础-|------复杂(动态) ----|     
     |  :------: |     :------:      |     
     | `@Insert` | `@InserProvider`  |    
     | `@Delete` | `@DeleteProvider` |     
@@ -409,7 +409,7 @@ mybatis 可以集成插件实现分页实现也可以通过 `mybatis generator`�
 
 #### mybatis generator 集成插件实现  
 mybatis generator 可以通过插件，实现不同的功能，针对默认的更加完善功能。以下网址是收集的一部分插件及使用方式
-![mybatis-generator-plugin](https://github.com/itfsw/mybatis-generator-plugin.git) 
+[mybatis-generator-plugin](https://github.com/itfsw/mybatis-generator-plugin.git) 
 
 
 
@@ -430,4 +430,4 @@ mybatis本身并没有提供单独的事务管理器，其通过`mybatis-spring`
 
 ## 总结  
 通过以上几点的介绍，可以熟练掌握mybatis的使用，不过还是有很多不详细的地方，如果需要更加详细的介绍mybatis的读书笔记文章   
-* []()   
+* [如何在单个Boot应用中配置多数据库？](http://emacoo.cn/backend/spring-boot-multi-db/)   

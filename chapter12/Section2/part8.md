@@ -7,14 +7,7 @@
 - [ ] 维护中
 - [x] 未完成
 
-
-
-### 说明
-本文参考自一下文章: 
-
-* [SPRING BOOT RESTFUL API DOCUMENTATION WITH SWAGGER 2](http://www.baeldung.com/swagger-2-documentation-for-spring-rest-api)
-* [Setting Up Swagger 2 with a Spring REST API](https://springframework.guru/spring-boot-restful-api-documentation-with-swagger-2/)
-
+[原文](https://www.gitbook.com/book/zhuamaodeyu/jin_jie_de_yuan/details)
 ## 简介   
 由于Spring Boot 的特性，用来开发 REST ful 变得非常容易，并且结合 Swagger 来自动生成 REST ful API 文档变得方便快捷。 
 
@@ -28,7 +21,7 @@ Swagger 不仅可以组织生成强大的 REST ful 文档，同时也提供了�
 	
 ## 实践  
 #### 创建Spring Boot 工程 
-可以参考前文Spring Boot 初体验  
+可以参考前文[Spring Boot 初体验](part1.md)  
 #### 在POM 文件中添加 Swagger2 包引用  
 
 ``` xml 
@@ -357,12 +350,10 @@ __以下内容只作为扩展知识__
 		![同步](http://ozjlhf9e0.bkt.clouddn.com/20171117151089107763700.png)
 
 
-
-
-
-
-
-
+## 参考  
+* [Easy-Mock](https://easy-mock.com/login)
+* [SPRING BOOT RESTFUL API DOCUMENTATION WITH SWAGGER 2](http://www.baeldung.com/swagger-2-documentation-for-spring-rest-api)
+* [Setting Up Swagger 2 with a Spring REST API](https://springframework.guru/spring-boot-restful-api-documentation-with-swagger-2/)
 
 
 

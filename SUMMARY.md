@@ -69,7 +69,7 @@
       * [Spring Boot 项目配置详解](chapter12/Section2/part3.md)
       * [Spring Boot 整合Mybaits](chapter12/Section2/part4.md)
       * [Spring Boot  的JPA集成](chapter12/Section2/part5.md)
-      * [Spring Boot jdbcTemplate 集成](chapter12/Section2/part6.md)
+      * [Spring Boot *Template 集成](chapter12/Section2/part6.md)
       * [Spring Boot Redis 集成](chapter12/Section2/part7.md)
       * [Spring Boot Swagger2 集成](chapter12/Section2/part8.md)
       * [Spring Boot Actuator 项目运行监控](chapter12/Section2/part9.md)

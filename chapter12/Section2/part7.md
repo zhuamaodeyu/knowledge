@@ -16,12 +16,11 @@ Redis 是目前业界使用最广泛的基于内存的 Key-Value数据库。 其
 
 本文将包含以下内容：
 * [Redis 与 Spring boot 整合](#spring-boot-整合-redis)
-    * Spring Boot 2.0 Redis 集成
+    * [Spring Boot 2.0 Redis 集成](#spring-boot-20-redis-集成)
 * [Redis应用场景一 ------ 基于Redis 缓存实现](#redis应用场景一--------基于redis-缓存实现)
 * [Redis应用场景二 ------ 基于Redis 的共享Session 实现](#redis应用场景二--------基于redis-的共享-session-实现)
-* [Spring Boot 针对 Redis 的详细介绍](#spring-boot-针对-redis-的详细介绍)
 * [扩展](#扩展)  
-    * IDEA Redis 支持 
+    * [IDEA Redis 支持](#idea-redis-支持) 
 
 
 ## Redis  与spring boot 整合   
@@ -270,7 +269,7 @@ spring.redis.lettuce.pool.min-idle=0
 
 以上内容是维基百科中关于磁盘缓存的介绍，在大型网络应用程序中，缓存的应用和磁盘缓存一样，都是为了提高读写性能，网络应用中减少对数据库的访问就可以一定程度上很好的提高性能(数据库访问还是对磁盘I/O 访问，到最后还是磁盘读取的问题)   
 
-### 缓存实现  
+### 缓存实现 
 1. 通过以上配置实现Redis 支持   
     首先先通过以上内容实现Redis的正确支持    
 2. 开启缓存机制  
@@ -285,24 +284,78 @@ spring.redis.lettuce.pool.min-idle=0
             }
     }
 ```
-    通过以上方式虽然可以开启缓存功能，不过还是推荐下面的方式，方便管理并且方便自定义缓存功能  
+    通过以上方式虽然可以开启缓存功能，不过还是推荐下面的方式，为缓存操作单独创建配置类，方便管理并且方便自定义缓存功能  
 ```java 
 @Configuration
 @EnableCaching
 public class CacheConfig extends CachingConfigurerSupport {
     // cache 功能
+    	@Override
+	public CacheManager cacheManager() {
+		return null;
+	}
+
+	@Override
+	public KeyGenerator keyGenerator() {
+		return null;
+	}
+
+	@Override
+	public CacheResolver cacheResolver() {
+		return null;
+	}
+
+	@Override
+	public CacheErrorHandler errorHandler() {
+		return null;
+	}
 }
 ```
     `CachingConfigurerSupport` 类是 Spring Cache 模块下的关于cache配置的支持类，其中默认定义了四个关于缓存配置的4个方法，默认都是返回 null 以使用系统默认的缓存设置   
-
+    我们可以通过重写此方法，进行自定义的操作，比如自定义缓存key的生成策略等。默认的生成策略是看不懂的(乱码内容) 通过Spring 的依赖注入特性进行自定义的配置注入并且此类是一个配置类可以更多程度的自定义配置    
+```java  
+    @Override
+    @Bean
+    public KeyGenerator keyGenerator() {
+        return  new KeyGenerator() {
+            @Override
+            public Object generate(Object target, Method method, Object... params) {
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.append(target.getClass().getName());
+                stringBuilder.append(method.getName());
+                for (Object object : params){
+                    stringBuilder.append(object.toString());
+                }
+                return  stringBuilder.toString();
+            }
+        };
+    }
+```  
+    以上通过自定义key生成策略，通过自定义的策略规则，替换系统自动的策略规则(__Spring Cloud微服务部分会针对此处进行更加细致的配置，来确定来自哪个服务，如果感兴趣先看看如何实现__) 
+    
 3. Spring Boot 缓存支持  
     Spring Boot 是通过注解来进行缓存操作的，通过输入 cache，可以看到，Spring Boot默认支持一下几个缓存相关注解  
     ![缓存注解](http://ozjlhf9e0.bkt.clouddn.com/2017120515124432682378.png)  
-    下面将针对每个注解不同的介绍  
+    以上截图中只有5个 还是有一个没有`@Caching`注解
+    下面将针对每个注解进行详细的介绍:   
+
     * `@EnableCaching`     
         此注解在上边已经使用过了，其目的就是为了开启缓存
+        次注解对应到XML配置中就是一下内容  
+        ```xml  
+            <beans xmlns="http://www.springframework.org/schema/beans"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:cache="http://www.springframework.org/schema/cache"
+                xsi:schemaLocation="
+                    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                    http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+                    <!-- 关键在词句，此注解就对应此句XML配置 -->
+                    <cache:annotation-driven />
+            </beans>
+        ```
     * `@CacheConfig`    
         通过名称就可以看出，次注解是对cache配置注解(是类级别的)  
+
         ```java
             public @interface CacheConfig {
                 String[] cacheNames() default {};
@@ -318,6 +371,7 @@ public class CacheConfig extends CachingConfigurerSupport {
         * `cacheResolver`:   
     * `@Cacheable`   
         用于设置支持缓存，一般用于需要缓存的方法上进行数据缓存操作实现，访问此方法时先查询缓存是否存在对应的缓存值，没有执行具体查询操作，并将查询结果写入缓存中(方法级别)   
+    
         ```java   
         @AliasFor("cacheNames")
 	    String[] value() default {};
@@ -333,7 +387,8 @@ public class CacheConfig extends CachingConfigurerSupport {
         ```
         以上是此注解的全部内容  
         * `value`,`cacheNames`: 这两个注解功能相同，就是设置缓存的名称,允许设置多个，在方法执行之前，每个缓存都将被检测，只要一个检测到有内容那么就直接返回，不执行方法体。如果都没有那么执行过后每个缓存都将设置内容(一般情况下只用设置一个)     
-        * `key`： 设置缓存内容所对应的key  
+        * `key`： 设置缓存内容所对应的key 
+     
             ``` java   
                     //给出了通过 SpEL表达式生成key 的实例  
                     @Cacheable(cacheNames="books", key="#isbn")
@@ -354,6 +409,7 @@ public class CacheConfig extends CachingConfigurerSupport {
         次注解用于对缓存的更新上， 使用此注解与`@Cacheable`不同之处在于方法会被执行，执行过后会更新缓存   
     * `@CacheEvict`      
         用于清除缓存 
+    
         ```java   
             boolean allEntries() default false;
             boolean beforeInvocation() default false;
@@ -367,11 +423,141 @@ public class CacheConfig extends CachingConfigurerSupport {
             * key 生成还支持 `SpEL`表达式生成，通过指定`SpEL`表达式指定key的生成策略  
             * key 还支持通过指定特定的`keyGenerator`属性，指定一个key 生成器来通过此生成器生成适合的key  
             * 由于项目的需求，可能存在多个需求缓存相同，不过由于参数的不同，可以通过 `SpEL` 实现将对结果无关的参数忽略的形式组合成一组通用的key 实现多个需求可以使用同一份缓存   
-        
+    * `@Caching`  
+        此注解是一个辅助性注解，为了解决在多个相同注解多个同时使用的情况下。此注解允许`@Cacheable`,`@CachePut`,`@CacheEvict`三个注解的操作  
+    
+        ```java
+            Cacheable[] cacheable() default {};
+	        CachePut[] put() default {};
+	        CacheEvict[] evict() default {};
+        ```
+        以上是注解的具体内容  
+    
+        ```java 
+            @Caching(evict = { @CacheEvict("primary"), @CacheEvict(cacheNames="secondary", key="#p0") })
+            public Book importBooks(String deposit, Date date)
+        ```
+        具体的使用示例    
+
     如果需要了解详细的内容，请查询官方文档[Spring Cache](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache)
 
+#### 缓存功能测试     
+1. 实现controller 以及service 代码  
 
+```java 
+@RestController
+@RequestMapping("/cache")
+public class CacheController {
+    @Autowired
+    private CacheService cacheService;
+        @GetMapping("/get_user_by_name/{name}")
+    public ResponseEntity findByName(@PathVariable String name)
+    {
+        return new ResponseEntity(cacheService.findByName(name), HttpStatus.OK);
+    }
 
+    @GetMapping("/get_user_by_age/{age}")
+    public ResponseEntity findByAge(@PathVariable String age)
+    {
+        return new ResponseEntity(cacheService.findByAge(Integer.parseInt(age)), HttpStatus.OK);
+    }
+}
+
+@Service
+@CacheConfig(cacheNames = "cache")
+public class CacheServiceImpl implements CacheService {
+
+    @Cacheable(keyGenerator = "keyGenerator")
+    @Override
+    public User findByName(String name) {
+        System.out.println("findByName没有加载缓存");
+        return  new User((new Long(1)),"张三", 18);
+    }
+    @Cacheable(keyGenerator = "keyGenerator")
+    @Override
+    public List findByAge(int age) {
+        System.out.println("findByAge没有加载缓存");
+        return (List) new User(new Long(1),"李四", 18);
+    }
+}
+```
+以上是测试需要的代码，代码很简单，不涉及到dao等数据库操作，只是为了测试缓存功能是否正常   
+
+2. 测试
+    通过PostMan 等 REST Ful 等请求模拟测试软件进行测试 第一次请求单个方法会进打印，不过第二次请求就不会进行打印。以上代码只是测试了 `@Cacheable` 请求添加功能具体的其他几个功能请单独测试  
+    可以通过debug跟踪到 `CacheAspectSupport` 类中的`execute`方法查看缓存值   
+
+```java 
+// CacheAspectSupport 跟踪方法  
+	private Object execute(final CacheOperationInvoker invoker, Method method, CacheOperationContexts contexts) {
+		// Special handling of synchronized invocation
+		if (contexts.isSynchronized()) {
+			CacheOperationContext context = contexts.get(CacheableOperation.class).iterator().next();
+			if (isConditionPassing(context, CacheOperationExpressionEvaluator.NO_RESULT)) {
+				Object key = generateKey(context, CacheOperationExpressionEvaluator.NO_RESULT);
+				Cache cache = context.getCaches().iterator().next();
+				try {
+					return wrapCacheValue(method, cache.get(key, new Callable<Object>() {
+						@Override
+						public Object call() throws Exception {
+							return unwrapReturnValue(invokeOperation(invoker));
+						}
+					}));
+				}
+				catch (Cache.ValueRetrievalException ex) {
+					// The invoker wraps any Throwable in a ThrowableWrapper instance so we
+					// can just make sure that one bubbles up the stack.
+					throw (CacheOperationInvoker.ThrowableWrapper) ex.getCause();
+				}
+			}
+			else {
+				// No caching required, only call the underlying method
+				return invokeOperation(invoker);
+			}
+		}
+		// Process any early evictions
+		processCacheEvicts(contexts.get(CacheEvictOperation.class), true,
+				CacheOperationExpressionEvaluator.NO_RESULT);
+
+		// Check if we have a cached item matching the conditions
+		Cache.ValueWrapper cacheHit = findCachedItem(contexts.get(CacheableOperation.class));
+
+		// Collect puts from any @Cacheable miss, if no cached item is found
+		List<CachePutRequest> cachePutRequests = new LinkedList<CachePutRequest>();
+		if (cacheHit == null) {
+			collectPutRequests(contexts.get(CacheableOperation.class),
+					CacheOperationExpressionEvaluator.NO_RESULT, cachePutRequests);
+		}
+
+		Object cacheValue;
+		Object returnValue;
+
+		if (cacheHit != null && cachePutRequests.isEmpty() && !hasCachePut(contexts)) {
+			// If there are no put requests, just use the cache hit
+			cacheValue = cacheHit.get();
+			returnValue = wrapCacheValue(method, cacheValue);
+		}
+		else {
+			// Invoke the method if we don't have a cache hit
+			returnValue = invokeOperation(invoker);
+			cacheValue = unwrapReturnValue(returnValue);
+		}
+
+		// Collect any explicit @CachePuts
+		collectPutRequests(contexts.get(CachePutOperation.class), cacheValue, cachePutRequests);
+
+		// Process any collected put requests, either from @CachePut or a @Cacheable miss
+		for (CachePutRequest cachePutRequest : cachePutRequests) {
+			cachePutRequest.apply(cacheValue);
+		}
+
+		// Process any late evictions
+		processCacheEvicts(contexts.get(CacheEvictOperation.class), false, cacheValue);
+
+		return returnValue;
+	}
+```
+__说明__: 此处测试比较简单，只是测试cache功能是否正常，但更加详细的没有实现，需要自己实现，往后有时间我会补全更加详细的测试实现   
 
 
 ## Redis应用场景二 ------ 基于Redis 的共享 Session 实现
@@ -426,9 +612,9 @@ public @interface EnableRedisHttpSession {
 }
 ```
     以上内容是此注解的源码，可以发现，次注解主要设置了三个功能：  
-        * `maxInactiveIntervalInSeconds`: 对应的是session的过期时间，默认是1800秒后过期，用户可以通过自定义时间，如果设置了此属性，项目中的`server.session.timeout`属性将失效，__此处需要注意__  
-        * `redisNamespace`: 设置redis 的命名空间，就是设置数据存储到哪里(相当于关系型数据库中的库)  
-        * `redisFlushMode`: redis 操作模式，是否立即刷新到redis数据库中，默认的是不会的，系统并不是在刚设置就刷新，而是选择在某个时间点刷新到数据库中   
+    * `maxInactiveIntervalInSeconds`: 对应的是session的过期时间，默认是1800秒后过期，用户可以通过自定义时间，如果设置了此属性，项目中的`server.session.timeout`属性将失效，__此处需要注意__  
+    * `redisNamespace`: 设置redis 的命名空间，就是设置数据存储到哪里(相当于关系型数据库中的库)  
+    * `redisFlushMode`: redis 操作模式，是否立即刷新到redis数据库中，默认的是不会的，系统并不是在刚设置就刷新，而是选择在某个时间点刷新到数据库中   
 
 3. 测试  
 ```java
@@ -460,10 +646,9 @@ public @interface EnableRedisHttpSession {
     ![另一个项目查看](http://ozjlhf9e0.bkt.clouddn.com/20171206151253592336838.png)   
     __session 的内容以及 session ID 是相同的，达到了session共享的目的__  
 
-## Spring Boot 针对 Redis 的详细介绍
 
-
-
+## 总结  
+以上介绍了 Redis以及其在 Spring Boot 中的两种应用方式，缓存和 Session共享。 针对其具体的实现细节以及功能做了简单介绍，如果需要更加细致的了解。可以根据文中提到参考文章查找更加细致了讲解   
 
 
 ## 扩展  
@@ -486,3 +671,4 @@ IDEA 对通过插件的方式对 Redis 有很好的集成，通过插件可以�
 * [lettuce--Advanced Redis client](http://www.cnblogs.com/davidwang456/p/5089502.html)
 * [HttpSession with Redis](https://docs.spring.io/spring-session/docs/current/reference/html5/#httpsession-redis)
 * [注释驱动的 Spring cache 缓存](https://www.ibm.com/developerworks/cn/opensource/os-cn-spring-cache/)
+* [Cache Abstraction](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache)

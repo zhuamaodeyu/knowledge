@@ -25,6 +25,7 @@
 ## iOS
 
 * [第三章 iOS 篇](ios-pian.md)
+  * [iOS 10.3.3 越狱以及Cydia crash](chapter3/Section1.md)
 
 ## JavaScript
 
@@ -61,6 +62,7 @@
   * [Docker 镜像操作](chapter11/Section1.md)
   * [如何编写最佳的Dockerfile](chapter11/Section2.md)
   * [Docker 加速](chapter11/Section3.md)
+  * [Dockerfile](chapter11/Section4.md)
 * [第十二章 微服务篇](chapter12.md)
   * [第一节 微服务架构设计](chapter12/Section1.md)
   * [第二节 基于Java的微服务开发框架---Spring Boot](chapter12/Section2.md)

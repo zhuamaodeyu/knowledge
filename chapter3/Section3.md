@@ -10,7 +10,7 @@ iOS 开发中，UICollectionView 控件与 UITableView 同样是使用比重相�
 - (void)scrollToRowAtIndexPath:(NSIndexPath *)indexPath atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated;
 ```
 
-等方法，都可以获取 indexPath 所对应的cell 或者滚动到指定 indexPath 所对应的cell 上，这些方法在 UITableView 上使用时没有问题的，其盖因 在UITableView 下 `reloadData` 方法调用后，系统就会去计算并刷新UITableView，这个过程是同步的，在之后调用以上这些方法都是可以正常执行的。但是这些方法在 UICollectionView 下那就不一定有用了    
+等方法，可以获取 indexPath 所对应的cell(注意此方法可以能获取的是nil，其官方文档给出的解释是，可能是indexPath 超出范围或者cell 未显示) 或者滚动到指定 indexPath 所对应的cell上(此方法在 tableView 下在 `reloadData`方法后调用是可以正常执行的)，这些方法在 UITableView 上使用时没有问题的，其盖因 在UITableView 下 `reloadData` 方法调用后，系统就会去计算并刷新UITableView，这个过程是同步的，在之后调用以上这些方法都是可以正常执行的。但是这些方法在 UICollectionView 下那就不一定有用了    
 
 UICollectionView 和 UITableView 的一个很大的不同点就是在数据处理上， UICollectionView的`reloadData` 方法并不会实时的去刷新 cell, 所以 如果你是在 `reloadData` 方法刚调用后，就调用   
 

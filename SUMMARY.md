@@ -18,7 +18,6 @@
 
 * [第二章 Java篇](chapter2.md)
   * [第一节 Java基础](chapter2/di-yi-jie-java-ji-chu.md)
-  * 第二节 Spring 
   * [第三节 Spring MVC](chapter2/di-san-jie-spring-mvc.md)
   * [第四节 mybaitis](chapter2/di-si-jie-mybaitis.md)
 
@@ -26,16 +25,19 @@
 
 * [第三章 iOS 篇](ios-pian.md)
   * [iOS 10.3.3 越狱以及Cydia crash](chapter3/Section1.md)
+  * [iOS Swift 开发](chapter3/Section2.md)  
+  * [UICollectionView 部分方法无效](chapter3/Section3.md)
 
 ## JavaScript
 
-* 第四章 nodejs 篇
+* [第四章 nodejs 篇]()
 * [第五章 JavaScript篇](chapter5.md)
 
 ## GO
 
 * [第六章 Go篇](chapter6.md)
-  * [Go语言基础](chapter6/di-yi-jie-go-yu-yan-ji-chu.md)
+  * [Go语言基础](chapter6/di-yi-jie-go-yu-yan-ji-chu.md)  
+  * [Go goroutine 同步](chapter6/goroutine.md)
 * [第七章 Go web 系列](chapter7.md)
   * [Go Web](chapter7/go-web.md)
   * [Go Web 基础](chapter7/go-web-ji-chu.md)
@@ -106,8 +108,8 @@
 * 第十三章 DevOps 开发与运维
 
 ### Others
-* 第十四章 Python
-* 第十五章 React Native
+* [第十四章 Python]()
+* [第十五章 React Native]()
 * [第十六章 Mac OS](chapter16.md)
   * [基础控件](chapter16/Section1.md)
     * [Mac开发之 `NSApplication`](chapter16/Section1/part1.md)

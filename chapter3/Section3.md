@@ -30,7 +30,18 @@ UICollectionView 和 UITableView 的一个很大的不同点就是在数据处�
 [self.collectionView layoutIfNeeded];
 ```
 
-在以上代码之后，可以通通过以上的系统方法获取cell 或者滚动了   
+在以上代码之后，可以通通过以上的系统方法获取cell 不过，通过以上方式后，只能获取到当前屏幕可以显示下的cell，比如当前屏幕可以显示4个cell，那么通过以上方式后，利用 `cellForRowAtIndexPath:`方法只能获取到 4个左右的cell,因为其他cell 还无法显示，所以无法获取，不过如果想在滚动后获取对应的cell， 可以通过一下方式   
+
+```
+// 获取第 10 个cell  
+[self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone scrollPosition animated:false]; 
+[self.collectionView layoutIfNeeded]; 
+
+// 此时就可以获取到了  
+UICollectionViewCell *cell  = [self.collectionView cellForItemAtIndexPath:indexPath];
+```
+通过以上方式就彻底解决了无法获取cell以及滚动的问题了  
+
 
 
 #### 扩展 

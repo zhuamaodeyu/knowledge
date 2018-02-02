@@ -5,10 +5,11 @@
 
 __本例以通过字符串创建控制器的为功能要求__  
 
-``` OC  
+```  
 NSString *name = self.dataSource[indexPath.row];
 UIViewController *vc = [NSClassFromString(name) init];
 ```  
+
 由于Swift 的强类型性，所哟不需要更多的判断操作  
 
 ```swift 

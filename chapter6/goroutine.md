@@ -165,28 +165,32 @@ Go 语言內建并发支持。在目前绝大多数语言中，都是通过锁�
 通过以上内容，针对 goroutine已经有了了解，在 goroutine 的处理过程中，还有一个很重要的问题需要解决，就是如何安全的退出 goroutine，因为 Go语言本身没有提供这两的方法，如果使用不当的方式处理，将倒是 goroutine之间的共享变量可能落在未定义的状态上。合理安全的goroutine 还是很重要的。 可以通过 `channel` 和 `select` 以及 `sync.WaitGroup`合理的配合来解决此问题  
 
 ```go 
-func worker(w *sync.WaitGroup , cancel chan bool){
-    defer wg.Done() 
-    for{
-        select {
-            case <-cancel:  
-                return 
-        }
-    }
+func workers(w *sync.WaitGroup, cancel chan bool) {
+	defer w.Done()
+	for {
+		select {
+		case ws := <-cancel:
+			println(ws)
+			return
+		}
+	}
 }
 
-func main (){
-    cancel := make(chan bool)
-    var w sync.WaitGroup 
-    for i:=0 i< 10; i++ {
-        wg.Add(1)
-        go worker(&w, cancel)
-    }
-    close(cancel)
-    wg.Wait()
+func main() {
+	cancel := make(chan bool)
+	var w sync.WaitGroup
+	for i := 0; i < 10; i++ {
+		w.Add(1)
+		go workers(&w, cancel)
+	}
+	close(cancel)
+	// cancel <- true 
+	w.Wait()
 }
 ```
-通过以上方式，可以完美的结束任意多的线程
+通过以上方式，可以完美的结束任意多的线程。其中有借个细节点需要说明下， 
+* `close(cancel)` 通过关闭 channel 来通知更多线程而不是通过 `cancel<-true`来结束，在整个channel 关闭后，所有的接收操作都会接收到一个 false 或者一个可选的错误值，在通道关闭后，还是可以从其中接受值，只不过再也不能发送值，发送将导致 `panic`错误，这与 通道的发送和接收相对应不冲突，__channel 只有在正常情况下，发送与接收成对出现，否则将阻塞goroutine，如果channel 关闭，将还可以接收值，不能发送__  
+* `sync.WaitGroup` 的引入，因为如果直接结束 goroutine 后，其还是会执行一些对资源的回收等收尾操作，并不是当结束就马上结束，这里使用 `sync.WaitGroup`是为了避免在 所有的后台groutine 还没有处理完毕而main  goroutine 却退出了导致其后台goroutine 无法正确结束造成资源的浪费。
 
 
 ## Question And Answer 

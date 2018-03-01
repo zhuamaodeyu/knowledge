@@ -1,19 +1,19 @@
 在项目开发中遇到个比较特殊的需求，即一下图所显示的  
-![](/Users/wenliao/Library/Mobile Documents/com~apple~CloudDocs/Mou/Blog/Resource/Snip20170718_4.png)  
+![](http://ozjlhf9e0.bkt.clouddn.com/20180301151989207821299.png)  
 
 第一👁看到这样的图     
-![](/Users/wenliao/Library/Mobile Documents/com~apple~CloudDocs/Mou/Blog/Resource/{EB%ON194]U5KMYJB EP09HW.jpg)  
+![](http://ozjlhf9e0.bkt.clouddn.com/20180301151989209420902.jpg)  
 第一次沟通    
  
-![](/Users/wenliao/Library/Mobile Documents/com~apple~CloudDocs/Mou/Blog/Resource/Z9BQXNFZNRUZHGWO2WJ.png)   
+![](http://ozjlhf9e0.bkt.clouddn.com/20180301151989210472882.png)   
 
 第二次--卒 
 
-![](/Users/wenliao/Library/Mobile Documents/com~apple~CloudDocs/Mou/Blog/Resource/ZAXX5C@D6YUX7SVZF%~69S.jpg)    
+![](http://ozjlhf9e0.bkt.clouddn.com/20180301151989211454259.jpg)    
 
 
 第三次   
-![](/Users/wenliao/Library/Mobile Documents/com~apple~CloudDocs/Mou/Blog/Resource/17UMMLTMDGZO52V56DD.jpg)
+![](http://ozjlhf9e0.bkt.clouddn.com/20180301151989212715892.jpg)
 
 
 __缘由__  
@@ -47,7 +47,7 @@ __缘由__
 	
 	* 实现  
 	
-~~~
+~~~objectivec
 -(void)setTitle:(NSString *)title
 {
     if([self isKindOfClass:[UIAlertController class]]){
@@ -242,7 +242,7 @@ __缘由__
 
 2. 在自定义的NavigationController中重写`pushViewController:animated:`方法， 在其中处理按钮的个数以及返回按钮是否显示的问题  
 
-~~~
+~~~objectivec
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     //取消掉系统的back item
@@ -279,7 +279,7 @@ __缘由__
 ####1. 左滑手势的消失    
 在自定义的导航控制器的`viewDidLoad`方法中通过以下方式添加左滑手势  
 
-~~~
+~~~objectivec
   id target = self.interactivePopGestureRecognizer.delegate;
     UIScreenEdgePanGestureRecognizer *GestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:target action:@selector(handleNavigationTransition:)];
     GestureRecognizer.edges = UIRectEdgeLeft;
@@ -293,7 +293,7 @@ __缘由__
 ~~~
 同时实现代理方法，禁止在根控制器的时候再触发手势  
 
-~~~
+~~~objectivec
 -(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
     if (self.childViewControllers.count == 1) {
@@ -308,7 +308,7 @@ __缘由__
 
 在`- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated`方法中实现限制  
 
-~~~
+~~~objectivec
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
  {
    //此处代码可以不需要
@@ -331,7 +331,7 @@ __缘由__
 
 需要在代码方法中在push动作完成后，将其设置为NO  
 
-~~~
+~~~objectivec
 -(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
     self.pushing = NO;   
 }

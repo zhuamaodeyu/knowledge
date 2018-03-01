@@ -29,7 +29,12 @@
   * [iOS 10.3.3 越狱以及Cydia crash](chapter3/Section1.md)
   * [iOS Swift 开发](chapter3/Section2.md)  
   * [UICollectionView 部分方法无效](chapter3/Section3.md)
-
+  * [AvoidCrash 分析](chapter3/Section4.md)
+  * [自定义导航栏](chapter3/Section5.md)
+  * [AVFoundation之元数据操作](chapter3/Section6.md)
+  * [iOS 即时通讯中发送多图顺序问题](chapter3/Section7.md)
+  * [iOS系统九宫格下代理方法调用多次解决办法](chapter3/Section8.md)  
+  * [IM - 心跳机制](chapter3/Section9.md)
 ## JavaScript
 
 * [第四章 nodejs 篇]()
@@ -128,3 +133,10 @@
     * [解决 go get  以及 git clone from google 的问题](chapter17/Section2/jie-jue-go-get-yi-ji-git-clone-from-google-de-wen-ti.md) 
   * [java 篇](chapter17/Section3.md)
     * [Spring Boot 集成 Redis](chapter17/Section3/part1.md)
+
+
+### 面试  
+* [基础](chapter18/base.md)
+* [iOS ](chapter18/ios.md)
+* [JAVA](chapter18/java.md)
+* [Golang](chapter18/go.md)

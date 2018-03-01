@@ -26,7 +26,7 @@
 ## iOS
 
 * [第三章 iOS 篇](ios-pian.md)
-  * [iOS 10.3.3 越狱以及Cydia crash](chapter3/Section1.md)
+  <!-- * [iOS 10.3.3 越狱以及Cydia crash](chapter3/Section1.md) -->
   * [iOS Swift 开发](chapter3/Section2.md)  
   * [UICollectionView 部分方法无效](chapter3/Section3.md)
   * [AvoidCrash 分析](chapter3/Section4.md)

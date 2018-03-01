@@ -10,7 +10,7 @@
 ###框架简单使用   
 1. appdelegate 方法中注册框架     
 	
-	~~~
+	~~~objectivec
 		 //启动防止崩溃功能
     [AvoidCrash becomeEffective];   
     	//单独生效
@@ -18,13 +18,13 @@
 	~~~
 2. 注册框架通知方法   
 	
-	~~~
+	~~~objectivec
 	  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dealwithCrashMessage:) name:AvoidCrashNotification object:nil];    
 	~~~    
 	
 3. 监听通知    
 	
-	~~~  
+	~~~objectivec
 	- (void)dealwithCrashMessage:(NSNotification *)note {
     //不论在哪个线程中导致的crash，这里都是在主线程
     
@@ -45,7 +45,7 @@
 	* `becomeEffective `  
 		此方法采用单利的形式，注册了针对框架中所有的可处理的类，调用方法替换方法，将类中方法替换为自定义方法   
 		
-		~~~  
+		~~~objectivec  
 		+ (void)becomeEffective {
     		static dispatch_once_t onceToken;
     		dispatch_once(&onceToken, ^{
@@ -55,12 +55,10 @@
         		.......
 			});
 		}
-		~~~
-		
-		     
+		~~~ 
 	* 类方法的替换   
 		
-		~~~
+		~~~objectivec
 		+ (void)exchangeClassMethod:(Class)anClass method1Sel:(SEL)method1Sel method2Sel:(SEL)method2Sel {
     			Method method1 = class_getClassMethod(anClass, method1Sel);
     			Method method2 = class_getClassMethod(anClass, method2Sel);
@@ -69,7 +67,7 @@
 		~~~
 	* 以及对象方法的替换
 		
-		~~~   
+		~~~objectivec   
 		+ (void)exchangeInstanceMethod:(Class)anClass method1Sel:(SEL)method1Sel method2Sel:(SEL)method2Sel {
     		Method originalMethod = class_getInstanceMethod(anClass, method1Sel);
     		Method swizzledMethod = class_getInstanceMethod(anClass, method2Sel);
@@ -91,7 +89,7 @@
 		~~~
 	* 获取堆栈主要信息并进行处理     
 		
-		~~~  
+		~~~objectivec  
 		+ (NSString *)getMainCallStackSymbolMessageWithCallStackSymbols:(NSArray<NSString *> *)callStackSymbols {
     			//mainCallStackSymbolMsg的格式为   +[类名 方法名]  或者 -[类名 方法名]
     			__block NSString *mainCallStackSymbolMsg = nil;
@@ -132,7 +130,7 @@
 	* 崩溃信息的提示和通知   
 		此方法是整个框架最核心的部分，主要就是实现内容的处理并发送通知  
 		
-		~~~
+		~~~objectivec
 		+ (void)noteErrorWithException:(NSException *)exception defaultToDo:(NSString *)defaultToDo {
     //堆栈数据
     NSArray *callStackSymbolsArr = [NSThread callStackSymbols];
@@ -174,10 +172,10 @@
 		1. 有返回值    
 		2. 没有返回值   
 		3. 类方法创建对象   
-	
+		
 	1. 无返回值的  
 		
-		~~~
+		~~~objectivec
 		- (void)avoidCrashSetObject:(id)obj atIndexedSubscript:(NSUInteger)idx {
     			@try {
         			[self avoidCrashSetObject:obj atIndexedSubscript:idx];
@@ -191,7 +189,7 @@
 		~~~
 	2. 有返回值的对象方法   
 		
-		~~~
+		~~~objectivec
 		- (id)avoidCrashObjectAtIndex:(NSUInteger)index {
     		id object = nil;
     		@try {
@@ -208,7 +206,7 @@
 		~~~
 	3. 类方法   
 		
-		~~~    
+		~~~objectivec    
 		+ (instancetype)AvoidCrashArrayWithObjects:(const id  _Nonnull __unsafe_unretained *)objects count:(NSUInteger)cnt {
     		id instance = nil;
     		@try {

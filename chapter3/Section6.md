@@ -107,13 +107,13 @@ AVAsset 中基友多种有用的方法和属性，可以提供有关资源的信
     }];
  	~~~
  	__说明:__  
- 		* 注意其中的keys 数组，其中放的是`AVAsset`对象中属性名称，当获取多个属性时，需要针对每个属性进行单独验证状态(block中的代码需要些多份)   
- 		* block会在任意队列进行调用，如果要更新UI的话，必须要回到主队列上   
+ 	* 注意其中的keys 数组，其中放的是`AVAsset`对象中属性名称，当获取多个属性时，需要针对每个属性进行单独验证状态(block中的代码需要些多份)   
+ 	* block会在任意队列进行调用，如果要更新UI的话，必须要回到主队列上   
  	
  	> 这里有一个简洁的方式获取属性值，从开始处可以找到AVAsset是一个抽象类，其创建的是一个子类	AVURLAsset类，此类的初始化方法带有一个options属性，可以通过此种方式实现   
  	> NSDictionary *dic = @{
-                          AVURLAssetPreferPreciseDurationAndTimingKey: @(YES),
-                          AVURLAssetReferenceRestrictionsKey:@(1)
+    >                AVURLAssetPreferPreciseDurationAndTimingKey: @(YES),
+    >                AVURLAssetReferenceRestrictionsKey:@(1)
                           };
 	> AVAsset *asset = [AVURLAsset URLAssetWithURL:nil options:dic];  
 

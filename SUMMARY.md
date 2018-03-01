@@ -35,6 +35,8 @@
   * [iOS 即时通讯中发送多图顺序问题](chapter3/Section7.md)
   * [iOS系统九宫格下代理方法调用多次解决办法](chapter3/Section8.md)  
   * [IM - 心跳机制](chapter3/Section9.md)
+  * [3D Touch ](chapter3/Section10.md)
+  * [开发问题集锦](chapter3/Section11.md)
 ## JavaScript
 
 * [第四章 nodejs 篇]()

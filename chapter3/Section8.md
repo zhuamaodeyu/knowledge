@@ -9,7 +9,7 @@
 
 #####测试代码以及测试结果：  
 
-~~~
+~~~objectivec
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
 	NSLog(@"%@", text);
@@ -21,7 +21,7 @@ __步骤:__
 	切换到九宫格键盘侠，输入内容需要时`@`符   
  
 __测试结果:__  
-![](/Users/wenliao/Library/Mobile Documents/com~apple~CloudDocs/Mou/Blog/Resource/3880217908-5959b3546bd9f_articlex.png)    
+![](http://ozjlhf9e0.bkt.clouddn.com/2018030115198923675676.png)    
 
 __注意:__此问题在第三方比如输入法搜狗以及系统的全键盘下都不会出现此问题， 只有在系统九宫格下才会出现此问题     
 

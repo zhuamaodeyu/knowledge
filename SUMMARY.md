@@ -142,3 +142,11 @@
 * [iOS](chapter18/ios.md)
 * [JAVA](chapter18/java.md)
 * [Golang](chapter18/go.md)
+
+### lintCode 题解  
+* [1](chapter19/1.md)
+* [2](chapter19/2.md)
+* [3](chapter19/3.md)
+* [4](chapter19/4.md)
+* [5](chapter19/5.md)
+* [6](chapter19/6.md)

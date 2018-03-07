@@ -8,20 +8,20 @@
   * [第一节 数据结构与算法](chapter1/Section1.md)
     * [时间复杂度和空间复杂度](chapter1/Section1/part1.md)
     * [链表](chapter1/Section1/part2.md)
-    * [栈与队列](chapter1/Section1/part3.md)
-    * [树](chapter1/Section1/part4.md)
-    * [堆](chapter1/Section1/part5.md)
-    * [图](chapter1/Section1/part6.md)
-    * [散列表](chapter1/Section1/part7.md)
-    * [排序算法](chapter1/Section1/part8.md)
-  * [第二节 计算机组成原理](chapter1/Section2.md)
+    <!-- * [栈与队列](chapter1/Section1/part3.md) -->
+    <!-- * [树](chapter1/Section1/part4.md) -->
+    <!-- * [堆](chapter1/Section1/part5.md) -->
+    <!-- * [图](chapter1/Section1/part6.md) -->
+    <!-- * [散列表](chapter1/Section1/part7.md) -->
+    <!-- * [排序算法](chapter1/Section1/part8.md) -->
+  <!-- * [第二节 计算机组成原理](chapter1/Section2.md) -->
   
-## Java
+<!-- ## Java
 
 * [第二章 Java篇](chapter2.md)
   * [第一节 Java基础](chapter2/di-yi-jie-java-ji-chu.md)
   * [第三节 Spring MVC](chapter2/di-san-jie-spring-mvc.md)
-  * [第四节 mybaitis](chapter2/di-si-jie-mybaitis.md)
+  * [第四节 mybaitis](chapter2/di-si-jie-mybaitis.md) -->
 
 ## iOS
 
@@ -39,8 +39,8 @@
   * [开发问题集锦](chapter3/Section11.md)
 ## JavaScript
 
-* [第四章 nodejs 篇]()
-* [第五章 JavaScript篇](chapter5.md)
+<!-- * [第四章 nodejs 篇]()
+* [第五章 JavaScript篇](chapter5.md) -->
 
 ## GO
 
@@ -62,11 +62,11 @@
   * [Go Web 访问数据库](chapter7/go-web-fang-wen-shu-ju-ku.md)
   * [Go Web 设计一个Web 框架](chapter7/go-web-she-ji-yi-ge-web-kuang-jia.md)
 
-### Other
-
+ ### Other
+<!--
 * 第八章 即时通讯IM
 * 第九章 机器学习
-* 第十章 MySQL 数据库开发
+* 第十章 MySQL 数据库开发 -->
 
 ## 微服务
 
@@ -79,27 +79,27 @@
   * [第一节 微服务架构设计](chapter12/Section1.md)
   * [第二节 基于Java的微服务开发框架---Spring Boot](chapter12/Section2.md)
       * [Spring Boot 初体验](chapter12/Section2/part1.md)
-      * [Spring Boot 单元测试](chapter12/Section2/part2.md)
-      * [Spring Boot 项目配置详解](chapter12/Section2/part3.md)
+      <!-- * [Spring Boot 单元测试](chapter12/Section2/part2.md) -->
+      <!-- * [Spring Boot 项目配置详解](chapter12/Section2/part3.md) -->
       * [Spring Boot 整合Mybaits](chapter12/Section2/part4.md)
       * [Spring Boot  的JPA集成](chapter12/Section2/part5.md)
-      * [Spring Boot *Template 集成](chapter12/Section2/part6.md)
+      <!-- * [Spring Boot *Template 集成](chapter12/Section2/part6.md) -->
       * [Spring Boot Redis 集成](chapter12/Section2/part7.md)
       * [Spring Boot Swagger2 集成](chapter12/Section2/part8.md)
-      * [Spring Boot Actuator 项目运行监控](chapter12/Section2/part9.md)
+      <!-- * [Spring Boot Actuator 项目运行监控](chapter12/Section2/part9.md) -->
       * [Spring Boot Mongodb 集成](chapter12/Section2/part10.md)
-      * [Spring Boot Security](chapter12/Section2/part11.md) 
-      * [Spring Boot Security 第三方登录](chapter12/Section2/part12.md)
-      * [Spring Boot Security 单点登录](chapter12/Section2/part19.md)
-      * [Spring Boot 日志处理](chapter12/Section2/part13.md)
-      * [Spring Boot 异常处理](chapter12/Section2/part14.md)
-      * [Spring Boot 集成 Elasticsearch](chapter12/Section2/part15.md) 
-      * [Spring Boot 集成模板引擎](chapter12/Section2/part16.md)
-      * [Spring Boot RabbitMQ 集成](chapter12/Section2/part17.md)
-      * [Spring Boot Zoopkeeper](chapter12/Section2/part18.md)  
-      *[Spring Boot WebSocket](chapter12/Section2/part20.md)  
+      <!-- * [Spring Boot Security](chapter12/Section2/part11.md)  -->
+      <!-- * [Spring Boot Security 第三方登录](chapter12/Section2/part12.md) -->
+      <!-- * [Spring Boot Security 单点登录](chapter12/Section2/part19.md) -->
+      <!-- * [Spring Boot 日志处理](chapter12/Section2/part13.md) -->
+      <!-- * [Spring Boot 异常处理](chapter12/Section2/part14.md) -->
+      <!-- * [Spring Boot 集成 Elasticsearch](chapter12/Section2/part15.md)  -->
+      <!-- * [Spring Boot 集成模板引擎](chapter12/Section2/part16.md) -->
+      <!-- * [Spring Boot RabbitMQ 集成](chapter12/Section2/part17.md) -->
+      <!-- * [Spring Boot Zoopkeeper](chapter12/Section2/part18.md)   -->
+      <!-- *[Spring Boot WebSocket](chapter12/Section2/part20.md)   -->
   * [第三节 基于Java的微服务集成开发框架 Spring Cloud](chapter12/Section3.md)
-  * [第四节 基于开发源框架组的微服务工具组](chapter12/Section4.md)  
+  <!-- * [第四节 基于开发源框架组的微服务工具组](chapter12/Section4.md)   -->
   * [第五节 基于Docker实现的微服务封装](chapter12/Section5.md)
     * [基于Docker 实现微服务的封装---Spring Boot](chapter12/Section5/part1.md)
     * [基于Docker 实现微服务的封装--Node.js](chapter12/Section5/part2.md)
@@ -114,8 +114,8 @@
     * [综合篇](chapter12/shi-jian-pian/zong-he-pian.md)
 
 ### DevOps
-
-* 第十三章 DevOps 开发与运维
+<!-- 
+* 第十三章 DevOps 开发与运维 -->
 
 ### Others
 * [第十四章 Python]()

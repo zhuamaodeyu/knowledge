@@ -100,22 +100,24 @@ public int getListLen(ListNode head){
 ```
 
 4. 插入节点
-```java
-public void addNode(int d, ListNode head){
-    ListNode node = new ListNode(d);
-    if(head == null){
-        head = node;
-        return;
+    ```java
+    public void addNode(int d, ListNode head){
+        ListNode node = new ListNode(d);
+        if(head == null){
+            head = node;
+            return;
+        }
+        // 循环遍历获取链表的末尾节点
+        ListNode node2 = head;
+        while(node2.next != null){
+            node2 = head.next;
+        }
+        //在末尾添加节点
+        node2.next = node;
     }
-    // 循环遍历获取链表的末尾节点
-    ListNode node2 = head;
-    while(node2.next != null){
-        node2 = head.next;
-    }
-    //在末尾添加节点
-    node2.next = node;
-}
-```
+    ```
+    ![插入节点](http://ozjlhf9e0.bkt.clouddn.com/20180312152084776190746.png)
+    > 图像来自维基百科   
 
 5. 删除节点  
     在单链表结构中，要根据一个index 删除一个节点，其我们先 回顾下链表的结构特点，链表是没有索引的， 但是此处需要通过一个索引来删除节点， 我们首先要通过这个索引，找到对应的节点，同时也要找到其前后节点，将前节点的下一个节点指向其后一个节点就可以了， 主要在查找的这个过程，需要的几个要素要明白    
@@ -148,6 +150,9 @@ public void addNode(int d, ListNode head){
         return true;
     }
     ```
+    ![删除节点](http://ozjlhf9e0.bkt.clouddn.com/20180312152084772497296.png)
+    > 图像来自维基百科     
+
 
 6. 遍历链表 
 
@@ -206,20 +211,151 @@ public void addNode(int d, ListNode head){
         }
     ```
 
-
-
 ### 双向链表 
+和单链表的单向不同，双向链表中的节点都是双向操作的，一个节点中，同时又两个指针域，一个指向它的上一个节点，一个指向它的下一个节点，最后一个和第一个节点都有一个指针域是指向空的。通常双向链表节点需要包含三部分内容：    
+1. 指针域     
+    指向是上一个节点的内存地址。    
+2. 数据域     
+    数据域存放的是具体的数据内容   
+3. 指针域 
+    指向下一个节点的内存地址   
+
+![链表](http://ozjlhf9e0.bkt.clouddn.com/20180312152084533951196.png)
+> 图像来自维基百科  
 
 
+#### 双链表操作  
+1. 初始化  
+    ```java  
+    class ListNode {
+        int val ;
+        ListNode next;
+        ListNode pre;
+        public ListNode(int val){
+            this.val = val;
+            this.next = null;
+            this.pre = null;
+        }
+    }
+    ```
+2. 长度     
+    获取长度部分和单链表结构使相同的 
+    __见单链表实现__  
+
+3. 获取节点     
+    __见单链表实现__    
+4. 查找节点       
+5. 插入节点     
+    双链表与单链表的不同之处在于插入节点时，需要的是操作两个指针的，一个指向前节点，一个指向后继节点，如果在末尾插入节点，那么操作时和单链表相同的  
+
+    ```java  
+    public void addNode(int d, ListNode head){
+        ListNode node = new ListNode(d);
+        if(head == null){
+            head = node;
+            return;
+        }
+        // 循环遍历获取链表的末尾节点
+        ListNode node2 = head;  
+        while(node2.next != null){
+            node2 = head.next;
+        }
+        // node2 为链表的尾节点了
+        //在末尾添加节点
+        node2.next = node;
+    }
+    ```  
+    以上是基于末尾插入节点，接下来是在中间位置插入节点,可以通过index 或者节点的值来进行插入节点，相同的部分就是必须都要查找到需要插入的那个节点  
+    ```java  
+    // 此处实现了两种不同的，通过内容和索引插入
+    public void addNode(int d / int index, ListNode head){
+        ListNode node = new ListNode(d);
+        if(head == null){
+            head = node;
+            return;
+        }
+        // 1. 通过值插入    
+        ListNode current = head;  
+        while(current.value == d) {
+            break;
+        }
+
+        // 2. 通过索引获取  
+        int i = 0;
+        ListNode current = head;
+        while(current.next != null){
+            if(i == index){
+                break;
+            }
+            current = head.next;
+            i++;
+        }
+
+        // 添加节点  
+        node.prev = current;
+        node.next = current.next;
+        current.next.prev = node;
+        current.next = node;
+    }
+    ``` 
+    __总结:先搞定需要插入的节点前驱后继，再搞定后结点的前驱，最后解决前驱结点的后继__  
+
+6. 删除节点    
+    删除操作和添加操作相同，不过删除操作时需要先找到需要删除的那个节点，然后更改其前节点的后继以及后节点的前驱    
+
+    ```Java
+    ListNode current // 为需要删除的节点   
+    // 将当前节点的下一个节点的前继节点改为当前节点的前继节点
+    current.next.pre = current.pre;
+    // 将当前节点的前继节点的后继节点改为当前节点的后继节点,绕过当前节点
+    current.pre.next = current.next;
+    ```
+7. 遍历链表    
+    __见单链表实现__  
 
 ### 循环链表  
+环链表和单链表和双链表不同，单双链表都是有头有尾的，并且头尾不相连，而环链表是在单双链表的基础上，将头尾相连(这里也不一定是首尾相连，只要和链表中其他的节点构成环壮)，组成一个环装， 所以称为环链表，所以环链表有双向环链表和单向环链表  
+
+![链表](http://ozjlhf9e0.bkt.clouddn.com/2018031215208476808745.png)
+> 图像来自维基百科  
+
+#### 环链表操作  
+1. 判断链表是否有环问题    
+    在判断链表是否有环问题时，主要就是判断链表中是否有一个节点指向了链表中的其他节点(链表中与之不相邻的节点)  
+    常用的解决方式有以下几种： 
+    1. 空间复杂度高的  
+        在针对链表遍历时，通过每遍历一个节点，然后将此节点放到Map(Set) 中去，如果在操作过程中，数组中存在当前操作的节点，那么久说明有环存在，或者放入Set 中利用set 的无重复元素的特性，如果操作失败，那么久说明已经存在此节点，也就是存在环了     
+        ```java 
+            public boolean hasLoop(ListNode head){
+                HashSet<ListNode> set = new HashSet<ListNode>();
+                ListNode current = head;
+                while(current!=null){
+                    if(set.add(current)){
+                        return true;
+                    }
+                    current = current.next;
+                }
+                return false;
+            }
+        ``` 
+    2. 时间复杂度高  
+        在遍历链表时，通过双层遍历的形式，从头结点开始，当给定节点，然后遍历之后的所有节点是否有与之相等的节点，如果存在，那么久说明存在环， 如果不存在，那么久遍历下一个节点，然后遍历此节点之后的所有节点，依次操作，查看是否存在环    
+    3. 通过两个指针，同时从头结点开始，同步步长不同，然后判断两个指针是否会相遇，如果相遇就会存在环，不相遇就不存在环(注意： 此种方式访问一遍是无法判断出的，所以需要循环访问多次应该为 n/2次)     
+
+2. 找到环的入口节点  
+    首先，针对此问题，不能只看表面，如果只是单纯的找环的入口节点，那么将无从下手，这个要结合环的特性，环是什么样的？ 环是一个首尾相连的结构，那么环的首节点是不是尾节点？ 而且在链表中要形成环，其需要有一个节点被连接两次，此节点就是环的首节点，也同样可以称为环的尾节点(或者与之相连的第二个相连的节点)，此处问题就又演变为判断链表是否有环结构了，那么问题就简单多了，以上就有三种方式来判断  
+
+3. 环的长度  
+    在求环的长度时，需要用到以上两个问题的结果，第一先要判断有环，然后获取环的头结点，然后从头结点重新遍历，在此相遇之时之间经过的节点就是环的长度了，
 
 
 ### 块状链表 
-
+块状链表本身是一个链表，但是其每个节点并不是单个的数据，而是一个数据集。其每个节点是一个数组结构，数组结构中才是存储的真正意义上的数据。每个节点都是一个块，所有才叫块状链表。
 
 
 ## 总结  
+
+针对链表的操作以上做了大致的介绍和总结，不过回顾以上内容，不难发现，其实不管是块状链表还是环形链表甚至是双链表结构，都是基于单链表作为根本来实现的。所以掌握了针对单链表的操作后，明白块以及环链表的概念，那么具体的操作将不难实现  
 
 1. 链表存在单向链表、双向链表、循环链表、块状链表 
 2. 链表插入与删除操作快，查找操作慢  
@@ -229,3 +365,5 @@ public void addNode(int d, ListNode head){
 ## 参考 
 [interviews](https://github.com/kdn251/interviews/blob/master/README-zh-cn.md)
 [链表-维基百科](https://zh.wikipedia.org/wiki/%E9%93%BE%E8%A1%A8#%E5%85%B6%E5%AE%83%E6%89%A9%E5%B1%95)
+[判断是否有环](http://blog.csdn.net/u011373710/article/details/54024366)
+[块状链表](http://dongxicheng.org/structure/blocklink/)

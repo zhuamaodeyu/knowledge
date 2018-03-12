@@ -62,11 +62,13 @@
   * [Go Web 访问数据库](chapter7/go-web-fang-wen-shu-ju-ku.md)
   * [Go Web 设计一个Web 框架](chapter7/go-web-she-ji-yi-ge-web-kuang-jia.md)
 
+ 
+ <!--
  ### Other
-<!--
 * 第八章 即时通讯IM
 * 第九章 机器学习
-* 第十章 MySQL 数据库开发 -->
+* 第十章 MySQL 数据库开发 
+-->  
 
 ## 微服务
 
@@ -117,15 +119,16 @@
 <!-- 
 * 第十三章 DevOps 开发与运维 -->
 
-### Others
+<!--
+ ### Others
 * [第十四章 Python]()
 * [第十五章 React Native]()
 * [第十六章 Mac OS](chapter16.md)
   * [基础控件](chapter16/Section1.md)
     * [Mac开发之 `NSApplication`](chapter16/Section1/part1.md)
     * [Mac 开发之 `NSWindow`](chapter16/Section1/part2.md)
-    * [Mac 开发之 `NSPanel`](chapter16/Section1/part3.md)
-
+    * [Mac 开发之 `NSPanel`](chapter16/Section1/part3.md) 
+-->
 ### Question
 * [第十七章 开发问题集锦](chapter17.md)
   * [docker 篇](chapter17/Section1.md)

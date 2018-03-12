@@ -264,3 +264,88 @@ boolean isInterestedInRead = interestSet & SelectionKey.OP_READ;
 
 ~~~
 
+
+## 11. ASDisplayKit(Texture)ASCollectionNode 隐藏滚动条问题 
+本次开发，由于项目需要在cell 中进行复杂布局，处于性能考虑以及个人也想尝试下ASDisplayKit 框架，在针对ASCollectionNode 隐藏滚动条时遇到了问题比如：  
+
+```objectivec  
+  self.collectionNode.view.showsVerticalScrollIndicator = NO;
+  // 通过以上方式来隐藏滚动条
+        self.collectionNode.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self addSubnode:self.collectionNode];
+```
+按理说，以上方式是可以实现的，虽然ASDisplayKit 提供的是可以异步刷新view， 但是我通过直接修改view的属性的方式是没有问题的。但是在此处，通过此种方式，程序会crash掉  
+
+```
+2018-03-12 10:41:11.612039+0800 LiveTeach-iPhone[31807:17295610] *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'This method must be called on the main thread'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x00000001074e012b __exceptionPreprocess + 171
+	1   libobjc.A.dylib                     0x0000000109d19f41 objc_exception_throw + 48
+	2   CoreFoundation                      0x00000001074e52f2 +[NSException raise:format:arguments:] + 98
+	3   Foundation                          0x0000000108336d69 -[NSAssertionHandler handleFailureInMethod:object:file:lineNumber:description:] + 193
+	4   LiveTeach-iPhone                    0x000000010601ab41 -[ASDisplayNode view] + 1009
+	5   LiveTeach-iPhone                    0x0000000105f9aa46 -[ASCollectionNode view] + 54
+	6   LiveTeach-iPhone                    0x0000000105dc0526 -[LTProcessCellView initWithModel:] + 2758
+	7   LiveTeach-iPhone                    0x0000000105da8867 __64-[LTProcessViewContro2018-03-12 10:41:11.612215+0800 LiveTeach-iPhone[31807:17295094] *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'This method must be called on the main thread'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x00000001074e012b __exceptionPreprocess + 171
+	1   libobjc.A.dylib                     0x0000000109d19f41 objc_exception_throw + 48
+	2   CoreFoundation                      0x00000001074e52f2 +[NSException raise:format:arguments:] + 98
+	3   Foundation                          0x0000000108336d69 -[NSAssertionHandler handleFailureInMethod:object:file:lineNumber:description:] + 193
+	4   LiveTeach-iPhone                    0x000000010601ab41 -[ASDisplayNode view] + 1009
+	5   LiveTeach-iPhone                    0x0000000105f9aa46 -[ASCollectionNode view] + 54
+	6   LiveTeach-iPhone                    0x0000000105dc0526 -[LTProcessCellView initWithModel:] + 2758
+	7   LiveTeach-iPhone                    0x0000000105da8867 __64-[LTProcessViewContro2018-03-12 10:41:11.612153+0800 LiveTeach-iPhone[31807:17295302] *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'This method must be called on the main thread'
+
+```  
+以上堆栈信息显示的大致意思就是 有某个方法需要在主线程上调用。通过调试，我可以确定就是`self.collectionNode.view.showsVerticalScrollIndicator = NO;`这句话引起的crash。但是我通过GCD 让其同步的在主线程上执行
+
+```
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            self.collectionNode.view.showsVerticalScrollIndicator = NO;
+            self.collectionNode.view.showsHorizontalScrollIndicator = NO;
+        });
+```
+
+but, 同样会crash， 以下是堆栈信息  
+
+```
+2018-03-12 10:44:57.867918+0800 LiveTeach-iPhone[32029:17313512] *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'Incorrect display node thread affinity - this method should not be called off the main thread after the ASDisplayNode's view or layer have been created'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x0000000107b6c12b __exceptionPreprocess + 171
+	1   libobjc.A.dylib                     0x000000010c8caf41 objc_exception_throw + 48
+	2   CoreFoundation                      0x0000000107b712f2 +[NSException raise:format:arguments:] + 98
+	3   Foundation                          0x00000001089c2d69 -[NSAssertionHandler handleFailureInMethod:object:file:lineNumber:description:] + 193
+	4   LiveTeach-iPhone                    0x00000001066bab0c -[ASDisplayNode _removeFromSupernode] + 332
+	5   LiveTeach-iPhone                    0x00000001066b4dde -[ASDisplayNode _insertSubnode:atSubnodeIndex:sublayerIndex:andRemoveSubnode:] + 2830
+	6   LiveTeach-iPhone                    0x00000001066b62f1 -[ASDisplayNode _addSubnode:] + 1297
+	7   LiveTeach-iPhone                    0x00000001066b5d9c -[ASDisplayNode addSubnode:] + 60
+	8   LiveTeach-iPhone                    0x000000010644b47d -[LTProcessCellView initWithModel:] + 3021
+	9   LiveTeach-iPhone                    0x00000001064336b7 __64-[LTProcessViewController tableNode:nodeBlockForRowAtIndexPath:]_block_invoke + 71
+	10  LiveTeach-iPhone                    0x000000010679e738 __51-[ASTableView dataController:nodeBlockAtIndexPath:]_block_invoke_2 + 104
+	11  LiveTeach-iPhone                    0x000000010660f98f -[ASCollectionElement node] + 127
+	12  LiveTeach-iPhone                    0x000000010665d5fa __58-[ASDataController _allocateNodesFromElements:completion:]_block_invoke + 154
+	13  LiveTeach-iPhone                    0x000000010666f59d __ASDispatchApply_block_invoke + 93
+	14  libdispatch.dylib                   0x000000010e31c2f7 _dispatch_call_block_and_release + 12
+	15  libdispatch.dylib                   0x000000010e31d33d _dispatch_client_callout + 8
+	16  libdispatch.dylib                   0x000000010e322406 _dispatch_queue_override_invoke + 1895
+	17  libdispatch.dylib                   0x000000010e329102 _dispatch_root_queue_drain + 772
+	18  libdispatch.dylib                   0x000000010e328da0 _dispatch_worker_thread3 + 132
+	19  libsystem_pthread.dylib             0x000000010e7971ca _pthread_wqthread + 1387
+	20  libsystem_pthread.dylib             0x000000010e796c4d start_wqthread + 13
+)
+2018-03-12 10:44:57.867915+0800 LiveTeach-iPhone[32029:17313411] *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'Incorrect display node thread affinity - this method should not be called off the main thread after the ASDisplayNode's view or layer have been created’  
+
+```  
+以上crash信息表示的是 “此处提示的是什么方法不需要在main 线程调用”。为什么通过同步的主线程方式还是会crash呢？ 接下来我又通过了异步的方式实现，are you kidding me？  
+
+```
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.collectionNode.view.showsVerticalScrollIndicator = NO;
+            self.collectionNode.view.showsHorizontalScrollIndicator = NO;
+        });
+```
+只能通过以上方式来实现   。 虽然现在不知道原因，在此记录下   

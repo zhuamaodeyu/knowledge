@@ -97,7 +97,7 @@
       <!-- * [Spring Boot 异常处理](chapter12/Section2/part14.md) -->
       <!-- * [Spring Boot 集成 Elasticsearch](chapter12/Section2/part15.md)  -->
       <!-- * [Spring Boot 集成模板引擎](chapter12/Section2/part16.md) -->
-      <!-- * [Spring Boot RabbitMQ 集成](chapter12/Section2/part17.md) -->
+      <!-- * [Spring Boot RocketMQ 集成](chapter12/Section2/part17.md) -->
       <!-- * [Spring Boot Zoopkeeper](chapter12/Section2/part18.md)   -->
       <!-- *[Spring Boot WebSocket](chapter12/Section2/part20.md)   -->
   * [第三节 基于Java的微服务集成开发框架 Spring Cloud](chapter12/Section3.md)

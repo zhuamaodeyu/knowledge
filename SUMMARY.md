@@ -8,7 +8,7 @@
   * [第一节 数据结构与算法](chapter1/Section1.md)
     * [时间复杂度和空间复杂度](chapter1/Section1/part1.md)
     * [链表](chapter1/Section1/part2.md)
-    <!-- * [栈与队列](chapter1/Section1/part3.md) -->
+    * [栈与队列](chapter1/Section1/part3.md)
     <!-- * [树](chapter1/Section1/part4.md) -->
     <!-- * [堆](chapter1/Section1/part5.md) -->
     <!-- * [图](chapter1/Section1/part6.md) -->

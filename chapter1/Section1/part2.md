@@ -44,7 +44,9 @@ __本部分会采用部分伪代码来介绍操作，其具体的实现会有相
 1. 单向链表    
 2. 双向链表   
 3. 循环链表    
-4. 块状链表    
+4. 块状链表     
+
+
 接下来将针对以上四种不同实现方式进行具体的介绍以及其链表的基本操作中的需要主要的地方    
 
 ### 单向链表  
@@ -342,6 +344,7 @@ public int getListLen(ListNode head){
         在遍历链表时，通过双层遍历的形式，从头结点开始，当给定节点，然后遍历之后的所有节点是否有与之相等的节点，如果存在，那么久说明存在环， 如果不存在，那么久遍历下一个节点，然后遍历此节点之后的所有节点，依次操作，查看是否存在环    
     3. 通过两个指针，同时从头结点开始，同步步长不同，然后判断两个指针是否会相遇，如果相遇就会存在环，不相遇就不存在环(注意： 此种方式访问一遍是无法判断出的，所以需要循环访问多次应该为 n/2次)     
 
+
 2. 找到环的入口节点  
     首先，针对此问题，不能只看表面，如果只是单纯的找环的入口节点，那么将无从下手，这个要结合环的特性，环是什么样的？ 环是一个首尾相连的结构，那么环的首节点是不是尾节点？ 而且在链表中要形成环，其需要有一个节点被连接两次，此节点就是环的首节点，也同样可以称为环的尾节点(或者与之相连的第二个相连的节点)，此处问题就又演变为判断链表是否有环结构了，那么问题就简单多了，以上就有三种方式来判断  
 
@@ -363,7 +366,7 @@ public int getListLen(ListNode head){
 
 
 ## 参考 
-[interviews](https://github.com/kdn251/interviews/blob/master/README-zh-cn.md)
-[链表-维基百科](https://zh.wikipedia.org/wiki/%E9%93%BE%E8%A1%A8#%E5%85%B6%E5%AE%83%E6%89%A9%E5%B1%95)
-[判断是否有环](http://blog.csdn.net/u011373710/article/details/54024366)
-[块状链表](http://dongxicheng.org/structure/blocklink/)
+[interviews](https://github.com/kdn251/interviews/blob/master/README-zh-cn.md)    
+[链表-维基百科](https://zh.wikipedia.org/wiki/%E9%93%BE%E8%A1%A8#%E5%85%B6%E5%AE%83%E6%89%A9%E5%B1%95)    
+[判断是否有环](http://blog.csdn.net/u011373710/article/details/54024366)    
+[块状链表](http://dongxicheng.org/structure/blocklink/)     

@@ -100,7 +100,8 @@
       <!-- * [Spring Boot RocketMQ 集成](chapter12/Section2/part17.md) -->
       <!-- * [Spring Boot Zoopkeeper](chapter12/Section2/part18.md)   -->
       <!-- *[Spring Boot WebSocket](chapter12/Section2/part20.md)   -->
-  * [第三节 基于Java的微服务集成开发框架 Spring Cloud](chapter12/Section3.md)
+  * [第三节 微服务集成开发框架 Spring Cloud](chapter12/Section3.md)
+    * [Spring Cloud --- Eureka](chapter12/Section3/part1.md)
   <!-- * [第四节 基于开发源框架组的微服务工具组](chapter12/Section4.md)   -->
   * [第五节 微服务化]() 
     * [Docker实现微服务的封装---Spring Boot](chapter12/Section5/part1.md)

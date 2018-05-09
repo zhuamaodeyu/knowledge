@@ -52,3 +52,8 @@
     一般采用此种方式，此种方式是最简单快捷的，直接进入 bash 命令界面  
     ![进入容器](http://ozjlhf9e0.bkt.clouddn.com/20171123151139896869688.png)
 
+
+
+
+
+`docker network inspect bridge`

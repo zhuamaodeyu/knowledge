@@ -117,8 +117,9 @@
     * [综合篇](chapter12/shi-jian-pian/zong-he-pian.md)
 
 ### DevOps
-<!-- 
-* 第十三章 DevOps 开发与运维 -->
+
+* [第十三章 DevOps 开发与运维]()
+  * [实现基于Docker 下的Gitlab CI]()
 
 <!--
  ### Others

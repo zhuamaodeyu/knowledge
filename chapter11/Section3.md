@@ -22,7 +22,7 @@ Mac上安装Docker如今又两种形式：一种是通过 Docker for Mac 安装�
       在Mac系统下，此文件会路径在`vim /Users/xxx/.docker/daemon.json`  
       打开文件将文件修改为以下内容
 
-    ```JavaScript
+    ```Json
       {
           "insecure-registries" : [
               "registry.mirrors.aliyuncs.com"

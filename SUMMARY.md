@@ -77,6 +77,7 @@
   * [如何编写最佳的Dockerfile](chapter11/Section2.md)
   * [Docker 加速](chapter11/Section3.md)
   * [Dockerfile](chapter11/Section4.md)
+
 * [第十二章 微服务篇]()
   * [第一节 微服务架构设计](chapter12/Section1.md)
   * [第二节 基于Java的微服务开发框架---Spring Boot](chapter12/Section2.md)
@@ -119,7 +120,7 @@
 ### DevOps
 
 * [第十三章 DevOps 开发与运维]()
-  * [实现基于Docker 下的Gitlab CI]()
+  * [实现基于Docker 下的Gitlab CI](chapter13/Section1.md)
 
 <!--
  ### Others
@@ -140,7 +141,7 @@
     * [解决 go get  以及 git clone from google 的问题](chapter17/Section2/jie-jue-go-get-yi-ji-git-clone-from-google-de-wen-ti.md) 
   * [java 篇]()
     * [Spring Boot 集成 Redis](chapter17/Section3/part1.md)
-
+    * [mysql 连接失败](chapter17/Section3/part2.md)
 
 ### 面试  
 * [基础](chapter18/base.md)

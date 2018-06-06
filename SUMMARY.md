@@ -1,7 +1,7 @@
 #Summary
 
 * [引言](README.md)
-
+* [开发环境搭建](init.md)
 ## 基础
 
 * [第一章 编程的根基](chapter1.md)

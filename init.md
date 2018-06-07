@@ -111,7 +111,7 @@
 
     # 访问端口改为 8000
     # 此处还关闭了nginx 使用自己安装的nginx  
-    nginx['listen_port'] = 80       # 默认80
+    nginx['listen_port'] = 8000       # 默认80
 
     vi /var/opt/gitlab/nginx/conf/gitlab-http.conf
     listen *:82; #默认值listen *:80;
@@ -168,6 +168,26 @@
      # 安装  
     make && make install
     ```
+5. 创建systemctl
+    ```
+    [Unit]
+    Description=The NGINX HTTP and reverse proxy server
+    After=syslog.target network.target remote-fs.target nss-lookup.target
+
+    [Service]
+    Type=forking
+    # PIDFile=/run/nginx.pid
+    ExecStartPre=/opt/opt/nginx-1.14.0/bin/sbin/nginx -t
+    ExecStart=/opt/opt/nginx-1.14.0/bin/sbin/nginx
+    ExecReload=/opt/opt/nginx-1.14.0/bin/sbin/nginx -s reload
+    ExecStop=/bin/kill -s QUIT $MAINPID
+    PrivateTmp=true
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+6. 启动服务 
+    
 
 
 ### runner  
@@ -382,7 +402,7 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
     sudo vi /opt/nexus/nexus/etc/nexus.properties
     nexus-context-path=/nexus
     ```
-    __注意： 需要切换到root 用户下才可以启动服务额，不然会报Java问题__  
+    __注意：需要切换到root 用户下才可以启动服务额，不然会报Java问题__  
 
 11. 查看启动日志 
     ```shell
@@ -592,20 +612,72 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
 -------------------------  
 ## 安装服务及访问地址 
 1. elasticsearch  
+    * 查看服务是否启动 
     ```shell
     ./elasticsearch -Xms512m -Xmx512m
     ./elasticsearch -d -Xms512m -Xmx512m
-
     ```
 2. gitlab 
-    ```shell 
-    gitlab-ctl restart
-    ```
-    访问地址__http://192.168.33.13:8000/__   
+    * 查看服务是否启动 
+        ```shell
+
+
+        ```
+    * 验证
+        ```shell 
+        gitlab-ctl restart
+        http://192.168.33.13:8000/
+        ```
+            
 
 3. nginx  
+    * 查看服务是否启动 
+        ```shell
 
 
+        ```
+    * 验证
+        ```
+        http://192.168.33.13  
+        ```
+4. docker registry
+    * 查看服务是否启动
+       ```shell
+
+
+        ```
+        
+    * 验证
+
+        ```
+        docker tag drone/agent mydockerhub.com:5000/drone
+        docker push mydockerhub.com:5000/drone
+        ```
+5. nexus 
+    * 查看服务是否启动
+       ```shell
+            sudo systemctl start nexus
+            sudo systemctl stop  nexus
+        ```
+
+    * 验证
+
+        ```shell
+        http://192.168.33.13:8081
+        ```
+
+6. FastDFS
+    * 查看服务是否启动
+        ```shell
+            systemctl start fdfs_trackerd
+            systemctl status fdfs_trackerd
+            systemctl start fdfs_storaged
+            systemctl status fdfs_storaged
+        ```
+    * 验证
+        ```
+        /usr/bin/fdfs_test /etc/fdfs/client.conf upload /usr/bin/test.txt
+        ```
 
 
 
@@ -616,7 +688,7 @@ netstat -ntlp
 
 # 查看端口占用进程 
 netstat -lnp|grep 88
-
+netstat -antp|grep 80
 
 # 查看文件占用情况  
 du -sh *

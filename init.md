@@ -298,7 +298,296 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
         出现以上内容代表上传成功  
         
 
+### Maven Respository
+1. 下载 nexus 
+    ```shell 
+    https://sonatype-download.global.ssl.fastly.net/repository/repositoryManager/3/nexus-3.12.0-01-unix.tar.gz  
 
+    # 解压 
+    tar -zxvf nexus.tar.gz 
+    ```
+2. 添加环境变量  
+    ```shell
+    export NEXUS_HOME=/opt/nexus
+    export PATH=$NEXUS_HOME/bin:$PATH
+    ```
+3. 修改nexus.rc 文件 
+    ```
+    run_as_user="nexus"  # root
+    ```
+4. 添加新用户并赋予权限 
+    ```shell
+    sudo useradd nexus
+    sudo chown -R nexus:nexus /opt/nexus
+    sudo chown -R nexus:nexus /opt/sonatype-work/
+    ```
+5. 创建开机启动服务(systemd)
+    ```shell
+    sudo vi /etc/systemd/system/nexus.service
+
+    # 添加如下内容 (3.2 之前的) 
+    [Unit]
+    Description=nexus service
+    After=network.target
+        
+    [Service]
+    Type=forking
+    ExecStart=/opt/nexus/bin/nexus start
+    ExecStop=/opt/nexus/bin/nexus stop
+    User=nexus #root
+    Restart=on-abort
+        
+    [Install]
+    WantedBy=multi-user.target
+
+    # 3.2 之后 用之前的无法启动 
+    [Unit]
+    Description=nexus service
+    After=network.target
+
+    [Service]
+    Type=forking
+    ExecStart=/opt/nexus/bin/nexus start
+    ExecStop=/opt/nexus/bin/nexus stop
+    User=root
+    Restart=on-abort
+    Environment=INSTALL4J_JAVA_HOME=/opt/jdk1.8.0_171/jre
+    LimitNOFILE=65536
+    [Install]
+    WantedBy=multi-user.target
+    ```
+6. 安装并启动服务 
+    ```shell
+    sudo systemctl daemon-reload
+    sudo systemctl enable nexus
+    sudo systemctl start nexus
+    ```
+7. 查看服务 
+    ```shell
+    sudo systemctl status nexus
+    ```
+8. 添加防火墙 
+    ```shell 
+    sudo firewall-cmd --zone=public --permanent --add-port=8081/tcp
+    sudo firewall-cmd --reload 
+    ```
+9. 测试服务 
+    ```shell 
+    # http://ip:8081/
+    username: admin
+    password: admin123
+    ```
+10. 更开nexus 的 cntext path  
+    ```shell 
+    sudo vi /opt/nexus/nexus/etc/nexus.properties
+    nexus-context-path=/nexus
+    ```
+    __注意： 需要切换到root 用户下才可以启动服务额，不然会报Java问题__  
+
+11. 查看启动日志 
+    ```shell
+    tail -f /opt/nexus/sonatype-work/nexus3/log/nexus.log
+    ```  
+
+
+### docker Respository
+1. 运行 docker  
+    ```shell
+    docker run -d -p 5000:5000 -v /opt/docker/registry:/var/lib/registry restart=always registry
+    ```
+2. 测试是否可以push/pull 
+    ```shell
+    docker tag drone/agent 192.168.33.13:5000/drone
+    docker push 192.168.33.13:5000/drone
+    ```
+   __此步一般会提示HTTPS 访问的错误__
+    
+   * 绕过https 访问(此种方式需要所有的主机上都要配置)
+    ```shell
+    sudo vi /etc/docker/daemon.json
+
+    # 添加一下内容
+    "insecure-registries": ["192.168.33.13:5000"]
+
+    # 重启服务 
+    systemctl restart docker
+    # sudo service docker restart
+    ```
+3. 生成证书  
+    ```shell 
+    sudo openssl req -nodes -subj "/C=CN/ST=ZheJiang/L=HangZhou/CN=192.168.33.13" -newkey rsa:4096 -keyout /opt/docker/certs/cert.key -out /opt/docker/certs/cert.csr
+    # 验证
+    sudo openssl x509 -req -days 3650 -in /opt/docker/certs/cert.csr -signkey /opt/docker/certs/cert.key -out /opt/docker/certs/cert.crt
+    # 会出现 Signature ok
+    ```
+4. 运行带证书docker images 
+    ```shell 
+    #运行registry容器
+    sudo docker run \n
+    -d              \n
+    -p 5000:5000    \n
+    --name registry \n
+    -v /opt/docker/certs:/certs     \n
+    -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/cert.crt    \n
+    -e REGISTRY_HTTP_TLS_KEY=/certs/cert.key    \n
+    -v /opt/docker/registry:/var/lib/registry   \n
+    --restart=always  \n
+    registry    
+
+    #docker run -d -p 5000:5000 --name registry -v /opt/docker/certs:/certs  -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/cert.crt -e REGISTRY_HTTP_TLS_KEY=/certs/cert.key -v /opt/docker/registry:/var/lib/registry  registry
+    ```
+
+5. 复制证书到主机  
+    ```shell 
+    # 复制证书文件到各个主机下的 
+    # /etc/docker/cert.d/192.168.33.13:5000目录  
+    sudo mkdir /etc/docker/certs.d/
+    sudo mkdir /etc/docker/certs.d/192.168.33.13:5000
+    ```
+
+    __注意__：Mac 下 `Vagrant 2.0.2` 默认的Ceontos 7 box 无法实时同步目录，所以要想从主机复制文件到共享目录，需要重启虚拟机，从虚拟机复制文件到共享目录，无法成功，(虚拟机中成功，但是宿主机看不到),需要修改配置`Vagrantfile`  
+    ```ruby 
+        config.vm.synced_folder 
+        "./", 
+        "/vagrant", 
+        create:true,
+        type:"nfs" # rsync , smb
+    ```
+6. 解决(because it doesn't contain any IP SANs)
+    ```shell 
+    # /etc/ssl/openssl.cnf      ubuntu
+    # /etc/pki/tls/openssl.cnf  centos 
+
+    [v3_ca]
+    subjectAltName = IP:XX.XX.XX.XX
+    ```
+    __重新操作以上步骤__ 
+    __无法解决问题__  
+
+7. 通过域名方式生成证书并实现 
+    * 生成证书
+        ```shell
+        # 方式2 
+        sudo openssl req -newkey rsa:4096 -nodes -sha256 -keyout /opt/docker/certs/cert.key -x509 -days 365 -out /opt/docker/certs/cert.csr
+
+        #You are about to be asked to enter information that will be incorporated
+        #into your certificate request.
+        #What you are about to enter is what is called a Distinguished Name or a DN.
+        #There are quite a few fields but you can leave some blank
+        #For some fields there will be a default value,
+        #If you enter '.', the field will be left blank.
+        #-----
+        #Country Name (2 letter code) [AU]:CN
+        #State or Province Name (full name) [Some-State]:guangdong
+        #Locality Name (eg, city) []:shenzhen
+        #Organization Name (eg, company) [Internet Widgits Pty Ltd]:tao
+        #Organizational Unit Name (eg, section) []:tao
+        #Common Name (e.g. server FQDN or YOUR name) []:mydockerhub.com
+        #Email Address []:playtomandjerry@gmail.com
+        ```
+    * 启动镜像
+        ```shell
+            docker run -d -p 5000:5000 --name registry -v /opt/docker/certs:/certs  -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/cert.csr -e REGISTRY_HTTP_TLS_KEY=/certs/cert.key -v /opt/docker/registry:/var/lib/registry   
+            #-v /opt/docker/registry/config/config.yml:/etc/docker/registry/config.yml  无法添加不知道为什么
+            registry
+        ```
+    * 修改hosts 
+        ```shell
+        # cd /etc/hosts
+        192.168.33.13  mydockerhub.com
+        ```
+    * 配置物理机证书(Mac 可以绕过此步)
+        ```shell
+            # linux 下
+            # /etc/docker/cert.d/mydockerhub.com:5000目录  
+            sudo mkdir /etc/docker/certs.d/
+            sudo mkdir /etc/docker/certs.d/mydockerhub.com:5000
+        ```
+        * Mac 配置  
+            ![20180607152835291175045.png](http://ozjlhf9e0.bkt.clouddn.com/20180607152835291175045.png)
+    * 测试 
+    
+
+
+    ---------------以上方式通过配置Docker 不需要配置nginx了 
+    * 配置nginx  
+        ```yml 
+            server {
+                listen 8000;
+                server_name mydockerhub.com;
+                ssl on;
+                ssl_certificate /opt/nginx/ssl/nginx.crt;
+                ssl_certificate_key /opt/nginx/ssl/nginx.key;
+            }
+        ```
+        * 生成证书
+            ```shell
+                sudo openssl req -newkey rsa:4096 -nodes -sha256 -keyout /opt/nginx/ssl/nginx.key -x509 -days 365 -out /opt/nginx/ssl/nginx.crt
+            ```
+        * 创建config.yml  (不知道怎么映射不进去，无效)
+            ```yml
+
+
+
+
+            ```
+        * 创建密码文件 
+            ```shell
+            docker run --entrypoint htpasswd registry -Bbn root root  > auth/htpasswd
+            ```
+        * 启动带有鉴权registry 
+            ```shell
+            docker run -d -p 5000:5000 --restart=always --name registry \
+                -v `pwd`/auth:/auth \
+                -e "REGISTRY_AUTH=htpasswd" \
+                -e "REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm" \
+                -e REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd \
+                -v `pwd`/data:/var/lib/registry \
+                -v `pwd`/certs:/certs \
+                -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt \
+                -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key \
+                registry:2
+
+            ```
+    * Registry操作 
+        1. docker run 添加配置的映射 
+        2. 修改配置 
+            ```
+            delete:
+                enabled: true
+            ```
+        3. 查看仓库大小 
+            ```shell
+            docker exec -it registry /bin/bash
+            du -sch /var/lib/registry
+            ```
+        4. 删除镜像 
+            ```shell
+            # DELETE /v2/<name>/manifests/<reference>
+            # name:镜像名称 
+            # reference: 镜像对应sha256值
+            curl -I -X DELETE http://mydockerhub.com:5000/v2/xcb/centos/manifests/sha256:5b367dbc03
+            
+
+            # 直接删除 
+            # docker exec <容器名> rm -rf /var/lib/registry/docker/registry/v2/repositories/<镜像名>
+            ```
+        5. 清空垃圾 
+            ```shell
+            # 在镜像内部 执行
+            registry garbage-collect /etc/docker/registry/config.yml  
+
+            # docker exec registry bin/registry garbage-collect /etc/docker/registry/config.yml
+            ```
+
+0. 使用  
+    ```shell 
+    # 搜索
+    curl  http://10.10.105.71:5000/v2/_catalog
+    # 查看
+    curl  http://10.10.105.71:5000/v2/tonybai/busybox/tags/list
+
+    ```
 
 -------------------------  
 ## 安装服务及访问地址 

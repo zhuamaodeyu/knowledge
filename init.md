@@ -407,8 +407,41 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
 11. 查看启动日志 
     ```shell
     tail -f /opt/nexus/sonatype-work/nexus3/log/nexus.log
-    ```  
+    ``` 
+    
+12. 配置maven 
+    ![20180607152838092213078.png](http://ozjlhf9e0.bkt.clouddn.com/20180607152838092213078.png)  
+    以上是用户配置文件(可以在maven/conf 下直接修改全局配置文件)
+    ```xml
+    <server>
+      <id>nexus-releases</id>
+      <username>admin</username>
+      <password>admin123</password>
+    </server>
 
+    <server>
+        <id>nexus-snapshots</id>
+        <username>admin</username>
+        <password>admin123</password>
+    </server>
+    ```
+13. 使用 
+    直接在`pom.xml` 文件中添加一下内容
+    ```xml
+    <distributionManagement>
+        <repository>
+            <id>nexus-release</id>
+            <name>Nexus Release Repository</name>
+            <url>http://192.168.33.13:8081/nexus/content/repositories/release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>Nexus Snapshot Repository</name>
+            <url>http://192.168.33.13:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    ```
 
 ### docker Respository
 1. 运行 docker  

@@ -559,7 +559,7 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
         * Mac 配置  
             ![20180607152835291175045.png](http://ozjlhf9e0.bkt.clouddn.com/20180607152835291175045.png)
     * 测试 
-    
+        __根据文末方式进行验证__  
 
 
     ---------------以上方式通过配置Docker 不需要配置nginx了 
@@ -683,6 +683,7 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
     * 验证
 
         ```
+        docker login mydocker.com:5000 -u root -p root
         docker tag drone/agent mydockerhub.com:5000/drone
         docker push mydockerhub.com:5000/drone
         ```

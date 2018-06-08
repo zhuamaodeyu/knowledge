@@ -49,7 +49,7 @@
 
 2. 创建 gitlab-runner 容器  
 
-    ```shell
+    ```bash
     docker run -d --name gitlab-runner --restart always \                                   
     -v /var/run/docker.sock:/var/run/docker.sock \
     gitlab/gitlab-runner
@@ -81,8 +81,10 @@ gitlab runner 是需要注册才可以使用的(整个注册的过程就是讲�
             ![20180509152584899550714.png](http://ozjlhf9e0.bkt.clouddn.com/20180509152584899550714.png)    
 
 2. 注册runner  
+
     `docker exec -it gitlab-runner gitlab-runner register`
-```shell  
+
+```bash  
 Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):
 http://url
 Please enter the gitlab-ci token for this runner:
@@ -96,6 +98,7 @@ Whether to run untagged builds [true/false]:
 Whether to lock the Runner to current project [true/false]:
 [true]:
 ```
+
 
 ![20180509152584940541303.png](http://ozjlhf9e0.bkt.clouddn.com/20180509152584940541303.png)   
 
@@ -111,6 +114,12 @@ __注意__
 ## 4. 定义 项目构建流程  
 在gitlab-ci构建时，需要在项目中有一个 `.gitlab-ci.yml` 文件，在此文件中定义构建流程，此文件可以自定义，同时 gitlab 也提供了针对不同的语言的模板文件，可以使用系统提供的模板文件   
 
+```yml 
+
+
+
+
+```
 
 
 ## 5. 通过 docker-compose 实现  

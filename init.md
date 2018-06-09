@@ -100,7 +100,7 @@
     ```bash 
     vim  /etc/gitlab/gitlab.rb
     # 配置访问地址 
-    external_url  '本机地址'  
+    external_url  '本机地址'   # 此处尽量填写服务器地址或者域名，如果不是80 端口，需要填写端口，不然后边runner会出问题
     # 默认是80端口，如果80已经使用
     ```
 4. 更新配置 
@@ -199,12 +199,30 @@
     sudo yum install gitlab-ci-multi-runner
     ```
 2. 注册 
-    ```bash 
-    sudo gitlab-ci-multi-runner register
+    通过 `register` 命令来注册(`gitlab-runner register`)  
+    ```bash
+        sudo gitlab-ci-multi-runner register
+        ## 配置
+        [root@localhost ~]# gitlab-runner register
+        Running in system-mode.
+        Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):
+        http://192.168.33.13:8000  # 此处需要填写gitlab 服务器地址，如果不是80 端口，需要填写端口
+        Please enter the gitlab-ci token for this runner:
+        wiA1tLGKsBM3aCBdepN2        # token
+        Please enter the gitlab-ci description for this runner:
+        [localhost.localdomain]: test       # descrition 描述
+        Please enter the gitlab-ci tags for this runner (comma separated):
+        test                        # tags  
+        Whether to run untagged builds [true/false]:
+        # [false]: true
+        Whether to lock Runner to current project [true/false]:
+        # [false]: true
+        Registering runner... succeeded                     runner=wiA1tLGK
+        Please enter the executor: kubernetes, docker, docker-ssh, parallels, virtualbox, docker-ssh+machine, shell, ssh, docker+machine:
+        shell           # 填写执行器类型  一般可以填shell  将会采用执行shell 脚本的形式
+        Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
     ```
-__具体注册内容，请查看具体的`gitlab`文章部分__  
-
-
+<!-- __具体注册内容，请查看具体的`gitlab`文章部分__   -->
 
 
 
@@ -721,5 +739,13 @@ ps –ef|grep nginx
 
 # kill 
 kill -QUIT 主进程号
+
+# 上传文件
+sudo yum -y install lrzsz
+
+## rz              上传文件
+## sz  文件名       下载文件
+
 ```
+
 

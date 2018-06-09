@@ -142,6 +142,8 @@
   * [java 篇]()
     * [Spring Boot 集成 Redis](chapter17/Section3/part1.md)
     * [mysql 连接失败](chapter17/Section3/part2.md)
+  * [DevOps]()
+    * [Gitlab 与 gitlab-runner集成](chapter17/Section4/part1.md)
 
 ### 面试  
 * [基础](chapter18/base.md)

@@ -24,16 +24,14 @@
     ```
     * 修改gitlab 服务器地址  
         默认生成项目的URL访问地址是按容器的hostname来生成的，但是这样就无法是正确的URL地址了,所以需要配置为一个特定的URL地址  
-        ```s
+        ```ruby
         docker exec -it gitlab bash    
         vi /etc/gitlab/gitlab.rb
         # 配置http协议所使用的访问地址
         external_url 'http://127.0.0.1'
-
         # 配置ssh协议所使用的访问地址和端口
         gitlab_rails['gitlab_ssh_host'] = '127.0.0.1'
         gitlab_rails['gitlab_shell_ssh_port'] = 10022
-
         ```
         执行`gitlab-ctl reconfigure` 或重启容器  
     
@@ -83,21 +81,20 @@ gitlab runner 是需要注册才可以使用的(整个注册的过程就是讲�
 2. 注册runner  
 
     `docker exec -it gitlab-runner gitlab-runner register`
-
-```bash  
-Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):
-http://url
-Please enter the gitlab-ci token for this runner:
-token 
-Please enter the gitlab-ci description for this runner:
-[a61e96bfe835]: test
-Please enter the gitlab-ci tags for this runner (comma separated):
-test
-Whether to run untagged builds [true/false]:
-[false]:
-Whether to lock the Runner to current project [true/false]:
-[true]:
-```
+    ```bash  
+    Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):
+    http://url
+    Please enter the gitlab-ci token for this runner:
+    token 
+    Please enter the gitlab-ci description for this runner:
+    [a61e96bfe835]: test
+    Please enter the gitlab-ci tags for this runner (comma separated):
+    test
+    Whether to run untagged builds [true/false]:
+    [false]:
+    Whether to lock the Runner to current project [true/false]:
+    [true]:
+    ```
 
 
 ![20180509152584940541303.png](http://ozjlhf9e0.bkt.clouddn.com/20180509152584940541303.png)   
@@ -114,7 +111,7 @@ __注意__
 ## 4. 定义 项目构建流程  
 在gitlab-ci构建时，需要在项目中有一个 `.gitlab-ci.yml` 文件，在此文件中定义构建流程，此文件可以自定义，同时 gitlab 也提供了针对不同的语言的模板文件，可以使用系统提供的模板文件   
 
-```yml 
+```yaml
 
 
 

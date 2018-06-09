@@ -1,7 +1,10 @@
 # 开发环境搭建  
 
 ## 环境  
-    * Ceontos 7  
+* Ceontos 7  
+
+
+
 
 ### java  
 ### Maven  
@@ -9,7 +12,7 @@
 ### zookeeper
 1. download
 2. 设置环境变量
-    ```shell 
+    ```bash 
     #  ~/.bash_profile      用户环境变量 
     #  /etc/profile         系统环境变量  
     MAVEN_HOME=/opt/apache-maven-3.5.3
@@ -40,13 +43,13 @@
 
 ### Docker
 1. 查看内核 
-    ```shell 
+    ```bash 
     uname -r 
     # 更新  
     sudo yum update 
     ```
 2. 安装 
-    ```shell 
+    ```bash 
     # remove old docker 
      sudo yum remove docker  docker-common docker-selinux docker-engine
     # 安装 
@@ -61,7 +64,7 @@
     sudo yum install docker-ce
     ```
 3. 设置开机启动 
-    ```shell 
+    ```bash 
     sudo systemctl start docker
     sudo systemctl enable docker
     ```
@@ -69,7 +72,7 @@
 
 ### gitlab 
 1. 前期工作 
-    ```shell
+    ```bash
     sudo yum install curl policycoreutils policycoreutils-python openssh-server openssh-clients
     sudo systemctl enable sshd
     sudo systemctl start sshd
@@ -83,7 +86,7 @@
 
     ```
 2. download 
-    ```shell
+    ```bash
     # 下载  
     wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/gitlab-ce-8.0.0-ce.0.el7.x86_64.rpm
     # 解压 
@@ -94,19 +97,19 @@
     sudo yum install gitlab-ce-10.1.0-ce.0.el7.x86_64
     ```
 3. 配置 
-    ```shell 
+    ```bash 
     vim  /etc/gitlab/gitlab.rb
     # 配置访问地址 
     external_url  '本机地址'  
     # 默认是80端口，如果80已经使用
     ```
 4. 更新配置 
-    ```shell
+    ```bash
     gitlab-ctl reconfigure
     gitlab-ctl restart
     ```
 5. 修改nginx(gitlab 默认有nginx)  
-    ```shell 
+    ```bash 
     vi /etc/gitlab/gitlab.rb
 
     # 访问端口改为 8000
@@ -131,7 +134,7 @@
 
 ### nginx
 1. download  
-    ```shell 
+    ```bash 
          sudo yum install wget 
          # 根据自己需要下载版本 
          wget -c https://nginx.org/download/nginx-1.10.1.tar.gz   
@@ -145,12 +148,12 @@
          wget https://github.com/happyfish100/fastdfs-nginx-module/archive/master.zip
     ```
 2. 解压  
-    ```shell 
+    ```bash 
     #  unzip  xxx.zip  
     # tar -zxvf xxx.tar.gz
     ```
 3. 编译  
-    ```shell 
+    ```bash 
     # ssl 
     # pcre
     # gzip 
@@ -162,7 +165,7 @@
     ```
 4. 编译 nginx  
 
-    ```shell 
+    ```bash 
     cd nginx/  
      sudo ./configure  --prefix=/opt/nginx-1.14.0/bin --with-http_stub_status_module --with-http_ssl_module --with-ipv6  --with-openssl=/opt/nginx-1.14.0/openssl-1.1.0h --with-pcre=/opt/nginx-1.14.0/pcre-8.42 --with-zlib=/opt/nginx-1.14.0/zlib-1.2.11 --add-module=/opt/nginx-1.14.0/fastdfs-nginx-module/src
      # 安装  
@@ -192,11 +195,11 @@
 
 ### runner  
 1. 安装 
-    ```shell 
+    ```bash 
     sudo yum install gitlab-ci-multi-runner
     ```
 2. 注册 
-    ```shell 
+    ```bash 
     sudo gitlab-ci-multi-runner register
     ```
 __具体注册内容，请查看具体的`gitlab`文章部分__  
@@ -207,14 +210,14 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
 
 ### FastDFS  
 1. download  
-    ```shell 
+    ```bash 
     # libfastcommon
     wget https://github.com/happyfish100/libfastcommon/archive/master.zip 
     # FastDFS 
     wget https://github.com/happyfish100/fastdfs/archive/master.zip 
     ```
 2. make  
-    ```shell 
+    ```bash 
     # libfastcommon  
     # FastDFS
     unzip master.zip 
@@ -222,37 +225,34 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
     ./make.sh && make.sh install
     ```
 3. 配置  
-    * 配置 Tracker  服务 
-        ```shell 
+    主要配置 tracker 和 Storage    
+    * 配置 Tracker 服务     
+        ```bash     
         cd /etc/fdfs 
         cp tracker.conf.sample tracker.conf  
         vi tracker.conf    
-        
         # 修改一下内容
         # the base path to store data and log files 数据存放地址  
         base_path=/data/fastdfs
         # HTTP port on this tracker server
         http.server_port=80
-
-
         # 启动 
         /usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf start
         # 软连接 
         ln -s /usr/bin/fdfs_trackerd /usr/local/bin
         ln -s /usr/bin/stop.sh /usr/local/bin
         ln -s /usr/bin/restart.sh /usr/local/bin
-
         # service 服务启动形式
         service fdfs_trackerd start
         # 查看监听
         netstat -unltp|grep fdfs
-
         ```
-    * 配置Storage 服务 
-        ```shell 
+
+    * 配置Storage 服务    
+
+        ```bash    
         cp storage.conf.sample storage.conf
         vim storage.conf
-
         # the base path to store data and log files
         base_path=/data/fastdfs/storage
         # store_path#, based 0, if store_path0 not exists, it's value is base_path
@@ -263,55 +263,60 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
         #  "host:port", host can be hostname or ip address
         # 地址如果是本地环境，就是本地机器地址  
         tracker_server=192.168.198.129:22122
-
         # 软连接 
         ln -s /usr/bin/fdfs_storaged /usr/local/bin
         service fdfs_storaged start
         ```
     
-    * 验证服务  
-        ```shell 
-        netstat -unltp|grep fdfs
+    * 验证服务     
 
+        ```bash    
+        netstat -unltp|grep fdfs
         /usr/bin/fdfs_monitor /etc/fdfs/storage.conf
         ```
-        __注意： 有时候却验证不通过，这时候就需要查看日志信息 看看日志信息是否有错误，如果没有错误那么久没问题__  
+        __注意： 有时候却验证不通过，这时候就需要查看日志信息 看看日志信息是否有错误，如果没有错误那么久没问题__ 
+
     * 修改 NGINX 模块  
-        ```shell 
+
+        ```bash    
         # mod-fastdfs.conf
         tracker_server=192.168.198.129:22122
         url_have_group_name = true  
         store_path0=/data/fastdfs/storage  
         # 以上三个属性配置成自己的地址和 存放地址  
-
         ```
+
     * 修改NGINX 配置 
-        ``` 
-        添加以下内容
+
+        ```yaml    
+          #添加以下内容
         location /group1/M00 {
             root /data/fastdfs/storage/;
             ngx_fastdfs_module;
         }
         ```
+
     * 创建软连接等 
-        ```shell
+
+        ```bash   
         mkdir /data/fastdfs/storage/data/group1
         ln -s /data/fastdfs/storage/data /data/fastdfs/storage/data/group1/M00
         ```
+    
     * 重启NGINX 
+    
     * 配置 client.conf
-        ```shell
+    
+        ```bash   
         cp /usr/fdfs/client.conf.sample client.conf  
-
         # 修改一下内容 
         base_path = 
         tracker_server = 
-
         ```
     * 测试上传  
-        ```shell 
+    
+        ```bash    
         cd /usr/bin
-
         /usr/bin/fdfs_test /etc/fdfs/client.conf upload /usr/bin/test.txt
         ```
         ![20180606152827315464159.png](http://ozjlhf9e0.bkt.clouddn.com/20180606152827315464159.png)  
@@ -320,14 +325,14 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
 
 ### Maven Respository
 1. 下载 nexus 
-    ```shell 
+    ```bash    
     https://sonatype-download.global.ssl.fastly.net/repository/repositoryManager/3/nexus-3.12.0-01-unix.tar.gz  
 
     # 解压 
     tar -zxvf nexus.tar.gz 
     ```
 2. 添加环境变量  
-    ```shell
+    ```bash   
     export NEXUS_HOME=/opt/nexus
     export PATH=$NEXUS_HOME/bin:$PATH
     ```
@@ -336,13 +341,13 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
     run_as_user="nexus"  # root
     ```
 4. 添加新用户并赋予权限 
-    ```shell
+    ```bash
     sudo useradd nexus
     sudo chown -R nexus:nexus /opt/nexus
     sudo chown -R nexus:nexus /opt/sonatype-work/
     ```
 5. 创建开机启动服务(systemd)
-    ```shell
+    ```bash
     sudo vi /etc/systemd/system/nexus.service
 
     # 添加如下内容 (3.2 之前的) 
@@ -377,35 +382,35 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
     WantedBy=multi-user.target
     ```
 6. 安装并启动服务 
-    ```shell
+    ```bash
     sudo systemctl daemon-reload
     sudo systemctl enable nexus
     sudo systemctl start nexus
     ```
 7. 查看服务 
-    ```shell
+    ```bash
     sudo systemctl status nexus
     ```
 8. 添加防火墙 
-    ```shell 
+    ```bash 
     sudo firewall-cmd --zone=public --permanent --add-port=8081/tcp
     sudo firewall-cmd --reload 
     ```
 9. 测试服务 
-    ```shell 
+    ```bash 
     # http://ip:8081/
     username: admin
     password: admin123
     ```
 10. 更开nexus 的 cntext path  
-    ```shell 
+    ```bash 
     sudo vi /opt/nexus/nexus/etc/nexus.properties
     nexus-context-path=/nexus
     ```
     __注意：需要切换到root 用户下才可以启动服务额，不然会报Java问题__  
 
 11. 查看启动日志 
-    ```shell
+    ```bash
     tail -f /opt/nexus/sonatype-work/nexus3/log/nexus.log
     ``` 
     
@@ -445,18 +450,18 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
 
 ### docker Respository
 1. 运行 docker  
-    ```shell
+    ```bash
     docker run -d -p 5000:5000 -v /opt/docker/registry:/var/lib/registry restart=always registry
     ```
 2. 测试是否可以push/pull 
-    ```shell
+    ```bash
     docker tag drone/agent 192.168.33.13:5000/drone
     docker push 192.168.33.13:5000/drone
     ```
    __此步一般会提示HTTPS 访问的错误__
     
    * 绕过https 访问(此种方式需要所有的主机上都要配置)
-    ```shell
+    ```bash
     sudo vi /etc/docker/daemon.json
 
     # 添加一下内容
@@ -467,14 +472,14 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
     # sudo service docker restart
     ```
 3. 生成证书  
-    ```shell 
+    ```bash 
     sudo openssl req -nodes -subj "/C=CN/ST=ZheJiang/L=HangZhou/CN=192.168.33.13" -newkey rsa:4096 -keyout /opt/docker/certs/cert.key -out /opt/docker/certs/cert.csr
     # 验证
     sudo openssl x509 -req -days 3650 -in /opt/docker/certs/cert.csr -signkey /opt/docker/certs/cert.key -out /opt/docker/certs/cert.crt
     # 会出现 Signature ok
     ```
 4. 运行带证书docker images 
-    ```shell 
+    ```bash 
     #运行registry容器
     sudo docker run \n
     -d              \n
@@ -491,7 +496,7 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
     ```
 
 5. 复制证书到主机  
-    ```shell 
+    ```bash 
     # 复制证书文件到各个主机下的 
     # /etc/docker/cert.d/192.168.33.13:5000目录  
     sudo mkdir /etc/docker/certs.d/
@@ -507,7 +512,7 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
         type:"nfs" # rsync , smb
     ```
 6. 解决(because it doesn't contain any IP SANs)
-    ```shell 
+    ```bash 
     # /etc/ssl/openssl.cnf      ubuntu
     # /etc/pki/tls/openssl.cnf  centos 
 
@@ -519,7 +524,7 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
 
 7. 通过域名方式生成证书并实现 
     * 生成证书
-        ```shell
+        ```bash
         # 方式2 
         sudo openssl req -newkey rsa:4096 -nodes -sha256 -keyout /opt/docker/certs/cert.key -x509 -days 365 -out /opt/docker/certs/cert.csr
 
@@ -539,18 +544,18 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
         #Email Address []:playtomandjerry@gmail.com
         ```
     * 启动镜像
-        ```shell
+        ```bash
             docker run -d -p 5000:5000 --name registry -v /opt/docker/certs:/certs  -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/cert.csr -e REGISTRY_HTTP_TLS_KEY=/certs/cert.key -v /opt/docker/registry:/var/lib/registry   
             #-v /opt/docker/registry/config/config.yml:/etc/docker/registry/config.yml  无法添加不知道为什么
             registry
         ```
     * 修改hosts 
-        ```shell
+        ```bash
         # cd /etc/hosts
         192.168.33.13  mydockerhub.com
         ```
     * 配置物理机证书(Mac 可以绕过此步)
-        ```shell
+        ```bash
             # linux 下
             # /etc/docker/cert.d/mydockerhub.com:5000目录  
             sudo mkdir /etc/docker/certs.d/
@@ -560,11 +565,9 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
             ![20180607152835291175045.png](http://ozjlhf9e0.bkt.clouddn.com/20180607152835291175045.png)
     * 测试 
         __根据文末方式进行验证__  
-
-
-    ---------------以上方式通过配置Docker 不需要配置nginx了 
+        __以上方式通过配置Docker 不需要配置nginx了__ 
     * 配置nginx  
-        ```yml 
+        ```yaml
             server {
                 listen 8000;
                 server_name mydockerhub.com;
@@ -573,23 +576,17 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
                 ssl_certificate_key /opt/nginx/ssl/nginx.key;
             }
         ```
-        * 生成证书
-            ```shell
+        * 生成证书   
+            ```bash
                 sudo openssl req -newkey rsa:4096 -nodes -sha256 -keyout /opt/nginx/ssl/nginx.key -x509 -days 365 -out /opt/nginx/ssl/nginx.crt
             ```
-        * 创建config.yml  (不知道怎么映射不进去，无效)
-            ```yml
-
-
-
-
-            ```
-        * 创建密码文件 
-            ```shell
+        * 创建config.yml  (不知道怎么映射不进去，无效)     
+        * 创建密码文件    
+            ```bash
             docker run --entrypoint htpasswd registry -Bbn root root  > auth/htpasswd
             ```
-        * 启动带有鉴权registry 
-            ```shell
+        * 启动带有鉴权registry    
+            ```bash
             docker run -d -p 5000:5000 --restart=always --name registry \
                 -v `pwd`/auth:/auth \
                 -e "REGISTRY_AUTH=htpasswd" \
@@ -600,7 +597,6 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
                 -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt \
                 -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key \
                 registry:2
-
             ```
     * Registry操作 
         1. docker run 添加配置的映射 
@@ -610,105 +606,96 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
                 enabled: true
             ```
         3. 查看仓库大小 
-            ```shell
+            ```bash
             docker exec -it registry /bin/bash
             du -sch /var/lib/registry
             ```
         4. 删除镜像 
-            ```shell
+            ```bash
             # DELETE /v2/<name>/manifests/<reference>
             # name:镜像名称 
             # reference: 镜像对应sha256值
             curl -I -X DELETE http://mydockerhub.com:5000/v2/xcb/centos/manifests/sha256:5b367dbc03
-            
-
             # 直接删除 
             # docker exec <容器名> rm -rf /var/lib/registry/docker/registry/v2/repositories/<镜像名>
             ```
         5. 清空垃圾 
-            ```shell
+            ```bash
             # 在镜像内部 执行
             registry garbage-collect /etc/docker/registry/config.yml  
-
             # docker exec registry bin/registry garbage-collect /etc/docker/registry/config.yml
             ```
 
-0. 使用  
-    ```shell 
-    # 搜索
-    curl  http://10.10.105.71:5000/v2/_catalog
-    # 查看
-    curl  http://10.10.105.71:5000/v2/tonybai/busybox/tags/list
-
-    ```
+    0. 使用  
+        ```bash 
+        # 搜索
+        curl  http://10.10.105.71:5000/v2/_catalog
+        # 查看
+        curl  http://10.10.105.71:5000/v2/tonybai/busybox/tags/list
+        ```
 
 -------------------------  
+
 ## 安装服务及访问地址 
 1. elasticsearch  
-    * 查看服务是否启动 
-    ```shell
+    * 查看服务是否启动    
+    ```bash
     ./elasticsearch -Xms512m -Xmx512m
     ./elasticsearch -d -Xms512m -Xmx512m
     ```
-2. gitlab 
-    * 查看服务是否启动 
-        ```shell
-
-
+2. gitlab    
+    * 查看服务是否启动    
+        ```bash
+        #
         ```
     * 验证
-        ```shell 
+        ```bash 
         gitlab-ctl restart
         http://192.168.33.13:8000/
         ```
             
 
 3. nginx  
-    * 查看服务是否启动 
-        ```shell
-
-
+    * 查看服务是否启动     
+        ```bash
+        # 
         ```
     * 验证
         ```
         http://192.168.33.13  
         ```
 4. docker registry
-    * 查看服务是否启动
-       ```shell
-
-
+    * 查看服务是否启动   
+       ```bash
+       #
         ```
-        
-    * 验证
-
+    * 验证   
         ```
         docker login mydocker.com:5000 -u root -p root
         docker tag drone/agent mydockerhub.com:5000/drone
         docker push mydockerhub.com:5000/drone
         ```
 5. nexus 
-    * 查看服务是否启动
-       ```shell
-            sudo systemctl start nexus
-            sudo systemctl stop  nexus
-        ```
+    * 查看服务是否启动   
+    ```bash
+        sudo systemctl start nexus
+        sudo systemctl stop  nexus
+    ```
 
-    * 验证
-
-        ```shell
+    * 验证   
+        ```bash
         http://192.168.33.13:8081
         ```
 
-6. FastDFS
-    * 查看服务是否启动
-        ```shell
+6. FastDFS   
+    * 查看服务是否启动   
+        ```bash
             systemctl start fdfs_trackerd
             systemctl status fdfs_trackerd
             systemctl start fdfs_storaged
             systemctl status fdfs_storaged
         ```
-    * 验证
+    * 验证   
         ```
         /usr/bin/fdfs_test /etc/fdfs/client.conf upload /usr/bin/test.txt
         ```
@@ -716,7 +703,7 @@ __具体注册内容，请查看具体的`gitlab`文章部分__
 
 
 ##### 查看端口  
-```shell 
+```bash 
 # 查看所有端口 
 netstat -ntlp  
 

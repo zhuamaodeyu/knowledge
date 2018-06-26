@@ -652,6 +652,153 @@
         curl  http://10.10.105.71:5000/v2/tonybai/busybox/tags/list
         ```
 
+## RocketMQ  
+1. download
+2. 配置 nameserver  
+    ```properties
+        rocketmqHome=/opt/rocketmq
+        kvConfigPath=/opt/rocketmq/store/namesrv/kvConfig.json
+        listenPort=9876
+        serverWorkerThreads=16
+        serverCallbackExecutorThreads=0
+        serverSelectorThreads=6
+        serverOnewaySemaphoreValue=512
+        serverAsyncSemaphoreValue=128
+        serverChannelMaxIdleTimeSeconds=240
+        serverSocketSndBufSize=4096
+        serverSocketRcvBufSize=2048
+        serverPooledByteBufAllocatorEnable=false
+    ```
+3. 配置broker  
+    ```conf
+    # 所属集群名称
+    brokerClusterName = DefaultCluster
+    # broker 名称，此处不同的配置文件填写的不同
+    brokerName = broker-a
+    # 0 表示master ， > 0 表示 slave
+    brokerId = 0
+    # nameServer 地址，分号分隔符
+    namesrvAddr=192.168.33.13:9876
+    # 在发送消息时，自动创建服务器不存在的topic,默认创建的队列数
+    defaultTopicQueueNums=4
+    # 是否允许Broker 自动创建Topic,间隙线下开启，线上关闭
+    autoCreateTopicEnable=true
+    # 是否允许Broker 自动创建订阅组，建议线下开启，线上关闭
+    autoCreateSubscriptionGroup=true
+    # Broker 对外服务监听端口
+    listenPort=10991
+    #删除问价时间点，默认凌晨 4点
+    deleteWhen = 04
+    # 文件保留时间，默认 48 小时
+    fileReservedTime=120
+    # commitLog每个文件的大小默认 1G
+    mapedFileSizeCommitLog=1073741824
+    # ConsumeQueue每个文件默认存30W条，根据业务情况调整
+    mapedFileSizeConsumeQueue=300000
+    # 检测物理磁盘空间
+    disMaxUsedSpaceRatio=88
+    # 存储路径
+    storePathRootDir=/opt/rocketmq/store
+    # commitLog 存储路径
+    storePathCommitLog=/opt/rocketmq/store/commitlog
+    #消息队列存储路径
+    storePathConsumeQueue=/opt/rocketmq/store/consumequeue
+    # 消息碎银存储路径
+    storePathIndex=/opt/rocketmq/store/index
+    #checkpoint 文件存储路径
+    storeCheckpoint=/opt/rocketmq/store/checkpoint
+    #abort 文件存储路径
+    abortFile=/opt/rocketmq/store/abort
+    brokerRole = ASYNC_MASTER
+    flushDiskType = ASYNC_FLUSH
+    ```
+4. 修改启动脚本  
+    主要修改的是java 内存部分  
+    ```
+    # vim bin/runserver.sh  
+    # vim bin/runbroker.sh 
+    
+    #=======================================================================================
+    # JVM Configuration
+    #=======================================================================================
+    JAVA_OPT="${JAVA_OPT} -server -Xms512m -Xmx512m -Xmn128m"
+    ```
+
+5. 创建开启启动服务  
+    `vim /lib/systemd/system/namesrv.service`
+    * 创建 namesrv.service
+        ```
+        [Unit]
+        Description=RocketMQ-Nameserver
+        After=network.target
+        [Service]
+        ExecStart=/opt/rocketmq/bin/mqnamesrv -c /opt/rocketmq/conf/product/namesrv.properties
+        ExecStop=/opt/rocketmq/bin/mqshutdown namesrv
+        [Install]
+        WantedBy=multi-user.target
+        ```   
+    * 创建 broker.service 
+        `vim /lib/systemd/system/broker.service`
+        ```
+        [Unit]
+        Description=RocketMQ-Broker
+        After=namesrv.service
+        [Service]
+        ExecStart=/opt/rocketmq/bin/mqbroker
+        ExecStop=/opt/rocketmq/bin/mqshutdown broker
+        [Install]
+        WantedBy=multi-user.target
+        ```
+6. 启动 
+    ```
+    systemctl daemon-reload
+    systemctl enable namesrv.service
+    systemctl enable broker.service
+
+    systemctl start namesrc.service
+    systemctl start broker.service
+    ```
+7. 直接启动  
+    ```
+    nohup mqnamesrv -c /conf/pro/name.properties &
+    nohup sh ./bin/mqbroker -n "192.168.33.11:9876" -c ./conf/broker.properties  &
+    ```
+8. 查看状态
+    ```
+    # 导出配置模板
+    sh mqbroker -m > broker.p 
+    ./mqadmin broker -m
+     ./mqadmin clusterList -n 192.168.33.13:9876
+     # 查看 broker 状态
+     ./mqadmin brokerStatus -n 127.0.0.1:9876 -b 172.20.1.138:10911 
+     # 查看 topic 列表
+     ./mqadmin topicList -n 127.0.0.1:9876
+     # 查看 topic 状态 
+     ./mqadmin topicStatus -n 127.0.0.1:9876 -t MyTopic
+    # 查看 topic 路由 
+     ./mqadmin topicRoute -n 127.0.0.1:9876 -t MyTopic
+    # 关闭namesrv服务
+    sh bin/mqshutdown namesrv
+    # 关闭broker服务
+    sh bin/mqshutdown broker
+    ```
+
+### 安装 RocketMQ  console
+1. clone 
+    `https://github.com/apache/rocketmq-externals`  
+2. maven  打包 
+    ```
+    cd rocketmq-console  
+    mvn clean pockage -Dmaven.test.skip=true 
+    # target下找到 rocketmq-console-ng-1.0.0.jar文件  
+    ```
+3. 启动 
+    ```bash 
+    java -jar rocketmq-console-ng-1.0.0.jar --server.port=12581 --rocketmq.config.namesrvAddr=10.89.0.64:9876
+    ```
+
+
+
 -------------------------  
 
 ## 安装服务及访问地址 

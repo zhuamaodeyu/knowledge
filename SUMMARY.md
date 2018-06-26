@@ -143,6 +143,7 @@
     * [Spring Boot 集成 Redis](chapter17/Section3/part1.md)
     * [mysql 连接失败](chapter17/Section3/part2.md)
     * [nexus 上传第三方包](chapter17/Section3/part3.md)
+    * [Maven 模块化开发Spring Boot配置加载失败](chapter17/Section3/part4.md)
   * [DevOps]()
     * [Gitlab 与 gitlab-runner集成](chapter17/Section4/part1.md)
 

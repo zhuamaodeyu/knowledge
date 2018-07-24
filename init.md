@@ -1,10 +1,7 @@
 # 开发环境搭建  
 
 ## 环境  
-* Ceontos 7  
-
-
-
+* Ceontos 7 系统
 
 ### java  
 ### Maven  
@@ -670,7 +667,7 @@
         serverPooledByteBufAllocatorEnable=false
     ```
 3. 配置broker  
-    ```conf
+    ```
     # 所属集群名称
     brokerClusterName = DefaultCluster
     # broker 名称，此处不同的配置文件填写的不同

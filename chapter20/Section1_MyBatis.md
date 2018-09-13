@@ -408,20 +408,18 @@ from Students where stud_id=#{studId}
 		</mapper>
 		
 		~~~
-	  
-	* 调用  
 
-		~~~java  
+	* 调用       
+
+	~~~java  
 		public Student = findStudentById(Integer id){
 			SqlSession session = MybatisUtil.geSqlSession();
 			try{
 				//通过字符串的形式调用
 				Student student = sqlSession.selectOne("com.mybatis3.mappers.StudentMapper.findStudentById",id);
 			}
-		}
-		
-		
-		~~~
+		}	
+	~~~
 	
 
 * 带有mapper接口类形式  
@@ -518,7 +516,7 @@ FROM STUDENTS S LEFT OUTER JOIN ADDRESSES A ON S.ADDR_ID=A.ADDR_ID
 * 方式2： 使用嵌套结果 `ResultMap`进行映射   
 	* 引入其他文件定义的`ResultMap`
 		__使用标签`association` 引入__  
-		
+
 		~~~xml
 		<resultMap type="Address" id="AddressResult">
   			<id property="addrId" column="addr_id" />
@@ -534,7 +532,7 @@ FROM STUDENTS S LEFT OUTER JOIN ADDRESSES A ON S.ADDR_ID=A.ADDR_ID
 		~~~
 
 		查询语句  
-		
+
 		~~~xml
 		<select id="findStudentWithAddress" parameterType="int"
 		resultMap="StudentWithAddressResult">
@@ -544,9 +542,8 @@ FROM STUDENTS S LEFT OUTER JOIN ADDRESSES A ON S.ADDR_ID=A.ADDR_ID
 		</select>
 		~~~
 		
-		
-	* 本身内部嵌套
-		
+	* 本身内部嵌套 
+
 		~~~xml 
 		<resultMap type="Student" id="StudentWithAddressResult">
   			<id property="studId" column="stud_id" />
@@ -791,7 +788,7 @@ OR tutor_id=#{tutorId}
 ### 缓存  
 默认情况下，mybatis开启一级缓存，对select进行缓存支持。 可以通过`<cache>`开启二级缓存   
 开启耳机缓存的同时引发的问题：  
-* 所有在映射语句文件定义的<select>语句的查询结果都会被缓存  
+* 所有在映射语句文件定义的 `<select>` 语句的查询结果都会被缓存  
 * 所有的在映射语句文件定义的<insert>,<update> 和<delete>语句将会刷新缓存  
 * 缓存根据最近最少被使用(Least Recently Used,LRU)算法管理  
 * 缓存不会被任何形式的基于时间表的刷新(没有刷新时间间隔),即不支持定时刷新机制  

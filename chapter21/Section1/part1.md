@@ -201,8 +201,53 @@ router.POST("/upload", func(c *gin.Context) {
   以上就是 `Gin` 以及功能简单介绍。 接下来将在后几篇针对 Gin 的源码进行深入剖析。查看其深层次的实现   
 
   ​
+### 目录结构   
+```
+|-- binding                     将请求的数据对象化并校验
+|-- examples                    各种列子
+|-- ginS
+|-- internal
+	|-- json					提供了另外一种json实现 
+|-- render                      响应
+|-- testdata					测试数据
 
+|-- auth.go                     一个基本的HTTP鉴权的中间件
+|-- auth_test.go
+|-- context.go                  上下文，将各种功能聚焦到上下文（装饰器模式）
+|-- context_17.go
+|-- context_test.go
+|-- context_appengine.go
+|-- debug.go					调试器，一些调试信息
+|-- debug_test.go
+|-- deprecated.go
+|-- deprecated_test.go
+|-- errors.go                   错误处理
+|-- errors_test.go
+|-- fs.go						文件操作
+|-- gin.go                      gin引擎所在
+|-- gin_test.go
+|-- routes_test.go
+|-- path.go
+|-- response_writer.go          响应的数据输出
+|-- response_writer_test.go
 
+|-- tree.go                     路由的具体实现
+|-- tree_test.go
+|-- routergroup.go
+|-- routergroup_test.go
+
+|-- logger.go                   一个日志中间件
+|-- logger_test.go
+|-- recovery.go                 一个崩溃处理插件
+|-- recovery_test.go
+
+|-- mode.go                     应用模式
+|-- mode_test.go
+|-- utils.go                    工具包
+|-- utils_test.go
+
+```
+以上是整个 gin的大体目录结构(去除了部分内容),接下来的内容将围绕以上内容进行更深入的源码层分析
 
 
 

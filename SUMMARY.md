@@ -14,6 +14,9 @@
     <!-- * [图](chapter1/Section1/part6.md) -->
     <!-- * [散列表](chapter1/Section1/part7.md) -->
     <!-- * [排序算法](chapter1/Section1/part8.md) -->
+
+  * [第二节 数据结构应用]()  
+    * [荷兰国旗问题](chapter1/Section2/part1.md)
   <!-- * [第二节 计算机组成原理](chapter1/Section2.md) -->
   
 <!-- ## Java
@@ -36,6 +39,7 @@
   * [iOS系统九宫格下代理方法调用多次解决办法](chapter3/Section8.md)  
   * [IM - 心跳机制](chapter3/Section9.md)
   * [3D Touch ](chapter3/Section10.md)
+  * [iOS 避免多级跳转](chapter3/Section12.md)
   * [开发问题集锦](chapter3/Section11.md)
 ## JavaScript
 
@@ -153,10 +157,21 @@
 * [JAVA](chapter18/java.md)
 * [Golang](chapter18/go.md)
 
+### 读书笔记 
+* [Java Persistence with MyBatis 3](chapter20/Section1_MyBatis.md)
+* [Go 圣经](chapter20/Section2_GO.md) 
+
+
 ### lintCode 题解  
-* [1](chapter19/1.md)
+* [1 Two Sum ](chapter19/1.md)
 * [2](chapter19/2.md)
 * [3](chapter19/3.md)
 * [4](chapter19/4.md)
 * [5](chapter19/5.md)
 * [6](chapter19/6.md)
+
+
+
+
+
+

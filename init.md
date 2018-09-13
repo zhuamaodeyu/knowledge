@@ -796,6 +796,15 @@
 
 
 
+### 安装 RabbitMQ docker  
+1. docker images
+    ` docker pull rabbitmq:management-alpine`    
+2. docker run  
+    `docker run -d --name rabbitmq -p 56720:5672 -p 15672:15672 rabbitmq:management-alpine`
+
+
+
+
 -------------------------  
 
 ## 安装服务及访问地址 

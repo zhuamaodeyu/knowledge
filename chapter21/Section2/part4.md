@@ -143,13 +143,13 @@ mybatis 提供了两种方式与数据库进行交互 ：
         ```  
         从当前代理对象处理类`MapperProxy`的`methodCache`属性中获取当前调用method方法的详细信息。如果没有进行缓存，那么久先创建再存储, 只有调用`execute()`方法来执行具体的数据库操作   
 
-* 总结 
+* 总结    
     以上介绍了`SqlSession` 写获取过程以及 Mapper 代理类生成的过程，接下来讲介绍具体的SQL执行部分内容    
 
 
 
 ## SQL 执行  
-通过上文内容表述，具体的SQL执行是`MapperMethod.execute`实现的。   
+通过上文内容表述，具体的SQL执行是`MapperMethod.execute`实现的。在没执行一个方法时，系统会为此方法创建一个对象的`MapperMethod`对象  
 
 ```java 
   public Object execute(SqlSession sqlSession, Object[] args) {

@@ -416,7 +416,9 @@ __关键点: `BaseBuilder`抽象类中的`configuration`是全局对象,现在�
 `DefaultSqlSessionFactory`是接口`SqlSessionFactory`的一个实现类.
 此类并没有提供复杂的功能，只是是实现了接口中的所有方法以通过不同的方式提供`SQLSession`对象以供数据库操作   
 
- ## 总结 
+ ## 总结   
+ __第三节给出了解析流程图__    
+ 
  本文讲是 `SqlSessionFactory` 实现类的初始化过程，但更多的还是在将配置文件XML的介意一个 mapper.xml 文件的解析工作。通过本文可以了解到 mybatis 在初始化的过程中，是一次性将所有的XML文件进行统一的解析后才会进行数据库操作。通过本文可以了解到mybatis在初始化的过程中是如何解析配置文件的，并且其中都进行了那些操作，对mybatis的配置有更深层次的了解   
 
  ### Question And Answer  

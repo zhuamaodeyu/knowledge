@@ -1,4 +1,13 @@
-# Mybatis 源码分析-----SessionFactory和XML解析
+# Mybatis 源码分析-----SessionFactory和XML解析  
+
+## 完成状态  
+
+- [x] 开发中
+- [ ] 未完成
+- [ ] 已完成
+- [ ] 维护中
+
+
 ## 前言  
 上一节针对mybatis构建了测试项目，基于上一节的内容上，在本节中针对 `SessionFactory` 进行深入的分析， 在进行具体的源码分析之前，首先先了解下mybatis中的几个概念 
 
@@ -315,10 +324,88 @@ __关键点: `BaseBuilder`抽象类中的`configuration`是全局对象,现在�
         * `alias = null`
             系统会取类名，并且类名转小写   
 
-4. 解析 `<pligins>` 节点 
-5. 解析`<objectFactory> 和 <objectWrapperFacotry>`节点 
-6. 解析`<reflectorFactory>`节点 
-7. 解析`<environments>,<databaseIdProvider>,<typeHandlers>` 节点 
+4. 解析 `<pligins>` 节点    
+    mybatis 插件机制是一个提供另一种方式对已映射语句执行过程中的某一点进行拦截调用。默认情况下支持对一下方法提供插件调用：`Executor(执行器)`,`ParameterHandler(拦截参数处理)`,`ResultSetHandler(拦截结果处理)`,`StatementHandler(拦截SQL构建处理)`   
+    mybatis 的插件实现非常简单，只需要实现`Interceptor`接口，并指定想要拦截的方法签名   
+    ```java
+        // ExamplePlugin.java
+        @Intercepts({@Signature(
+            // 拦截类型
+        type= Executor.class,
+        // 方法
+        method = "update",
+        // 参数
+        args = {MappedStatement.class,Object.class})})
+        public class ExamplePlugin implements Interceptor {
+        public Object intercept(Invocation invocation) throws Throwable {
+            return invocation.proceed();
+        }
+        public Object plugin(Object target) {
+            return Plugin.wrap(target, this);
+        }
+        public void setProperties(Properties properties) {
+
+        }
+        }
+    ```
+    > 以上是mybatis官网给出的示例      
+
+    * XML配置示例  
+        ```xml
+        <plugins>
+        <plugin interceptor="org.mybatis.example.ExamplePlugin">
+            <property name="someProperty" value="100"/>
+        </plugin>
+        </plugins>
+        ```  
+    * 源码解析  
+        ```java
+        /**
+        * 解析插件
+        * @param parent
+        * @throws Exception
+        */
+        private void pluginElement(XNode parent) throws Exception {
+            if (parent != null) {
+            // 遍历所有的子节点
+            for (XNode child : parent.getChildren()) {
+                // 获取属性值
+                String interceptor = child.getStringAttribute("interceptor");
+                // 获取所有的property 值
+                Properties properties = child.getChildrenAsProperties();
+                // 创建类对象并设置参数  
+                Interceptor interceptorInstance = (Interceptor) resolveClass(interceptor).newInstance();
+                interceptorInstance.setProperties(properties);
+                // 缓存起来
+                configuration.addInterceptor(interceptorInstance);
+            }
+            }
+        }
+          public <T> Class<T> resolveAlias(String string) {
+            try {
+            if (string == null) {
+                return null;
+            }
+            // issue #748
+            String key = string.toLowerCase(Locale.ENGLISH);
+            Class<T> value;
+            // 包含 key 将类名转为小写
+            if (TYPE_ALIASES.containsKey(key)) {
+                value = (Class<T>) TYPE_ALIASES.get(key);
+            } else {
+                value = (Class<T>) Resources.classForName(string);
+            }
+            return value;
+            } catch (ClassNotFoundException e) {
+            throw new TypeException("Could not resolve type alias '" + string + "'.  Cause: " + e, e);
+            }
+        }
+        ```   
+
+5. 解析`<objectFactory> 和 <objectWrapperFacotry>`节点      
+
+6. 解析`<reflectorFactory>`节点    
+7. 解析`<environments>,<databaseIdProvider>,<typeHandlers>` 节点    
 8. __解析 `<mapper>` 节点__  
     ```java
     private void mapperElement(XNode parent) throws Exception {
@@ -418,8 +505,14 @@ __关键点: `BaseBuilder`抽象类中的`configuration`是全局对象,现在�
 
  ## 总结   
  __第三节给出了解析流程图__    
- 
+
  本文讲是 `SqlSessionFactory` 实现类的初始化过程，但更多的还是在将配置文件XML的介意一个 mapper.xml 文件的解析工作。通过本文可以了解到 mybatis 在初始化的过程中，是一次性将所有的XML文件进行统一的解析后才会进行数据库操作。通过本文可以了解到mybatis在初始化的过程中是如何解析配置文件的，并且其中都进行了那些操作，对mybatis的配置有更深层次的了解   
 
  ### Question And Answer  
  1. 根据上文的提示，mybatis 中的配置`Configuration`对象其实是抽象类`BaseBuilder`所拥有的一个全局属性。通过解析配置文件来创建， 此处既然是一个全局属性，全局只有一份的一个类对象，那么为什么不将此类设置为一个单利的呢而是通过构造函数入参的形式来在多各类之间进行传递？？？   
+
+
+
+
+## 参考  
+* [mybatis 文档](http://www.mybatis.org/mybatis-3/zh/configuration.html#plugins)  

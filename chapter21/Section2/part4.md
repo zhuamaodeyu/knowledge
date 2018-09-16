@@ -1,4 +1,12 @@
-#Mybatis 源码分析 ----- SqlSession   
+#Mybatis 源码分析 ----- SqlSession    
+## 完成状态  
+
+- [x] 开发中
+- [ ] 未完成
+- [ ] 已完成
+- [ ] 维护中
+
+
 ## 前言 
 通过本系列前面的文章，详细的分析了整个项目运行初始阶段的初始化工作细则，本节及之后章节将围绕测试代码中后半段的实现原理进行讲解和源码分析说明  
 
@@ -64,7 +72,31 @@ private SqlSession openSessionFromDataSource(ExecutorType execType, TransactionI
   }
 ```
 `DefaultSqlSessionFactory` 类提供了两种获取Session 的方式: 1. 通过数据库获取； 2. 通过连接获取   
-通常情况下，由于在配置文件中进行了数据库配置，并且直接使用的是 `openSession();`方法来打开Session 的，此处调用的是`openSessionFromDataSource`方法，采用通过数据库来获取Session   
+通常情况下，由于在配置文件中进行了数据库配置，并且直接使用的是 `openSession();`方法来打开Session 的，此处调用的是`openSessionFromDataSource`方法，采用通过数据库来获取Session  其中比较重要的就是 `Executor` 创建过程  
+
+```java
+  public Executor newExecutor(Transaction transaction, ExecutorType executorType) {
+    executorType = executorType == null ? defaultExecutorType : executorType;
+    executorType = executorType == null ? ExecutorType.SIMPLE : executorType;
+    Executor executor;
+    if (ExecutorType.BATCH == executorType) {
+      executor = new BatchExecutor(this, transaction);
+    } else if (ExecutorType.REUSE == executorType) {
+      executor = new ReuseExecutor(this, transaction);
+    } else {
+      executor = new SimpleExecutor(this, transaction);
+    }
+    // 
+    if (cacheEnabled) {
+      executor = new CachingExecutor(executor);
+    }
+    // 添加插件
+    executor = (Executor) interceptorChain.pluginAll(executor);
+    return executor;
+  }
+```
+mybatis 提供了多种不同的执行器(__Simple, Batch, Reuse__)，默认情况下是 `Simple`的，可以通过配置指定. 此处还是针对是否开启缓存，来进行缓存配置执行器(此执行器并不是真正的执行器，只是对以上三种的封装)。 注意最后一句，`interceptorChain.pluginAll(executor);` 此句是对执行器添加插件，上一节中说到， mybatis支持插件，并且支持executor插件，此处就是将注册的插件与execute绑定   
+
 
 通过以上方式，获取到一个 `SqlSession`实体对象。接下来通过此对象获取到Mapper代理对象以执行SQL操作     
 

@@ -405,7 +405,72 @@ __关键点: `BaseBuilder`抽象类中的`configuration`是全局对象,现在�
 5. 解析`<objectFactory> 和 <objectWrapperFacotry>`节点      
 
 6. 解析`<reflectorFactory>`节点    
-7. 解析`<environments>,<databaseIdProvider>,<typeHandlers>` 节点    
+
+7. 解析`<environments>,<databaseIdProvider>,<typeHandlers>` 节点      
+    * xml 配置示例以及讲解  
+        ```xml 
+           <environments default="development">
+                <environment id="development">
+                    <transactionManager type="JDBC">
+                    <property name="..." value="..."/>
+                    </transactionManager>
+                    <dataSource type="POOLED">
+                    <property name="driver" value="${driver}"/>
+                    <property name="url" value="${url}"/>
+                    <property name="username" value="${username}"/>
+                    <property name="password" value="${password}"/>
+                    </dataSource>
+                </environment>
+            </environments>
+        ```
+    * java 源码分析  
+        * `<environments> `源码分析  
+            ```java 
+            private void environmentsElement(XNode context) throws Exception {
+                // 遍历
+                if (context != null) {
+                // 判断当前的是否为null  environment  是一个字符串
+                if (environment == null) {
+                    environment = context.getStringAttribute("default");
+                }
+                // 遍历所有子节点
+                for (XNode child : context.getChildren()) {
+                    String id = child.getStringAttribute("id");
+                    // 判断是否存在指定数据库配置
+                    if (isSpecifiedEnvironment(id)) {
+                    // 初始化事务管理器
+                    TransactionFactory txFactory = transactionManagerElement(child.evalNode("transactionManager"));
+                    // 初始化数据库工厂
+                    DataSourceFactory dsFactory = dataSourceElement(child.evalNode("dataSource"));
+                    // 根据数据库工厂获取数据库连接对象
+                    DataSource dataSource = dsFactory.getDataSource();
+                    // 此类是一个静态类 管理数据库连接以及事务
+                    Environment.Builder environmentBuilder = new Environment.Builder(id)
+                        .transactionFactory(txFactory)
+                        .dataSource(dataSource);
+                    configuration.setEnvironment(environmentBuilder.build());
+                    }
+                }
+                }
+            }
+            ```  
+            根据官方文档说明 mybatis 支持配置多个不同的数据库环境，所以此处需要针对此种情况做处理。但是，注意看源码部分，其中有一个`isSpecifiedEnvironment()` 方法判断  
+            ```java 
+            private boolean isSpecifiedEnvironment(String id) {
+                if (environment == null) {
+                throw new BuilderException("No environment specified.");
+                } else if (id == null) {
+                throw new BuilderException("Environment requires an id attribute.");
+                } else if (environment.equals(id)) {
+                return true;
+                }
+                return false;
+            }
+            ```
+            此方法只是简单的判断当前解析的`<environment>` 节点配置是不是指定的`default`属性值。 此处只有通过判断才会解析XML为数据库管理器工厂以及事务管理器工厂。  
+            __注意: 此处虽然mybatis 支持配置多个不同环境，但是mybatis在初始化时，并不会过多的解析配置，只会解析当前指定的默认配置__  
+        * ``
+
 8. __解析 `<mapper>` 节点__  
     ```java
     private void mapperElement(XNode parent) throws Exception {
@@ -509,10 +574,25 @@ __关键点: `BaseBuilder`抽象类中的`configuration`是全局对象,现在�
  本文讲是 `SqlSessionFactory` 实现类的初始化过程，但更多的还是在将配置文件XML的介意一个 mapper.xml 文件的解析工作。通过本文可以了解到 mybatis 在初始化的过程中，是一次性将所有的XML文件进行统一的解析后才会进行数据库操作。通过本文可以了解到mybatis在初始化的过程中是如何解析配置文件的，并且其中都进行了那些操作，对mybatis的配置有更深层次的了解   
 
  ### Question And Answer  
- 1. 根据上文的提示，mybatis 中的配置`Configuration`对象其实是抽象类`BaseBuilder`所拥有的一个全局属性。通过解析配置文件来创建， 此处既然是一个全局属性，全局只有一份的一个类对象，那么为什么不将此类设置为一个单利的呢而是通过构造函数入参的形式来在多各类之间进行传递？？？   
+ #### Question 1
+ 根据上文的提示，mybatis 中的配置`Configuration`对象其实是抽象类`BaseBuilder`所拥有的一个全局属性。通过解析配置文件来创建， 此处既然是一个全局属性，全局只有一份的一个类对象，那么为什么不将此类设置为一个单利的呢而是通过构造函数入参的形式来在多各类之间进行传递？？？   
 
+
+
+#### Question 2
+ 根据上文的关于`<environment> ` 节点解析部分，通过源码分析，mybatis 支持配置多种环境，但是在实际解析时，却只解析一种默认环境，为什么会这样操作???  
+
+#### Answer  
+此处其实也很好理解，(只是我当时没理解所以才存在这个问题).mybatis 支持的是多种配置环境，并不是多个数据源，所以每个项目在启动时只能在一种环境下启动，比如： `test`,`dev` 等，并不存在两种环境同时的情况，所以此处灭必要针对其他环境配置进行解析，只需要解析当前指定的环境配置就行   
 
 
 
 ## 参考  
 * [mybatis 文档](http://www.mybatis.org/mybatis-3/zh/configuration.html#plugins)  
+
+
+
+### 说明  
+__针对本文中其实很多解析部分都是很简单的，但我为什么还是会写出来的原因说明__  
+
+虽然很多部分很简单，但是当第一次打开时还是或多或少存在一些疑惑， 还有就是很多人存在的一种去情况就是当打开一个没有注释，很多行代码的文件时，往往就不想进行认真分析和思考了，所以我这里还是会进行了说明。__如果这样还是懒得看，那我也🤷‍♀️了__

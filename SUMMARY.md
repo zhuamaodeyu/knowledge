@@ -51,7 +51,7 @@
 * [第六章 Go篇]()
   * [Go语言基础](chapter6/di-yi-jie-go-yu-yan-ji-chu.md)  
   * [Go goroutine 同步](chapter6/goroutine.md)
-  * [Go Singleton ](chapter6/singleton.md)
+  <!-- * [Go Singleton ](chapter6/singleton.md) -->
 * [第七章 Go web 系列]()
   * [Go Web](chapter7/go-web.md)
   * [Go Web 基础](chapter7/go-web-ji-chu.md)
@@ -159,8 +159,8 @@
   * [环境搭建](chapter21/Section2/part1.md)
   * [SessionFactory初始化和配置文件解析](chapter21/Section2/part2.md)
   * [Mapper 文件解析](chapter21/Section2/part3.md)
-  * [SqlSession](chapter21/Section2/part4.md)
-
+  * [XMLStatementBuilder 解析SQL](chapter21/Section2/part4.md)
+  * [SqlSession](chapter21/Section2/part5.md)  
 
 ### 面试  
 * [基础](chapter18/base.md)

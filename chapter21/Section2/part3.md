@@ -9,7 +9,106 @@
 
 
 ## 前言 
-上一节中主要介绍了 mybatis 配置文件的解析，其中涉及到`<mappers>` 节点解析时，并引申出了关于`mapper`配置文件解析。本节主要围绕上节介绍，更加深入的分析 `mapper`文件解析  
+上一节中主要介绍了 mybatis 配置文件的解析，其中涉及到`<mappers>` 节点解析时，并引申出了关于`mapper`配置文件解析。本节主要围绕上节介绍，更加深入的分析 `mapper.xml`文件解析       
+
+在具体的代码分析之前，首先先看下在`xxxmapper.xml`文件中，可能存在的配置项  
+
+> 本节将解析mybatis文档进行解析    
+
+
+```xml 
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.catchcatfish.service.serviceloginregister.mapper.TSigninMapper">
+<!-- resultMap -->
+  <resultMap id="BaseResultMap" type="com.catchcatfish.generator.loginandregister.entity.TSignin">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="monday" jdbcType="BIT" property="monday" />
+    <result column="tuesday" jdbcType="BIT" property="tuesday" />
+    <result column="wednesday" jdbcType="BIT" property="wednesday" />
+    <result column="thursday" jdbcType="BIT" property="thursday" />
+    <result column="friday" jdbcType="BIT" property="friday" />
+    <result column="saturday" jdbcType="BIT" property="saturday" />
+    <result column="sunday" jdbcType="BIT" property="sunday" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="weak_number" jdbcType="INTEGER" property="weakNumber" />
+    <result column="create_at" jdbcType="TIMESTAMP" property="createAt" />
+    <result column="update_at" jdbcType="TIMESTAMP" property="updateAt" />
+  </resultMap>
+  <!-- sql -->
+  <sql id="Base_Column_List">
+
+    id, monday, tuesday, wednesday, thursday, friday, saturday, sunday, user_id, weak_number,
+    create_at, update_at
+  </sql>
+  <!-- select -->
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from t_signin
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_signin
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <!-- insert -->
+  <insert id="insert" parameterType="com.catchcatfish.generator.loginandregister.entity.TSignin">
+    <selectKey keyProperty="id" resultType="int" order="BEFORE">
+      SELECT nextval('t_signin_id_seq'::regclass) as id
+    </selectKey>
+    insert into t_signin (id, monday, tuesday,
+      wednesday, thursday, friday, saturday,
+      sunday, user_id, weak_number,
+      create_at, update_at)
+    values (#{id,jdbcType=INTEGER}, #{monday,jdbcType=BIT}, #{tuesday,jdbcType=BIT},
+      #{wednesday,jdbcType=BIT}, #{thursday,jdbcType=BIT}, #{friday,jdbcType=BIT}, #{saturday,jdbcType=BIT},
+      #{sunday,jdbcType=BIT}, #{userId,jdbcType=VARCHAR}, #{weakNumber,jdbcType=INTEGER},
+    NOW(), NOW())
+  </insert>
+  <!-- update -->
+  <update id="updateByPrimaryKeySelective" parameterType="com.catchcatfish.generator.loginandregister.entity.TSignin">
+    update t_signin
+    <set>
+      <if test="monday != null">
+        monday = #{monday,jdbcType=BIT},
+      </if>
+      <if test="tuesday != null">
+        tuesday = #{tuesday,jdbcType=BIT},
+      </if>
+      <if test="wednesday != null">
+        wednesday = #{wednesday,jdbcType=BIT},
+      </if>
+      <if test="thursday != null">
+        thursday = #{thursday,jdbcType=BIT},
+      </if>
+      <if test="friday != null">
+        friday = #{friday,jdbcType=BIT},
+      </if>
+      <if test="saturday != null">
+        saturday = #{saturday,jdbcType=BIT},
+      </if>
+      <if test="sunday != null">
+        sunday = #{sunday,jdbcType=BIT},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="weakNumber != null">
+        weak_number = #{weakNumber,jdbcType=INTEGER},
+      </if>
+      <if test="createAt != null">
+        create_at = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+        update_at = NOW(),
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
+
+
+```
+以上给出了一个最简洁的mapper.xml 配置样式，针对xml 配置文件以及接下来要解析的源码分析的功能进行一个简单的了解，接下来将详细剖析Java代码是如何解析以上配置文件的    
 
 
 ### Mapper.xml 解析  
@@ -25,6 +124,8 @@
   }
 ```
 > 以上是 `XMLMapperBuilder` 构造函数    
+
+
 
 具体的解析工作和 `XMLConfigBuilder`相似，并不在构造函数中进行，而在`parse`方法中进行  
 ```java 
@@ -97,8 +198,11 @@
     ```
     以上是具体的解析过程，针对不同的节点进行解析,通过以上内容可以反推出此处支持的配置节点  
     * 解析`<cache>`,`<cache-ref>`节点  
+        针对当前给定命名空间的缓存配置以及引用   
     * 解析 `<parameterMap>` 节点  
+        此节点已经废弃，此处不再对其进行说明   
     * 解析`<resultMap>` 节点  
+        本节点主要针对数据库以及模型对象的映射，将数据的数据结构与Java的数据结构进行映射匹配   
     * 解析`<sql>`节点  
         * xml 示例  
             ```xml 
@@ -111,7 +215,7 @@
                 create_at, update_at
             </sql>
             ```
-            此处其实就是真正的SQL语句中可能用到的字段   
+            此处其实就是真正的SQL语句中可能被其他语句重用的语句块   
         * Java 源码解析  
             ```java 
             private void sqlElement(List<XNode> list) throws Exception {

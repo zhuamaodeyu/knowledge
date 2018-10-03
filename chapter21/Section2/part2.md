@@ -9,11 +9,11 @@
 
 
 ## 前言  
-上一节针对mybatis构建了测试项目，基于上一节的内容上，在本节中针对 `SessionFactory` 进行深入的分析， 在进行具体的源码分析之前，首先先了解下mybatis中的几个概念 
+上一节针对mybatis构建了测试项目，基于上一节的内容上，在本节中针对 `SessionFactory` 进行深入的分析， 在进行具体的源码分析之前，首先先了解下mybatis中的几个概念   
 
 
 ### mybatis 架构 
-__注意: 本部分只是针对一些概念进行简介， 详细的架构图会在源码分析完毕后进行展出__  
+__注意: 本部分只是针对一些概念进行简介， 详细的架构图(流程图)会在源码分析完毕后进行给出__  
 
 * SessionFactory    
     通过此类来生产处 Session  对象，用于数据库操作   
@@ -25,7 +25,7 @@ __注意: 本部分只是针对一些概念进行简介， 详细的架构图会
     负责与JDBC 的交互
 
 ## SessionFactory  
-首先先来回顾下 上一节中 测试代码部分,看看是如何生获得一个 Factory 的   
+首先先来回顾下 上一节中 测试代码部分,看看是如何生获得一个 Factory 的     
 ```java 
 // 加载配置
 String resource = "mybatis.xml";
@@ -35,10 +35,10 @@ InputStream inputStream = Resources.getResourceAsStream( resource );
 // 2、 生成 SessionFactory
 SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 ```
-通过以上代码可以知道，如果`SqlSessionFactory` 是通过两步获得： 1. 解析配置文件； 2. `SqlSessionFactoryBuilder`构造   
+通过以上代码可以知道，如果 `SqlSessionFactory` 是通过两步获得： 1. 解析配置文件； 2. `SqlSessionFactoryBuilder`构造   
 
 ### 解析 xml 配置文件  
-mybatis框架中，针对`xml` 格式的配置文件，专门提供了解析类`Resources`,并且此类还提供了多种解析方式，可以将XML文件解析为`InputStream`,`Reader`,`File`,`Properties`等多种格式。 并且此类针对不同的表示方式也提供了不同的解释方式(路径，名称等)   
+mybatis框架中，针对`xml` 格式的配置资源文件，专门提供了辅助类`Resources`,并且此类还提供了多种文件处理方式，可以将XML文件转换为`InputStream`,`Reader`,`File`,`Properties`等多种格式。 并且此类针对不同的表示方式也提供了不同的实现方式(路径，名称等)   
 
 ![20180913153684204424792.png](http://ozjlhf9e0.bkt.clouddn.com/20180913153684204424792.png)   
 > 以上是 Resources 类提供的方法    
@@ -94,7 +94,7 @@ mybatis框架中，针对`xml` 格式的配置文件，专门提供了解析类`
     XMLConfigBuilder parser = new XMLConfigBuilder(inputStream, environment, properties);
     XMLConfigBuilder parser = new XMLConfigBuilder(reader, environment, properties);
 ```
-__阅读源码就是一个假设和验证的过程__, 此处从名字可以猜测出 `XMLConfigBuilder` 类是一个XML解析类。并查看得知此类继承自`BaseBuilder`抽象类    
+__阅读源码就是一个假设和验证的过程__, 此处从名字可以猜测出 `XMLConfigBuilder` 类是一个XML相关的类。并查看得知此类继承自`BaseBuilder`抽象类    
 
 ```java 
     private XMLConfigBuilder(XPathParser parser, String environment, Properties props) {
@@ -584,6 +584,26 @@ __关键点: `BaseBuilder`抽象类中的`configuration`是全局对象,现在�
 
 #### Answer  
 此处其实也很好理解，(只是我当时没理解所以才存在这个问题).mybatis 支持的是多种配置环境，并不是多个数据源，所以每个项目在启动时只能在一种环境下启动，比如： `test`,`dev` 等，并不存在两种环境同时的情况，所以此处灭必要针对其他环境配置进行解析，只需要解析当前指定的环境配置就行   
+
+
+#### Question 3 
+根据上文的XML 解析入口部分`parse()`方法中，通过修改变量属性来确保解析工作再一次项目中只会进行一次，  
+```java 
+  public Configuration parse() {
+    // 通过此种方式， 保证此方法只调用一次
+    if (parsed) {
+      throw new BuilderException("Each XMLConfigBuilder can only be used once.");
+    }
+    // 判断，以保证解析一次， 此处此行代码是否应该放到解析结束更合适？
+    parsed = true;
+    parseConfiguration(parser.evalNode("/configuration"));
+    return configuration;
+  }
+```
+那么此处为什么不将`parsed = true;`放在具体的解析之后执行呢？   
+
+#### Answer  
+此处具体的我个人猜测可能是为了在多线程环境下，用户可能会在不同线程中获取`SqlSessionFactory`对象进而调用此方法，这样在单个线程并没有进行具体的解析完毕时，另外一个线程调用了此方法。通过此种方式可以避免这种情况，在一个线程进入此方法后，通过此种方式，在解析之前进行锁定，使其他线程进入后直接退出    
 
 
 

@@ -29,7 +29,7 @@
 ## iOS
 
 * [第三章 iOS 篇]()
-  <!-- * [iOS 10.3.3 越狱以及Cydia crash](chapter3/Section1.md) -->
+  * [swift cell 中UITextField 键盘遮挡问题](chapter3/Section1.md)
   * [iOS Swift 开发](chapter3/Section2.md)  
   * [UICollectionView 部分方法无效](chapter3/Section3.md)
   * [AvoidCrash 分析](chapter3/Section4.md)
@@ -124,7 +124,7 @@
 ### DevOps
 * [第十三章 DevOps 开发与运维]()
   * [实现基于Docker 下的Gitlab CI](chapter13/Section1.md)
-
+  * [利用 Gitlab 实现标准化开发](chapter13/Section2.md)
 <!--
  ### Others
 * [第十四章 Python]()

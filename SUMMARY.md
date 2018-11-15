@@ -1,5 +1,12 @@
 #Summary
 
+
+## 期待...  
+* [关于组件化的思考和最佳实践]  
+* [更好的处理用户登录问题]  
+* [站在一个项目经理的位置思考如何推动团队协作]
+
+
 * [引言](README.md)
 * [开发环境搭建](init.md)
 ## 基础
@@ -40,7 +47,8 @@
   * [IM - 心跳机制](chapter3/Section9.md)
   * [3D Touch ](chapter3/Section10.md)
   * [iOS 避免多级跳转](chapter3/Section12.md)
-  * [开发问题集锦](chapter3/Section11.md)
+  * [开发问题集锦](chapter3/Section11.md) 
+  * [iOS 组件化开发的思考](chapter3/Section13.md)  
 ## JavaScript
 
 <!-- * [第四章 nodejs 篇]()

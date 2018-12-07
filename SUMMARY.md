@@ -5,7 +5,7 @@
 * [关于组件化的思考和最佳实践]()
 * [更好的处理用户登录问题]()
 * [站在一个项目经理的位置思考如何推动团队协作]()
-
+* [利用 Gitlab 实现标准化开发]()
 
 * [引言](README.md)
 * [开发环境搭建](init.md)
@@ -49,6 +49,7 @@
   * [iOS 避免多级跳转](chapter3/Section12.md)
   * [开发问题集锦](chapter3/Section11.md) 
   * [iOS 组件化开发的思考](chapter3/Section13.md)  
+  * [iOS 组件化环境搭建](chapter3/Section14.md)
 ## JavaScript
 
 <!-- * [第四章 nodejs 篇]()
@@ -82,7 +83,7 @@
 * 第十章 MySQL 数据库开发 
 -->  
 
-## 微服务
+## 微服务  
 
 * [第十一章 Docker 开发]()
   * [Docker 镜像操作](chapter11/Section1.md)
@@ -129,7 +130,8 @@
       * [ServiceCenterPeer 服务实现](chapter12/shi-jian-pian/java-pian/servicecenterpeer-fu-wu-shi-xian.md)
     * [综合篇](chapter12/shi-jian-pian/zong-he-pian.md)
 
-### DevOps
+### DevOps  
+
 * [第十三章 DevOps 开发与运维]()
   * [实现基于Docker 下的Gitlab CI](chapter13/Section1.md)
   * [利用 Gitlab 实现标准化开发](chapter13/Section2.md)
@@ -190,7 +192,11 @@
 * [6](chapter19/6.md)
 
 
+### 杂谈  
+
+<!-- * [更好的处理用户登录问题](chapter20/Section1.md)
+* [项目经理如何合理推动团队高效协助](chapter20/Section2.md)  
+* [如何实现合理的API 接口](chapter20/Section3.md)  
 
 
-
-
+ -->

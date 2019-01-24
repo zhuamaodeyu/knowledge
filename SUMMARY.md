@@ -139,12 +139,14 @@
  ### Others
 * [第十四章 Python]()
 * [第十五章 React Native]()
+-->
+
 * [第十六章 Mac OS](chapter16.md)
   * [基础控件](chapter16/Section1.md)
     * [Mac开发之 `NSApplication`](chapter16/Section1/part1.md)
     * [Mac 开发之 `NSWindow`](chapter16/Section1/part2.md)
     * [Mac 开发之 `NSPanel`](chapter16/Section1/part3.md) 
--->
+
 ### Question
 * [第十七章 开发问题集锦]()
   * [docker 篇]()
@@ -172,11 +174,14 @@
   * [XMLStatementBuilder 解析SQL](chapter21/Section2/part4.md)
   * [SqlSession](chapter21/Section2/part5.md)  
 
+<!-- mybatis 源码分析总结， 整个流程是怎样的   -->
+
 ### 面试  
 * [基础](chapter18/base.md)
 * [iOS](chapter18/ios.md)
 * [JAVA](chapter18/java.md)
 * [Golang](chapter18/go.md)
+
 
 ### 读书笔记 
 * [Java Persistence with MyBatis 3](chapter20/Section1_MyBatis.md)
@@ -194,9 +199,14 @@
 
 ### 杂谈  
 
-<!-- * [更好的处理用户登录问题](chapter20/Section1.md)
+<!-- 
+* [更好的处理用户登录问题](chapter20/Section1.md)
 * [项目经理如何合理推动团队高效协助](chapter20/Section2.md)  
-* [如何实现合理的API 接口](chapter20/Section3.md)  
+* [如何实现合理的 API 接口](chapter20/Section3.md)  
 
+* [关于组件化的思考和最佳实践]()
+* [更好的处理用户登录问题]()
+* [站在一个项目经理的位置思考如何推动团队协作]()
+* [利用 Gitlab 实现标准化开发]()
 
  -->

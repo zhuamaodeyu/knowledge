@@ -349,3 +349,33 @@ but, 同样会crash， 以下是堆栈信息
         });
 ```
 只能通过以上方式来实现   。 虽然现在不知道原因，在此记录下   
+
+## 12. UIScrollView 滚动结束监测  
+UIScrollView 在滚动时， 会实时触发 `scrollViewDidScrollView` 方法， 但是却没有一个很好的方式监测滚动是否停止， 其中可以查看到的代理方法`- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView` 但是这个方法有点不靠谱。偶尔会不调用  
+
+通过对UIScrollVeiw 的分析，其中与滚动相关的 3个参数 `tracking`, `dragging`, `decelerating`, 在滚动和滚动结束这三个属性的值是不相同的。 可以通过监听这些值来实现监测滚动结束方式   
+
+```swift 
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.tableView.isUserInteractionEnabled = false
+    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let  scrollToScrollStop = !scrollView.isTracking && !scrollView.isDragging && !scrollView.isDecelerating
+        if (scrollToScrollStop) {
+            self.scrollViewDidEndScroll()
+        }
+    }
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if (!decelerate) {
+            let  dragToDragStop = scrollView.isTracking && !scrollView.isDragging && !scrollView.isDecelerating
+            if (dragToDragStop) {
+                self.scrollViewDidEndScroll()
+            }
+        }
+    }
+    
+    fileprivate func scrollViewDidEndScroll() {
+        
+    }
+
+```

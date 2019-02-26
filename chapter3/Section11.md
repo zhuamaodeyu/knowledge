@@ -395,4 +395,3 @@ UIScrollView 在滚动时， 会实时触发 `scrollViewDidScrollView` 方法，
 ```
 __原理:__ scrollView 只要滚动就会调用 `scrollViewDidScroll` 方法，可以再次方法中创建一个异步调用，等待某些时间调用 `scrollViewDidEndScrollingAnimation` 代理方法。由于 `scrollViewDidScroll`会不断被调用，再次出发时会取消上一次的异步调用任务，等到最后一次`scrollViewDidScroll`调用时，取消了上次的异步任务，又添加了新的异步任务，最后添加的这个新的会执行任务任务 调用`scrollViewDidEndScrollingAnimation`代码   
 
-

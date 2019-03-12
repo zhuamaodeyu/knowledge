@@ -4,13 +4,13 @@
 
 
 1. Nexus 服务器配置存放本地第三方仓库  
-    ![20180610152862582471025.png](http://ozjlhf9e0.bkt.clouddn.com/20180610152862582471025.png)  
+    ![20180610152862582471025.png](../../assets/gitbook/20180610152862582471025.png)  
     注意，选的时候需要选 `maven2 host` 模式，其中还有 `group ` 和 `proxy` 模式，`proxy` 模式是代理模式，比如代理 maven 中央仓库等，需要通过此模式  ，zh这里支持上传一个本地的第三方jar包，需要选 `host` 模式   
-    ![2018061015286259426509.png](http://ozjlhf9e0.bkt.clouddn.com/2018061015286259426509.png)  
+    ![2018061015286259426509.png](../../assets/gitbook/2018061015286259426509.png)  
     这里需要填一个仓库名称，以及版本，版本可以不选，直接使用默认的  ， 创建过后就可以在 `Respositores` 中查看到了  
 2. 获取仓库地址  
-    ![20180610152862604663727.png](http://ozjlhf9e0.bkt.clouddn.com/20180610152862604663727.png)  
-    ![20180610152862607592060.png](http://ozjlhf9e0.bkt.clouddn.com/20180610152862607592060.png)  
+    ![20180610152862604663727.png](../../assets/gitbook/20180610152862604663727.png)  
+    ![20180610152862607592060.png](../../assets/gitbook/20180610152862607592060.png)  
     通过以上方式获取仓库的名称   
 3. 编译jar 文件  
     由于其实开源项目，所以需要将其编译成jar 文件并上传到 nexus 上 , clone项目[fastdfs-client-java](https://github.com/happyfish100/fastdfs-client-java) 
@@ -31,7 +31,7 @@
             <password>admin123</password>
         </server>
     ```
-4. 上传  
+5. 上传  
     ```bash  
     mvn deploy:deploy-file                      # 
     -DgroupId=org.csource                       # group  
@@ -42,11 +42,11 @@
     -Durl=http://192.168.33.13:8081/repository/fastdfs-client/    # 此处是服务器仓库的地址 (根据2 步骤获取的)
     -DrepositoryId=nexus-releases                               # 此处是服务器id， 根据步骤三 填写的内容 选一个就好(此处不正确会报验证错误的)
     ```
-5. 设置仓库 组  
+6. 设置仓库 组  
     以上步骤只是将jar 传到仓库中去了，但是在使用时却发现无法download jar 包， maven 报错，创建的仓库并不在 maven public 组中
-    ![20180610152862699628642.png](http://ozjlhf9e0.bkt.clouddn.com/20180610152862699628642.png)  
-    ![20180610152862700445738.png](http://ozjlhf9e0.bkt.clouddn.com/20180610152862700445738.png)   
-6. 使用了  
+    ![20180610152862699628642.png](../../assets/gitbook/20180610152862699628642.png)  
+    ![20180610152862700445738.png](../../assets/gitbook/20180610152862700445738.png)   
+7. 使用了  
     ```xml  
             <dependency>
                 <groupId>org.csource</groupId>

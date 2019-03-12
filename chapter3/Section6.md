@@ -33,7 +33,7 @@ AVAssetTrack 是更加详细的媒体元数据类，每一个AVAsset资源中可
 ### AVMetadataItem  
 提供访问具体资源元数据，可以对存储在格式中的帧中元数据进行访问  
 
-![](http://ozjlhf9e0.bkt.clouddn.com/20180301151989219310666.png)
+![](../assets/gitbook/20180301151989219310666.png)
 
 ## 基本操作  
 ###创建资源  
@@ -125,7 +125,7 @@ AVAsset 中基友多种有用的方法和属性，可以提供有关资源的信
 * QuickTime  
 	是苹果自己的开发的媒体架构，跨平台，文件格式为 `.mov` 格式，采用的是atoms的数据结构组成  
 	可以通过十六进制编辑器打开此种文件查看器内容,可以使用官方程序`Atom Inspector`来查看  
-	![利用QuickTime录制视频的信息](http://ozjlhf9e0.bkt.clouddn.com/20180301151989223272311.png)  
+	![利用QuickTime录制视频的信息](../assets/gitbook/20180301151989223272311.png)  
 	如果想对这些数据更加细致的了解的，请查看苹果官方文档关于此内容的部分  
 * MPEG-4 音视频 (这个是两种哦)
 	* MPEG-4 video  
@@ -151,9 +151,9 @@ AVAsset 中基友多种有用的方法和属性，可以提供有关资源的信
 ~~~
 通过以上方式获取所有的元数据  
 以下是我获取的一个MP3格式的歌曲的信息 
-![资源文件类型](http://ozjlhf9e0.bkt.clouddn.com/20180301151989225051143.png)  
-![基本AVMetadataItem元数据](http://ozjlhf9e0.bkt.clouddn.com/20180301151989226069702.png)
-![全部AVMetadataItem元数据](http://ozjlhf9e0.bkt.clouddn.com/2018030115198922726594.png) 
+![资源文件类型](../assets/gitbook/20180301151989225051143.png)  
+![基本AVMetadataItem元数据](../assets/gitbook/20180301151989226069702.png)
+![全部AVMetadataItem元数据](../assets/gitbook/2018030115198922726594.png) 
 
 
 #### 查找对应的元数据  
@@ -174,7 +174,7 @@ AVAsset 中基友多种有用的方法和属性，可以提供有关资源的信
 #### 保存元数据  
 虽然通过以上的方式可以实现元数据的修改和查找，但是保存就比较特殊， 保存并不是保存元数据，而是需要将整个 `AVAsset`资源重置一份， 因为此类是一个不可变类，不能通过简单的方式实现， AVFoundation框架谓词提供了一个专门的类 `AVAssetExportSession` 用于从一个 AVAsset资源到另一个 AVAsset资源的转变  
 
-![](http://ozjlhf9e0.bkt.clouddn.com/20180301151989228427649.png)  
+![](../assets/gitbook/20180301151989228427649.png)  
 
 ~~~objectivec
     AVAssetExportSession *session = [[AVAssetExportSession alloc]initWithAsset:self.asset presetName:AVAssetExportPresetPassthrough];

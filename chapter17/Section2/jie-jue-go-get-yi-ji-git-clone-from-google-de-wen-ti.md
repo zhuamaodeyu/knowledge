@@ -26,10 +26,10 @@ __解决办法:__
 	自己根据自己需要获取VPN 等翻墙程序  
 * 自行下载 `proxifier` 程序     
 	我使用的是`Shadowsocks`, 其只提供了 SOCKET5 代理，默认的代理端口是 1080 ，根据这些内容配置 `proxifier` (__具体的端口和代理类型需要根据自己的梯子自行配置__)  
-	![](http://omy43wh36.bkt.clouddn.com/Snip20171113_1.png)
+	![](../../assets/gitbook/Snip20171113_1.png)
 	配置需要走代理的程序，此处由于是针对 go 的，需要让go 走代理  
-	![](http://omy43wh36.bkt.clouddn.com/Snip20171113_2.png)
-	![](http://omy43wh36.bkt.clouddn.com/Snip20171113_4.png)
+	![](../../assets/gitbook/Snip20171113_2.png)
+	![](../../assets/gitbook/Snip20171113_4.png)
 		
 	__重启终端__  
 * 测试  
@@ -49,7 +49,7 @@ __解决办法:__
 		
 	本以为可以愉快的开发了但是。。。。 
 	
-	![](http://omy43wh36.bkt.clouddn.com/Snip20171113_5.png)
+	![](../../assets/gitbook/Snip20171113_5.png)
 	
 	__注意__ 看执行过程，查看代码具体下载地址，并不是 `go get ` 的地址，
 	根据以上配置，只是可以连接到Google的服务器，此时并不能下载下来代码， 执行`go get golang.org/x/crypto` 会进行具体的地址解析，然后根据具体的代码管理工具进行下载，比如 `git`会转到 `git clone` 去下载代码， 以上配置只是让go支持了服务器解析地址的功能，下一步还需要让git 可以支持代理  

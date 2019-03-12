@@ -179,7 +179,7 @@ public class JedisRedisConfig {
     }
 ```
     通过以上方式，你会发现，还是无法测试通过，默认可能会报一下两个错误  
-    ![错误1](http://ozjlhf9e0.bkt.clouddn.com/20171205151244982436872.png)
+    ![错误1](../../assets/gitbook/20171205151244982436872.png)
     __错误原因:__`commons-pool2`库缺失  
 ```xml
 <dependency>
@@ -188,9 +188,9 @@ public class JedisRedisConfig {
         <version>2.4.2</version>
     </dependency>
 ```
-    ![错误2](http://ozjlhf9e0.bkt.clouddn.com/20171205151244984422001.png)  
+    ![错误2](../../assets/gitbook/20171205151244984422001.png)  
     __错误原因__:  jedis 版本低或者maven导入失败  
-    ![错误3](http://ozjlhf9e0.bkt.clouddn.com/20171205151245005521462.png)  
+    ![错误3](../../assets/gitbook/20171205151245005521462.png)  
     __错误原因:__  redis 连接失败， 不止为何，spring boot 2.x 通过以上方式集成jedis，但是其不会读取配置文件中的`spring.redis.host`等这样的配置，需要自己手动设置    
     __如果有人知道为什么，还请告知，感激不尽,或者我后续研究会补上具体的原因内容__   
     虽然系统没有提供正确的支持，不过我们可以通过自己的配置实现具体的功能支持，通过添加以下配置内容   
@@ -335,7 +335,7 @@ public class CacheConfig extends CachingConfigurerSupport {
     
 3. Spring Boot 缓存支持  
     Spring Boot 是通过注解来进行缓存操作的，通过输入 cache，可以看到，Spring Boot默认支持一下几个缓存相关注解  
-    ![缓存注解](http://ozjlhf9e0.bkt.clouddn.com/2017120515124432682378.png)  
+    ![缓存注解](../../assets/gitbook/2017120515124432682378.png)  
     以上截图中只有5个 还是有一个没有`@Caching`注解
     下面将针对每个注解进行详细的介绍:   
 
@@ -641,9 +641,9 @@ public @interface EnableRedisHttpSession {
     * 访问 `/session`接口，查看session信息   
 * 测试结果：  
     通过以上方式测试会发现，本地访问两个不同的项目，拿到的session是相同的   
-    ![register](http://ozjlhf9e0.bkt.clouddn.com/20171206151253585449758.png)  
-    ![查看session](http://ozjlhf9e0.bkt.clouddn.com/20171206151253589017135.png)  
-    ![另一个项目查看](http://ozjlhf9e0.bkt.clouddn.com/20171206151253592336838.png)   
+    ![register](../../assets/gitbook/20171206151253585449758.png)  
+    ![查看session](../../assets/gitbook/20171206151253589017135.png)  
+    ![另一个项目查看](../../assets/gitbook/20171206151253592336838.png)   
     __session 的内容以及 session ID 是相同的，达到了session共享的目的__  
 
 
@@ -656,14 +656,14 @@ public @interface EnableRedisHttpSession {
 IDEA 对通过插件的方式对 Redis 有很好的集成，通过插件可以实现Redis最基本的开发，下面将介绍如何实现    
 
 * 安装插件  
-![插件安装](http://ozjlhf9e0.bkt.clouddn.com/20171207151260854125991.png)  
+![插件安装](../../assets/gitbook/20171207151260854125991.png)  
 按照以上步骤安装插件，我这里已经安装，所有显示的是update，根据提示安装插件就好    
 * 连接Redis  
     __安装完成需要重启IDEA__   
-    ![](http://ozjlhf9e0.bkt.clouddn.com/2017120715126086768030.png)  
-    ![](http://ozjlhf9e0.bkt.clouddn.com/2017120715126087129251.png)  
+    ![](../../assets/gitbook/2017120715126086768030.png)  
+    ![](../../assets/gitbook/2017120715126087129251.png)  
     通过以上方式，填写对应的地址和端口以及密码等内容，测试连接是否成功 
-    ![](http://ozjlhf9e0.bkt.clouddn.com/20171207151260878593173.png)  
+    ![](../../assets/gitbook/20171207151260878593173.png)  
     以上就是Redis支持的操作界面，可以通过此界面操作Redis   
 
 ## 参考  

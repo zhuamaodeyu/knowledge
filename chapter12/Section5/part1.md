@@ -4,9 +4,9 @@
 1. 创建项目    
 
     项目是通过Idea 创建，可以直接创建Spring Boot 项目  
-    ![第一步](http://omy43wh36.bkt.clouddn.com/Snip20171108_2.png)     
-    ![第二步](http://omy43wh36.bkt.clouddn.com/Snip20171108_3.png)
-    ![第三步](http://omy43wh36.bkt.clouddn.com/Snip20171108_4.png)
+    ![第一步](../../assets/gitbook/Snip20171108_2.png) 
+    ![第二步](../../assets/gitbook/Snip20171108_3.png)
+    ![第三步](../../assets/gitbook/Snip20171108_4.png)
     选中 web 就可以了，然后一直下一步，这就是一个简单的的 基于 Spring ，Spring MVC的web 项目    
 
 2. 修改 `pom.xml` 文件,以支持Docker  

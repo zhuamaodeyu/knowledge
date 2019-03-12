@@ -102,7 +102,7 @@ mybatis 提供了多种不同的执行器(__Simple, Batch, Reuse__)，默认情�
 
 ## Mapper 代理对象  
 在具体的获取代理对象之前，首先先了解下 Session 提供的不同方式：
-![20180914153691442471047.png](http://ozjlhf9e0.bkt.clouddn.com/20180914153691442471047.png)
+![20180914153691442471047.png](../../assets/gitbook/20180914153691442471047.png)
 > `DefaultSqlSession`类提供方法  
 
 mybatis 提供了两种方式与数据库进行交互 ：   

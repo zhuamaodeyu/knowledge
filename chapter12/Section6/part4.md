@@ -16,13 +16,13 @@
 1. 安装插件  
 `系统管理`---->`插件管理`----->`可选插件`  
 
-![插件](http://omy43wh36.bkt.clouddn.com/Snip20171111_44.png)   
+![插件](../../assets/gitbook/Snip20171111_44.png)   
 
 2. 配置插件  
 	`系统管理`----->`Global Tool Configuration`------>`nodejs`  
-	![配置插件](http://omy43wh36.bkt.clouddn.com/Snip20171111_46.png)  
+	![配置插件](../../assets/gitbook/Snip20171111_46.png)  
 	配置nodejs，让系统自动下载node 
-	![](http://omy43wh36.bkt.clouddn.com/Snip20171111_43.png)  
+	![](../../assets/gitbook/Snip20171111_43.png)  
 
 ## job  
 
@@ -31,7 +31,7 @@
 
 2. 配置项目  
 	当前系统中，还并没有node 程序，需要通过配置，让系统在构建的时候自动下载安装nodejs程序。  
-	![工程配置](http://omy43wh36.bkt.clouddn.com/Snip20171111_41.png)
+	![工程配置](../../assets/gitbook/Snip20171111_41.png)
 
 3. 构建项目  
 	项目创建成功后，直接构建项目，系统会自动下载安装node。如果顺利，那么就会安装成功  
@@ -48,7 +48,7 @@
 		进入 `/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation`文件夹下是否有node文件夹。查看其中是否有关于node的文件  
 	* 手动添加环境变量  
 		修改构建配置，`构建`-----> `Execute shell` 添加环境变量  
-		![添加环境变量](http://omy43wh36.bkt.clouddn.com/Snip20171111_47.png)  
+		![添加环境变量](../../assets/gitbook/Snip20171111_47.png)  
 		添加一下内容  
 
 		```bash

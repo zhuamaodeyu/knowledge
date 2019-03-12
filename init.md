@@ -334,7 +334,7 @@
         cd /usr/bin
         /usr/bin/fdfs_test /etc/fdfs/client.conf upload /usr/bin/test.txt
         ```
-        ![20180606152827315464159.png](http://ozjlhf9e0.bkt.clouddn.com/20180606152827315464159.png)  
+        ![20180606152827315464159.png](./assets/gitbook/20180606152827315464159.png)  
         出现以上内容代表上传成功  
         
 
@@ -430,7 +430,7 @@
     ``` 
     
 12. 配置maven 
-    ![20180607152838092213078.png](http://ozjlhf9e0.bkt.clouddn.com/20180607152838092213078.png)  
+    ![20180607152838092213078.png](./assets/gitbook/20180607152838092213078.png)  
     以上是用户配置文件(可以在maven/conf 下直接修改全局配置文件)
     ```xml
     <server>
@@ -577,7 +577,7 @@
             sudo mkdir /etc/docker/certs.d/mydockerhub.com:5000
         ```
         * Mac 配置  
-            ![20180607152835291175045.png](http://ozjlhf9e0.bkt.clouddn.com/20180607152835291175045.png)
+            ![20180607152835291175045.png](./assets/gitbook/20180607152835291175045.png)
     * 测试 
         __根据文末方式进行验证__  
         __以上方式通过配置Docker 不需要配置nginx了__ 

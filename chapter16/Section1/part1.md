@@ -16,15 +16,15 @@
 ### 创建实例工程  
 1. 创建工程  
     通过欢迎界面的 `Create a new Xcode project` 或者 `file`--> `Create a new Xcode project`来创建  
-    ![创建工程1](http://ozjlhf9e0.bkt.clouddn.com/20171128151183390428881.png)   
+    ![创建工程1](../../assets/gitbook/20171128151183390428881.png)   
 2. 选择工程类型  
     Xcode 在Mac下可以创建3种工程，`Cocoa App`, `Game`, `Command Line Tool`, 分别是应用程序， 游戏， 命令行工程， 在这里我们学习的是如何应用程序开发， 所有选择的是第一种 。  
-    ![创建工程2](http://ozjlhf9e0.bkt.clouddn.com/2017112815118340322325.png)
+    ![创建工程2](../../assets/gitbook/2017112815118340322325.png)
 3. 填写需要的信息  
     根据需要填写需要的信息， 然后直接下一步进行保存就好
 4. 目录结构  
     默认创建的工程是一下结构  
-    ![](http://ozjlhf9e0.bkt.clouddn.com/20171128151183412036201.png)
+    ![](../../assets/gitbook/20171128151183412036201.png)
 
 
 

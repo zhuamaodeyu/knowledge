@@ -40,12 +40,12 @@ SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(input
 ### 解析 xml 配置文件  
 mybatis框架中，针对`xml` 格式的配置资源文件，专门提供了辅助类`Resources`,并且此类还提供了多种文件处理方式，可以将XML文件转换为`InputStream`,`Reader`,`File`,`Properties`等多种格式。 并且此类针对不同的表示方式也提供了不同的实现方式(路径，名称等)   
 
-![20180913153684204424792.png](http://ozjlhf9e0.bkt.clouddn.com/20180913153684204424792.png)   
+![20180913153684204424792.png](../../assets/gitbook/20180913153684204424792.png)   
 > 以上是 Resources 类提供的方法    
 
 ### SessionFactory  
 通过对源码进行查看可以了解`SessionFactory`是一个接口类，并不能直接进行实例化，如果想获得一个 SessionFactory 实体类对象，需要通过`SqlSessionFactoryBuilder`来获得。顾名思义，此类就是一个 `SessionFactory` 实现类对象的构建类  
-![20180913153684245764323.png](http://ozjlhf9e0.bkt.clouddn.com/20180913153684245764323.png)
+![20180913153684245764323.png](../../assets/gitbook/20180913153684245764323.png)
 >    SqlSessionFactoryBuilder 类方法    
 
 通过查看其方法提供可以看出，其只有一个 `build`方法的不同重载。通过此方法将 步骤一获取的 xml 的不同形式转化为一个对象(通过配置文件创建`SqlSessionFactory`对象的).  此类主要提供了两种输入流形式(字节流和字符流)  

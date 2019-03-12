@@ -19,7 +19,7 @@
         `export DOCKER_HOST=tcp://127.0.0.1:2376`   
         
 以上两种方式验证了，都是有问题，思路是没错，但是在Mac上如果通过直接复制两种命令直接使用时有错误的，会报以下错误：  
-![5a02a30ce63ce.png](http://omy43wh36.bkt.clouddn.com/Snip20171108_1.png)   
+![5a02a30ce63ce.png](../../assets/gitbook/Snip20171108_1.png)   
 
 ## 解决方式  
 首先肯定以上的方式一的思路正确的，只不过内容出错了。 在Mac系统下为例：

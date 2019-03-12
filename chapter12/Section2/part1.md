@@ -14,14 +14,14 @@ Spring  Boot 针对快速创建基本工程专门提供了一个在线的构建�
 ### 通过 `Spring Initializr` 生成基础工程  
 1. 访问 `http://start.spring.io/`  
 2. 选择对应的构建工具，例如 `Maven`， `Gradle`等构建工具工程. (本次使用Maven)  
-	![创建项目](http://omy43wh36.bkt.clouddn.com/spring-bootSnip20171115_8.png)  
+	![创建项目](../../assets/gitbook/spring-bootSnip20171115_8.png)  
 3. `Generate Project`下载压缩包   
 4. IDEA 导入项目
 	* `File`---->`Project from Existing Source`   
 
 #### 项目结构  
 通过以上方式创建项目并导入项目，等待 index 成功 就会看到如下的项目结构  
-	![项目结构](http://omy43wh36.bkt.clouddn.com/spring-bootSnip20171115_12.png)  
+	![项目结构](../../assets/gitbook/spring-bootSnip20171115_12.png)  
 
 以上创建的是一个标准的 Spring Boot 基础工程模板  
 	
@@ -61,7 +61,7 @@ _小提示: IDEA 集成开发工具还是很智能哦，如果不知道具体的
    ```
 
 4. 启动项目   
-	![启动项目](http://omy43wh36.bkt.clouddn.com/spring-bootSnip20171115_14.png)
+	![启动项目](../../assets/gitbook/spring-bootSnip20171115_14.png)
 
 5. 测试  
 	等待程序启动成功，可以在浏览器访问`http://localhost:8080/`可以查看到页面输出`hello world`  
@@ -73,14 +73,14 @@ IDEA 针对 Spring Boot 进行了很好的集成， 可以通过IDEA 启动的�
 
 1. `Start New Project`  
 2. 创建方式  
-	![创建方式](http://omy43wh36.bkt.clouddn.com/spring-bootSnip20171115_9.png)
+	![创建方式](../../assets/gitbook/spring-bootSnip20171115_9.png)
 
 3. 配置项目  
-	![配置项目](http://omy43wh36.bkt.clouddn.com/spring-bootSnip20171115_10.png)
+	![配置项目](../../assets/gitbook/spring-bootSnip20171115_10.png)
 
 4. 导入需要的 `starter` 库
 	IDEA 通过图形化界面实现  
-	![](http://omy43wh36.bkt.clouddn.com/spring-bootSnip20171115_11.png)
+	![](../../assets/gitbook/spring-bootSnip20171115_11.png)
 
 5. next --->next   
 

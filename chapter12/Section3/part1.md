@@ -7,7 +7,7 @@
 
 ## Eureka Server     
 Eureka Server 服务端用于服务的注册和服务的管理，其本质上还是一个Java web 程序，只是不对外提供服务，而只用于内部其他微服务的注册和管理功能。Eureka Server 提供了丰富的配置功能，可以根据自身的需求进行多细粒度的配置。  
-![eureka server ](http://ozjlhf9e0.bkt.clouddn.com/20180314152103070371635.png)
+![eureka server ](../../assets/gitbook/20180314152103070371635.png)
 以上是部分的提供的配置功能。接下来将介绍其中重要的配置项    
 
 在微服务架构中，注册中心是所有服务的核心，只有注册中心正常工作，其他服务才可以正常的向外部提供服务。所以在微服务架构中，注册中心是所有服务中第一个启动的服务，所以在接下来的内容中，将先部署Eureka Server   
@@ -36,8 +36,8 @@ Eureka Server 服务端用于服务的注册和服务的管理，其本质上还
 3. 启动项目  
     就是如此简单   
     Eureka Server 默认提供了一个简单的控制台程序。通过访问`host:port` 来访问此程序  
-    ![](http://ozjlhf9e0.bkt.clouddn.com/20180314152103425585500.png)
-    ![](http://ozjlhf9e0.bkt.clouddn.com/20180314152103160594507.png)  
+    ![](../../assets/gitbook/20180314152103425585500.png)
+    ![](../../assets/gitbook/20180314152103160594507.png)  
     以上是Eureka Server 自带的控制中心。接下来对其中的主要模块进行说明   
     * System Status  
     * DS Replicas 

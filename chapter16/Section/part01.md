@@ -1,5 +1,5 @@
 #Status Bar  
-![20180726153259393652234.png](http://ozjlhf9e0.bkt.clouddn.com/20180726153259393652234.png)
+![20180726153259393652234.png](../../assets/gitbook/20180726153259393652234.png)
 状态栏是Mac系统中很重要的部分，其和window系统底部状态栏意义相同。此部分一直是各种APP必争之地。虽然看似占比不大，但是确实系统不可或缺的一部分。通常，每个应用程序都可在status创建一个属于自己的item来给予用户便捷操作。虽然statusbar 意义重大，但在系统中与此相关的类却不多。只有一下三个类：`NSStatusBar`, `NSStatusItem`,`NSStatusBarButton`   
 
 

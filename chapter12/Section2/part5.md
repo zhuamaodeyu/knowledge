@@ -30,8 +30,8 @@ Spring Data JPA 是 Spring Data 的一个子集。Spring Data 包含的内容比
 ## Spring Data 功能   
 ### 类接口介绍  
 由于Spring Data JPA 是 Spring  Data 的一份子，所以基础功能含在Spring Data 包中。不过Spring Data JPA 也有一个具体的扩展包。以下是Spring Data 核心包和 JPA 的具体位置以及类结构：  
-![Spring Data包](http://ozjlhf9e0.bkt.clouddn.com/20171130151200688924794.png)
-![Spring Data JPA包](http://ozjlhf9e0.bkt.clouddn.com/20171130151200718299023.png)
+![Spring Data包](../../assets/gitbook/20171130151200688924794.png)
+![Spring Data JPA包](../../assets/gitbook/20171130151200718299023.png)
 
 其中最常用的就是以下几个类：   
 
@@ -232,7 +232,7 @@ interface UserRepository extends CrudRepository<User, Long>, CustomizedUserRepos
 
 ## Spring Data JPA 功能特点说明
 Spring Data 每一个模块都有其单独的`namespace`,
-![namespace](http://ozjlhf9e0.bkt.clouddn.com/2017120415123959818516.png)通过[namespace](http://www.springframework.org/schema/data/)可以获得去支持的模块。通过单独的配置可以支持一些JPA独有的配置属性  
+![namespace](../../assets/gitbook/2017120415123959818516.png)通过[namespace](http://www.springframework.org/schema/data/)可以获得去支持的模块。通过单独的配置可以支持一些JPA独有的配置属性  
 
 ```xml  
 <?xml version="1.0" encoding="UTF-8"?>

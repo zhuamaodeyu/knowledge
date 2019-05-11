@@ -55,6 +55,7 @@
   * [开发问题集锦](chapter3/Section11.md) 
   * [iOS 组件化开发的思考](chapter3/Section13.md)  
   * [iOS 组件化环境搭建](chapter3/Section14.md)
+  * [iOS 组件静态化](chapter3/Section15.md)
 ## JavaScript
 
 <!-- * [第四章 nodejs 篇]()

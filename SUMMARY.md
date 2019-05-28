@@ -135,7 +135,7 @@
       * [ServiceCenterPeer 服务实现](chapter12/shi-jian-pian/java-pian/servicecenterpeer-fu-wu-shi-xian.md)
     * [综合篇](chapter12/shi-jian-pian/zong-he-pian.md)
 
-### DevOps  
+## DevOps  
 
 * [第十三章 DevOps 开发与运维]()
   * [实现基于Docker 下的Gitlab CI](chapter13/Section1.md)
@@ -152,7 +152,7 @@
     * [Mac 开发之 `NSWindow`](chapter16/Section1/part2.md)
     * [Mac 开发之 `NSPanel`](chapter16/Section1/part3.md) 
 
-### Question
+## Question
 * [第十七章 开发问题集锦]()
   * [docker 篇]()
     * [unix://localhost:80 no search file or directory](chapter17/Section1/unixlocalhost80-no-search-file-or-directory.md)
@@ -169,7 +169,7 @@
 
 
 
-### 源码分析
+## 源码分析
 * [Gin]()  
   * [Gin 功能简介](chapter21/Section1/part1.md)
 * [mybatis]()
@@ -181,7 +181,7 @@
 
 <!-- mybatis 源码分析总结， 整个流程是怎样的   -->
 
-### 面试  
+## 面试  
 * [基础](chapter18/base.md)
 * [iOS](chapter18/ios.md) 
 * [iOS-answer](chapter18/iOS-answer.md)
@@ -189,12 +189,12 @@
 * [Golang](chapter18/go.md)
 
 
-### 读书笔记 
+## 读书笔记 
 * [Java Persistence with MyBatis 3](chapter20/Section1_MyBatis.md)
 * [Go 圣经](chapter20/Section2_GO.md) 
 
 
-### lintCode 题解  
+## lintCode 题解  
 * [1 Two Sum ](chapter19/1.md)
 * [2](chapter19/2.md)
 * [3](chapter19/3.md)
@@ -203,7 +203,7 @@
 * [6](chapter19/6.md)
 
 
-### 杂谈  
+## 杂谈  
 
 <!-- 
 * [更好的处理用户登录问题](chapter20/Section1.md)
@@ -216,3 +216,7 @@
 * [利用 Gitlab 实现标准化开发]()
 
  -->
+
+
+### 周读表  
+* [第一周](chapter22/20190603-0609.md)

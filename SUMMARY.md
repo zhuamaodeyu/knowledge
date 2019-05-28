@@ -55,6 +55,7 @@
   * [开发问题集锦](chapter3/Section11.md) 
   * [iOS 组件化开发的思考](chapter3/Section13.md)  
   * [iOS 组件化环境搭建](chapter3/Section14.md)
+  * [iOS 组件静态化](chapter3/Section15.md)
 ## JavaScript
 
 <!-- * [第四章 nodejs 篇]()
@@ -193,6 +194,8 @@
 * [Java Persistence with MyBatis 3](chapter20/Section1_MyBatis.md)
 * [Go 圣经](chapter20/Section2_GO.md) 
 
+### 文档翻译  
+
 
 ## lintCode 题解  
 * [1 Two Sum ](chapter19/1.md)
@@ -217,6 +220,12 @@
 
  -->
 
-
 ### 周读表  
 * [第一周](chapter22/20190603-0609.md)
+
+### 文档模板  
+* [算法模板](chapter22/suan_fa_mo_ban.md) 
+* [问题模板](chapter22/wen_ti_mo_ban.md)
+* [文章模板](chapter22/wen_zhang_mo_ban.md)
+* [文档翻译](chapter22/wen_dang_fan_yi.md)
+

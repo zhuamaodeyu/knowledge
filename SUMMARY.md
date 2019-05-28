@@ -22,10 +22,10 @@
     * [链表](chapter1/Section1/part2.md)
     * [栈与队列](chapter1/Section1/part3.md)
     * [树](chapter1/Section1/part4.md)
-    <!-- * [堆](chapter1/Section1/part5.md) -->
-    <!-- * [图](chapter1/Section1/part6.md) -->
-    <!-- * [散列表](chapter1/Section1/part7.md) -->
-    <!-- * [排序算法](chapter1/Section1/part8.md) -->
+    * [堆](chapter1/Section1/part5.md)
+    * [图](chapter1/Section1/part6.md)
+    * [散列表](chapter1/Section1/part7.md)
+    * [排序算法](chapter1/Section1/part8.md)
 
   * [第二节 数据结构应用]()  
     * [荷兰国旗问题](chapter1/Section2/part1.md)

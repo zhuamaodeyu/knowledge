@@ -47,6 +47,8 @@
   * [AvoidCrash 分析](chapter3/Section4.md)
   * [自定义导航栏](chapter3/Section5.md)
   * [AVFoundation之元数据操作](chapter3/Section6.md)
+  * [AVFoundation之资源获取](chapter3/Section16.md)
+  * [AVFoundation之资源编辑](chapter3/Section17.md)
   * [iOS 即时通讯中发送多图顺序问题](chapter3/Section7.md)
   * [iOS系统九宫格下代理方法调用多次解决办法](chapter3/Section8.md)  
   * [IM - 心跳机制](chapter3/Section9.md)
@@ -221,11 +223,12 @@
  -->
 
 ### 周读表  
-* [第一周](chapter22/20190603-0609.md)
+* [第一周](chapter23/20190603-0609.md)
 
 ### 文档模板  
 * [算法模板](chapter22/suan_fa_mo_ban.md) 
 * [问题模板](chapter22/wen_ti_mo_ban.md)
 * [文章模板](chapter22/wen_zhang_mo_ban.md)
-* [文档翻译](chapter22/wen_dang_fan_yi.md)
+* [文档翻译模板](chapter22/wen_dang_fan_yi.md)
+* [周读模板](chapter)
 

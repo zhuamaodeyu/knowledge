@@ -224,11 +224,12 @@
 
 ### 周读表  
 * [第一周](chapter23/20190603-0609.md)
+* [第二周](chapter23/20190610-0616.md)
 
 ### 文档模板  
 * [算法模板](chapter22/suan_fa_mo_ban.md) 
 * [问题模板](chapter22/wen_ti_mo_ban.md)
 * [文章模板](chapter22/wen_zhang_mo_ban.md)
 * [文档翻译模板](chapter22/wen_dang_fan_yi.md)
-* [周读模板](chapter)
+* [周读模板](chapter22/zhou_du_mo_ban.md)
 

@@ -50,6 +50,7 @@
 * [TKComponentization 组件化解决方案的构思](iOS/Section14.md)
 * [组件静态化](iOS/Section15.md) 
 * [OpenGL ES]()  
+* [Metal]()
 
 ## GO
 * [基础篇]()
@@ -125,10 +126,10 @@
 * [SourceTree 实现 Gitflow 可视化操作 ](DevOps/source_tree_and_gitflow.md)
 
 
- ### Python
+## Python
 
 
-### Mac OS 
+## Mac OS 
 * [前言](MacOS.md)
 * [基础控件](MacOS/BasicUI.md)
   * [Mac开发之 `NSApplication`](MacOS/BasicUI/part1.md)
@@ -138,29 +139,15 @@
 
 
 ## 开发问题集锦
-* [第十七章 开发问题集锦]()
-  * [docker 篇]()
-    * [unix://localhost:80 no search file or directory](Question/Section1/unixlocalhost80-no-search-file-or-directory.md)
-    * [进入容器的几种方式](Question/Section1/jin-ru-rong-qi-de-ji-zhong-fang-shi.md)
-  * [go 篇]()
-    * [解决 go get  以及 git clone from google 的问题](Question/Section2/jie-jue-go-get-yi-ji-git-clone-from-google-de-wen-ti.md) 
-  * [java 篇]()
-    * [Spring Boot 集成 Redis](Question/Section3/part1.md)
-    * [mysql 连接失败](Question/Section3/part2.md)
-    * [nexus 上传第三方包](Question/Section3/part3.md)
-    * [Maven 模块化开发Spring Boot配置加载失败](Question/Section3/part4.md)
-  * [DevOps]()
-    * [Gitlab 与 gitlab-runner集成](Question/Section4/part1.md)
->>>>>>> ac5e922f1437a60b4fab407d8076c5b573925c66
 
+* [docker 篇]()
   * [unix://localhost:80 no search file or directory](Question/Section1/unixlocalhost80-no-search-file-or-directory.md)
   * [进入容器的几种方式](Question/Section1/jin-ru-rong-qi-de-ji-zhong-fang-shi.md)
-* [go 篇]()
 
+* [go 篇]()
   * [解决 go get  以及 git clone from google 的问题](Question/Section2/jie-jue-go-get-yi-ji-git-clone-from-google-de-wen-ti.md) 
 
 * [java 篇]()
-
   * [Spring Boot 集成 Redis](Question/Section3/part1.md)
   * [mysql 连接失败](Question/Section3/part2.md)
   * [nexus 上传第三方包](Question/Section3/part3.md)
@@ -220,12 +207,7 @@
 * [如何实现合理的 API 接口](chapter20/Section3.md)  
 * [更好的处理用户登录问题]()
 * [站在一个项目经理的位置思考如何推动团队协作]()
-<<<<<<< HEAD
 * [利用 Gitlab 实现标准化开发]()
-=======
-
-
->>>>>>> ac5e922f1437a60b4fab407d8076c5b573925c66
  -->
 
 ### 周读表  
@@ -239,26 +221,19 @@
 * [文档翻译模板](template/wen_dang_fan_yi.md)
 * [周读模板](template/zhou_du_mo_ban.md)
 
-
-
-<<<<<<< HEAD
-
-=======
 <!--
  ### Others
 * [第十四章 Python]()
 * [第十五章 React Native]()
 -->
- 
->>>>>>> ac5e922f1437a60b4fab407d8076c5b573925c66
+
  <!--
  ### Other
 * 第八章 即时通讯IM
 * 第九章 机器学习
 * 第十章 MySQL 数据库开发 
 -->  
-<<<<<<< HEAD
-  <!-- * [第二节 计算机组成原理](chapter1/Section2.md) -->
+<!-- * [第二节 计算机组成原理](chapter1/Section2.md) -->
   
 <!-- ## Java
 
@@ -272,5 +247,3 @@
 
 <!-- * [第四章 nodejs 篇]()
 * [第五章 JavaScript篇](chapter5.md) -->
-=======
->>>>>>> ac5e922f1437a60b4fab407d8076c5b573925c66

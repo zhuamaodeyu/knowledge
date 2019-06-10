@@ -7,7 +7,7 @@
 * [利用 Gitlab 实现标准化开发]() 
 * [记一次劳动仲裁经历]()   
 * [组件静态化]()
-* [TKComponentization 组件化解决方案的构思]()  
+* [ TKComponentization 组件化解决方案的构思]()  
 * [引入代码质量管理平台]() 
 
 
@@ -71,7 +71,6 @@
   * [Go Web 访问数据库](Golang_Web/go-web-fang-wen-shu-ju-ku.md)
   * [Go Web 设计一个Web 框架](Golang_Web/go-web-she-ji-yi-ge-web-kuang-jia.md)
 
-
 ## Docker
   * [Docker 镜像操作](Docker/Section1.md)
   * [如何编写最佳的Dockerfile](Docker/Section2.md)
@@ -123,6 +122,7 @@
 ## DevOps  
 * [实现基于Docker 下的Gitlab CI](DevOps/Section1.md)
 * [利用 Gitlab 实现标准化开发](DevOps/Section2.md)
+* [SourceTree 实现 Gitflow 可视化操作 ](DevOps/source_tree_and_gitflow.md)
 
 
  ### Python
@@ -138,7 +138,20 @@
 
 
 ## 开发问题集锦
-* [docker 篇]()
+* [第十七章 开发问题集锦]()
+  * [docker 篇]()
+    * [unix://localhost:80 no search file or directory](Question/Section1/unixlocalhost80-no-search-file-or-directory.md)
+    * [进入容器的几种方式](Question/Section1/jin-ru-rong-qi-de-ji-zhong-fang-shi.md)
+  * [go 篇]()
+    * [解决 go get  以及 git clone from google 的问题](Question/Section2/jie-jue-go-get-yi-ji-git-clone-from-google-de-wen-ti.md) 
+  * [java 篇]()
+    * [Spring Boot 集成 Redis](Question/Section3/part1.md)
+    * [mysql 连接失败](Question/Section3/part2.md)
+    * [nexus 上传第三方包](Question/Section3/part3.md)
+    * [Maven 模块化开发Spring Boot配置加载失败](Question/Section3/part4.md)
+  * [DevOps]()
+    * [Gitlab 与 gitlab-runner集成](Question/Section4/part1.md)
+>>>>>>> ac5e922f1437a60b4fab407d8076c5b573925c66
 
   * [unix://localhost:80 no search file or directory](Question/Section1/unixlocalhost80-no-search-file-or-directory.md)
   * [进入容器的几种方式](Question/Section1/jin-ru-rong-qi-de-ji-zhong-fang-shi.md)
@@ -207,7 +220,12 @@
 * [如何实现合理的 API 接口](chapter20/Section3.md)  
 * [更好的处理用户登录问题]()
 * [站在一个项目经理的位置思考如何推动团队协作]()
+<<<<<<< HEAD
 * [利用 Gitlab 实现标准化开发]()
+=======
+
+
+>>>>>>> ac5e922f1437a60b4fab407d8076c5b573925c66
  -->
 
 ### 周读表  
@@ -223,13 +241,23 @@
 
 
 
+<<<<<<< HEAD
 
+=======
+<!--
+ ### Others
+* [第十四章 Python]()
+* [第十五章 React Native]()
+-->
+ 
+>>>>>>> ac5e922f1437a60b4fab407d8076c5b573925c66
  <!--
  ### Other
 * 第八章 即时通讯IM
 * 第九章 机器学习
 * 第十章 MySQL 数据库开发 
 -->  
+<<<<<<< HEAD
   <!-- * [第二节 计算机组成原理](chapter1/Section2.md) -->
   
 <!-- ## Java
@@ -244,3 +272,5 @@
 
 <!-- * [第四章 nodejs 篇]()
 * [第五章 JavaScript篇](chapter5.md) -->
+=======
+>>>>>>> ac5e922f1437a60b4fab407d8076c5b573925c66

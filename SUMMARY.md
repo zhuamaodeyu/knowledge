@@ -7,7 +7,7 @@
 * [利用 Gitlab 实现标准化开发]() 
 * [记一次劳动仲裁经历]()   
 * [组件静态化]()
-* [TKComponentization 组件化解决方案的构思]()  
+* [ TKComponentization 组件化解决方案的构思]()  
 * [引入代码质量管理平台]() 
 
 
@@ -87,13 +87,6 @@
   * [Go Web 访问数据库](Golang_Web/go-web-fang-wen-shu-ju-ku.md)
   * [Go Web 设计一个Web 框架](Golang_Web/go-web-she-ji-yi-ge-web-kuang-jia.md)
 
- 
- <!--
- ### Other
-* 第八章 即时通讯IM
-* 第九章 机器学习
-* 第十章 MySQL 数据库开发 
--->  
 
 ## 微服务  
 
@@ -147,12 +140,8 @@
 * [第十三章 DevOps 开发与运维]()
   * [实现基于Docker 下的Gitlab CI](DevOps/Section1.md)
   * [利用 Gitlab 实现标准化开发](DevOps/Section2.md)
+  * [SourceTree 实现 Gitflow 可视化操作 ](DevOps/source_tree_and_gitflow.md)
 
-<!--
- ### Others
-* [第十四章 Python]()
-* [第十五章 React Native]()
--->
 
 * [第十六章 Mac OS](MacOS.md)
   * [基础控件](MacOS/BasicUI.md)
@@ -224,7 +213,7 @@
 * [关于组件化的思考和最佳实践]()
 * [更好的处理用户登录问题]()
 * [站在一个项目经理的位置思考如何推动团队协作]()
-* [利用 Gitlab 实现标准化开发]()
+
 
  -->
 
@@ -239,3 +228,17 @@
 * [文档翻译模板](template/wen_dang_fan_yi.md)
 * [周读模板](template/zhou_du_mo_ban.md)
 
+
+
+<!--
+ ### Others
+* [第十四章 Python]()
+* [第十五章 React Native]()
+-->
+ 
+ <!--
+ ### Other
+* 第八章 即时通讯IM
+* 第九章 机器学习
+* 第十章 MySQL 数据库开发 
+-->  

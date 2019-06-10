@@ -15,6 +15,8 @@
 `Core Image` 是一种图像处理和分析技术，旨在为静态和视频图像提供近乎实时的处理能力。它使用GPU和CPU渲染来自 `Core Graphics`,`Core Video`,`Image I/O` 框架的图像数据进行处理。Core Image 通过提供简单的 API接口来隐藏底层的图形处理细节。通过 Core Image, 无需了解 OpenGL, OpenGL ES 或者 Metal 框架的细节就可以充分利用 GPU 的强大功能，也无需了解 GCD 来获取多核多线程支持    
 
 
+![](../../assets/translation/core_image_jian_jie.png)  
+> 图片来自官方文档
 
 
 ## 惊鸿一睹  

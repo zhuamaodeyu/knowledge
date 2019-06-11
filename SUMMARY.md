@@ -187,10 +187,13 @@
 * [Java Persistence with MyBatis 3](ReadNote/Section1_MyBatis.md)
 * [Go 圣经](ReadNote/Section2_GO.md) 
 
-### 文档翻译  
+### 翻译  
 * [Core Image]() 
   * [简介](translation/core_image/jian_jie.md)
   * [处理图像](translation/core_image/chu_li_tu_xiang.md)
+
+* [Matel]
+  * [简介](translation/matel/jian_jie.md)
 
 ## lintCode 题解  
 * [1 Two Sum ](LintCode/1.md)

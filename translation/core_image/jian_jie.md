@@ -1,4 +1,4 @@
-# About  Core Image 
+# About Core Image 
 
 ## 完成状态  
 

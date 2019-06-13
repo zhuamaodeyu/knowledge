@@ -191,6 +191,8 @@
 * [Core Image]() 
   * [简介](translation/core_image/jian_jie.md)
   * [处理图像](translation/core_image/chu_li_tu_xiang.md)
+  * [脸部识别](translation/core_image/lian_bu_shi_bie.md)
+  * [自动检测](translation/core_image/zi_dong_jian_ce.md)
 
 * [Matel]
   * [简介](translation/matel/jian_jie.md)

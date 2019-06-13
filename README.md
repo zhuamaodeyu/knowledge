@@ -63,4 +63,9 @@
 * [大数据方向](https://allenlebron.github.io/)
 
 
+## 推荐阅读  
+* [Python-100-Days](https://github.com/jackfrued/Python-100-Days) 
+* [人工智能教程](https://www.captainbed.net/)  
+
+
 <!-- Thanks Contributor  -->

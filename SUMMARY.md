@@ -194,6 +194,7 @@
 
 * [Matel]
   * [简介](translation/matel/jian_jie.md)
+  * [最佳实践](translation/matel/zui_jia_shi_jian.md)
 
 ## lintCode 题解  
 * [1 Two Sum ](LintCode/1.md)

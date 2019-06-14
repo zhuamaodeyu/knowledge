@@ -195,6 +195,11 @@
 * [Matel]
   * [简介](translation/matel/jian_jie.md)
 
+
+* [Core Text]()  
+  * [简介](translation/core_text/jian_jie.md)  
+  
+
 ## lintCode 题解  
 * [1 Two Sum ](LintCode/1.md)
 * [2](LintCode/2.md)

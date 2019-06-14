@@ -198,7 +198,7 @@
 
 * [Core Text]()  
   * [简介](translation/core_text/jian_jie.md)  
-  
+  * [概述](translation/core_text/gai_shu.md)
 
 ## lintCode 题解  
 * [1 Two Sum ](LintCode/1.md)

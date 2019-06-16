@@ -97,13 +97,11 @@ CIColorCube *colorCube = [CIFilter filterWithName:@"CIColorCube"];
 [colorCube setValue:@(size) forKey:@"inputCubeDimension"];
 // Set data for cube
 [colorCube setValue:data forKey:@"inputCubeData"];
-
-
-
 ```
 
 ###### 从源图中删除绿色  
 通过颜色数据表，通过`CIColorCube`滤镜实现删除颜色  
+
 ```
 [colorCube setValue：myInputImage forKey：kCIInputImageKey];
 CIImage * result = [colorCube valueForKey：kCIOutputImageKey];
@@ -140,6 +138,7 @@ CGFloat xCenter = face.bounds.origin.x + face.bounds.size.width/2.0;
 CGFloat yCenter = face.bounds.origin.y + face.bounds.size.height/2.0;
 CIVector *center = [CIVector vectorWithX:xCenter Y:yCenter];
 ```
+
 > 使用 CIDetector 检测人脸  
 
 ###### 创建阴影效果  
@@ -180,7 +179,8 @@ CIVector *center = [CIVector vectorWithX:xCenter Y:yCenter];
 * 使用 `CIRadialGradient` 创建围绕脸部的圆圈  
 * 使用 `CISourceOverCompositing` 将渐变添加到蒙版    
 
-```CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeFace
+```
+CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeFace
                                           context:nil
                                           options:nil];
 NSArray *faceArray = [detector featuresInImage:image options:nil];

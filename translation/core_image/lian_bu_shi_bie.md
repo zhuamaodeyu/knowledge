@@ -1,4 +1,4 @@
-# 脸部识别
+# 脸部检测
 
 Core Image 课时分析和查找图像中的人脸。它只能执行面部检测，不能进行识别。人脸检测和人脸识别有本质区别：   
 
@@ -90,6 +90,17 @@ for (CIFaceFeature *f in features){
 
 
 
+
+## 总结  
+1. 基于 `CIDetector`类来检测，此类和用于检测人脸，矩形区域和 条形码     
+2. 识别结果对象-----> CIFeature 抽象类  
+    * `CIFaceFeature`: 人脸检测结果  
+    * `CIRectangleFeature`： 矩形检测结果  
+    * `CITextFeature`： 文本区域检测结果  
+    * `CIQRCodeFeature`： 快速响应代码（一种2D条形码）的结果   
+
+
+__macOS 10.13, iOS 11 和 tvOS 11 以及更高版本中， `Vision`框架将替代 Core Image 中的识别和分析图像功能__  
 
 
 

@@ -126,11 +126,11 @@ func applyFilterChain(to image: CIImage) -> CIImage {
 ```
 > 创建过滤器链   
 
-说明：  
-    此处示例代码中就给出了 3 种创建filter的方式    
-    * `name:` 初始化方式创建filter, 一般应用在过滤器链的第一个   
-    * `outputImage!.applyingFilter`: 通过此种方式直接拼接一个过滤器，一般用在过滤器链中，连接多个过滤器，上个过滤器的输入作为下个过滤器的输入   
-    * `cropping`: 通过`CIImage` 的部分方法隐式创建过滤器，例如： 裁剪，坐标转换等方法   
+##### 说明：  
+此处示例代码中就给出了 3 种创建filter的方式    
+* `name:` 初始化方式创建filter, 一般应用在过滤器链的第一个   
+* `outputImage!.applyingFilter`: 通过此种方式直接拼接一个过滤器，一般用在过滤器链中，连接多个过滤器，上个过滤器的输入作为下个过滤器的输入   
+* `cropping`: 通过`CIImage` 的部分方法隐式创建过滤器，例如： 裁剪，坐标转换等方法   
 
 
 

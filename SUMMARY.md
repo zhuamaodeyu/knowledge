@@ -51,6 +51,14 @@
 * [组件静态化](iOS/Section15.md) 
 * [OpenGL ES]()  
 * [Metal]()
+  * [简介](iOS/metal/jian_jie.md) 
+  * [Metal基础](iOS/metal/ji_chu.md)  
+  * [Metal 之命令](iOS/metal/command.md)
+  * [Metal 之图像](iOS/metal/tu_xiang_xiang_guan.md)  
+  * [Metal 之并行计算](iOS/metal/bing_xing_ji_suan_xiang_guan.md)  
+  * [Metal 之着色器语言](iOS/metal/zhuo_se_qi_yu_yan.md)  
+  * [Metal 示例]()
+* [MetalKit]()
 
 ## GO
 * [基础篇]()

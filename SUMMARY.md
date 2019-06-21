@@ -197,11 +197,12 @@
 
 ## lintCode 题解  
 * [1 Two Sum ](LintCode/1.md)
-* [2](LintCode/2.md)
-* [3](LintCode/3.md)
-* [4](LintCode/4.md)
-* [5](LintCode/5.md)
-* [6](LintCode/6.md)
+* [2 Add Two Numbers](LintCode/2.md)
+* [3 Longest Substring Without Repeating Characters](LintCode/3.md)
+* [4 Median of Two Sorted Arrays](LintCode/4.md)
+* [5 Longest Palindromic Substring](LintCode/5.md)
+* [6 ZigZag Conversion](LintCode/6.md)
+
 
 
 ## 杂谈  

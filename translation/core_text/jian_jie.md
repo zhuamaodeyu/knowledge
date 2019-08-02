@@ -2,7 +2,8 @@
 
 Core Text 是用来高性能处理字体和布局文本的底层框架   
 
-> 
+> Core Text 适用于比较底层的操作，例如布局引擎开发等。应用程序应该尽可能使用更高级的API，例如 iOS中的 TextKit，OS X 中的Cocoa文本系统。这些系统都是基于Core Text 实现的，所以效率和效果是相同的。此外，Text Kit和Cocoa文本系统提供了丰富的文本编辑功能，功能齐全的页面布局引擎以及其他基础结构。
+
 
 ![](../../assets/translation/core_text_arch_2x.png)
 
@@ -21,9 +22,15 @@ Core Text 提供了 Quartz 替代方法，可以将自己的字体加载的当�
 
 
 ### 其他资源  
-* [CoreTextPageView](https://developer.apple.com/library/archive/samplecode/CoreTextPageViewer/Introduction/Intro.html#//apple_ref/doc/uid/DTS40010699) 显示了如何使用Core Text 显示大量文本   
-* [DownloadFont](https://developer.apple.com/library/archive/samplecode/DownloadFont/Introduction/Intro.html#//apple_ref/doc/uid/DTS40013404) 如何下载字体 
-* [CoreTextRTF](https://developer.apple.com/library/archive/samplecode/CoreTextRTF/Introduction/Intro.html#//apple_ref/doc/uid/DTS40007772) 展示了如何使用Core Text在Cocoa应用程序的窗口中布局和绘制RTF内容。  
-* [沿着路径绘制](https://developer.apple.com/library/archive/samplecode/CoreTextArcCocoa/Introduction/Intro.html#//apple_ref/doc/uid/DTS40007771) 显示了如何使用Core Text在曲线上布局和绘制字形。  
-* [Core Foundation Design Concepts](https://developer.apple.com/library/archive/documentation/CoreFoundation/Conceptual/CFDesignConcepts/CFDesignConcepts.html#//apple_ref/doc/uid/10000122i) 和 [ Core Foundation Framework Reference](https://developer.apple.com/documentation/corefoundation)这是一个框架，提供Core Text使用的常见数据类型和基本软件服务的抽象。
-* [文本布局编程指南](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/TextLayout/TextLayout.html#//apple_ref/doc/uid/10000158i) 描述了Cocoa文本布局引擎。
+* [CoreTextPageView](https://developer.apple.com/library/archive/samplecode/CoreTextPageViewer/Introduction/Intro.html#//apple_ref/doc/uid/DTS40010699)    
+显示了如何使用Core Text 显示大量文本   
+* [DownloadFont](https://developer.apple.com/library/archive/samplecode/DownloadFont/Introduction/Intro.html#//apple_ref/doc/uid/DTS40013404)   
+如何下载字体 
+* [CoreTextRTF](https://developer.apple.com/library/archive/samplecode/CoreTextRTF/Introduction/Intro.html#//apple_ref/doc/uid/DTS40007772)   
+展示了如何使用Core Text在Cocoa应用程序的窗口中布局和绘制RTF内容。  
+* [沿着路径绘制](https://developer.apple.com/library/archive/samplecode/CoreTextArcCocoa/Introduction/Intro.html#//apple_ref/doc/uid/DTS40007771)   
+显示了如何使用Core Text在曲线上布局和绘制字形。  
+* [Core Foundation Design Concepts](https://developer.apple.com/library/archive/documentation/CoreFoundation/Conceptual/CFDesignConcepts/CFDesignConcepts.html#//apple_ref/doc/uid/10000122i) 和 [ Core Foundation Framework Reference](https://developer.apple.com/documentation/corefoundation)   
+提供Core Text使用的常见数据类型和基本软件服务的抽象。
+* [文本布局编程指南](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/TextLayout/TextLayout.html#//apple_ref/doc/uid/10000158i)   
+描述了Cocoa文本布局引擎。

@@ -192,8 +192,12 @@
   * [简介](translation/core_image/jian_jie.md)
   * [处理图像](translation/core_image/chu_li_tu_xiang.md)
 
-* [Matel]
+* [Matel]()
   * [简介](translation/matel/jian_jie.md)
+
+* [线程编程指南](translation/thread/jian_jie.md)  
+  * [线程](translation/thread/about_thread.md)
+
 
 ## lintCode 题解  
 * [1 Two Sum ](LintCode/1.md)

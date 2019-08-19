@@ -52,6 +52,7 @@
 * [OpenGL ES]()  
 * [Metal]()
 
+
 ## GO
 * [基础篇]()
   * [Go语言基础](Golang/di-yi-jie-go-yu-yan-ji-chu.md)  
@@ -197,7 +198,7 @@
 
 * [线程编程指南](translation/thread/jian_jie.md)  
   * [线程](translation/thread/about_thread.md)
-
+  * [线程管理](translation/thread/thread_management.md)
 
 ## lintCode 题解  
 * [1 Two Sum ](LintCode/1.md)

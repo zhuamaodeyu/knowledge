@@ -219,6 +219,7 @@
 * [第一周](weak_read/20190603-0609.md)
 * [第二周](weak_read/20190610-0616.md)
 * [第三周](weak_read/20190617-0623.md)
+* [第四周](weak_read/20190819-0825.md)
 
 ### 文档模板  
 * [算法模板](template/suan_fa_mo_ban.md) 

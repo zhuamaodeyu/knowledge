@@ -92,25 +92,67 @@ void LaunchThread()
 
 
 ```
-如果将以上代码添加到一个源文件并调用`LaunchThread`函数，将在应用程序中创建一个新的分离线程. 但是，使用此代码创建的新线程不会做任何有用的事情。
+如果将以上代码添加到一个源文件并调用`LaunchThread`函数，将在应用程序中创建一个新的分离线程. 但是，使用此代码创建的新线程不会做任何有用的事情。线程启动并立即终止。
+可以通过`pthread_create`函数的最后一个参数给线程传递数据指针，以指明线程可以处理的具体数据任务   
 
+要将新创建的线程处理过后的数据传递回主线程，需要在目标线程之间建立通信通道。对于基于C 实现的应用程序，有多种方式可以实现线程之间通信(端口，共享内存，conditions)。对于长期存在的线程，需要设置一种线程之间通信方式以便随时查看线程状态以及主线程退出时能够安全的关闭线程   
 
+有关`pthread`更多详细信息，请参考[POSIX pthread](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man3/pthread.3.html#//apple_ref/doc/man/3/pthread)
 
 #### 使用 NSObject生成  
+在iOS5 和 OSX 10.5 及更高的版本中，所有对象都可以直接生成新线程并使用它来执行一个任务方法。`performSelectorInBackground:withObject:` 方法创建一个新的线程，并使用指定的方法作为新线程的入口。 例如：  
+
+```
+[myObj performSelectorInBackground：@selector（doSomething）withObject：nil];
+
+```  
+相同的方法，参数，对象与通过`NSThread` 的 `detachNewThreadSelector:toTarget:withObject:` 方法效果是一样的。都会使用默认参数立即生成新的线程并运行指定方法。在方法内部，需要像其他线程处理方式一样配置线程。例如：设置自动释放池以及设置 runloop 等  
+
+更多配置信息请参考[配置线程属性](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/CreatingThreads/CreatingThreads.html#//apple_ref/doc/uid/10000057i-CH15-SW8)
 
 
 
 #### 在Cocoa应用程序中使用POSIX线程
+尽管`NSThread` 是在Cocoa 中线程的主要主要使用方式。但同时也可以自由使用 `POSIX`线程，如果你觉得更加方便的话。例如： 你已经有相应的代码并准备从写它，则可以使用`POSIX`线程(总之，就是没有限制，不过首选推荐使用 `NSThread`)。 如果计划在cocoa应用中使用 POSIX 线程，那么需要了解 Cocoa 和线程之间的交互，并遵守以下准则。   
+
+##### 警惕Cocoa 框架  
+对于多线程应用程序，Cocoa框架会使用锁和其他方式进行内部同步以确保线程行为正确。但是为了防止这些锁在单线程情况下降低性能， 默认情况下 Cocoa 是不会创建他们，直到应用程序使用 NSThread 创建一个其他线程的时候才创建。如果使用 POSIX 线程创建线程，Cocoa 不会收到应用变为多线程应用的通知， 当发生这种情况的时候，涉及到 Cocoa 框架的操作就可能变为不稳定或崩溃   
+
+为了让Cocoa 知道当前应用打算采用多线程， 可以通过`NSThread` 创建一个新的线程并立即退出(线程不做任何事情)。只要产生通过 NSThread 创建线程的这个行为，Cocoa 会创建对应锁   
+
+如果不确定 Cocoa 是否已经确定应用程序时多线程的。 可以检查`NSThread` 的`isMultiThreaded` 方法以确定   
+
+##### POSIX/Cocoa 锁交叉  
+在同一个应用程序中混合使用 POSIX 和 Cocoa 锁是安全的。 Cocoa 锁和 conditions 本质是对 POSIX 锁和条件的包装， 但是， 对于给定的锁，必须始终使用相同的方式来操作。 比如， 不能使用 Cocoa 的`NSLock` 操作由`pthread_mutex_init` 创建的锁， 反之亦然。   
+
+##### 总结  
+1. 在 Cocoa 中使用 POSIX 需要创建一个 `NSThread` 空任务线程  
+2. 锁独立，不能交叉使用  
+
+
 
 
 
 ### 配置线程属性  
+在创建线程之前，可能希望配置线程环境，以下就介绍了线程可修改部分属性   
+
 
 #### 配置线程堆栈大小  
+对于创建的每个线程，系统都会在进程空间中分配特定大小的内存，以充当该线程的的堆栈。堆栈管理堆栈帧，是声明线程局部变量的地方。  
 
+如果要更改给定线程的堆栈大小，必须在创建线程之前进行此操作。虽然`NSThread` 在 iOS和OSX 10.5 之后才提供了此功能。不过所有的线程技术都提供了设置堆栈大小的方法  
 
+|      技术   |     实现方式   |  
+|------------|---------------|  
+|  Cocoa    | 在 iOS 和 OSX10.5 之后才提供，在调用 `start` 之前使用`setStackSize` 方法设置堆栈大小(`detachNewThreadSelector:toTarget:withObject:` 方式不支持)  |  
+| POSIX     | 创建一个新的`pthread_attr_t`结构体并使用 `pthread_attr_setstacksize`函数进行更改堆栈大小。在`pthread_create` 方法创建线程时作为参数传入|   
+|  Multiprocessing Services |  在`MPCreateTask` 创建线程时，将合适的堆栈大小传入  | 
+
+> MPCreateTask 此种方式 10.7 已经弃用,可以不考虑  
 
 #### 配置线程本地存储 
+每个线程都维护一个键值对字典， 可以在线程的任意位置访问。 可以使用此字典存储要在整个线程执行期间保留的信息。例如： 可以使用它来存储要通过线程运行循环的多次迭代持久化的状态信息
+
 
 
 

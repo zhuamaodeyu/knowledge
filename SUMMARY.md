@@ -51,6 +51,7 @@
 * [组件静态化](iOS/Section15.md) 
 * [OpenGL ES]()  
 * [Metal]()
+* [Xcode背后元首---xcodebuild](iOS/xcodebuild.md)
 
 ## GO
 * [基础篇]()

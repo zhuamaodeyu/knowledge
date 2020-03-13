@@ -52,6 +52,7 @@
 * [OpenGL ES]()  
 * [Metal]()
 
+
 ## GO
 * [基础篇]()
   * [Go语言基础](Golang/di-yi-jie-go-yu-yan-ji-chu.md)  
@@ -191,17 +192,30 @@
 * [Core Image]() 
   * [简介](translation/core_image/jian_jie.md)
   * [处理图像](translation/core_image/chu_li_tu_xiang.md)
+  * [脸部检测](translation/core_image/lian_bu_shi_bie.md)
+  * [自动优化](translation/core_image/zi_dong_you_hua.md) 
+  * [内置Filters及详情](translation/core_image/filter_xiang_qing.md)  
+  * [自定义Filter效果](translation/core_image/zi_ding_yi_filter_xiao_guo.md)
+  * [性能优化](translation/core_image/xing_neng_you_hua.md)
+  * []() 
+  * [自定义过滤器](translation/core_image/zi_ding_yi_filter.md)
+  * []()  
 
-* [Matel]
+* [Matel]()
   * [简介](translation/matel/jian_jie.md)
+
+* [线程编程指南](translation/thread/jian_jie.md)  
+  * [线程](translation/thread/about_thread.md)
+  * [线程管理](translation/thread/thread_management.md)
 
 ## lintCode 题解  
 * [1 Two Sum ](LintCode/1.md)
-* [2](LintCode/2.md)
-* [3](LintCode/3.md)
-* [4](LintCode/4.md)
-* [5](LintCode/5.md)
-* [6](LintCode/6.md)
+* [2 Add Two Numbers](LintCode/2.md)
+* [3 Longest Substring Without Repeating Characters](LintCode/3.md)
+* [4 Median of Two Sorted Arrays](LintCode/4.md)
+* [5 Longest Palindromic Substring](LintCode/5.md)
+* [6 ZigZag Conversion](LintCode/6.md)
+
 
 
 ## 杂谈  

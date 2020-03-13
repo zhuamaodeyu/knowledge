@@ -4,8 +4,11 @@
 * Ceontos 7 系统
 
 ### java  
+> 添加环境变量即可
 ### Maven  
+> 添加环境变量即可
 ### tomcat 
+> 添加环境变量即可
 ### zookeeper
 1. download
 2. 设置环境变量

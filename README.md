@@ -2,7 +2,7 @@
 
 ## 前言
 
-本仓库主要记录自己学习历程和工作中遇到的问题。从本地----> iCloud------>Gitbook，一步一步完善自己总结经验。 本系列文章主要记载了自己在这几年以来的看过的，学过的内容以及笔记，或者工作中遇到的问题进行总结。
+本系列文章主要记载了自己在这几年以来的看过的，学过的内容以及笔记，或者工作中遇到的问题进行总结。
 
 最后，虽然本书只是自己的一点知识总结，但由于其开源属性，所以不保证只有自己看到，也希望更多的人看到，在开源的路上尽自己微薄之力。由于自己的才识疏浅，文章可能存在部分错误。如果你有任何的意见和建议，欢迎联系我，我将虚心接受你的建议，给予自己学习和提升。   
 
@@ -34,6 +34,27 @@
 
 ### Gitbook阅读  
 * [Gitbook](https://zhuamaodeyu.gitbooks.io/jin_jie_de_yuan/content/)
+
+### 本地 Clone  
+* Node 环境 
+* gitbook  
+  `npm install gitbook -g`  
+* 启动项目  
+    `cd /project_path` 
+    `gitbook install`
+    `gitbook serve .`  
+* 访问 
+    `http:// localhost:4000`
+* 输出PDF 
+    `npm install gitnbook-pdf -g` 
+    `gitbook pdf {book_name} ` 
+* 输出静态网站  
+    `gitbook build ./{book_name} --output=./{outputFolde}`
+    `gitbook serve ./{book_name}`   
+
+
+
+
 
 
 ## 说明  

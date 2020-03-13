@@ -1,16 +1,5 @@
 #Summary
 
-<!-- ## 期待...  
-* [关于组件化的思考和最佳实践]()
-* [更好的处理用户登录问题]()
-* [站在一个项目经理的位置思考如何推动团队协作]()
-* [利用 Gitlab 实现标准化开发]() 
-* [记一次劳动仲裁经历]()   
-* [组件静态化]()
-* [ TKComponentization 组件化解决方案的构思]()  
-* [引入代码质量管理平台]()  -->
-
-
 * [引言](README.md)
 * [开发环境搭建](init.md)
 
@@ -21,16 +10,9 @@
   * [时间复杂度和空间复杂度](basic/Arithmetic/part1.md)
   * [链表](basic/Arithmetic/part2.md)
   * [栈与队列](basic/Arithmetic/part3.md)
-  <!-- * [树](basic/Arithmetic/part4.md) -->
-  <!-- * [堆](basic/Arithmetic/part5.md) -->
-  <!-- * [图](basic/Arithmetic/part6.md) -->
-  <!-- * [散列表](basic/Arithmetic/part7.md) -->
-  <!-- * [排序算法](basic/Arithmetic/part8.md) -->
 
 * [第二节 数据结构应用]()  
   * [荷兰国旗问题](basic/Section2/part1.md)
-
-<!-- * [第三节 计算机原理]() -->
 
 ## iOS
 * [swift cell 中 UITextField 键盘遮挡问题](iOS/Section1.md)
@@ -46,18 +28,15 @@
 * [IM - 心跳机制](iOS/Section9.md)
 * [3D Touch](iOS/Section10.md)
 * [iOS 避免多级跳转](iOS/Section12.md)
-<!-- * [关于组件化的思考和最佳实践](iOS/Section13.md)  -->
-<!-- * [TKComponentization 组件化解决方案的构思](iOS/Section14.md) -->
+
 * [组件静态化](iOS/Section15.md) 
-<!-- * [OpenGL ES]()   -->
-<!-- * [Metal]() -->
 
 
 ## GO
 * [基础篇]()
   * [Go语言基础](Golang/di-yi-jie-go-yu-yan-ji-chu.md)  
   * [Go goroutine 同步](Golang/goroutine.md)
-  <!-- * [Go Singleton ](Golang/singleton.md) -->
+
 
 * [Go web 系列📒]()
   * [Go Web](Golang_Web/go-web.md)
@@ -74,14 +53,13 @@
   * [Go Web 设计一个Web 框架](Golang_Web/go-web-she-ji-yi-ge-web-kuang-jia.md)
 
 ## Docker
-  <!-- * [Docker 镜像操作](Docker/Section1.md) -->
   * [如何编写最佳的Dockerfile](Docker/Section2.md)
   * [Docker 加速](Docker/Section3.md)
   * [Dockerfile](Docker/Section4.md)
 
 ## 微服务  
 * [基础篇]()
-  <!-- * [第一节 微服务架构设计](Microservice/Section1.md) -->
+
   * [第二节 基于Java的微服务开发框架---Spring Boot](Microservice/SprintBoot.md)
       * [Spring Boot 初体验](Microservice/SprintBoot/part1.md)
       <!-- * [Spring Boot 单元测试](Microservice/SprintBoot/part2.md) -->
@@ -115,28 +93,11 @@
     * [Jenkins构建Docker化](Microservice/Section6/part3.md)
     * [Jenkins镜像的Nodejs自动化构建](Microservice/Section6/part4.md)
 
-<!-- * [实践篇](Microservice/shi-jian-pian.md) -->
-  <!-- * [Java 篇](Microservice/shi-jian-pian/java-pian.md) -->
-    <!-- * [ServiceCenterPeer 服务实现](Microservice/shi-jian-pian/java-pian/servicecenterpeer-fu-wu-shi-xian.md) -->
-  <!-- * [综合篇](Microservice/shi-jian-pian/zong-he-pian.md) -->
-
-
 ## DevOps  
 * [实现基于Docker 下的Gitlab CI](DevOps/Section1.md)
 * [利用 Gitlab 实现标准化开发](DevOps/Section2.md)
 * [SourceTree 实现 Gitflow 可视化操作 ](DevOps/source_tree_and_gitflow.md)
 
-
-<!-- ## Python -->
-
-
-<!-- ## Mac OS 
-* [前言](MacOS.md)
-* [基础控件](MacOS/BasicUI.md)
-  * [Mac开发之 `NSApplication`](MacOS/BasicUI/part1.md)
-  * [Mac 开发之 `NSWindow`](MacOS/BasicUI/part2.md)
-  * [Mac 开发之 `NSPanel`](MacOS/BasicUI/part3.md) 
- -->
 
 
 ## 开发问题集锦
@@ -174,7 +135,7 @@
   * [SqlSession](SourceCode/Section2/part5.md)  
 <!-- mybatis 源码分析总结， 整个流程是怎样的   -->
 
-* [Carthage]()
+<!-- * [Carthage]() -->
 
 ## 面试  
 * [基础](Interview/base.md)
@@ -197,12 +158,6 @@
   * [内置Filters及详情](translation/core_image/filter_xiang_qing.md)  
   * [自定义Filter效果](translation/core_image/zi_ding_yi_filter_xiao_guo.md)
   * [性能优化](translation/core_image/xing_neng_you_hua.md)
-  <!-- * []()  -->
-  <!-- * [自定义过滤器](translation/core_image/zi_ding_yi_filter.md) -->
-  <!-- * []()   -->
-
-* [Matel]()
-  * [简介](translation/matel/jian_jie.md)
 
 * [线程编程指南](translation/thread/jian_jie.md)  
   * [线程](translation/thread/about_thread.md)

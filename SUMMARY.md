@@ -21,16 +21,16 @@
   * [时间复杂度和空间复杂度](basic/Arithmetic/part1.md)
   * [链表](basic/Arithmetic/part2.md)
   * [栈与队列](basic/Arithmetic/part3.md)
-  * [树](basic/Arithmetic/part4.md)
-  * [堆](basic/Arithmetic/part5.md)
-  * [图](basic/Arithmetic/part6.md)
-  * [散列表](basic/Arithmetic/part7.md)
-  * [排序算法](basic/Arithmetic/part8.md)
+  <!-- * [树](basic/Arithmetic/part4.md) -->
+  <!-- * [堆](basic/Arithmetic/part5.md) -->
+  <!-- * [图](basic/Arithmetic/part6.md) -->
+  <!-- * [散列表](basic/Arithmetic/part7.md) -->
+  <!-- * [排序算法](basic/Arithmetic/part8.md) -->
 
 * [第二节 数据结构应用]()  
   * [荷兰国旗问题](basic/Section2/part1.md)
 
-* [第三节 计算机原理]()
+<!-- * [第三节 计算机原理]() -->
 
 ## iOS
 * [swift cell 中 UITextField 键盘遮挡问题](iOS/Section1.md)
@@ -39,18 +39,18 @@
 * [AvoidCrash 分析](iOS/Section4.md)
 * [自定义导航栏](iOS/Section5.md)
 * [AVFoundation之元数据操作](iOS/Section6.md)
-* [AVFoundation之资源获取](iOS/Section16.md)
-* [AVFoundation之资源编辑](iOS/Section17.md)
+<!-- * [AVFoundation之资源获取](iOS/Section16.md) -->
+<!-- * [AVFoundation之资源编辑](iOS/Section17.md) -->
 * [iOS 即时通讯中发送多图顺序问题](iOS/Section7.md)
 * [iOS系统九宫格下代理方法调用多次解决办法](iOS/Section8.md)  
 * [IM - 心跳机制](iOS/Section9.md)
 * [3D Touch](iOS/Section10.md)
 * [iOS 避免多级跳转](iOS/Section12.md)
-* [关于组件化的思考和最佳实践](iOS/Section13.md) 
-* [TKComponentization 组件化解决方案的构思](iOS/Section14.md)
+<!-- * [关于组件化的思考和最佳实践](iOS/Section13.md)  -->
+<!-- * [TKComponentization 组件化解决方案的构思](iOS/Section14.md) -->
 * [组件静态化](iOS/Section15.md) 
-* [OpenGL ES]()  
-* [Metal]()
+<!-- * [OpenGL ES]()   -->
+<!-- * [Metal]() -->
 
 
 ## GO
@@ -74,14 +74,14 @@
   * [Go Web 设计一个Web 框架](Golang_Web/go-web-she-ji-yi-ge-web-kuang-jia.md)
 
 ## Docker
-  * [Docker 镜像操作](Docker/Section1.md)
+  <!-- * [Docker 镜像操作](Docker/Section1.md) -->
   * [如何编写最佳的Dockerfile](Docker/Section2.md)
   * [Docker 加速](Docker/Section3.md)
   * [Dockerfile](Docker/Section4.md)
 
 ## 微服务  
 * [基础篇]()
-  * [第一节 微服务架构设计](Microservice/Section1.md)
+  <!-- * [第一节 微服务架构设计](Microservice/Section1.md) -->
   * [第二节 基于Java的微服务开发框架---Spring Boot](Microservice/SprintBoot.md)
       * [Spring Boot 初体验](Microservice/SprintBoot/part1.md)
       <!-- * [Spring Boot 单元测试](Microservice/SprintBoot/part2.md) -->
@@ -92,7 +92,7 @@
       * [Spring Boot Redis 集成](Microservice/SprintBoot/part7.md)
       * [Spring Boot Swagger2 集成](Microservice/SprintBoot/part8.md)
       <!-- * [Spring Boot Actuator 项目运行监控](Microservice/SprintBoot/part9.md) -->
-      * [Spring Boot Mongodb 集成](Microservice/SprintBoot/part10.md)
+      <!-- * [Spring Boot Mongodb 集成](Microservice/SprintBoot/part10.md) -->
       <!-- * [Spring Boot Security](Microservice/SprintBoot/part11.md)  -->
       <!-- * [Spring Boot Security 第三方登录](Microservice/SprintBoot/part12.md) -->
       <!-- * [Spring Boot Security 单点登录](Microservice/SprintBoot/part19.md) -->
@@ -115,10 +115,10 @@
     * [Jenkins构建Docker化](Microservice/Section6/part3.md)
     * [Jenkins镜像的Nodejs自动化构建](Microservice/Section6/part4.md)
 
-* [实践篇](Microservice/shi-jian-pian.md)
-  * [Java 篇](Microservice/shi-jian-pian/java-pian.md)
-    * [ServiceCenterPeer 服务实现](Microservice/shi-jian-pian/java-pian/servicecenterpeer-fu-wu-shi-xian.md)
-  * [综合篇](Microservice/shi-jian-pian/zong-he-pian.md)
+<!-- * [实践篇](Microservice/shi-jian-pian.md) -->
+  <!-- * [Java 篇](Microservice/shi-jian-pian/java-pian.md) -->
+    <!-- * [ServiceCenterPeer 服务实现](Microservice/shi-jian-pian/java-pian/servicecenterpeer-fu-wu-shi-xian.md) -->
+  <!-- * [综合篇](Microservice/shi-jian-pian/zong-he-pian.md) -->
 
 
 ## DevOps  
@@ -127,16 +127,16 @@
 * [SourceTree 实现 Gitflow 可视化操作 ](DevOps/source_tree_and_gitflow.md)
 
 
-## Python
+<!-- ## Python -->
 
 
-## Mac OS 
+<!-- ## Mac OS 
 * [前言](MacOS.md)
 * [基础控件](MacOS/BasicUI.md)
   * [Mac开发之 `NSApplication`](MacOS/BasicUI/part1.md)
   * [Mac 开发之 `NSWindow`](MacOS/BasicUI/part2.md)
   * [Mac 开发之 `NSPanel`](MacOS/BasicUI/part3.md) 
-
+ -->
 
 
 ## 开发问题集锦
@@ -197,9 +197,9 @@
   * [内置Filters及详情](translation/core_image/filter_xiang_qing.md)  
   * [自定义Filter效果](translation/core_image/zi_ding_yi_filter_xiao_guo.md)
   * [性能优化](translation/core_image/xing_neng_you_hua.md)
-  * []() 
-  * [自定义过滤器](translation/core_image/zi_ding_yi_filter.md)
-  * []()  
+  <!-- * []()  -->
+  <!-- * [自定义过滤器](translation/core_image/zi_ding_yi_filter.md) -->
+  <!-- * []()   -->
 
 * [Matel]()
   * [简介](translation/matel/jian_jie.md)

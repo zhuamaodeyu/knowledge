@@ -33,7 +33,10 @@
                 "alerts@0.2.0",
                 "copy-code-button@0.0.2",
                 "katex@1.1.4",
-                "puml@1.0.1"
+                "puml@1.0.1",
+                "chapter-fold",
+                "pageview-count",
+                "code"
     ],
     "pluginsConfig": {
         "sectionx": {

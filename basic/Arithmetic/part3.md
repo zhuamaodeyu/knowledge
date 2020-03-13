@@ -106,8 +106,9 @@
     普通队列就是典型的队列结构，其一端作为入口，另外一端作为出口存在
 * 双端队列  
     是一种同时具备队列和栈特性的抽象数据结构。双端队列中，队列的两端都可作为弹出和插入口。
-![]()  
-> 图片来自
+![]()    
+> 图片来自    
+
 一般针对队列的操作，主要包含以下几部分：  
 1. 队列长度  
 2. 是否为空 
@@ -124,37 +125,304 @@
     ```java 
      class Queue<T> {
          private T elementData[];
-         private int front,rear;
-         private int size;
+         private int first,last; // 队列头和队列尾
 
          public Queue(){
-               elementData= (T[]) new Object[10];
-               front=rear=0;
+               elementData = (T[]) new Object[10];
+               first=last=0;
          }
      } 
     ```
 2. 队列长度    
     ```java 
     public int size(){
-        return size;
+        return (last+s.length-first)%s.length;
     }
     ```
 3. 判断是否为空    
     ```java 
     public boolean isEmpty(){
-        return  size == 0;
+        return  first==last;;
     }
     ```
 4. 入队列    
     ```java 
-    public boolean add(T data){
-     // 操作   
+    public void add(T data){
+     // 操作    
+     s[last] = data ; 
+     last = (last + 1) % elementData.length; 
+
+    }
+    ```
+5. 出队列  
+    ```java  
+    public T remove() {
+        T element =  elementData[first]; 
+        elementData[first] = null; 
+         first=(first+1)%elementData.length;
+        return element;
+    }
+    ```
+6. 清空队列  
+    ```java
+    public void clear() {
+        elementData.removeAllObject(); 
+        frist = last = 0;
+    }
+
+    ```   
+在通过数组实现的队列中，可以通过一定的方式针对整个队列进行优化。 例如： 
+* 在入队列时，当队列已满或即将满时，将数组长度进行翻倍等操作以扩大队列的容量  
+* 在出队列时， 当数组元素小于数组长度的一半或者其他大小时， 可以将数组长度减半以降低内存消耗。  
+
+
+#####  链表实现  
+1. 初始化队列数据结构   
+    ```java 
+    public class LinkQueue{
+        private class Node {
+            String item;
+            Node next;
+        } 
+        private Node first, last;  
+        private int size;
     }
     ```
 
-#####  链表实现  
+2. 队列长度  
+    ```java 
+    public int size() {
+        return size;
+    }
+    ```
+3. 队列是否为空   
+    ```java
+    public bool isEmpty() {
+        return first==null;
+    }
+    ```
+4. 入队列  
+    ```java 
+    public void enter(String item) {
+        Node copy = last;
+        last = new Node(); 
+        last.item = item;
+        last.next = null;
+        if (ifEmpty()) {
+            first = last;
+        }else{
+            copy.next = last;
+        }
+        size++;
+    }
+
+    ```
+
+5. 出队列
+    ```java 
+    public String leave() {
+        String item = first.item;
+        first = first.next;
+        if (isEmpty()) {
+            last = null;
+        }
+        size--;
+        return item;
+    }
+
+    ```
+
 
 #### 双端队列 
+双端队列是一种特殊的队列，默认情况下，普通队列支持的是先进先出原则，并且是一端出一端进设计形式。但双端队列的两端都可进行出队和入队操作。通过对双端队列进行不同的限制以可以同时满足栈和普通队列的需求。例如： 
+* 只使用双端队列的一端进行出队和入队操作， 那么次双端队列等价于 __栈__  
+* 当只使用双端队列的一端出队，使用另一端进行入队时， 次双端队列等价于 __普通队列__   
+
+同样的，双端队列也可以通过 数组 以及链表的形式进行实现。  
+
+###### 实现思路： 
+1. 双端队列内部维护头部下标和尾部下标。头部下标指向的事队列中第一个元素。 尾部下标指向的事下一个尾部元素插入位置。  
+   1. 从头部下标到尾部下标，连续存放的事队列中的所有元素。在元素出队和入队时，通过移动下标来实现  
+        * 当头部元素入队， 头部下标向左移动一位；头部元素出队时， 头部下标向右移动一位。 
+        * 当尾部元素入队时，尾部下标向右移动一位；尾部元素出队时，尾部下标向左移动一位。    
+
+一下是针对双端队列定义的接口：  
+
+```java 
+public interface Queue<T> {
+    // 添加，从头部添加
+    void addHead(E e); 
+    // 从尾部添加
+    void addTail(E e);
+    // 删除 头部删除
+    E removeHead();
+    // 尾部删除
+    E removeTail();
+
+    int size();
+
+    boolean isEmpty();
+    // 清空所有
+    void clear();
+ 
+}
+```
+以上定义了整个双端队列的接口形式。
+##### 数组实现   
+在通过数组实现双端队列时，由于数组本身的数据结构特性所限，针对数组本身导致的问题点需要考虑进去。  
+* 数组在查询上性能较好，但在数组操作上效率较差(时间复杂度为O(n))，尤其是针对队列这种频繁操作的容器来说，是不合适的。   
+* 针对队列的扩容操作是如何进行的。   
+* 当元素下标移动到边界时， 需要将数组看成一个环。
+    * 下标从数组第0位时，向左移动一位，会跳转到数组的最后一位。  
+    * 下标从数组最后一位时，向右移动一位，会跳转到数组的第0位。
+
+1. 双向队列结构定义 
+    ```java 
+    public class ArrayQueue<E> implements Queue<E> {
+        private Object[] elements;  
+
+        private int head; 
+
+        private int tail; 
+
+        public  ArrayQueue() {
+            this.element = new Object[10]; 
+            this.head = 0;
+            this.tail = 0;
+        }
+
+    } 
+    ```
+2. 添加头部、尾部  
+    ```java 
+    public void addHead(E e) {
+        this.head = mod(this.head -1); 
+
+        this.elements[this.head] = e; 
+
+        if (head == tail) {
+            // 扩容
+        }
+
+    }
+    public void addTail(E e) {
+        this.elemnts[this.tail] = e; 
+        this.tail = mod(this.tail +1); 
+        if (head == tail) {
+            // 扩容
+        }
+    }
+
+    ```
+3. 删除  
+    ```java 
+    public void removeHead() {
+        E needRemove = this.elements[this.head]; 
+
+        this.elements[this.head] = null; 
+
+        this.head = mod(this.head +1); 
+
+        return  needRemove;
+    }
+
+    public void removeTail() {
+        int lastIndex = mod(this.tail - 1);
+
+        E dataNeedRemove = (E)this.elements[lastIndex];
+
+        this.tail = lastIndex;
+
+        return dataNeedRemove;
+    }
+
+    ```
+4. 获取下标  
+    ```java 
+    private int mod(int index) {
+        if (index < 0) {
+            return index += this.elements.length;
+        }else {
+            return index -=  this.elements.length;
+        }
+    }
+    ```
+5. 扩容操作  
+    当头部下标和尾部下标相同时， 说明当前队列已经满了，那么久你会涉及到扩容问题。在扩容问题上，其本质是针对内部数组的扩容，但扩容后，针对数组的下标索引是如何处理呢？如果只是简单的将数组中的内容复制到新的更大的数组中，并且针对下标做简单归零处理，那么会破坏队列的先进后出特性。  
+    * 将头部下标到数组尾部的元素复制到信得数组中0 ~   
+    * 将数组头到尾部下标的元素紧跟以上操作复制到新的数组中  
+
+    ```java 
+    private void expansion() {
+        Object[] newElements = new Object[this.elements.length * 2]; 
+
+        // 复制头部下标到数组尾部的元素 
+        for(int i = this.head, j = 0; i < this.elements.length; i++,j++>) {
+          newElements[j] = this.elements[i];
+        }
+
+        for(int i = 0, j = this.elements.lenght - this.head; i < this.head; i++,j++>) {
+            newElements[j] = this.elements[i];
+        }
+        this.head = 0;
+        this.tail = this.elements.length; 
+        this.elements = newElements;
+    }
+    ```
+6. size 和 empty  
+    ```java 
+    public int size() {
+        return mod(tail - head);
+    }
+
+    public boolean isEmpty() {
+        return head == tail;
+    }
+    ```
+7. 清除所有  
+    ```java 
+    public void clear() {
+        while(head != tail) {
+            this.elements[head] = null; 
+            head = mod(head + 1);
+        }
+        this.head = 0;
+        this.tail = 0;
+    }
+    ```
+
+##### 链表实现  
+在基于链表实现的双端队列时，通常采用的是双向链表，其插入和删除操作效率都非常高。基于双向链表实现的双端队列非常简单。并且其也不需要考虑扩容等问题。
+
+1. 定义数据结构  
+    具体的双向链表请参考其他文章  
+
+    ```java 
+    public class DoubleLinkQueue<E> implements Queue<E> {
+        private DoubleLinkedList<E> list;
+    }
+
+
+    ```
+2. 插入操作 
+    ```java  
+    public void addHead(E e) { 
+        list.insertFirst(e);
+    }
+    public void addTail(E e) { 
+        list.insertLast(e);
+    }
+    ```
+
+3. 删除操作  
+    ```java 
+    public E removeHead() { 
+       return list.deleteFirst();
+    }
+    public E removeTail() {  
+        return list.deleteLast();
+    }
+    ```
 
 
 ## 总结  

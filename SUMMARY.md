@@ -191,6 +191,14 @@
 * [Core Image]() 
   * [简介](translation/core_image/jian_jie.md)
   * [处理图像](translation/core_image/chu_li_tu_xiang.md)
+  * [脸部检测](translation/core_image/lian_bu_shi_bie.md)
+  * [自动优化](translation/core_image/zi_dong_you_hua.md) 
+  * [内置Filters及详情](translation/core_image/filter_xiang_qing.md)  
+  * [自定义Filter效果](translation/core_image/zi_ding_yi_filter_xiao_guo.md)
+  * [性能优化](translation/core_image/xing_neng_you_hua.md)
+  * []() 
+  * [自定义过滤器](translation/core_image/zi_ding_yi_filter.md)
+  * []()  
 
 * [Matel]
   * [简介](translation/matel/jian_jie.md)

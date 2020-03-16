@@ -10,6 +10,10 @@
     "githubHost": "https://github.com/",
     "plugins": [
                 "disqus@0.1.0",
+                "back-to-top-button",
+                "expandable-chapters",
+                "prism@2.3.0",
+                "code",
                 "-lunr", "-search", "search-plus@1.0.3",
                 "prism@2.3.0",
                 "-highlight",
@@ -35,10 +39,11 @@
                 "katex@1.1.4",
                 "puml@1.0.1",
                 "chapter-fold",
-                "pageview-count",
-                "code"
+                "pageview-count"
+
     ],
     "pluginsConfig": {
+        "expandable-chapters":{},
         "sectionx": {
             "tag": "b"
         },

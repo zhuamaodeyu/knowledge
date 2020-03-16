@@ -31,6 +31,12 @@
 
 * [组件静态化](iOS/Section15.md) 
 
+* [组件化]()
+  * [组件静态化](iOS/Componentization/Section15.md)  
+  * [关于组件化的思考和最佳实践](iOS/Componentization/Sections1.md)
+  * [TKComponentization 组件化解决方案的构思](iOS/Componentization/Section2.md)  
+  * [TKEventBusModule 实现思路及使用方式](iOS/Componentization/TKEventBusModule_Readme.md) 
+  * [组件自动化打包脚本实现思路及具体实现](iOS/Componentization/framework_lib_readme.md)
 
 ## GO
 * [基础篇]()

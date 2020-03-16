@@ -13,7 +13,6 @@
                 "back-to-top-button",
                 "expandable-chapters",
                 "prism@2.3.0",
-                "code",
                 "-lunr", "-search", "search-plus@1.0.3",
                 "prism@2.3.0",
                 "-highlight",

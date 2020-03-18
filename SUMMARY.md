@@ -9,7 +9,8 @@
 * [第一节 数据结构与算法]()
   * [时间复杂度和空间复杂度](basic/Arithmetic/part1.md)
   * [链表](basic/Arithmetic/part2.md)
-  * [栈与队列](basic/Arithmetic/part3.md)
+  * [栈与队列](basic/Arithmetic/part3.md) 
+  * [排序算法](basic/Arithmetic/part8.md)
 
 * [第二节 数据结构应用]()  
   * [荷兰国旗问题](basic/Section2/part1.md)

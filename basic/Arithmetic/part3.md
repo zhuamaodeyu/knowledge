@@ -396,13 +396,10 @@ public interface Queue<T> {
 
 1. 定义数据结构  
     具体的双向链表请参考其他文章  
-
     ```java 
     public class DoubleLinkQueue<E> implements Queue<E> {
         private DoubleLinkedList<E> list;
     }
-
-
     ```
 2. 插入操作 
     ```java  

@@ -31,6 +31,22 @@
 
 * [组件静态化](iOS/Section15.md) 
 
+* [runtime 系列]() 
+  * [Objective-C 对象]()  
+  * [Objective-C category 实现原理]() 
+  * [Objective-C 方法调用过程]()  
+  * [autoreleasepool 实现原理]()  
+  * [weak 实现原理]()  
+  
+
+* [Runloop 系列]()  
+  * [RunLoop 启动过程]()  
+  * [PerformSelector 的实现原理？]()
+  * [Runloop 不同事件内部运行逻辑]()   
+  * [Runloop 应用]()  
+
+* [dyld]()  
+  * [dyld 加载 framework 过程]()  
 
 ## GO
 * [基础篇]()

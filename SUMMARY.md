@@ -195,6 +195,9 @@
 * [Matel]
   * [简介](translation/matel/jian_jie.md)
 
+* [AVFoundation Progreamming Guide]() 
+  * [简介](translation/avfoundation/jian_jie.md)
+
 ## lintCode 题解  
 * [1 Two Sum ](LintCode/1.md)
 * [2](LintCode/2.md)

@@ -11,6 +11,7 @@
   * [链表](basic/Arithmetic/part2.md)
   * [栈与队列](basic/Arithmetic/part3.md) 
   * [排序算法](basic/Arithmetic/part8.md)
+  * [树](basic/Arithmetic/part4.md)
 
 * [第二节 数据结构应用]()  
   * [荷兰国旗问题](basic/Section2/part1.md)

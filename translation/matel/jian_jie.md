@@ -1,4 +1,4 @@
-# About Metal  
+ # About Metal  
 
 Metal 框架支持GPU加速，3D图形渲染以及以及数据并行计算。  Matel 提供了现代化来的API接口， 用来简单化操作图形处理以及进行并行计算任务，并且针对其相关数据和资源进行管理。Metal 主要目标就是最大化利用GPU，最小化利用CPU 。  
 

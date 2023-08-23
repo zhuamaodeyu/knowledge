@@ -35,7 +35,7 @@
 ### Gitbook阅读  
 * [Gitbook](https://zhuamaodeyu.gitbooks.io/jin_jie_de_yuan/content/)
 
-### 本地 Clone  
+### 本地 Clone(gitbook)  
 * Node 环境 
 * gitbook  
   `npm install gitbook -g`  
@@ -52,8 +52,15 @@
     `gitbook build ./{book_name} --output=./{outputFolde}`
     `gitbook serve ./{book_name}`   
 
+### 本地 Clone (docsify) 
+* Node 环境
+* docsify
 
+    `npm install docsify -g` 
+* 启动项目     
 
+    `docsify serve . --open`  
+> [参考docsify](https://docsify.js.org/#/)
 
 
 

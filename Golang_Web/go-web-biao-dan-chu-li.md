@@ -1,4 +1,4 @@
-#Go Web 表单处理    
+# Go Web 表单处理    
 
 Go里面对于form处理已经在Request里面的有专门的form处理，可以很方便的整合到Web开发里面      
 
@@ -157,7 +157,9 @@ func login(w http.ResponseWriter, r *http.Request) {
 	go语言针对此处做了转义操作  
 	
 	~~~  
-	func HTMLEscape(w io.Writer, b []byte) //把b进行转义之后写到w	func HTMLEscapeString(s string) string //转义s之后返回结果字符串	func HTMLEscaper(args ...interface{}) string //支持多个参数一起转义,返回结果字符串
+	func HTMLEscape(w io.Writer, b []byte) //把b进行转义之后写到w
+	func HTMLEscapeString(s string) string //转义s之后返回结果字符串
+	func HTMLEscaper(args ...interface{}) string //支持多个参数一起转义,返回结果字符串
 	~~~   
 	
 * 防止多次提交表单     
@@ -165,8 +167,23 @@ func login(w http.ResponseWriter, r *http.Request) {
 此处采用的是MD5 时间戳，存储到session中暂存   
 
 ~~~  
-func login(w http.ResponseWriter, r *http.Request) { fmt.Println("method:", r.Method) //获取请求的方法 if r.Method == "GET" {        crutime := time.Now().Unix()        h := md5.New()        io.WriteString(h, strconv.FormatInt(crutime, 10))        token := fmt.Sprintf("%x", h.Sum(nil))        t, _ := template.ParseFiles("login.gtpl")        t.Execute(w, token)    } else {//请求的是登陆数据,那么执行登陆的逻辑判断 r.ParseForm()token := r.Form.Get("token")if token != "" {//验证token的合法性
-} else { //不存在token报错}fmt.Println("username length:", len(r.Form["username"][0]))fmt.Println("username:", template.HTMLEscapeString(r.Form.Get("username"))) //输出到服务器端 fmt.Println("password:", template.HTMLEscapeString(r.Form.Get("password"))) template.HTMLEscape(w, []byte(r.Form.Get("username"))) //输出到客户端} }
+func login(w http.ResponseWriter, r *http.Request) { fmt.Println("method:", r.Method) //获取请求的方法 if r.Method == "GET" {
+        crutime := time.Now().Unix()
+        h := md5.New()
+        io.WriteString(h, strconv.FormatInt(crutime, 10))
+        token := fmt.Sprintf("%x", h.Sum(nil))
+        t, _ := template.ParseFiles("login.gtpl")
+        t.Execute(w, token)
+    } else {
+//请求的是登陆数据,那么执行登陆的逻辑判断 r.ParseForm()
+token := r.Form.Get("token")
+if token != "" {
+//验证token的合法性
+} else { //不存在token报错
+}
+fmt.Println("username length:", len(r.Form["username"][0]))
+fmt.Println("username:", template.HTMLEscapeString(r.Form.Get("username"))) //输出到服务器端 fmt.Println("password:", template.HTMLEscapeString(r.Form.Get("password"))) template.HTMLEscape(w, []byte(r.Form.Get("username"))) //输出到客户端
+} }
 ~~~      
 
 * 文件上传      
@@ -176,13 +193,47 @@ func login(w http.ResponseWriter, r *http.Request) { fmt.Println("method:", r.Me
 	- text/plain 空格转换为 "+" 加号,但不对特殊字符编码。    
 
 ~~~  
-<html><head><title>上传文件</title> </head><body><form enctype="multipart/form-data" action="http://127.0.0.1:9090/upload" method="post">  <input type="file" name="uploadfile" />  <input type="hidden" name="token" value="{{.}}"/>  <input type="submit" value="upload" /></form></body></html>
+<html>
+<head>
+<title>上传文件</title> </head>
+<body>
+<form enctype="multipart/form-data" action="http://127.0.0.1:9090/upload" method="post">
+  <input type="file" name="uploadfile" />
+  <input type="hidden" name="token" value="{{.}}"/>
+  <input type="submit" value="upload" />
+</form>
+</body>
+</html>
 ~~~
 
 ~~~  
-http.HandleFunc("/upload", upload)// 处理/upload 逻辑func upload(w http.ResponseWriter, r *http.Request) {fmt.Println("method:", r.Method) //获取请求的方法 
-if r.Method == "GET" {        crutime := time.Now().Unix()        h := md5.New()        io.WriteString(h, strconv.FormatInt(crutime, 10))        token := fmt.Sprintf("%x", h.Sum(nil))        t, _ := template.ParseFiles("upload.gtpl")        t.Execute(w, token)    } else {		r.ParseMultipartForm(32 << 20)
-        file, handler, err := r.FormFile("uploadfile")        if err != nil {            fmt.Println(err)return }        defer file.Close()        fmt.Fprintf(w, "%v", handler.Header)        f, err := os.OpenFile("./test/"+handler.Filename, os.O_WRONLY|os.O_CREATE, 0666)        if err != nil {            fmt.Println(err)return }        defer f.Close()        io.Copy(f, file)    }}
+http.HandleFunc("/upload", upload)
+// 处理/upload 逻辑
+func upload(w http.ResponseWriter, r *http.Request) {
+fmt.Println("method:", r.Method) //获取请求的方法 
+if r.Method == "GET" {
+        crutime := time.Now().Unix()
+        h := md5.New()
+        io.WriteString(h, strconv.FormatInt(crutime, 10))
+        token := fmt.Sprintf("%x", h.Sum(nil))
+        t, _ := template.ParseFiles("upload.gtpl")
+        t.Execute(w, token)
+    } else {
+		r.ParseMultipartForm(32 << 20)
+        file, handler, err := r.FormFile("uploadfile")
+        if err != nil {
+            fmt.Println(err)
+return }
+        defer file.Close()
+        fmt.Fprintf(w, "%v", handler.Header)
+        f, err := os.OpenFile("./test/"+handler.Filename, os.O_WRONLY|os.O_CREATE, 0666)
+        if err != nil {
+            fmt.Println(err)
+return }
+        defer f.Close()
+        io.Copy(f, file)
+    }
+}
 ~~~  
 处理文件上传我们需要调用 `r.ParseMultipartForm `里面的参数表示 `maxMemory` ,调 用 ParseMultipartForm 之后,上传的文件存储在 maxMemory 大小的内存里面,如果文件大小超过了 maxMemory ,那么剩下的部分将存储在系统的临时文件中    
 我们可以通过 `r.FormFile` 获取上面的文件句柄,然后实例中使 用了 `io.Copy` 来存储文件。    	
@@ -199,14 +250,60 @@ if r.Method == "GET" {        crutime := time.Now().Unix()        h := md5.New
 文件handler是multipart.FileHeader    
 
 ~~~
-type FileHeader struct {    Filename string    Header   textproto.MIMEHeader    // contains filtered or unexported fields}
+type FileHeader struct {
+    Filename string
+    Header   textproto.MIMEHeader
+    // contains filtered or unexported fields
+}
 ~~~   
 
 __模拟客户端上传文件__   
 
 ~~~  
-package mainimport (    "bytes"    "fmt"    "io"    "io/ioutil"    "mime/multipart"    "net/http""os" )func postFile(filename string, targetUrl string) error {    bodyBuf := &bytes.Buffer{}    bodyWriter := multipart.NewWriter(bodyBuf)//关键的一步操作fileWriter, err := bodyWriter.CreateFormFile("uploadfile", filename) if err != nil {        fmt.Println("error writing to buffer")return err }//打开文件句柄操作fh, err := os.Open(filename) if err != nil {        fmt.Println("error opening file")return err }    defer fh.Close()    //iocopy    _, err = io.Copy(fileWriter, fh)    if err != nil {return err }
-    contentType := bodyWriter.FormDataContentType()    bodyWriter.Close()    resp, err := http.Post(targetUrl, contentType, bodyBuf)    if err != nil {return err }    defer resp.Body.Close()    resp_body, err := ioutil.ReadAll(resp.Body)    if err != nil {return err }    fmt.Println(resp.Status)    fmt.Println(string(resp_body))    return nil}// sample usagefunc main() {    target_url := "http://localhost:9090/upload"    filename := "./astaxie.pdf"    postFile(filename, target_url)}
+package main
+import (
+    "bytes"
+    "fmt"
+    "io"
+    "io/ioutil"
+    "mime/multipart"
+    "net/http"
+"os" )
+func postFile(filename string, targetUrl string) error {
+    bodyBuf := &bytes.Buffer{}
+    bodyWriter := multipart.NewWriter(bodyBuf)
+//关键的一步操作
+fileWriter, err := bodyWriter.CreateFormFile("uploadfile", filename) if err != nil {
+        fmt.Println("error writing to buffer")
+return err }
+//打开文件句柄操作
+fh, err := os.Open(filename) if err != nil {
+        fmt.Println("error opening file")
+return err }
+    defer fh.Close()
+    //iocopy
+    _, err = io.Copy(fileWriter, fh)
+    if err != nil {
+return err }
+    contentType := bodyWriter.FormDataContentType()
+    bodyWriter.Close()
+    resp, err := http.Post(targetUrl, contentType, bodyBuf)
+    if err != nil {
+return err }
+    defer resp.Body.Close()
+    resp_body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+return err }
+    fmt.Println(resp.Status)
+    fmt.Println(string(resp_body))
+    return nil
+}
+// sample usage
+func main() {
+    target_url := "http://localhost:9090/upload"
+    filename := "./astaxie.pdf"
+    postFile(filename, target_url)
+}
 ~~~   
 
 可以调用multipart的WriteField方法写很多 其他类似的字段。    

@@ -1,7 +1,7 @@
-#Go Web 访问数据库   
+# Go Web 访问数据库   
 Go没有内置的驱动支持任何的数据库,但是Go定义了database/sql接口,用户可以基于驱动接口开发相应数据库 的驱动     
 
-##database /sql 接口   
+## database /sql 接口   
 * sql.Register    
 	此函数用来注册数据库驱动
 
@@ -252,7 +252,7 @@ panic(err) }
 `stmt.Exec()`: 用来执行stmt准备好的SQL语句         
 
 
-##PostgreSQL    
+## PostgreSQL    
 开源数据库    
  
 ~~~  
@@ -332,7 +332,7 @@ pg 不支持 LastInsertId函数， 所以没有自增ID 返回
 
 
 --------------------------   
-##beeDB ORM 开发    
+## beeDB ORM 开发    
 * 安装   
 	`go get github.com/astaxie/beedb`    
 * 初始化   
@@ -478,7 +478,7 @@ pg 不支持 LastInsertId函数， 所以没有自增ID 返回
 
 
 
-##NOSQL 数据库    
+## NOSQL 数据库    
 * redis   
 
 	~~~  

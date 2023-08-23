@@ -88,6 +88,15 @@
   * [4. XMLStatementBuilder 解析SQL](SourceCode/myabtis/part4.md)
   * [5. SqlSession](SourceCode/myabtis/part5.md)  
 <!-- mybatis 源码分析总结， 整个流程是怎样的   -->
+* __第三章 FSNotes__  
+  * [简介](SourceCode/FSNotes/Note.md)
+* __第四章 GPUImage__
+  * [简介](SourceCode/GPUImage/简介.md)
+
+* __第五章 KeyboardKit__ 
+  * [简介](SourceCode/KeyboardKit/Note.md)
+  * [Documention说明](SourceCode/KeyboardKit/Documention.md)
+
 
 
 
@@ -128,8 +137,22 @@
 
 
 ## 读书笔记 
-* [1. Java Persistence with MyBatis 3](ReadNote/Section1_MyBatis.md)
-* [2. Go 圣经](ReadNote/Section2_GO.md) 
+* [__1. Java Persistence with MyBatis 3__](ReadNote/Section1_MyBatis.md)
+* [__2. Go 圣经__](ReadNote/Section2_GO.md) 
+* [__3. MACOS软件安全与逆向分析__](ReadNote/MACOS软件安全与逆向分析.md)
+* __4. Mac 内核编程__  
+  * [1. 1-4章-基础](ReadNote/Mac%20内核编程/1-4章-基础.md)
+  * [2. 存储系统](ReadNote/Mac%20内核编程/存储系统.md)
+  * [3. 电源管理-串行端口驱动](ReadNote/Mac%20内核编程/电源管理-串行端口驱动.md)
+  * [4. 内存管理](ReadNote/Mac%20内核编程/内存管理.md)
+  * [5. 调试与部署](ReadNote/Mac%20内核编程/调试与部署.md)
+  * [6. 高级内核编程](ReadNote/Mac%20内核编程/高级内核编程.md)
+  * [7. 同步与线程](ReadNote/Mac%20内核编程/同步与线程.md)
+  * [8. 网络](ReadNote/Mac%20内核编程/网络.md)
+  * [9. 音频驱动](ReadNote/Mac%20内核编程/音频驱动.md)
+  * [10. 应用程序与驱动程序的交互](ReadNote/Mac%20内核编程/应用程序与驱动程序的交互.md)
+  * [11. 用户空间USB驱动](ReadNote/Mac%20内核编程/用户空间USB驱动.md)
+  * [12. USB-PCI-Thunderbolt](ReadNote/Mac%20内核编程/USB-PCI-Thunderbolt.md)
 
 
 
@@ -174,7 +197,6 @@
   * [1. Spring Boot 集成 Redis](Question/Section3/part1.md)
   * [2. mysql 连接失败](Question/Section3/part2.md)
   * [3. nexus 上传第三方包](Question/Section3/part3.md)
-  * [4. Maven 模块化开发Spring Boot配置加载失败](Question/Section3/part4.md)
 
 * __第四章 DevOps 篇__
   * [1. Gitlab 与 gitlab-runner集成](Question/Section4/part1.md)

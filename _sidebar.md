@@ -6,13 +6,29 @@
 ## 基础
 
 * [前言](basic.md)
-* [第一节 数据结构与算法](basic/Arithmetic.md)
+* [第一节 数据结构与算法]()
   * [时间复杂度和空间复杂度](basic/Arithmetic/part1.md)
   * [链表](basic/Arithmetic/part2.md)
-  * [栈与队列](basic/Arithmetic/part3.md)
+  * [栈与队列](basic/Arithmetic/part3.md) 
+  * [排序算法](basic/Arithmetic/part8.md)
+  * [树](basic/Arithmetic/part4.md)
 
 * [第二节 数据结构应用]()  
   * [荷兰国旗问题](basic/Section2/part1.md)
+
+## iOS 
+* [Other]()
+  * [AvoidCrash 分析](iOS/Section4.md)
+  * [自定义导航栏](iOS/Section5.md)
+  * [AVFoundation之元数据操作](iOS/Section6.md)
+  <!-- * [AVFoundation之资源获取](iOS/Section16.md) -->
+  <!-- * [AVFoundation之资源编辑](iOS/Section17.md) -->
+  * [IM - 心跳机制](iOS/Section9.md)
+  * [3D Touch](iOS/Section10.md)
+  * [iOS 避免多级跳转](iOS/Section12.md)
+
+* [组件化]()
+  * [组件静态化](iOS/Section15.md) 
 
 ## iOS
 * [swift cell 中 UITextField 键盘遮挡问题](iOS/Section1.md)
@@ -21,14 +37,15 @@
 * [AvoidCrash 分析](iOS/Section4.md)
 * [自定义导航栏](iOS/Section5.md)
 * [AVFoundation之元数据操作](iOS/Section6.md)
-<!-- * [AVFoundation之资源获取](iOS/Section16.md) -->
-<!-- * [AVFoundation之资源编辑](iOS/Section17.md) -->
+* [AVFoundation之资源获取](iOS/Section16.md)
+* [AVFoundation之资源编辑](iOS/Section17.md)
 * [iOS 即时通讯中发送多图顺序问题](iOS/Section7.md)
 * [iOS系统九宫格下代理方法调用多次解决办法](iOS/Section8.md)  
 * [IM - 心跳机制](iOS/Section9.md)
 * [3D Touch](iOS/Section10.md)
 * [iOS 避免多级跳转](iOS/Section12.md)
-
+* [关于组件化的思考和最佳实践](iOS/Section13.md) 
+* [TKComponentization 组件化解决方案的构思](iOS/Section14.md)
 * [组件静态化](iOS/Section15.md) 
 
 
@@ -36,7 +53,6 @@
 * [基础篇]()
   * [Go语言基础](Golang/di-yi-jie-go-yu-yan-ji-chu.md)  
   * [Go goroutine 同步](Golang/goroutine.md)
-
 
 * [Go web 系列📒]()
   * [Go Web](Golang_Web/go-web.md)
@@ -120,6 +136,11 @@
 
 * [iOS 篇]()  
   * [iOS 开发问题集锦](Question/Section5/part1.md)
+  * [swift cell 中 UITextField 键盘遮挡问题](iOS/Section1.md)
+  * [iOS Swift 开发问题集锦](iOS/Section2.md)       
+  * [UICollectionView 部分方法无效](iOS/Section3.md)
+  * [iOS系统九宫格下代理方法调用多次解决办法](iOS/Section8.md)  
+  * [iOS 即时通讯中发送多图顺序问题](iOS/Section7.md)   
 
 
 ## 源码分析
@@ -158,11 +179,31 @@
   * [内置Filters及详情](translation/core_image/filter_xiang_qing.md)  
   * [自定义Filter效果](translation/core_image/zi_ding_yi_filter_xiao_guo.md)
   * [性能优化](translation/core_image/xing_neng_you_hua.md)
-
-* [线程编程指南](translation/thread/jian_jie.md)  
+  * [线程编程指南](translation/thread/jian_jie.md)  
   * [线程](translation/thread/about_thread.md)
   * [线程管理](translation/thread/thread_management.md)
+  * [Matel]()
+    * [简介](translation/matel/jian_jie.md)
+    * [最佳实践](translation/matel/zui_jia_shi_jian.md)  
 
+* [Metal Kit]()
+
+
+* [Metal Shading Language]() 
+
+
+
+* [AVFoundation Progreamming Guide]() 
+  * [简介](translation/avfoundation/jian_jie.md)
+
+
+* [Core Text]()  
+  * [简介](translation/core_text/jian_jie.md)  
+  * [概述](translation/core_text/gai_shu.md)
+* [Cocoa Text Architecture Guide]()  
+
+* [Text Layout Programming Guide]()
+  * [简介](translation/text_layout/jian_jie.md)
 ## lintCode 题解  
 * [1 Two Sum ](LintCode/1.md)
 * [2 Add Two Numbers](LintCode/2.md)

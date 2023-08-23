@@ -127,12 +127,15 @@
   * [1. 简介](translation/core_text/jian_jie.md)  
   * [2. 概述](translation/core_text/gai_shu.md)
 
-* __第六章 守护进程和服务编程指南__   
-  * [1. 守护进程和服务编程指南](translation/Daemons_and_Services/Daemons_and_Services_Programming_Guide.md)
-
-
-
-
+* [__第六章 守护进程和服务编程指南__](translation/Daemons_and_Services/Daemons_and_Services_Programming_Guide.md)   
+* [__第七章 APP Extension - Custom KeyBoard__](translation/iOS%20APP%20Extension%20-%20Custom%20KeyBoard/Note.md)
+* [__第八章 文件系统编程指南__](translation/文件系统编程指南/文件系统事件编程指南.md)
+* [__第十章 CoreML__](translation/CoreML/Core%20ML%20.md)
+* __VisionOS 开发指南__
+  * [1. 简介](translation/visionOS/REMADE.MD)
+  * [2. window](translation/visionOS/1.%20window.md)
+  * [3. volumes](translation/visionOS/2.%20volumes.md)
+  * [4. Space](translation/visionOS/3.%20Space.md)
 
 
 
@@ -153,12 +156,21 @@
   * [10. 应用程序与驱动程序的交互](ReadNote/Mac%20内核编程/应用程序与驱动程序的交互.md)
   * [11. 用户空间USB驱动](ReadNote/Mac%20内核编程/用户空间USB驱动.md)
   * [12. USB-PCI-Thunderbolt](ReadNote/Mac%20内核编程/USB-PCI-Thunderbolt.md)
-
-
-
-
-
-
+* __5. tvOS Apprentice__
+  * [1. Guide](ReadNote/tvOS_Apprentice/1.%20Guide.md) 
+  * [2. 交互](ReadNote/tvOS_Apprentice/2.%20交互/Note.md)
+  * [3. TVML App Guide](ReadNote/tvOS_Apprentice/3.%20TVML%20App%20Guide/Note.md)
+  * [4. 按需下载资源](ReadNote/tvOS_Apprentice/4.%20按需下载资源/Note.md)
+  * [5. Top Shelf](ReadNote/tvOS_Apprentice/5.%20Top%20Shelf/Note.md)
+  * [6. 平台限制](ReadNote/tvOS_Apprentice/6.%20平台限制/Note.md)
+  * [7. Traditional App](ReadNote/tvOS_Apprentice/7.%20Traditional%20App/Note.md)
+  * [8. Advanced Frameworks](ReadNote/tvOS_Apprentice/8.%20Advanced%20Frameworks/Note.md)
+  * [9. Code Snippet](ReadNote/tvOS_Apprentice/9.%20Code%20Snippet/Note.md)
+* [__6. Swift与Cocoa 开发__](ReadNote/Swift与Cocoa%20开发/Note.md)
+* [__7. SwiftUI Core Data__](ReadNote/SwiftUI%20Core%20Data/Note.md)
+* [__8. 音视频开发进阶__](ReadNote/音视频开发进阶/Note.md)
+* [__9. iOS音视频架构__](ReadNote/iOS音视频架构/iOS音视频架构.md)
+* [__10. ProGit__](ReadNote/ProGit/ProGit.md)
 
 ## 面试  
 * [__1. 基础__](Interview/base.md)
@@ -218,6 +230,14 @@
 * [4. Median of Two Sorted Arrays](LintCode/4.md)
 * [5. Longest Palindromic Substring](LintCode/5.md)
 * [6. ZigZag Conversion](LintCode/6.md)
+
+
+
+ ## 杂谈  
+ * __设计类App 插件开发__ 
+  * [Photoshop Manifest说明](杂谈/设计类App%20插件开发/Photoshop/Manifest文件详细说明.md) 
+  * [Photoshop 插件主题样式](杂谈/设计类App%20插件开发/Photoshop/插件主题样式.md) 
+  * [Photoshop 调试](杂谈/设计类App%20插件开发/Photoshop/调试/调试.md) 
 
 
 

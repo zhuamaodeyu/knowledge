@@ -4,18 +4,26 @@
 Metal提供对GPU的最低开销访问，使您能够在iOS，macOS和tvOS上最大化应用程序的图形和计算潜力。每毫秒和每一点都是Metal应用程序和用户体验不可或缺的一部分。通过遵循本指南中描述的最佳实践来确保Metal应用程序尽可能高效地运行。这些最佳实践适用于所有支持Metal平台，除非另有说明   
 
 #### 高效  
-1. __低CPU开销__
-![](../../assets/translation/FundamentalConcepts_CPU_2x.png) 
-Metal旨在减少或消除许多CPU端性能瓶颈。只有按照建议使用API，才会从中受益   
-2. __最佳GPU性能__
-![](../../assets/translation/FundamentalConcepts_GPU_2x.png)
-Metal 允许创建并向GPU提交命令，要优化GPU性能，首先应该优化这些命令的实现     
-3. __并行性能力__
-![](../../assets/translation/FundamentalConcepts_Parallelism_2x.png)
-Metal 旨在最大化CPU和GPU并行性，应用应该让处理器并行工作   
-4. __有效资源管理__
-![](../../assets/translation/FundamentalConcepts_ResourceManagement_2x.png)
-Metal为您的资源对象提供简单而强大的接口。应用应该有效地管理这些资源，以减少内存消耗并提高访问速度。  
+1. __低CPU开销__  
+
+    ![](../../assets/translation/FundamentalConcepts_CPU_2x.png)   
+
+    Metal旨在减少或消除许多CPU端性能瓶颈。只有按照建议使用API，才会从中受益   
+2. __最佳GPU性能__  
+
+    ![](../../assets/translation/FundamentalConcepts_GPU_2x.png)   
+
+    Metal 允许创建并向GPU提交命令，要优化GPU性能，首先应该优化这些命令的实现     
+3. __并行性能力__  
+
+    ![](../../assets/translation/FundamentalConcepts_Parallelism_2x.png)   
+
+    Metal 旨在最大化CPU和GPU并行性，应用应该让处理器并行工作   
+4. __有效资源管理__  
+
+    ![](../../assets/translation/FundamentalConcepts_ResourceManagement_2x.png)  
+
+    Metal为您的资源对象提供简单而强大的接口。应用应该有效地管理这些资源，以减少内存消耗并提高访问速度。  
 
 
 

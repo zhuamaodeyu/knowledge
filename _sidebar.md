@@ -3,7 +3,7 @@
 * [引言](README.md)
 * [开发环境搭建](init.md)
 
-## 基础
+## 计算机基础
 
 * [__前言__](Basic/README.md)
 * __第一章 数据结构与算法__
@@ -16,6 +16,59 @@
 * __第二章 操作系统__ 
 * __第三章 计算机网络__ 
 
+
+## iOS&Mac基础
+* __OC底层原理__   
+* __Swift__  
+  * __swift async_await__ 
+    * [1. swift协程_简介](iOS&Mac基础/Swift/async_await/swift协程_简介.md)
+    * [2. swift协程_原理](iOS&Mac基础/Swift/async_await/swift协程_原理.md)
+    * [3. swift协程_Task](iOS&Mac基础/Swift/async_await/swift协程_Task.md)
+    * [4. swift协程_应用](iOS&Mac基础/Swift/async_await/swift协程_应用.md)
+    * [5. completion_combine_async 转换](iOS&Mac基础/Swift/async_await/swift_completion_swift_Combine_async_await.md) 
+  * __Combine__ 
+    * [1. Combine 简介](iOS&Mac基础/Swift/Combine/Combine.md)
+    * [2. Combine 小记](iOS&Mac基础/Swift/Combine/Combine%20小记.md)
+    * [3. combine应用场景](iOS&Mac基础/Swift/Combine/combine应用场景.md)
+* __逆向__ 
+  * [1. 环境搭建](iOS&Mac基础/逆向/1.%20环境搭建.md)
+  * [2. 越狱环境监测](iOS&Mac基础/逆向/2.%20越狱环境监测.md)
+  * [3. Cycript](iOS&Mac基础/逆向/3.%20Cycript.md)
+  * [4. 逆向APP思路](iOS&Mac基础/逆向/4.%20逆向APP思路.md)
+  * [5. 二进制分析](iOS&Mac基础/逆向/5.%20二进制分析.md)
+  * [6.脱壳](iOS&Mac基础/逆向/6.脱壳.md)
+  * [7.theos](iOS&Mac基础/逆向/7.theos.md)
+  * [8.iOS命令行工具开发](iOS&Mac基础/逆向/8.iOS命令行工具开发.md)
+  * [9.动态调试](iOS&Mac基础/逆向/9.动态调试.md)
+  * [10. 重签名调试](iOS&Mac基础/逆向/重签名调试.md)
+
+
+
+## 音视频 
+### OpenCV
+
+
+### OpenGL
+
+
+
+### RTMP 
+* [1. RTMP 简介](音视频/RTMP/RTMP%20简介.md)
+* [2. client与server交互流程](音视频/RTMP/RTMP%20client与RTMP%20server交互流程.md) 
+
+
+
+
+
+
+## Tips 
+
+### iOS 
+
+
+
+
+### Mac 
 
 
 
@@ -97,8 +150,10 @@
   * [简介](SourceCode/KeyboardKit/Note.md)
   * [Documention说明](SourceCode/KeyboardKit/Documention.md)
 
-
-
+* [__第六章 AvoidCrash__](SourceCode/AvoidCrash/Note.md)
+* __RTMP__  
+  * [1. 简介](SourceCode/RTMP/RTMP%20Dump%20简介.md) 
+  * [2. 测试工程搭建](SourceCode/RTMP/RTMP-工程搭建.md)
 
 
 ## 翻译  
@@ -131,7 +186,7 @@
 * [__第七章 APP Extension - Custom KeyBoard__](translation/iOS%20APP%20Extension%20-%20Custom%20KeyBoard/Note.md)
 * [__第八章 文件系统编程指南__](translation/文件系统编程指南/文件系统事件编程指南.md)
 * [__第十章 CoreML__](translation/CoreML/Core%20ML%20.md)
-* __VisionOS 开发指南__
+* __第十一章 VisionOS 开发指南__
   * [1. 简介](translation/visionOS/REMADE.MD)
   * [2. window](translation/visionOS/1.%20window.md)
   * [3. volumes](translation/visionOS/2.%20volumes.md)
@@ -171,7 +226,8 @@
 * [__8. 音视频开发进阶__](ReadNote/音视频开发进阶/Note.md)
 * [__9. iOS音视频架构__](ReadNote/iOS音视频架构/iOS音视频架构.md)
 * [__10. ProGit__](ReadNote/ProGit/ProGit.md)
-
+* __11. AV Foundation开发秘籍__  
+  * [1.AVFoundation 之元数据操作]()
 ## 面试  
 * [__1. 基础__](Interview/base.md)
 * [__2. iOS__](Interview/ios.md) 
@@ -242,13 +298,13 @@
 
 
 
-### 周读表  
+## 周读表  
 * [第一周](weak_read/20190603-0609.md)
 * [第二周](weak_read/20190610-0616.md)
 * [第三周](weak_read/20190617-0623.md)
 * [第四周](weak_read/20190819-0825.md)
 
-### 文档模板  
+## 文档模板  
 * [__算法模板__](template/suan_fa_mo_ban.md) 
 * [__问题模板__](template/wen_ti_mo_ban.md)
 * [__文章模板__](template/wen_zhang_mo_ban.md)
@@ -275,21 +331,17 @@
 * 利用 Gitlab 实现标准化开发 -->
 
 
-<!-- ## iOS 
+## iOS 
 * [Other]()
-  * [AvoidCrash 分析](iOS/Section4.md)
   * [自定义导航栏](iOS/Section5.md)
-  * [AVFoundation之元数据操作](iOS/Section6.md)
-  <!-- * [AVFoundation之资源获取](iOS/Section16.md) -->
-  <!-- * [AVFoundation之资源编辑](iOS/Section17.md) -->
-  <!-- * [IM - 心跳机制](iOS/Section9.md)
+  * [IM - 心跳机制](iOS/Section9.md)
   * [3D Touch](iOS/Section10.md)
   * [iOS 避免多级跳转](iOS/Section12.md)
 
 * [组件化]()
-  * [组件静态化](iOS/Section15.md)  -->
+  * [组件静态化](iOS/Section15.md)
 
-<!-- ## iOS
+## iOS
 * [swift cell 中 UITextField 键盘遮挡问题](iOS/Section1.md)
 * [iOS Swift 开发](iOS/Section2.md)  
 * [UICollectionView 部分方法无效](iOS/Section3.md)
@@ -305,6 +357,5 @@
 * [iOS 避免多级跳转](iOS/Section12.md)
 * [关于组件化的思考和最佳实践](iOS/Section13.md) 
 * [TKComponentization 组件化解决方案的构思](iOS/Section14.md)
-* [组件静态化](iOS/Section15.md)  -->
- -->
+* [组件静态化](iOS/Section15.md)
 

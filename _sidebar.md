@@ -17,6 +17,13 @@
 * __第三章 计算机网络__ 
 
 
+
+
+
+
+
+
+
 ## GO
 * __第一章 Go语言基础__
   * [1. Go语言基础](Golang/di-yi-jie-go-yu-yan-ji-chu.md)  
@@ -111,7 +118,8 @@
   * [1. 简介](translation/core_text/jian_jie.md)  
   * [2. 概述](translation/core_text/gai_shu.md)
 
-
+* __第六章 守护进程和服务编程指南__   
+  * [1. 守护进程和服务编程指南](translation/Daemons_and_Services/Daemons_and_Services_Programming_Guide.md)
 
 
 
@@ -148,39 +156,6 @@
 
 
 
-
-
-## iOS 
-* [Other]()
-  * [AvoidCrash 分析](iOS/Section4.md)
-  * [自定义导航栏](iOS/Section5.md)
-  * [AVFoundation之元数据操作](iOS/Section6.md)
-  <!-- * [AVFoundation之资源获取](iOS/Section16.md) -->
-  <!-- * [AVFoundation之资源编辑](iOS/Section17.md) -->
-  * [IM - 心跳机制](iOS/Section9.md)
-  * [3D Touch](iOS/Section10.md)
-  * [iOS 避免多级跳转](iOS/Section12.md)
-
-* [组件化]()
-  * [组件静态化](iOS/Section15.md) 
-
-## iOS
-* [swift cell 中 UITextField 键盘遮挡问题](iOS/Section1.md)
-* [iOS Swift 开发](iOS/Section2.md)  
-* [UICollectionView 部分方法无效](iOS/Section3.md)
-* [AvoidCrash 分析](iOS/Section4.md)
-* [自定义导航栏](iOS/Section5.md)
-* [AVFoundation之元数据操作](iOS/Section6.md)
-* [AVFoundation之资源获取](iOS/Section16.md)
-* [AVFoundation之资源编辑](iOS/Section17.md)
-* [iOS 即时通讯中发送多图顺序问题](iOS/Section7.md)
-* [iOS系统九宫格下代理方法调用多次解决办法](iOS/Section8.md)  
-* [IM - 心跳机制](iOS/Section9.md)
-* [3D Touch](iOS/Section10.md)
-* [iOS 避免多级跳转](iOS/Section12.md)
-* [关于组件化的思考和最佳实践](iOS/Section13.md) 
-* [TKComponentization 组件化解决方案的构思](iOS/Section14.md)
-* [组件静态化](iOS/Section15.md) 
 
 
 
@@ -224,14 +199,6 @@
 
 
 
-## 杂谈  
-* [1. 更好的处理用户登录问题](chapter20/Section1.md)
-* [2. 项目经理如何合理推动团队高效协助](chapter20/Section2.md)  
-* [3. 如何实现合理的 API 接口](chapter20/Section3.md)  
-* 更好的处理用户登录问题
-* 站在一个项目经理的位置思考如何推动团队协作
-* 利用 Gitlab 实现标准化开发
-
 
 ### 周读表  
 * [第一周](weak_read/20190603-0609.md)
@@ -243,6 +210,59 @@
 * [__算法模板__](template/suan_fa_mo_ban.md) 
 * [__问题模板__](template/wen_ti_mo_ban.md)
 * [__文章模板__](template/wen_zhang_mo_ban.md)
-* [__文档翻译模板__](template/wen_dang_fan_yi.md)
+* [__翻译模板__](template/wen_dang_fan_yi.md)
 * [__周读模板__](template/zhou_du_mo_ban.md)
+
+
+
+<!-- ## swift & objective-C 
+* __第一章 底层原理__  
+  * [1. 对象的本质](swift&oc/底层原理/OC对象.md)
+  * [2. 多线程](swift&oc/底层原理/多线程.md)
+  * [3. ]
+
+## iOS & Mac 
+ -->
+
+<!-- ## 杂谈  
+* [1. 更好的处理用户登录问题](chapter20/Section1.md)
+* [2. 项目经理如何合理推动团队高效协助](chapter20/Section2.md)  
+* [3. 如何实现合理的 API 接口](chapter20/Section3.md)  
+* 更好的处理用户登录问题
+* 站在一个项目经理的位置思考如何推动团队协作
+* 利用 Gitlab 实现标准化开发 -->
+
+
+<!-- ## iOS 
+* [Other]()
+  * [AvoidCrash 分析](iOS/Section4.md)
+  * [自定义导航栏](iOS/Section5.md)
+  * [AVFoundation之元数据操作](iOS/Section6.md)
+  <!-- * [AVFoundation之资源获取](iOS/Section16.md) -->
+  <!-- * [AVFoundation之资源编辑](iOS/Section17.md) -->
+  <!-- * [IM - 心跳机制](iOS/Section9.md)
+  * [3D Touch](iOS/Section10.md)
+  * [iOS 避免多级跳转](iOS/Section12.md)
+
+* [组件化]()
+  * [组件静态化](iOS/Section15.md)  -->
+
+<!-- ## iOS
+* [swift cell 中 UITextField 键盘遮挡问题](iOS/Section1.md)
+* [iOS Swift 开发](iOS/Section2.md)  
+* [UICollectionView 部分方法无效](iOS/Section3.md)
+* [AvoidCrash 分析](iOS/Section4.md)
+* [自定义导航栏](iOS/Section5.md)
+* [AVFoundation之元数据操作](iOS/Section6.md)
+* [AVFoundation之资源获取](iOS/Section16.md)
+* [AVFoundation之资源编辑](iOS/Section17.md)
+* [iOS 即时通讯中发送多图顺序问题](iOS/Section7.md)
+* [iOS系统九宫格下代理方法调用多次解决办法](iOS/Section8.md)  
+* [IM - 心跳机制](iOS/Section9.md)
+* [3D Touch](iOS/Section10.md)
+* [iOS 避免多级跳转](iOS/Section12.md)
+* [关于组件化的思考和最佳实践](iOS/Section13.md) 
+* [TKComponentization 组件化解决方案的构思](iOS/Section14.md)
+* [组件静态化](iOS/Section15.md)  -->
+ -->
 

@@ -58,25 +58,6 @@
 
 ### FFmpeg
 
-
-
-
-## Tips 
-
-### iOS 
-
-
-
-
-### Mac 
-
-
-
-
-
-
-
-
 ## GO
 * __第一章 Go语言基础__
   * [1. Go语言基础](Golang/di-yi-jie-go-yu-yan-ji-chu.md)  

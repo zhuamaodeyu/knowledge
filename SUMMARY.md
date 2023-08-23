@@ -163,6 +163,9 @@
   * [线程](translation/thread/about_thread.md)
   * [线程管理](translation/thread/thread_management.md)
 
+* [AVFoundation Progreamming Guide]() 
+  * [简介](translation/avfoundation/jian_jie.md)
+
 ## lintCode 题解  
 * [1 Two Sum ](LintCode/1.md)
 * [2 Add Two Numbers](LintCode/2.md)

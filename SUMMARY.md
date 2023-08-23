@@ -30,6 +30,37 @@
 * [组件化]()
   * [组件静态化](iOS/Section15.md) 
 
+## iOS
+* [swift cell 中 UITextField 键盘遮挡问题](iOS/Section1.md)
+* [iOS Swift 开发](iOS/Section2.md)  
+* [UICollectionView 部分方法无效](iOS/Section3.md)
+* [AvoidCrash 分析](iOS/Section4.md)
+* [自定义导航栏](iOS/Section5.md)
+* [AVFoundation之元数据操作](iOS/Section6.md)
+* [AVFoundation之资源获取](iOS/Section16.md)
+* [AVFoundation之资源编辑](iOS/Section17.md)
+* [iOS 即时通讯中发送多图顺序问题](iOS/Section7.md)
+* [iOS系统九宫格下代理方法调用多次解决办法](iOS/Section8.md)  
+* [IM - 心跳机制](iOS/Section9.md)
+* [3D Touch](iOS/Section10.md)
+* [iOS 避免多级跳转](iOS/Section12.md)
+* [关于组件化的思考和最佳实践](iOS/Section13.md) 
+* [TKComponentization 组件化解决方案的构思](iOS/Section14.md)
+* [组件静态化](iOS/Section15.md) 
+* [OpenGL ES]()  
+* [Metal]()
+  * [简介](iOS/metal/jian_jie.md) 
+  * [Metal基础](iOS/metal/ji_chu.md)  
+  * [Metal 之命令](iOS/metal/command.md)
+  * [Metal 之图像](iOS/metal/tu_xiang_xiang_guan.md)  
+  * [Metal 之并行计算](iOS/metal/bing_xing_ji_suan_xiang_guan.md)  
+  * [Metal 之着色器语言](iOS/metal/zhuo_se_qi_yu_yan.md)  
+  * [Metal 之 MetalKit](iOS/metal/metal_kit.md)
+  * [Metal 示例]()  
+    * [绘制三角形]()  
+    * [绘制图片]()  
+    * []()
+* [MetalKit]()
 
 ## GO
 * [基础篇]()
@@ -161,10 +192,19 @@
   * [内置Filters及详情](translation/core_image/filter_xiang_qing.md)  
   * [自定义Filter效果](translation/core_image/zi_ding_yi_filter_xiao_guo.md)
   * [性能优化](translation/core_image/xing_neng_you_hua.md)
-
-* [线程编程指南](translation/thread/jian_jie.md)  
+  * [线程编程指南](translation/thread/jian_jie.md)  
   * [线程](translation/thread/about_thread.md)
   * [线程管理](translation/thread/thread_management.md)
+  * [Matel]()
+    * [简介](translation/matel/jian_jie.md)
+    * [最佳实践](translation/matel/zui_jia_shi_jian.md)  
+
+* [Metal Kit]()
+
+
+* [Metal Shading Language]() 
+
+
 
 * [AVFoundation Progreamming Guide]() 
   * [简介](translation/avfoundation/jian_jie.md)

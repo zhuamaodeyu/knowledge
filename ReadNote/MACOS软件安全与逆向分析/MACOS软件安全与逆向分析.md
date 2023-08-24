@@ -191,7 +191,7 @@
 	* data
 		数据段  
 
-####1. Header  
+#### 1. Header  
 ```
 struct mach_header {
 	magic 
@@ -216,7 +216,7 @@ struct mach_header_64 {
 
 ```
 
-####2. 加载命令   
+#### 2. 加载命令   
 ```
 struct load_command {
 	cmd 		// 不同类型的加载命令会在此结构体后面加上一个或多个字段来标识特定的结构体信息   

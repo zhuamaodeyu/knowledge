@@ -46,7 +46,15 @@
 * [1. CFNetwork](iOS&Mac进阶/CFNetwork/CFNetwork.md)
 * [2. LLVM](iOS&Mac进阶/LLVM/LLVM.md)
 * [3. 基于URLProtocol 实现网络流量监控](iOS&Mac进阶/基于URLProtocol%20实现网络流量监控%20/基于URLProtocol%20实现网络流量监控.md)
-
+* [Core ML 和 Vision 教程](iOS&Mac进阶/Core%20ML%20和%20Vision%20教程/Note.md)
+* __TextKit__ 
+  * [TextKit](iOS&Mac进阶/TextKit/TextKit.md)
+  * [TextKit 2](iOS&Mac进阶/TextKit/TextKit%202.md) 
+  * [NSTextStorage](iOS&Mac进阶/TextKit/NSTextStorage.md)  
+  * [NSTextContainer](iOS&Mac进阶/TextKit/NSTextContainer.md) 
+  * [NSLayoutManager](iOS&Mac进阶/TextKit/NSLayoutManager.md) 
+  * [常见操作](iOS&Mac进阶/TextKit/常见操作.md)  
+  * [在不更改文本存储的情况下替换字形](iOS&Mac进阶/TextKit/在不更改文本存储的情况下替换字形.md)
 
 
 
@@ -176,6 +184,7 @@
   * [2. window](translation/visionOS/1.%20window.md)
   * [3. volumes](translation/visionOS/2.%20volumes.md)
   * [4. Space](translation/visionOS/3.%20Space.md)
+* [__Cocoa 构建基于文档的应用__](translation/Cocoa%20构建基于文档的应用/Note.md)
 
 
 

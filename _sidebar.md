@@ -20,16 +20,17 @@
 ## iOS&Mac基础
 * __OC底层原理__   
 * __Swift__  
-  * __async&await__ 
+  * __1. async&await__ 
     * [1. swift协程_简介](iOS&Mac基础/Swift/async_await/swift协程_简介.md)
     * [2. swift协程_原理](iOS&Mac基础/Swift/async_await/swift协程_原理.md)
     * [3. swift协程_Task](iOS&Mac基础/Swift/async_await/swift协程_Task.md)
     * [4. swift协程_应用](iOS&Mac基础/Swift/async_await/swift协程_应用.md)
     * [5. completion_combine_async 转换](iOS&Mac基础/Swift/async_await/swift_completion_swift_Combine_async_await.md) 
-  * __Combine__ 
+  * __2. Combine__ 
     * [1. Combine 简介](iOS&Mac基础/Swift/Combine/Combine.md)
     * [2. Combine 小记](iOS&Mac基础/Swift/Combine/Combine%20小记.md)
-    * [3. combine应用场景](iOS&Mac基础/Swift/Combine/combine应用场景.md)
+    * [3. combine应用场景](iOS&Mac基础/Swift/Combine/combine应用场景.md) 
+  * [3. Swift 中的高级属性包装器](iOS&Mac基础/Swift/Swift%20中的高级属性包装器/Note.md)
 * __逆向__ 
   * [1. 环境搭建](iOS&Mac基础/逆向/1.%20环境搭建.md)
   * [2. 越狱环境监测](iOS&Mac基础/逆向/2.%20越狱环境监测.md)
@@ -185,7 +186,7 @@
   * [3. volumes](translation/visionOS/2.%20volumes.md)
   * [4. Space](translation/visionOS/3.%20Space.md)
 * [__Cocoa 构建基于文档的应用__](translation/Cocoa%20构建基于文档的应用/Note.md)
-
+* [__现代Swift 异步指南__](translation/现代Swift异步指南/Note.md)
 
 
 ## 读书笔记 

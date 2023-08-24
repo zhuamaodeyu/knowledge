@@ -1,4 +1,14 @@
-## swift completion --->. async/await 
+# Async/Await, Combine, Closures: 现代swift异步编程转换指南
+通过 async/await，Apple 再次引入了另一种在 Swift 中进行异步调用的方法。现在有三种不同的异步调用方式： 
+* `Completion handlers`: 异步回调方式  
+* `Combine`  
+* `async/await`  
+> 本文只探讨原生支持方式，不包括`RxSwift` or `ReactiveSwift` 第三方开源解决方案  
+
+
+
+
+## Completion handlers 转换 async/await 
 1. 传统写法
 ```swift 
 // 传统写法
@@ -46,7 +56,7 @@ func helloAsyncThrows() async throws -> Int {
 ```
 ---------------------
 
-## swift completion ----> swift Combine 
+## Completion handlers 转换 Combine 
 1. 用 Futures 替换 Completion-Handler 闭包
 ```swift 
 // 原始 completion 闭包写法 
@@ -88,7 +98,7 @@ cancellable = vc.doSomethingSubject
 
 
 ---------------
-## swift combine. ----> async/await
+## Combine  转换  async/await
 __Async/Await 并不是要取代 Combine__ 
 
 1. 基于 Combine 写法 
@@ -214,8 +224,9 @@ class Client1 {
 
 
 
-## 总结 
-1. withCheckedThrowingContinuation函数的使用 
-这是Apple 提供的功能，可帮助将基于完成的功能桥接到 Async/Await。 
-2. sinking 前先掉用  first()  
-通过这种方式，我们保证在收到第一个值后终止流，这意味着receiveCompletion块被调用并允许Cancellable对象被释放。多次调用延续将导致致命错误。
+## 总结   
+
+1. `withCheckedThrowingContinuation`函数的使用 
+这是Apple 提供的功能，可帮助将基于完成的功能桥接到 `Async/Await`。 
+2. `sinking` 前先掉用  `first()`
+通过这种方式，我们保证在收到第一个值后终止流，这意味着`receiveCompletion`块被调用并允许`Cancellable`对象被释放。多次调用延续将导致致命错误。

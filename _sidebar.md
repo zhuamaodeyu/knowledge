@@ -78,27 +78,34 @@
 
 ------------
 ## 源码分析
-* __第一章 Gin__  
-  * [1. Gin 功能简介](SourceCode/Gin/part1.md)
-
-* __第二章 mybatis__
+* __第一章 mybatis__
   * [1. 环境搭建](SourceCode/myabtis/part1.md)
   * [2. SessionFactory初始化和配置文件解析](SourceCode/myabtis/part2.md)
   * [3. Mapper 文件解析](SourceCode/myabtis/part3.md)
   * [4. XMLStatementBuilder 解析SQL](SourceCode/myabtis/part4.md)
   * [5. SqlSession](SourceCode/myabtis/part5.md)  
 <!-- mybatis 源码分析总结， 整个流程是怎样的   -->
-* __第四章 GPUImage__
+* __第二章 GPUImage__
   * [简介](SourceCode/GPUImage/简介.md)
 
-* __第五章 KeyboardKit__ 
+* __第三章 RTMP__  
+  * [1. 简介](SourceCode/RTMP/RTMP%20Dump%20简介.md) 
+  * [2. 测试工程搭建](SourceCode/RTMP/RTMP-工程搭建.md)
+
+* __第四章__  
+
+* __第五章__  
+
+* __第六章__  
+
+* __第七章__  
+
+
+* __第n章 KeyboardKit__ 
   * [简介](SourceCode/KeyboardKit/Note.md)
   * [Documention说明](SourceCode/KeyboardKit/Documention.md)
 
 * [__第六章 AvoidCrash__](SourceCode/AvoidCrash/Note.md)
-* __RTMP__  
-  * [1. 简介](SourceCode/RTMP/RTMP%20Dump%20简介.md) 
-  * [2. 测试工程搭建](SourceCode/RTMP/RTMP-工程搭建.md)
 
 
 

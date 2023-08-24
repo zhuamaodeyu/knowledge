@@ -1,0 +1,45 @@
+# 防止睡眠 
+
+### [原文](https://developer.apple.com/library/archive/qa/qa1160/_index.html#//apple_ref/doc/uid/DTS10003426)  
+
+
+
+
+### 问：如何在应用程序运行时防止系统睡眠？  
+大多数应用程序不应阻止系统睡眠，但是也有例外。例如，如果您的应用程序正在播放长电影或幻灯片，如果计算机一直处于睡眠状态，用户可能会感到恼火。您的应用程序可以通过每 30 秒调用UpdateSystemActivity一次来防止系统睡眠。  
+
+您的应用程序可以通过每 30 秒调用UpdateSystemActivity一次来防止系统睡眠。  
+
+
+```objective-C
+#include <CoreServices/CoreServices.h>
+ 
+void
+MyTimerCallback(CFRunLoopTimerRef timer, void *info)
+{
+    UpdateSystemActivity(OverallAct);
+}
+ 
+ 
+int
+main (int argc, const char * argv[])
+{
+    CFRunLoopTimerRef timer;
+    CFRunLoopTimerContext context = { 0, NULL, NULL, NULL, NULL };
+ 
+    timer = CFRunLoopTimerCreate(NULL, CFAbsoluteTimeGetCurrent(), 30, 0, 0, MyTimerCallback, &context);
+    if (timer != NULL); {
+        CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, kCFRunLoopCommonModes);
+    }
+ 
+    /* Start the run loop to receive timer callbacks. You don't need to
+    call this if you already have a Carbon or Cocoa EventLoop running. */
+    CFRunLoopRun();
+ 
+    CFRunLoopTimerInvalidate(timer);
+    CFRelease(timer);
+ 
+    return (0);
+}
+
+```

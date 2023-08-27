@@ -30,7 +30,9 @@
     * [1. Combine 简介](iOS&Mac基础/Swift/Combine/Combine.md)
     * [2. Combine 小记](iOS&Mac基础/Swift/Combine/Combine%20小记.md)
     * [3. combine应用场景](iOS&Mac基础/Swift/Combine/combine应用场景.md) 
-  * [3. Swift 中的高级属性包装器](iOS&Mac基础/Swift/Swift%20中的高级属性包装器/Note.md)
+  * [3. Swift 中的高级属性包装器](iOS&Mac基础/Swift/Swift%20中的高级属性包装器/Note.md)  
+  * [4. Swift 指针操作]()  
+  * [5. Swift Module ]()
 * __第三章 逆向__ 
   * [1. 环境搭建](iOS&Mac基础/逆向/1.%20环境搭建.md)
   * [2. 越狱环境监测](iOS&Mac基础/逆向/2.%20越狱环境监测.md)

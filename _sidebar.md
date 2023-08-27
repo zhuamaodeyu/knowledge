@@ -74,6 +74,7 @@
 * [2. client与server交互流程](音视频/RTMP/RTMP%20client与RTMP%20server交互流程.md) 
 
 ### FFmpeg
+* [1. FFmpeg 简介](音视频/FFMpeg/1.%20FFmepg%20简介.md)  
 
 
 
@@ -247,7 +248,7 @@
   * [9. Code Snippet](ReadNote/tvOS_Apprentice/9.%20Code%20Snippet/Note.md)
 * [__6. Swift与Cocoa 开发__](ReadNote/Swift与Cocoa%20开发/Note.md)
 * [__7. SwiftUI Core Data__](ReadNote/SwiftUI%20Core%20Data/Note.md)
-* [__8. 音视频开发进阶__](ReadNote/音视频开发进阶/Note.md)
+* [__8. 音视频开发进阶指南__](ReadNote/音视频开发进阶/Note.md)
 * [__9. iOS音视频架构__](ReadNote/iOS音视频架构/iOS音视频架构.md)
 * [__10. ProGit__](ReadNote/ProGit/ProGit.md)
 * __11. AV Foundation开发秘籍__  
